@@ -1,11 +1,4 @@
 openapi: 3.0.0
-x-origin:
-  - url: http://webservices.ingv.it/fdsnws/event/1/swagger.yml
-    format: swagger
-    version: "2.0"
-    converter:
-      url: https://github.com/mermade/oas-kit
-      version: 5.3.0
 info:
   title: INGV ONT FDSNWS event Web Service Documentation
   description: >-
