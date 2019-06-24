@@ -1,7 +1,16 @@
 openapi: 3.0.0
+x-origin:
+  - url: http://webservices.ingv.it/fdsnws/event/1/swagger.yml
+    format: swagger
+    version: "2.0"
+    converter:
+      url: https://github.com/mermade/oas-kit
+      version: 5.3.0
 info:
   title: INGV ONT FDSNWS event Web Service Documentation
-  description: |-
+  x-summary: FIXME oneliner for catalog purposes
+  x-api-id: FIXME an uuidgen for this API
+  description: >-
     
 
     The **fdsnws-event** web service returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
@@ -70,11 +79,15 @@ info:
      Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
   termsOfService: http://www.fdsn.org/webservices/
   contact:
+    name: FIXME
+    url: FIXME
     email: valentino.lauciani@ingv.it
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
   version: 1.1.50
+  x-lifecycle:
+    status: FIXME 
 paths:
   /query:
     get:
@@ -459,6 +472,7 @@ tags:
       url: https://quake.ethz.ch/quakeml/
 servers:
   - url: http://webservices.ingv.it/fdsnws/event/1
+    name: Production
 components:
   schemas:
     QuakeMLResponse:
