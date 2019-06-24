@@ -8,7 +8,7 @@ x-origin:
       version: 5.3.0
 info:
   title: INGV ONT FDSNWS event Web Service Documentation
-  description: >-
+  description: |-
     
 
     The **fdsnws-event** web service returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
