@@ -1,0 +1,479 @@
+openapi: 3.0.0
+x-origin:
+  - url: http://webservices.ingv.it/fdsnws/event/1/swagger.yml
+    format: swagger
+    version: "2.0"
+    converter:
+      url: https://github.com/mermade/oas-kit
+      version: 5.3.0
+info:
+  title: INGV ONT FDSNWS event Web Service Documentation
+  description: >-
+    
+
+    The **fdsnws-event** web service returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
+
+    The results are returnd as XML in [QuakeML](https://quake.ethz.ch/quakeml) format ([schema](https://quake.ethz.ch/quakeml/docs/xml?action=AttachFile&do=get&target=QuakeML-BED-1.2.xsd)), but may also be requested in text formats.
+
+
+    # Query Usage
+
+
+    To retrieve data from the event service, submit a request by either of the methods below:
+
+      - _via HTTP GET_: Provide a series of parameter-value pairs in the URL that specify the start-time and end-time, along with the desired network(s) and others param(s). Please refer to the table below titled "Detailed Descriptions of each Query Parameter" for usage details. Each parameter-value pair should be separated by an ampersand **&**, and with no space. A GET request may take the following general form:
+
+    ```
+
+    /query? [geographic-constraints] [depth-constraints] [temporal-constraints] [magnitude-constraints] [format-option]
+
+    ```
+
+
+    or
+
+    ```
+
+    /query? (id-options) [includeallmagnitudes] [includeallorigins] [includearrivals] [includeallstationsmagnitudes] [format-option]
+
+    ```
+
+
+    where
+
+    ```
+
+    id-options              ::  eventid= OR originid= OR magnitudeid= OR focalmechanismid=
+
+    geographic-constraints  ::  [boundaries-rect] OR [boundaries-radial]
+
+    boundaries-rect         ::  [minlat=] [maxlat=] [minlon=] [maxlon=]
+
+    boundaries-radial       ::  [lat=&lon=&(maxradius= | maxradiuskm=)] [minradius= | minradiuskm=]
+
+    depth-constraints       ::  [mindepth=] [maxdepth=]
+
+    temporal-constraints    ::  [starttime=] [endtime=]
+
+    magnitude-constraints   ::  [minmag=] [maxmag=] [magnitudetype=]
+
+    misc-parameters         ::  [limit=] [offset=] [orderby=] [includeallmagnitude=] 
+                                [includearrivals=] [includeallorigins=] [includeallstationsmagnitudes=]
+    format-option           ::  [format=]
+
+
+      (..) required parameter
+      [..] optional parameter
+    ``` 
+
+
+    # Sample Queries:
+      - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59)
+      - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2)
+      - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text) (text format)
+      - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true)
+
+
+     Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
+  termsOfService: http://www.fdsn.org/webservices/
+  contact:
+    email: valentino.lauciani@ingv.it
+  license:
+    name: Creative Commons Attribution 4.0 International
+    url: http://creativecommons.org/licenses/by/4.0/
+  version: 1.1.50
+paths:
+  /query:
+    get:
+      tags:
+        - fdsnws-event-1.1
+      summary: Get QuakeML
+      description: Returns a QuakeML message with the following schema
+        https://quake.ethz.ch/quakeml/
+      parameters:
+        - name: starttime
+          in: query
+          description: Limit to events that are active on or after the specified start
+            time. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex.
+            2013-02-18T15:06:38)
+          required: false
+          schema:
+            type: string
+            items:
+              type: string
+            format: date-time
+        - name: endtime
+          in: query
+          description: Limit to events that are active on or before the specified end time.
+            - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex.
+            2013-02-19T17:06:38)
+          required: false
+          schema:
+            type: string
+            items:
+              type: string
+            format: date-time
+        - name: minlat
+          in: query
+          description: Specify southern boundary for search.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: maxlat
+          in: query
+          description: Specify northern boundary for search.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: minlon
+          in: query
+          description: Specify western boundary for search.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: maxlon
+          in: query
+          description: Specify eastern boundary for search.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: lat
+          in: query
+          description: Specify the central latitude point for a radial search.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: lon
+          in: query
+          description: Specify the central longitude point for a radial search.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: minradius
+          in: query
+          description: Specify minimum distance from the geographic point defined by
+            latitude and longitude. Degrees.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: maxradius
+          in: query
+          description: Specify maximum distance from the geographic point defined by
+            latitude and longitude. Degrees.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: minradiuskm
+          in: query
+          description: Specify minimum distance from the geographic point defined by
+            latitude and longitude. Kilometers. **This is an INGV extension to
+            the FDSN specification.**
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: maxradiuskm
+          in: query
+          description: Specify maximum distance from the geographic point defined by
+            latitude and longitude. Kilometers. **This is an INGV extension to
+            the FDSN specification.**
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: mindepth
+          in: query
+          description: Specify minimum depth (kilometers), values increase positively with
+            depth. Degrees.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: maxdepth
+          in: query
+          description: Specify maximum depth (kilometers), values increase positively with
+            depth. Degrees.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: double
+        - name: orderby
+          in: query
+          description: Is used to order the output.
+          required: false
+          schema:
+            type: string
+            items:
+              type: string
+            enum:
+              - time
+              - time-asc
+              - magnitude
+              - magnitude-asc
+            default: time
+        - name: limit
+          in: query
+          description: Limit the results to the specified number of events.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: integer
+        - name: offset
+          in: query
+          description: Return results starting at the event count specified.
+          required: false
+          schema:
+            type: number
+            items:
+              type: string
+            format: integer
+        - name: updatedafter
+          in: query
+          description: Limit to events updated after the specified time (useful for
+            synchronizing events).
+          required: false
+          schema:
+            type: string
+            items:
+              type: string
+            format: date-time
+        - name: format
+          in: query
+          description: Specify output format.
+          required: false
+          schema:
+            type: string
+            items:
+              type: string
+            enum:
+              - xml
+              - text
+            default: xml
+        - name: eventid
+          in: query
+          description: Retrieve an event based on the unique INGV event id.
+          required: false
+          schema:
+            type: integer
+            items:
+              type: integer
+        - name: includeallorigins
+          in: query
+          description: Is used to retrive all origins associated with each event.
+          required: false
+          schema:
+            type: boolean
+            items:
+              type: boolean
+            default: false
+        - name: includeallmagnitudes
+          in: query
+          description: Is used to retrive all magnitudes associated with each event.
+          required: false
+          schema:
+            type: boolean
+            items:
+              type: boolean
+            default: false
+        - name: includeallstationsmagnitudes
+          in: query
+          description: Is used to retrive all stations magnitudes associated with each
+            hypocenter.
+          required: false
+          schema:
+            type: boolean
+            items:
+              type: boolean
+            default: false
+        - name: includearrivals
+          in: query
+          description: Is used to retrive any associated phase arrival information for each
+            event.
+          required: false
+          schema:
+            type: boolean
+            items:
+              type: boolean
+            default: false
+      responses:
+        "200":
+          description: Successful request, results follow
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/QuakeMLResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/QuakeMLResponse"
+        "204":
+          description: Request was properly formatted and submitted but no data matches the
+            selection
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "400":
+          description: Bad request due to improper specification, unrecognized parameter,
+            parameter value out of range, etc.
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized, authentication required
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Authentication failed or access blocked to restricted data
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Alternate to 204 (set via the 'nodata' parameter), normally used for
+            results returned to a web browser.
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "413":
+          description: Request would result in too much data being returned or the request
+            itself is too large returned error message should include the
+            service limitations in the detailed description. Service limits
+            should also be documented in the service WADL.
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "414":
+          description: Request URI too large
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "503":
+          description: Service temporarily unavailable, used in maintenance and error
+            conditions
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        default:
+          description: ""
+  /version:
+    get:
+      tags:
+        - fdsnws-event-1.1
+      summary: Get QuakeML version
+      description: Returns a string containing QuakeML version
+      responses:
+        "200":
+          description: successful operation
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/VersionResponse"
+  /application.wadl:
+    get:
+      tags:
+        - fdsnws-event-1.1
+      summary: Get application.wadl
+      description: Returns application.wadl file content
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int32
+tags:
+  - name: fdsnws-event-1.1
+    description: ""
+    externalDocs:
+      description: Find out more
+      url: https://quake.ethz.ch/quakeml/
+servers:
+  - url: http://webservices.ingv.it/fdsnws/event/1
+components:
+  schemas:
+    QuakeMLResponse:
+      xml:
+        namespace: https://quake.ethz.ch/quakeml/
+    VersionResponse:
+      type: string
+      example: 1.1.50
+    ErrorResponse:
+      type: string
+      example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
