@@ -80,7 +80,7 @@ info:
   x-api-id: FIXME an uuidgen for this API
   x-lifecycle:
     maturity: FIXME
-  x-summary: FIXME oneliner for catalog purposes
+  x-summary: fdsnws-event
 servers:
 - description: Production
   url: http://webservices.ingv.it/fdsnws/event/1

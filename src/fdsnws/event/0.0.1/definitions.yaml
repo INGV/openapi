@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: INGV ONT FDSNWS event Web Service Documentation
-  x-summary: FIXME oneliner for catalog purposes
+  x-summary: fdsnws-event 
   x-api-id: FIXME an uuidgen for this API
   description: |-
 
