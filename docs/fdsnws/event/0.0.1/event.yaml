@@ -367,7 +367,11 @@ paths:
         '204':
           $ref: '#/components/responses/204NoContent'
         '400':
-          $ref: '#/components/schemas/ErrorResponse'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
         '404':
           $ref: '#/components/responses/404NotFound'
         '429':
@@ -376,7 +380,7 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/QuakeMLResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Service Unavailable
           headers:
             Retry-After:

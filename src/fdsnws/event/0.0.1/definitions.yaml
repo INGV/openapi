@@ -368,7 +368,11 @@ paths:
             $ref: '#/components/responses/204NoContent'
         '400':
           #$ref: '#/components/responses/400BadRequest'
-          $ref: '#/components/schemas/ErrorResponse'
+            content:
+                text/plain:
+                  schema:
+                    $ref: "#/components/schemas/ErrorResponse"
+            description: Bad Request
         # for 401, 403 see the following post before adding the,
         #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
         '404':
@@ -379,7 +383,7 @@ paths:
             content:
                 text/plain:
                   schema:
-                    $ref: "#/components/schemas/QuakeMLResponse"
+                    $ref: "#/components/schemas/ErrorResponse"
             description: Service Unavailable
             headers:
               Retry-After:
