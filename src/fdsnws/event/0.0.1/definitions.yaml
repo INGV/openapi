@@ -363,52 +363,19 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-        "400":
-          description: Bad request due to improper specification, unrecognized parameter,
-            parameter value out of range, etc.
-          content:
-            <<: *common_content
+        '400':
+          $ref: '#/components/responses/400BadRequest'
         # for 401, 403 see the following post before adding the,
         #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
-        "401":
-          description: Unauthorized, authentication required
-          content:
-            <<: *common_content
-        "403":
-          description: Authentication failed or access blocked to restricted data
-          content:
-            <<: *common_content
-        "404":
-          description: Alternate to 204 (set via the 'nodata' parameter), normally used for
-            results returned to a web browser.
-          content:
-            <<: *common_content
-        "413":
-          description: Request would result in too much data being returned or the request
-            itself is too large returned error message should include the
-            service limitations in the detailed description. Service limits
-            should also be documented in the service WADL.
-          content:
-            <<: *common_content
-        "414":
-          description: Request URI too large
-          content:
-            <<: *common_content
-        429TooManyRequests:
-          description: Too many requests
-          headers:
-            X-RateLimit-Limit:
-              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Limit'
-            X-RateLimit-Remaining:  
-              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Remaining'
-            X-RateLimit-Reset:
-              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Reset'
-            Retry-After:
-              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
-          content:
-            application/problem+json:
-              schema:
-                $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Problem'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+        'default':
+          $ref: '#/components/responses/default'
+          
   /version:
     get:
       tags:
@@ -451,10 +418,16 @@ servers:
 
 components:
   responses:
+    400BadRequest:
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'      
+    404NotFound:
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/404NotFound'
+    429TooManyRequests:
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/429TooManyRequests'
+    503ServiceUnavailable:
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/503ServiceUnavailable'
     default:
-      description: |-
-        Unexpected response code. Usually replaces 500 if that
-          use case is outside the spec definition.
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/default'
     "TooManyRequests":
       description: |
         Service temporarily unavailable, used in maintenance and error

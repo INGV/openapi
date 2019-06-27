@@ -372,79 +372,15 @@ paths:
           description: Request was properly formatted and submitted but no data matches
             the selection
         '400':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad request due to improper specification, unrecognized parameter,
-            parameter value out of range, etc.
-        '401':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Unauthorized, authentication required
-        '403':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Authentication failed or access blocked to restricted data
+          $ref: '#/components/responses/400BadRequest'
         '404':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Alternate to 204 (set via the 'nodata' parameter), normally
-            used for results returned to a web browser.
-        '413':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Request would result in too much data being returned or the
-            request itself is too large returned error message should include the
-            service limitations in the detailed description. Service limits should
-            also be documented in the service WADL.
-        '414':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Request URI too large
-        429TooManyRequests:
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-          description: Too many requests
-          headers:
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
-            X-RateLimit-Remaining:
-              $ref: '#/components/headers/X-RateLimit-Remaining'
-            X-RateLimit-Reset:
-              $ref: '#/components/headers/X-RateLimit-Reset'
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+        default:
+          $ref: '#/components/responses/default'
       summary: Get QuakeML
       tags:
       - fdsnws-event-1.1
@@ -486,6 +422,42 @@ components:
         format: int32
         type: integer
   responses:
+    400BadRequest:
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+      description: Bad Request
+    404NotFound:
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+      description: Not Found
+    429TooManyRequests:
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+      description: Too many requests
+      headers:
+        Retry-After:
+          $ref: '#/components/headers/Retry-After'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    503ServiceUnavailable:
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+      description: Service Unavailable
+      headers:
+        Retry-After:
+          $ref: '#/components/headers/Retry-After'
     ServiceUnavailable:
       content:
         application/xml:
@@ -515,9 +487,11 @@ components:
         Retry-After:
           $ref: '#/components/headers/Retry-After'
     default:
-      description: |-
-        Unexpected response code. Usually replaces 500 if that
-          use case is outside the spec definition.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+      description: Unexpected error
   schemas:
     ErrorResponse:
       example: 'Error CODE: SIMPLE ERROR DESCRIPTION ...'
