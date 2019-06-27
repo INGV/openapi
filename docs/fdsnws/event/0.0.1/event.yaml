@@ -105,9 +105,9 @@ paths:
                 type: object
           description: successful operation
         '429':
-          $ref: '#/components/responses/TooManyRequests'
+          $ref: '#/components/responses/429TooManyRequests'
         '503':
-          $ref: '#/components/responses/ServiceUnavailable'
+          $ref: '#/components/responses/503ServiceUnavailable'
       summary: Get application.wadl
       tags:
       - fdsnws-event-1.1
@@ -462,34 +462,6 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
       description: Service Unavailable
-      headers:
-        Retry-After:
-          $ref: '#/components/headers/Retry-After'
-    ServiceUnavailable:
-      content:
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-      description: |
-        Service temporarily unavailable, used in maintenance and error
-        conditions
-      headers:
-        Retry-After:
-          $ref: '#/components/headers/Retry-After'
-    TooManyRequests:
-      content:
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-      description: |
-        Service temporarily unavailable, used in maintenance and error
-        conditions
       headers:
         Retry-After:
           $ref: '#/components/headers/Retry-After'

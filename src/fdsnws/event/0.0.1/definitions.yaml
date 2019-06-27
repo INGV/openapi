@@ -85,9 +85,9 @@ info:
 x-commons:
   common_responses: &common_responses
     '429':
-      $ref: '#/components/responses/TooManyRequests'
+      $ref: '#/components/responses/429TooManyRequests'
     '503':
-      $ref: '#/components/responses/ServiceUnavailable'
+      $ref: '#/components/responses/503ServiceUnavailable'
 
   common_contents: &common_content
     application/xml:
@@ -443,24 +443,6 @@ components:
       $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/503ServiceUnavailable'
     default:
       $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/default'
-    "TooManyRequests":
-      description: |
-        Service temporarily unavailable, used in maintenance and error
-        conditions
-      headers:
-        Retry-After:
-          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
-      content:
-        <<: *common_content
-    "ServiceUnavailable":
-      description: |
-        Service temporarily unavailable, used in maintenance and error
-        conditions
-      headers:
-        Retry-After:
-          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
-      content:
-        <<: *common_content
 
   schemas:
     QuakeMLResponse:
