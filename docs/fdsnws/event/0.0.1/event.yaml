@@ -77,7 +77,7 @@ info:
   termsOfService: http://www.fdsn.org/webservices/
   title: INGV ONT FDSNWS event Web Service Documentation
   version: 1.1.50
-  x-api-id: FIXME an uuidgen for this API
+  x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
   x-lifecycle:
     maturity: FIXME
   x-summary: fdsnws-event
