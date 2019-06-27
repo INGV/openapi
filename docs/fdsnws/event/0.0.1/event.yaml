@@ -373,13 +373,6 @@ paths:
             X-RateLimit-Reset:
               $ref: '#/components/headers/X-RateLimit-Reset'
         '204':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
           description: Request was properly formatted and submitted but no data matches
             the selection
           headers:
