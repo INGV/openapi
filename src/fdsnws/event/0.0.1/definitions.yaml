@@ -365,14 +365,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/QuakeMLResponse"
         '204':
-          description: Request was properly formatted and submitted but no data matches the selection
-          headers:
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
-            X-RateLimit-Remaining:
-              $ref: '#/components/headers/X-RateLimit-Remaining'
-            X-RateLimit-Reset:
-              $ref: '#/components/headers/X-RateLimit-Reset'
+            $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         # for 401, 403 see the following post before adding the,
@@ -436,6 +429,15 @@ components:
       $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Reset'
       
   responses:
+    204NoContent:
+      description: Request was properly formatted and submitted but no data matches the selection
+      headers:
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
     400BadRequest:
       $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'      
     404NotFound:
