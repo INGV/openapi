@@ -373,11 +373,14 @@ paths:
         '429':
           $ref: '#/components/responses/429TooManyRequests'
         '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
           content:
             text/plain:
               schema:
                 $ref: '#/components/schemas/QuakeMLResponse'
+          description: Service Unavailable
+          headers:
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
         default:
           $ref: '#/components/responses/default'
       summary: Get QuakeML
