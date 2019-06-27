@@ -1,15 +1,10 @@
 openapi: 3.0.0
-x-origin:
-  - url: http://webservices.ingv.it/fdsnws/event/1/swagger.yml
-    format: swagger
-    version: "2.0"
-    converter:
-      url: https://github.com/mermade/oas-kit
-      version: 5.3.0
 info:
   title: INGV ONT FDSNWS event Web Service Documentation
-  description: >-
-    
+  x-summary: FIXME oneliner for catalog purposes
+  x-api-id: FIXME an uuidgen for this API
+  description: |-
+
 
     The **fdsnws-event** web service returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
 
@@ -57,14 +52,14 @@ info:
 
     magnitude-constraints   ::  [minmag=] [maxmag=] [magnitudetype=]
 
-    misc-parameters         ::  [limit=] [offset=] [orderby=] [includeallmagnitude=] 
+    misc-parameters         ::  [limit=] [offset=] [orderby=] [includeallmagnitude=]
                                 [includearrivals=] [includeallorigins=] [includeallstationsmagnitudes=]
     format-option           ::  [format=]
 
 
       (..) required parameter
       [..] optional parameter
-    ``` 
+    ```
 
 
     # Sample Queries:
@@ -77,11 +72,29 @@ info:
      Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
   termsOfService: http://www.fdsn.org/webservices/
   contact:
+    name: FIXME
+    url: FIXME
     email: valentino.lauciani@ingv.it
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
   version: 1.1.50
+  x-lifecycle:
+    maturity: FIXME
+x-commons:
+  common_responses: &common_responses
+    '429':
+      $ref: '#/components/responses/TooManyRequests'
+    '503':
+      $ref: '#/components/responses/ServiceUnavailable'
+
+  common_contents: &common_content
+    application/xml:
+      schema:
+        $ref: "#/components/schemas/ErrorResponse"
+    text/plain:
+      schema:
+        $ref: "#/components/schemas/ErrorResponse"
 paths:
   /query:
     get:
@@ -353,82 +366,34 @@ paths:
           description: Bad request due to improper specification, unrecognized parameter,
             parameter value out of range, etc.
           content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+            <<: *common_content
+        # for 401, 403 see the following post before adding the,
+        #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
         "401":
           description: Unauthorized, authentication required
           content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+            <<: *common_content
         "403":
           description: Authentication failed or access blocked to restricted data
           content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+            <<: *common_content
         "404":
           description: Alternate to 204 (set via the 'nodata' parameter), normally used for
             results returned to a web browser.
           content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+            <<: *common_content
         "413":
           description: Request would result in too much data being returned or the request
             itself is too large returned error message should include the
             service limitations in the detailed description. Service limits
             should also be documented in the service WADL.
           content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+            <<: *common_content
         "414":
           description: Request URI too large
           content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: Internal server error
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "503":
-          description: Service temporarily unavailable, used in maintenance and error
-            conditions
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        default:
-          description: ""
+            <<: *common_content
+
   /version:
     get:
       tags:
@@ -449,6 +414,7 @@ paths:
       summary: Get application.wadl
       description: Returns application.wadl file content
       responses:
+        <<: *common_responses
         "200":
           description: successful operation
           content:
@@ -466,7 +432,33 @@ tags:
       url: https://quake.ethz.ch/quakeml/
 servers:
   - url: http://webservices.ingv.it/fdsnws/event/1
+    description: Production
+
 components:
+  responses:
+    default:
+      description: |-
+        Unexpected response code. Usually replaces 500 if that
+          use case is outside the spec definition.
+    "TooManyRequests":
+      description: |
+        Service temporarily unavailable, used in maintenance and error
+        conditions
+      headers:
+        Retry-After:
+          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
+      content:
+        <<: *common_content
+    "ServiceUnavailable":
+      description: |
+        Service temporarily unavailable, used in maintenance and error
+        conditions
+      headers:
+        Retry-After:
+          $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
+      content:
+        <<: *common_content
+
   schemas:
     QuakeMLResponse:
       xml:
