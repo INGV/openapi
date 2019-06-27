@@ -367,24 +367,13 @@ paths:
         '204':
           $ref: '#/components/responses/204NoContent'
         '400':
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request
+          $ref: '#/components/responses/400BadRequest'
         '404':
           $ref: '#/components/responses/404NotFound'
         '429':
           $ref: '#/components/responses/429TooManyRequests'
         '503':
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Service Unavailable
-          headers:
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
+          $ref: '#/components/responses/503ServiceUnavailable'
         default:
           $ref: '#/components/responses/default'
       summary: Get QuakeML
@@ -440,9 +429,9 @@ components:
           $ref: '#/components/headers/X-RateLimit-Reset'
     400BadRequest:
       content:
-        application/problem+json:
+        text/plain:
           schema:
-            $ref: '#/components/schemas/Problem'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Bad Request
     404NotFound:
       content:
@@ -467,9 +456,9 @@ components:
           $ref: '#/components/headers/X-RateLimit-Reset'
     503ServiceUnavailable:
       content:
-        application/problem+json:
+        text/plain:
           schema:
-            $ref: '#/components/schemas/Problem'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Service Unavailable
       headers:
         Retry-After:
