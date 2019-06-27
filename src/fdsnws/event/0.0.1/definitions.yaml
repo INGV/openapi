@@ -376,10 +376,6 @@ paths:
         #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
         '404':
           $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
         default:
           $ref: '#/components/responses/default'
           
