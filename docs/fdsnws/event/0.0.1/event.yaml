@@ -104,6 +104,10 @@ paths:
                   type: integer
                 type: object
           description: successful operation
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '404':
+          $ref: '#/components/responses/404NotFound'
         '429':
           $ref: '#/components/responses/429TooManyRequests'
         '503':
@@ -382,6 +386,10 @@ paths:
           $ref: '#/components/responses/400BadRequest'
         '404':
           $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
         default:
           $ref: '#/components/responses/default'
       summary: Get QuakeML
