@@ -361,6 +361,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/QuakeMLResponse'
           description: Successful request, results follow
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
         '204':
           content:
             application/xml:
