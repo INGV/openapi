@@ -11,8 +11,8 @@ Public definition:
 
 ## How to *build* a definition
 To build your definition from `src` file, you can use:
-- *docker-openapi-resolver* docker file: https://github.com/vlauciani/docker-openapi-resolver
-- *OpenAPI Resolver* Python module: https://github.com/ioggstream/openapi-resolver
+- **docker-openapi-resolver** docker file: https://github.com/vlauciani/docker-openapi-resolver
+- **OpenAPI Resolver** Python module: https://github.com/ioggstream/openapi-resolver
 
 ### docker-openapi-resolver
 Build the docker following the instruction and run something like:
