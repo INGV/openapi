@@ -1,6 +1,5 @@
 # openapi
 
-[[TOC]] 
 ## Description
 . . . .
 
@@ -28,10 +27,10 @@ $ python -m openapi_resolver <absolute_path>/openapi/src/fdsnws/event/0.0.1/defi
 ```
 this command will build in `<absolute_path>/openapi/docs/fdsnws/event/0.0.1` the `event.yaml` file.
 
-# Contribute
+## Contribute
 Please, feel free to contribute.
 
-# Author
+## Author
 (c) 2019 Valentino Lauciani valentino.lauciani[at]ingv.it
 
 Istituto Nazionale di Geofisica e Vulcanologia, Italia
