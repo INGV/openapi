@@ -145,3 +145,83 @@ parameters:
             items:
                 type: string
             format: double
+    limitParameter:
+        description: Limit the results to the specified number of events.
+        in: query
+        name:  limit
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: integer
+    offsetParameter:
+        description: Return results starting at the event count specified.
+        in: query
+        name:  offset
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: integer
+    updatedafterParameter:
+        description: Limit to events updated after the specified time (useful for
+            synchronizing events).
+        in: query
+        name:  updatedafter
+        required: false
+        schema:
+            type: string
+            items:
+                type: string
+            format: date-time
+    eventidParameter:
+        description: Retrieve an event based on the unique INGV event id.
+        in: query
+        name:  eventid
+        required: false
+        schema:
+            type: integer
+            items:
+                type: integer
+    includealloriginsParameter:
+        description: Is used to retrive all origins associated with each event.
+        in: query
+        name:  includeallorigins
+        required: false
+        schema:
+            type: boolean
+            items:
+                type: boolean
+            default: false
+    includeallmagnitudesParameter:
+        description: Is used to retrive all magnitudes associated with each event.
+        in: query
+        name:  includeallmagnitudes
+        required: false
+        schema:
+            type: boolean
+            items:
+                type: boolean
+            default: false
+    includeallstationsmagnitudesParameter:
+        description: Is used to retrive all stations magnitudes associated with each hypocenter.
+        in: query
+        name:  includeallstationsmagnitudes
+        required: false
+        schema:
+            type: boolean
+            items:
+                type: boolean
+            default: false
+    includearrivalsParameter:
+        description: Is used to retrive any associated phase arrival information for each event.
+        in: query
+        name:  includearrivals
+        required: false
+        schema:
+            type: boolean
+            items:
+                type: boolean
+            default: false
