@@ -118,7 +118,7 @@ parameters:
             latitude and longitude. Kilometers. **This is an INGV extension to
             the FDSN specification.**
         in: query
-        name:  minradiuskm
+        name:  maxradiuskm
         required: false
         schema:
             type: number
