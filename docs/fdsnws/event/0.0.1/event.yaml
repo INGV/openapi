@@ -110,90 +110,15 @@ paths:
       description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
       parameters:
       - $ref: '#/components/parameters/starttimeParameter'
-      - description: Limit to events that are active on or before the specified end
-          time. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
-        in: query
-        name: endtime
-        required: false
-        schema:
-          format: date-time
-          items:
-            type: string
-          type: string
-      - description: Specify southern boundary for search.
-        in: query
-        name: minlat
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify northern boundary for search.
-        in: query
-        name: maxlat
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify western boundary for search.
-        in: query
-        name: minlon
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify eastern boundary for search.
-        in: query
-        name: maxlon
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify the central latitude point for a radial search.
-        in: query
-        name: lat
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify the central longitude point for a radial search.
-        in: query
-        name: lon
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify minimum distance from the geographic point defined by
-          latitude and longitude. Degrees.
-        in: query
-        name: minradius
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify maximum distance from the geographic point defined by
-          latitude and longitude. Degrees.
-        in: query
-        name: maxradius
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
+      - $ref: '#/components/parameters/endtimeParameter'
+      - $ref: '#/components/parameters/minlatParameter'
+      - $ref: '#/components/parameters/maxlatParameter'
+      - $ref: '#/components/parameters/minlonParameter'
+      - $ref: '#/components/parameters/maxlonParameter'
+      - $ref: '#/components/parameters/latParameter'
+      - $ref: '#/components/parameters/lonParameter'
+      - $ref: '#/components/parameters/minradiusParameter'
+      - $ref: '#/components/parameters/maxradiusParameter'
       - description: Specify minimum distance from the geographic point defined by
           latitude and longitude. Kilometers. **This is an INGV extension to the FDSN
           specification.**
@@ -406,6 +331,99 @@ components:
         format: int32
         type: integer
   parameters:
+    endtimeParameter:
+      description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ]
+        (ex. 2013-02-19T17:06:38)
+      in: query
+      name: endtime
+      required: false
+      schema:
+        format: date-time
+        items:
+          type: string
+        type: string
+    latParameter:
+      description: Specify the central latitude point for a radial search.
+      in: query
+      name: lat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    lonParameter:
+      description: Specify the central longitude point for a radial search.
+      in: query
+      name: lat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxlatParameter:
+      description: Specify northern boundary for search.
+      in: query
+      name: maxlat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxlonParameter:
+      description: Specify eastern boundary for search.
+      in: query
+      name: maxlon
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxradiusParameter:
+      description: Specify maximum distance from the geographic point defined by latitude
+        and longitude. Degrees.
+      in: query
+      name: maxradius
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minlatParameter:
+      description: Specify southern boundary for search.
+      in: query
+      name: minlat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minlonParameter:
+      description: Specify western boundary for search.
+      in: query
+      name: minlon
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minradiusParameter:
+      description: Specify minimum distance from the geographic point defined by latitude
+        and longitude. Degrees.
+      in: query
+      name: minradius
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
     starttimeParameter:
       description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
         ] (ex. 2013-02-18T15:06:38)

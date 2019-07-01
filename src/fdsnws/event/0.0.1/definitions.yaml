@@ -113,91 +113,15 @@ paths:
       parameters:
         #- $ref: '#/components/parameters/starttimeParameter'
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttimeParameter'
-        - name: endtime
-          in: query
-          description: Limit to events that are active on or before the specified end time.
-            - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex.
-            2013-02-19T17:06:38)
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            format: date-time
-        - name: minlat
-          in: query
-          description: Specify southern boundary for search.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: maxlat
-          in: query
-          description: Specify northern boundary for search.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: minlon
-          in: query
-          description: Specify western boundary for search.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: maxlon
-          in: query
-          description: Specify eastern boundary for search.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: lat
-          in: query
-          description: Specify the central latitude point for a radial search.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: lon
-          in: query
-          description: Specify the central longitude point for a radial search.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: minradius
-          in: query
-          description: Specify minimum distance from the geographic point defined by
-            latitude and longitude. Degrees.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: maxradius
-          in: query
-          description: Specify maximum distance from the geographic point defined by
-            latitude and longitude. Degrees.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/endtimeParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlatParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlatParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlonParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlonParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/latParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lonParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiusParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiusParameter'
         - name: minradiuskm
           in: query
           description: Specify minimum distance from the geographic point defined by
