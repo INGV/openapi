@@ -80,6 +80,7 @@ info:
   x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
   x-lifecycle:
     maturity: FIXME
+  x-logo: http://webservices.ingv.it/ingv_logo.png
   x-summary: fdsnws-event
 servers:
 - description: Production

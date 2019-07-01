@@ -2,6 +2,7 @@ openapi: 3.0.0
 info:
   title: INGV ONT FDSNWS event Web Service Documentation
   x-summary: fdsnws-event 
+  x-logo: http://webservices.ingv.it/ingv_logo.png
   # Based on http://uuid.xyzio.com/uuid
   x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
   description: |-
