@@ -226,6 +226,7 @@ components:
     formatParameter:
       description: Specify output format.
       in: query
+      name: format
       required: false
       schema:
         default: xml

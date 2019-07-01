@@ -225,6 +225,7 @@ components:
                     - magnitude-asc
                 default: time
         formatParameter:
+            name: format
             in: query
             description: Specify output format.
             required: false
