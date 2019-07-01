@@ -1,0 +1,11 @@
+parameters:
+    starttime:
+        description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
+        in: query
+        name: starttime
+        required: false
+        schema:
+            format: date-time
+            items:
+                type: string
+            type: string
