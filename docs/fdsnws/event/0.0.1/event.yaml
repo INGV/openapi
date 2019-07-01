@@ -124,92 +124,15 @@ paths:
       - $ref: '#/components/parameters/mindepthParameter'
       - $ref: '#/components/parameters/maxdepthParameter'
       - $ref: '#/components/parameters/orderbyParameter'
-      - description: Limit the results to the specified number of events.
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: integer
-          items:
-            type: string
-          type: number
-      - description: Return results starting at the event count specified.
-        in: query
-        name: offset
-        required: false
-        schema:
-          format: integer
-          items:
-            type: string
-          type: number
-      - description: Limit to events updated after the specified time (useful for
-          synchronizing events).
-        in: query
-        name: updatedafter
-        required: false
-        schema:
-          format: date-time
-          items:
-            type: string
-          type: string
-      - description: Specify output format.
-        in: query
-        name: format
-        required: false
-        schema:
-          default: xml
-          enum:
-          - xml
-          - text
-          items:
-            type: string
-          type: string
-      - description: Retrieve an event based on the unique INGV event id.
-        in: query
-        name: eventid
-        required: false
-        schema:
-          items:
-            type: integer
-          type: integer
-      - description: Is used to retrive all origins associated with each event.
-        in: query
-        name: includeallorigins
-        required: false
-        schema:
-          default: false
-          items:
-            type: boolean
-          type: boolean
-      - description: Is used to retrive all magnitudes associated with each event.
-        in: query
-        name: includeallmagnitudes
-        required: false
-        schema:
-          default: false
-          items:
-            type: boolean
-          type: boolean
-      - description: Is used to retrive all stations magnitudes associated with each
-          hypocenter.
-        in: query
-        name: includeallstationsmagnitudes
-        required: false
-        schema:
-          default: false
-          items:
-            type: boolean
-          type: boolean
-      - description: Is used to retrive any associated phase arrival information for
-          each event.
-        in: query
-        name: includearrivals
-        required: false
-        schema:
-          default: false
-          items:
-            type: boolean
-          type: boolean
+      - $ref: '#/components/parameters/limitParameter'
+      - $ref: '#/components/parameters/offsetParameter'
+      - $ref: '#/components/parameters/updatedafterParameter'
+      - $ref: '#/components/parameters/formatParameter'
+      - $ref: '#/components/parameters/eventidParameter'
+      - $ref: '#/components/parameters/includealloriginsParameter'
+      - $ref: '#/components/parameters/includeallmagnitudesParameter'
+      - $ref: '#/components/parameters/includeallstationsmagnitudesParameter'
+      - $ref: '#/components/parameters/includearrivalsParameter'
       responses:
         '200':
           content:
@@ -291,6 +214,69 @@ components:
         items:
           type: string
         type: string
+    eventidParameter:
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name: eventid
+      required: false
+      schema:
+        items:
+          type: integer
+        type: integer
+    formatParameter:
+      description: Specify output format.
+      in: query
+      required: false
+      schema:
+        default: xml
+        enum:
+        - xml
+        - text
+        items:
+          type: string
+        type: string
+    includeallmagnitudesParameter:
+      description: Is used to retrive all magnitudes associated with each event.
+      in: query
+      name: includeallmagnitudes
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
+    includealloriginsParameter:
+      description: Is used to retrive all origins associated with each event.
+      in: query
+      name: includeallorigins
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
+    includeallstationsmagnitudesParameter:
+      description: Is used to retrive all stations magnitudes associated with each
+        hypocenter.
+      in: query
+      name: includeallstationsmagnitudes
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
+    includearrivalsParameter:
+      description: Is used to retrive any associated phase arrival information for
+        each event.
+      in: query
+      name: includearrivals
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
     latParameter:
       description: Specify the central latitude point for a radial search.
       in: query
@@ -298,6 +284,16 @@ components:
       required: false
       schema:
         format: double
+        items:
+          type: string
+        type: number
+    limitParameter:
+      description: Limit the results to the specified number of events.
+      in: query
+      name: limit
+      required: false
+      schema:
+        format: integer
         items:
           type: string
         type: number
@@ -417,6 +413,16 @@ components:
         items:
           type: string
         type: number
+    offsetParameter:
+      description: Return results starting at the event count specified.
+      in: query
+      name: offset
+      required: false
+      schema:
+        format: integer
+        items:
+          type: string
+        type: number
     orderbyParameter:
       description: Is used to order the output.
       in: query
@@ -437,6 +443,17 @@ components:
         ] (ex. 2013-02-18T15:06:38)
       in: query
       name: starttime
+      required: false
+      schema:
+        format: date-time
+        items:
+          type: string
+        type: string
+    updatedafterParameter:
+      description: Limit to events updated after the specified time (useful for synchronizing
+        events).
+      in: query
+      name: updatedafter
       required: false
       schema:
         format: date-time

@@ -127,92 +127,15 @@ paths:
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/mindepthParameter'
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxdepthParameter'
         - $ref: '#/components/parameters/orderbyParameter'
-        - name: limit
-          in: query
-          description: Limit the results to the specified number of events.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: integer
-        - name: offset
-          in: query
-          description: Return results starting at the event count specified.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: integer
-        - name: updatedafter
-          in: query
-          description: Limit to events updated after the specified time (useful for
-            synchronizing events).
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            format: date-time
-        - name: format
-          in: query
-          description: Specify output format.
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            enum:
-              - xml
-              - text
-            default: xml
-        - name: eventid
-          in: query
-          description: Retrieve an event based on the unique INGV event id.
-          required: false
-          schema:
-            type: integer
-            items:
-              type: integer
-        - name: includeallorigins
-          in: query
-          description: Is used to retrive all origins associated with each event.
-          required: false
-          schema:
-            type: boolean
-            items:
-              type: boolean
-            default: false
-        - name: includeallmagnitudes
-          in: query
-          description: Is used to retrive all magnitudes associated with each event.
-          required: false
-          schema:
-            type: boolean
-            items:
-              type: boolean
-            default: false
-        - name: includeallstationsmagnitudes
-          in: query
-          description: Is used to retrive all stations magnitudes associated with each
-            hypocenter.
-          required: false
-          schema:
-            type: boolean
-            items:
-              type: boolean
-            default: false
-        - name: includearrivals
-          in: query
-          description: Is used to retrive any associated phase arrival information for each
-            event.
-          required: false
-          schema:
-            type: boolean
-            items:
-              type: boolean
-            default: false
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/limitParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/offsetParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/updatedafterParameter'
+        - $ref: '#/components/parameters/formatParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventidParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includealloriginsParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallmagnitudesParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallstationsmagnitudesParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includearrivalsParameter'
       responses:
         '200':
           description: Successful request, results follow
@@ -287,21 +210,33 @@ servers:
 
 components:
   parameters:
-      orderbyParameter:
-          name: orderby
-          in: query
-          description: Is used to order the output.
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            enum:
-              - time
-              - time-asc
-              - magnitude
-              - magnitude-asc
-            default: time
+        orderbyParameter:
+            name: orderby
+            in: query
+            description: Is used to order the output.
+            required: false
+            schema:
+                type: string
+                items:
+                  type: string
+                enum:
+                    - time
+                    - time-asc
+                    - magnitude
+                    - magnitude-asc
+                default: time
+        formatParameter:
+            in: query
+            description: Specify output format.
+            required: false
+            schema:
+                type: string
+                items:
+                  type: string
+                enum:
+                    - xml
+                    - text
+                default: xml
           
 #    starttimeParameter:
 #      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
