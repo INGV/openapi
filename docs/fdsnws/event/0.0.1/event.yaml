@@ -119,62 +119,11 @@ paths:
       - $ref: '#/components/parameters/lonParameter'
       - $ref: '#/components/parameters/minradiusParameter'
       - $ref: '#/components/parameters/maxradiusParameter'
-      - description: Specify minimum distance from the geographic point defined by
-          latitude and longitude. Kilometers. **This is an INGV extension to the FDSN
-          specification.**
-        in: query
-        name: minradiuskm
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify maximum distance from the geographic point defined by
-          latitude and longitude. Kilometers. **This is an INGV extension to the FDSN
-          specification.**
-        in: query
-        name: maxradiuskm
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify minimum depth (kilometers), values increase positively
-          with depth. Degrees.
-        in: query
-        name: mindepth
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Specify maximum depth (kilometers), values increase positively
-          with depth. Degrees.
-        in: query
-        name: maxdepth
-        required: false
-        schema:
-          format: double
-          items:
-            type: string
-          type: number
-      - description: Is used to order the output.
-        in: query
-        name: orderby
-        required: false
-        schema:
-          default: time
-          enum:
-          - time
-          - time-asc
-          - magnitude
-          - magnitude-asc
-          items:
-            type: string
-          type: string
+      - $ref: '#/components/parameters/minradiuskmParameter'
+      - $ref: '#/components/parameters/maxradiuskmParameter'
+      - $ref: '#/components/parameters/mindepthParameter'
+      - $ref: '#/components/parameters/maxdepthParameter'
+      - $ref: '#/components/parameters/orderbyParameter'
       - description: Limit the results to the specified number of events.
         in: query
         name: limit
@@ -362,6 +311,17 @@ components:
         items:
           type: string
         type: number
+    maxdepthParameter:
+      description: Specify maximum depth (kilometers), values increase positively
+        with depth.
+      in: query
+      name: maxdepth
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
     maxlatParameter:
       description: Specify northern boundary for search.
       in: query
@@ -387,6 +347,28 @@ components:
         and longitude. Degrees.
       in: query
       name: maxradius
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxradiuskmParameter:
+      description: Specify maximum distance from the geographic point defined by latitude
+        and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
+      in: query
+      name: maxradiuskm
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    mindepthParameter:
+      description: Specify minimum depth (kilometers), values increase positively
+        with depth.
+      in: query
+      name: mindepth
       required: false
       schema:
         format: double
@@ -424,6 +406,32 @@ components:
         items:
           type: string
         type: number
+    minradiuskmParameter:
+      description: Specify minimum distance from the geographic point defined by latitude
+        and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
+      in: query
+      name: minradiuskm
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    orderbyParameter:
+      description: Is used to order the output.
+      in: query
+      name: orderby
+      required: false
+      schema:
+        default: time
+        enum:
+        - time
+        - time-asc
+        - magnitude
+        - magnitude-asc
+        items:
+          type: string
+        type: string
     starttimeParameter:
       description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
         ] (ex. 2013-02-18T15:06:38)

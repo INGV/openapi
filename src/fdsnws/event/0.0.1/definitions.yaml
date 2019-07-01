@@ -122,62 +122,11 @@ paths:
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lonParameter'
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiusParameter'
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiusParameter'
-        - name: minradiuskm
-          in: query
-          description: Specify minimum distance from the geographic point defined by
-            latitude and longitude. Kilometers. **This is an INGV extension to
-            the FDSN specification.**
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: maxradiuskm
-          in: query
-          description: Specify maximum distance from the geographic point defined by
-            latitude and longitude. Kilometers. **This is an INGV extension to
-            the FDSN specification.**
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: mindepth
-          in: query
-          description: Specify minimum depth (kilometers), values increase positively with
-            depth. Degrees.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: maxdepth
-          in: query
-          description: Specify maximum depth (kilometers), values increase positively with
-            depth. Degrees.
-          required: false
-          schema:
-            type: number
-            items:
-              type: string
-            format: double
-        - name: orderby
-          in: query
-          description: Is used to order the output.
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            enum:
-              - time
-              - time-asc
-              - magnitude
-              - magnitude-asc
-            default: time
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiuskmParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiuskmParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/mindepthParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxdepthParameter'
+        - $ref: '#/components/parameters/orderbyParameter'
         - name: limit
           in: query
           description: Limit the results to the specified number of events.
@@ -337,7 +286,23 @@ servers:
     description: Production
 
 components:
-#  parameters:
+  parameters:
+      orderbyParameter:
+          name: orderby
+          in: query
+          description: Is used to order the output.
+          required: false
+          schema:
+            type: string
+            items:
+              type: string
+            enum:
+              - time
+              - time-asc
+              - magnitude
+              - magnitude-asc
+            default: time
+          
 #    starttimeParameter:
 #      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
         
