@@ -111,7 +111,8 @@ paths:
       description: Returns a QuakeML message with the following schema
         https://quake.ethz.ch/quakeml/
       parameters:
-        - $ref: '#/components/parameters/starttime'
+        #- $ref: '#/components/parameters/starttimeParameter'
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttimeParameter'
         - name: endtime
           in: query
           description: Limit to events that are active on or before the specified end time.
@@ -412,9 +413,9 @@ servers:
     description: Production
 
 components:
-  parameters:
-    starttime:
-      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
+#  parameters:
+#    starttimeParameter:
+#      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
         
   headers:
     X-RateLimit-Limit:

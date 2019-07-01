@@ -109,7 +109,7 @@ paths:
     get:
       description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
       parameters:
-      - $ref: '#/components/parameters/starttime'
+      - $ref: '#/components/parameters/starttimeParameter'
       - description: Limit to events that are active on or before the specified end
           time. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
         in: query
@@ -406,7 +406,7 @@ components:
         format: int32
         type: integer
   parameters:
-    starttime:
+    starttimeParameter:
       description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
         ] (ex. 2013-02-18T15:06:38)
       in: query
