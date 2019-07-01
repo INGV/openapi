@@ -125,7 +125,7 @@ parameters:
             items:
                 type: string
             format: double
-    mindepthParameterr:
+    mindepthParameter:
         description: Specify minimum depth (kilometers), values increase positively with depth.
         in: query
         name:  mindepth
