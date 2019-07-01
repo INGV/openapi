@@ -109,7 +109,30 @@ paths:
     get:
       description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
       parameters:
-        $ref: '#/components/parameters/includearrivalsParameter'
+      - $ref: '#/components/parameters/starttimeParameter'
+      - $ref: '#/components/parameters/endtimeParameter'
+      - $ref: '#/components/parameters/minlatParameter'
+      - $ref: '#/components/parameters/maxlatParameter'
+      - $ref: '#/components/parameters/minlonParameter'
+      - $ref: '#/components/parameters/maxlonParameter'
+      - $ref: '#/components/parameters/latParameter'
+      - $ref: '#/components/parameters/lonParameter'
+      - $ref: '#/components/parameters/minradiusParameter'
+      - $ref: '#/components/parameters/maxradiusParameter'
+      - $ref: '#/components/parameters/minradiuskmParameter'
+      - $ref: '#/components/parameters/maxradiuskmParameter'
+      - $ref: '#/components/parameters/mindepthParameter'
+      - $ref: '#/components/parameters/maxdepthParameter'
+      - $ref: '#/components/parameters/orderbyParameter'
+      - $ref: '#/components/parameters/limitParameter'
+      - $ref: '#/components/parameters/offsetParameter'
+      - $ref: '#/components/parameters/updatedafterParameter'
+      - $ref: '#/components/parameters/formatParameter'
+      - $ref: '#/components/parameters/eventidParameter'
+      - $ref: '#/components/parameters/includealloriginsParameter'
+      - $ref: '#/components/parameters/includeallmagnitudesParameter'
+      - $ref: '#/components/parameters/includeallstationsmagnitudesParameter'
+      - $ref: '#/components/parameters/includearrivalsParameter'
       responses:
         '200':
           content:
@@ -180,6 +203,26 @@ components:
         format: int32
         type: integer
   parameters:
+    endtimeParameter:
+      description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ]
+        (ex. 2013-02-19T17:06:38)
+      in: query
+      name: endtime
+      required: false
+      schema:
+        format: date-time
+        items:
+          type: string
+        type: string
+    eventidParameter:
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name: eventid
+      required: false
+      schema:
+        items:
+          type: integer
+        type: integer
     formatParameter:
       description: Specify output format.
       in: query
@@ -192,6 +235,37 @@ components:
         items:
           type: string
         type: string
+    includeallmagnitudesParameter:
+      description: Is used to retrive all magnitudes associated with each event.
+      in: query
+      name: includeallmagnitudes
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
+    includealloriginsParameter:
+      description: Is used to retrive all origins associated with each event.
+      in: query
+      name: includeallorigins
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
+    includeallstationsmagnitudesParameter:
+      description: Is used to retrive all stations magnitudes associated with each
+        hypocenter.
+      in: query
+      name: includeallstationsmagnitudes
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
     includearrivalsParameter:
       description: Is used to retrive any associated phase arrival information for
         each event.
@@ -203,6 +277,152 @@ components:
         items:
           type: boolean
         type: boolean
+    latParameter:
+      description: Specify the central latitude point for a radial search.
+      in: query
+      name: lat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    limitParameter:
+      description: Limit the results to the specified number of events.
+      in: query
+      name: limit
+      required: false
+      schema:
+        format: integer
+        items:
+          type: string
+        type: number
+    lonParameter:
+      description: Specify the central longitude point for a radial search.
+      in: query
+      name: lat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxdepthParameter:
+      description: Specify maximum depth (kilometers), values increase positively
+        with depth.
+      in: query
+      name: maxdepth
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxlatParameter:
+      description: Specify northern boundary for search.
+      in: query
+      name: maxlat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxlonParameter:
+      description: Specify eastern boundary for search.
+      in: query
+      name: maxlon
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxradiusParameter:
+      description: Specify maximum distance from the geographic point defined by latitude
+        and longitude. Degrees.
+      in: query
+      name: maxradius
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    maxradiuskmParameter:
+      description: Specify maximum distance from the geographic point defined by latitude
+        and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
+      in: query
+      name: maxradiuskm
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    mindepthParameter:
+      description: Specify minimum depth (kilometers), values increase positively
+        with depth.
+      in: query
+      name: mindepth
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minlatParameter:
+      description: Specify southern boundary for search.
+      in: query
+      name: minlat
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minlonParameter:
+      description: Specify western boundary for search.
+      in: query
+      name: minlon
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minradiusParameter:
+      description: Specify minimum distance from the geographic point defined by latitude
+        and longitude. Degrees.
+      in: query
+      name: minradius
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    minradiuskmParameter:
+      description: Specify minimum distance from the geographic point defined by latitude
+        and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
+      in: query
+      name: minradiuskm
+      required: false
+      schema:
+        format: double
+        items:
+          type: string
+        type: number
+    offsetParameter:
+      description: Return results starting at the event count specified.
+      in: query
+      name: offset
+      required: false
+      schema:
+        format: integer
+        items:
+          type: string
+        type: number
     orderbyParameter:
       description: Is used to order the output.
       in: query
@@ -215,6 +435,28 @@ components:
         - time-asc
         - magnitude
         - magnitude-asc
+        items:
+          type: string
+        type: string
+    starttimeParameter:
+      description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
+        ] (ex. 2013-02-18T15:06:38)
+      in: query
+      name: starttime
+      required: false
+      schema:
+        format: date-time
+        items:
+          type: string
+        type: string
+    updatedafterParameter:
+      description: Limit to events updated after the specified time (useful for synchronizing
+        events).
+      in: query
+      name: updatedafter
+      required: false
+      schema:
+        format: date-time
         items:
           type: string
         type: string
