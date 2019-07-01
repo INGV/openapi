@@ -101,3 +101,47 @@ parameters:
             items:
                 type: string
             format: double
+    minradiuskmParameter:
+        description: Specify minimum distance from the geographic point defined by
+            latitude and longitude. Kilometers. **This is an INGV extension to
+            the FDSN specification.**
+        in: query
+        name:  minradiuskm
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: double
+    maxradiuskmParameter:
+        description: Specify maximum distance from the geographic point defined by
+            latitude and longitude. Kilometers. **This is an INGV extension to
+            the FDSN specification.**
+        in: query
+        name:  minradiuskm
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: double
+    mindepth:
+        description: Specify minimum depth (kilometers), values increase positively with depth.
+        in: query
+        name:  mindepth
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: double
+    maxdepth:
+        description: Specify maximum depth (kilometers), values increase positively with depth.
+        in: query
+        name:  maxdepth
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: double
