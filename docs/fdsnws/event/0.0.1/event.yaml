@@ -2,8 +2,7 @@ openapi: 3.0.0
 info:
   contact:
     email: valentino.lauciani@ingv.it
-    name: FIXME
-    url: FIXME
+    name: Valentino Lauciani
   description: |2-
 
 
@@ -78,8 +77,6 @@ info:
   title: INGV ONT FDSNWS event Web Service Documentation
   version: 1.1.50
   x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
-  x-lifecycle:
-    maturity: FIXME
   x-logo: http://webservices.ingv.it/ingv_logo.png
   x-summary: fdsnws-event
 servers:
@@ -338,16 +335,7 @@ paths:
           items:
             type: boolean
           type: boolean
-      - description: Is used to retrive any associated phase arrival information for
-          each event.
-        in: query
-        name: includearrivals
-        required: false
-        schema:
-          default: false
-          items:
-            type: boolean
-          type: boolean
+      - $ref: '#/components/parameters/includearrivals'
       responses:
         '200':
           content:
@@ -417,6 +405,18 @@ components:
       schema:
         format: int32
         type: integer
+  parameters:
+    includearrivals:
+    - description: Is used to retrive any associated phase arrival information for
+        each event.
+      in: query
+      name: includearrivals
+      required: false
+      schema:
+        default: false
+        items:
+          type: boolean
+        type: boolean
   responses:
     204NoContent:
       description: Request was properly formatted and submitted but no data matches

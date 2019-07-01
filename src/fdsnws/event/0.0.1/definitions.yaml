@@ -3,6 +3,7 @@ info:
   title: INGV ONT FDSNWS event Web Service Documentation
   x-summary: fdsnws-event 
   x-logo: http://webservices.ingv.it/ingv_logo.png
+  
   # Based on http://uuid.xyzio.com/uuid
   x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
   description: |-
@@ -74,15 +75,15 @@ info:
      Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
   termsOfService: http://www.fdsn.org/webservices/
   contact:
-    name: FIXME
-    url: FIXME
+    name: 'Valentino Lauciani'
+    #url: FIXME
     email: valentino.lauciani@ingv.it
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
   version: 1.1.50
-  x-lifecycle:
-    maturity: FIXME
+  #x-lifecycle:
+  #  maturity: FIXME
 x-commons:
   common_responses: &common_responses
     '400':
@@ -338,16 +339,7 @@ paths:
             items:
               type: boolean
             default: false
-        - name: includearrivals
-          in: query
-          description: Is used to retrive any associated phase arrival information for each
-            event.
-          required: false
-          schema:
-            type: boolean
-            items:
-              type: boolean
-            default: false
+        - $ref: '#/components/parameters/includearrivals'
       responses:
         '200':
           description: Successful request, results follow
@@ -421,6 +413,19 @@ servers:
     description: Production
 
 components:
+  parameters:
+    includearrivals:
+    - name: includearrivals
+      in: query
+      description: Is used to retrive any associated phase arrival information for each
+        event.
+      required: false
+      schema:
+        type: boolean
+        items:
+          type: boolean
+        default: false
+
   headers:
     X-RateLimit-Limit:
       $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Limit'
