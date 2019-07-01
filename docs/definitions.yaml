@@ -79,3 +79,25 @@ parameters:
             items:
                 type: string
             format: double
+    minradiusParameter:
+        description: Specify minimum distance from the geographic point defined by
+            latitude and longitude. Degrees.
+        in: query
+        name:  minradius
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: double
+    maxradiusParameter:
+        description: Specify maximum distance from the geographic point defined by
+            latitude and longitude. Degrees.
+        in: query
+        name:  maxradius
+        required: false
+        schema:
+            type: number
+            items:
+                type: string
+            format: double
