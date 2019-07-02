@@ -284,10 +284,7 @@ components:
       name: lat
       required: false
       schema:
-        format: double
-        items:
-          type: string
-        type: number
+        $ref: '#/components/schemas/latitude'
     limit:
       description: Limit the results to the specified number of events.
       in: query
@@ -304,10 +301,7 @@ components:
       name: lat
       required: false
       schema:
-        format: double
-        items:
-          type: string
-        type: number
+        $ref: '#/components/schemas/latitude'
     maxdepth:
       description: Specify maximum depth (kilometers), values increase positively
         with depth.
@@ -565,3 +559,8 @@ components:
     VersionResponse:
       example: 1.1.50
       type: string
+    latitude:
+      format: double
+      items:
+        type: string
+      type: number
