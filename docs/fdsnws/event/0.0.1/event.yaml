@@ -211,8 +211,6 @@ components:
       required: false
       schema:
         format: date-time
-        items:
-          type: string
         type: string
     eventid:
       description: Retrieve an event based on the unique INGV event id.
@@ -220,9 +218,8 @@ components:
       name: eventid
       required: false
       schema:
-        items:
-          type: integer
-        type: integer
+        format: integer
+        type: number
     format:
       description: Specify output format.
       in: query
@@ -243,8 +240,6 @@ components:
       required: false
       schema:
         default: false
-        items:
-          type: boolean
         type: boolean
     includeallorigins:
       description: Is used to retrive all origins associated with each event.
@@ -253,8 +248,6 @@ components:
       required: false
       schema:
         default: false
-        items:
-          type: boolean
         type: boolean
     includeallstationsmagnitudes:
       description: Is used to retrive all stations magnitudes associated with each
@@ -264,8 +257,6 @@ components:
       required: false
       schema:
         default: false
-        items:
-          type: boolean
         type: boolean
     includearrivals:
       description: Is used to retrive any associated phase arrival information for
@@ -275,8 +266,6 @@ components:
       required: false
       schema:
         default: false
-        items:
-          type: boolean
         type: boolean
     lat:
       description: Specify the central latitude point for a radial search (in WGS84).
@@ -291,10 +280,8 @@ components:
       name: limit
       required: false
       schema:
-        format: integer
-        items:
-          type: string
-        type: number
+        format: int32
+        type: integer
     lon:
       description: Specify the central longitude point for a radial search (in WGS84).
       in: query
@@ -310,8 +297,6 @@ components:
       required: false
       schema:
         format: double
-        items:
-          type: string
         type: number
     maxlat:
       description: Specify northern boundary for search (in WGS84).
@@ -335,8 +320,6 @@ components:
       required: false
       schema:
         format: double
-        items:
-          type: string
         type: number
     maxradiuskm:
       description: Specify maximum distance from the geographic point defined by latitude
@@ -346,8 +329,6 @@ components:
       required: false
       schema:
         format: double
-        items:
-          type: string
         type: number
     mindepth:
       description: Specify minimum depth (kilometers), values increase positively
@@ -357,8 +338,6 @@ components:
       required: false
       schema:
         format: double
-        items:
-          type: string
         type: number
     minlat:
       description: Specify southern boundary for search (in WGS84).
@@ -382,8 +361,6 @@ components:
       required: false
       schema:
         format: double
-        items:
-          type: string
         type: number
     minradiuskm:
       description: Specify minimum distance from the geographic point defined by latitude
@@ -393,8 +370,6 @@ components:
       required: false
       schema:
         format: double
-        items:
-          type: string
         type: number
     offset:
       description: Return results starting at the event count specified.
@@ -402,9 +377,7 @@ components:
       name: offset
       required: false
       schema:
-        format: integer
-        items:
-          type: string
+        format: int32
         type: number
     orderby:
       description: Is used to order the output.
@@ -429,8 +402,6 @@ components:
       required: false
       schema:
         format: date-time
-        items:
-          type: string
         type: string
     updatedafter:
       description: Limit to events updated after the specified time (useful for synchronizing
@@ -440,8 +411,6 @@ components:
       required: false
       schema:
         format: date-time
-        items:
-          type: string
         type: string
   responses:
     204NoContent:
@@ -549,11 +518,7 @@ components:
       type: string
     latitude:
       format: double
-      items:
-        type: string
       type: number
     longitude:
       format: double
-      items:
-        type: string
       type: number
