@@ -217,5 +217,5 @@ schemas:
         type: number
         items:
             type: string
-        format: double 
+        format: double
         
