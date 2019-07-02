@@ -1,4 +1,6 @@
 openapi: 3.0.0
+servers:
+  - url: 'https://webservices.ingv.it/fdsnws/event/1'
 info:
     title: INGV ONT FDSNWS event Web Service Documentation
     x-summary: fdsnws-event 
