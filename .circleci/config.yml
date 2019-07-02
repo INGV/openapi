@@ -11,6 +11,9 @@ jobs:
             apk upgrade
             apk add --no-cache git
             git clone https://github.com/teamdigitale/api-openapi-samples.git
+            cat api-openapi-samples/requirements.txt | sed 's/0.0.4/0.0.6/g' > api-openapi-samples/requirements.txt.new
+            mv api-openapi-samples/requirements.txt api-openapi-samples/requirements.txt.old
+            mv api-openapi-samples/requirements.txt.new api-openapi-samples/requirements.txt
             pip install --user -r api-openapi-samples/requirements.txt
             cp docs/fdsnws/event/0.0.1/event.yaml api-openapi-samples/
             cd api-openapi-samples/ 
