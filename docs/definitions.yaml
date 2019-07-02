@@ -25,40 +25,28 @@ parameters:
         name: minlat
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: double
+            $ref:  '#/schemas/latitude'
     maxlat:
         description: Specify northern boundary for search.
         in: query
         name: maxlat
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: double
+            $ref:  '#/schemas/latitude'
     minlon:
         description: Specify western boundary for search.
         in: query
         name: minlon
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: double
+            $ref:  '#/schemas/longitude'
     maxlon:
         description: Specify eastern boundary for search.
         in: query
         name: maxlon
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: double
+            $ref:  '#/schemas/longitude'
     lat:
         description: Specify the central latitude point for a radial search.
         in: query
@@ -72,7 +60,7 @@ parameters:
         name: lat
         required: false
         schema:
-            $ref:  '#/schemas/latitude'
+            $ref:  '#/schemas/longitude'
     minradius:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Degrees.
