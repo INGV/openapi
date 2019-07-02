@@ -301,7 +301,7 @@ components:
       name: lat
       required: false
       schema:
-        $ref: '#/components/schemas/latitude'
+        $ref: '#/components/schemas/longitude'
     maxdepth:
       description: Specify maximum depth (kilometers), values increase positively
         with depth.
@@ -319,20 +319,14 @@ components:
       name: maxlat
       required: false
       schema:
-        format: double
-        items:
-          type: string
-        type: number
+        $ref: '#/components/schemas/latitude'
     maxlon:
       description: Specify eastern boundary for search.
       in: query
       name: maxlon
       required: false
       schema:
-        format: double
-        items:
-          type: string
-        type: number
+        $ref: '#/components/schemas/longitude'
     maxradius:
       description: Specify maximum distance from the geographic point defined by latitude
         and longitude. Degrees.
@@ -372,20 +366,14 @@ components:
       name: minlat
       required: false
       schema:
-        format: double
-        items:
-          type: string
-        type: number
+        $ref: '#/components/schemas/latitude'
     minlon:
       description: Specify western boundary for search.
       in: query
       name: minlon
       required: false
       schema:
-        format: double
-        items:
-          type: string
-        type: number
+        $ref: '#/components/schemas/longitude'
     minradius:
       description: Specify minimum distance from the geographic point defined by latitude
         and longitude. Degrees.
@@ -560,6 +548,11 @@ components:
       example: 1.1.50
       type: string
     latitude:
+      format: double
+      items:
+        type: string
+      type: number
+    longitude:
       format: double
       items:
         type: string
