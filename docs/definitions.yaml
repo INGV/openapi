@@ -65,20 +65,14 @@ parameters:
         name: lat
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: double
+            $ref:  '#/schemas/latitude'
     lon:
         description: Specify the central longitude point for a radial search.
         in: query
         name: lat
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: double
+            $ref:  '#/schemas/latitude'
     minradius:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Degrees.
@@ -225,3 +219,15 @@ parameters:
             items:
                 type: boolean
             default: false
+schemas:
+    latitude:
+        type: number
+        items:
+            type: string
+        format: double
+    longitude:
+        type: number
+        items:
+            type: string
+        format: double 
+        
