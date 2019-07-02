@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: python:3-alpine
+    steps:
+      - checkout
+      - run:
+          command: |
+            apk add git
+            git checkout https://github.com/teamdigitale/api-openapi-samples.git
+            pip install --user -r api-openapi-samples/requirements.txt
+            cp docs/fdsnws/event/0.0.1/event.yaml api-openapi-samples/
+            cd api-openapi-samples/ 
+            python validator.py --spec event.yaml
