@@ -112,7 +112,6 @@ paths:
           https://quake.ethz.ch/quakeml/
         parameters:
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
-          - $ref: '#/components/schemas/starttime2'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/endtime'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlat'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlat'
@@ -294,7 +293,3 @@ components:
         ErrorResponse:
             type: string
             example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
-        starttime2:
-            allOf:
-                - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
-                - description: pippo            
