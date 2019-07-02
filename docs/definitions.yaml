@@ -5,20 +5,16 @@ parameters:
         name: starttime
         required: false
         schema:
-            format: date-time
-            items:
-                type: string
             type: string
+            format: date-time
     endtime:
         description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
         in: query
         name: endtime
         required: false
         schema:
-            format: date-time
-            items:
-                type: string
             type: string
+            format: date-time            
     minlat:
         description: Specify southern boundary for search (in WGS84).
         in: query
@@ -68,8 +64,6 @@ parameters:
         required: false
         schema:
             type: number
-            items:
-                type: string
             format: double
     maxradius:
         description: Specify maximum distance from the geographic point defined by latitude and longitude (in Degrees).
@@ -78,8 +72,6 @@ parameters:
         required: false
         schema:
             type: number
-            items:
-                type: string
             format: double
     minradiuskm:
         description: Specify minimum distance from the geographic point defined by
@@ -90,8 +82,6 @@ parameters:
         required: false
         schema:
             type: number
-            items:
-                type: string
             format: double
     maxradiuskm:
         description: Specify maximum distance from the geographic point defined by
@@ -102,8 +92,6 @@ parameters:
         required: false
         schema:
             type: number
-            items:
-                type: string
             format: double
     mindepth:
         description: Specify minimum depth (kilometers), values increase positively with depth.
@@ -111,30 +99,24 @@ parameters:
         name:  mindepth
         required: false
         schema:
-            type: number
-            items:
-                type: string
             format: double
+            type: number
     maxdepth:
         description: Specify maximum depth (kilometers), values increase positively with depth.
         in: query
         name:  maxdepth
         required: false
         schema:
-            type: number
-            items:
-                type: string
             format: double
+            type: number
     limit:
         description: Limit the results to the specified number of events.
         in: query
         name:  limit
         required: false
         schema:
-            type: number
-            items:
-                type: string
-            format: integer
+            format: int32
+            type: integer
     offset:
         description: Return results starting at the event count specified.
         in: query
@@ -142,9 +124,7 @@ parameters:
         required: false
         schema:
             type: number
-            items:
-                type: string
-            format: integer
+            format: int32
     updatedafter:
         description: Limit to events updated after the specified time (useful for
             synchronizing events).
@@ -153,18 +133,15 @@ parameters:
         required: false
         schema:
             type: string
-            items:
-                type: string
-            format: date-time
+            format: date-time 
     eventid:
         description: Retrieve an event based on the unique INGV event id.
         in: query
         name:  eventid
         required: false
         schema:
-            type: integer
-            items:
-                type: integer
+            type: number
+            format: integer
     includeallorigins:
         description: Is used to retrive all origins associated with each event.
         in: query
@@ -172,8 +149,6 @@ parameters:
         required: false
         schema:
             type: boolean
-            items:
-                type: boolean
             default: false
     includeallmagnitudes:
         description: Is used to retrive all magnitudes associated with each event.
@@ -182,8 +157,6 @@ parameters:
         required: false
         schema:
             type: boolean
-            items:
-                type: boolean
             default: false
     includeallstationsmagnitudes:
         description: Is used to retrive all stations magnitudes associated with each hypocenter.
@@ -192,8 +165,6 @@ parameters:
         required: false
         schema:
             type: boolean
-            items:
-                type: boolean
             default: false
     includearrivals:
         description: Is used to retrive any associated phase arrival information for each event.
@@ -202,18 +173,12 @@ parameters:
         required: false
         schema:
             type: boolean
-            items:
-                type: boolean
             default: false
 schemas:
     latitude:
         type: number
-        items:
-            type: string
         format: double
     longitude:
         type: number
-        items:
-            type: string
         format: double
         
