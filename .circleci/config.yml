@@ -8,7 +8,7 @@ jobs:
       - run:
           command: |
             apk add git
-            git checkout https://github.com/teamdigitale/api-openapi-samples.git
+            git clone https://github.com/teamdigitale/api-openapi-samples.git
             pip install --user -r api-openapi-samples/requirements.txt
             cp docs/fdsnws/event/0.0.1/event.yaml api-openapi-samples/
             cd api-openapi-samples/ 
