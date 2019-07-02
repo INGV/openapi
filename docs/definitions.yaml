@@ -1,5 +1,5 @@
 parameters:
-    starttimeParameter:
+    starttime:
         description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
         in: query
         name: starttime
@@ -9,7 +9,7 @@ parameters:
             items:
                 type: string
             type: string
-    endtimeParameter:
+    endtime:
         description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
         in: query
         name: endtime
@@ -19,7 +19,7 @@ parameters:
             items:
                 type: string
             type: string
-    minlatParameter:
+    minlat:
         description: Specify southern boundary for search.
         in: query
         name: minlat
@@ -29,7 +29,7 @@ parameters:
             items:
                 type: string
             format: double
-    maxlatParameter:
+    maxlat:
         description: Specify northern boundary for search.
         in: query
         name: maxlat
@@ -39,7 +39,7 @@ parameters:
             items:
                 type: string
             format: double
-    minlonParameter:
+    minlon:
         description: Specify western boundary for search.
         in: query
         name: minlon
@@ -49,7 +49,7 @@ parameters:
             items:
                 type: string
             format: double
-    maxlonParameter:
+    maxlon:
         description: Specify eastern boundary for search.
         in: query
         name: maxlon
@@ -59,7 +59,7 @@ parameters:
             items:
                 type: string
             format: double
-    latParameter:
+    lat:
         description: Specify the central latitude point for a radial search.
         in: query
         name: lat
@@ -69,7 +69,7 @@ parameters:
             items:
                 type: string
             format: double
-    lonParameter:
+    lon:
         description: Specify the central longitude point for a radial search.
         in: query
         name: lat
@@ -79,7 +79,7 @@ parameters:
             items:
                 type: string
             format: double
-    minradiusParameter:
+    minradius:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Degrees.
         in: query
@@ -90,7 +90,7 @@ parameters:
             items:
                 type: string
             format: double
-    maxradiusParameter:
+    maxradius:
         description: Specify maximum distance from the geographic point defined by
             latitude and longitude. Degrees.
         in: query
@@ -101,7 +101,7 @@ parameters:
             items:
                 type: string
             format: double
-    minradiuskmParameter:
+    minradiuskm:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Kilometers. **This is an INGV extension to
             the FDSN specification.**
@@ -113,7 +113,7 @@ parameters:
             items:
                 type: string
             format: double
-    maxradiuskmParameter:
+    maxradiuskm:
         description: Specify maximum distance from the geographic point defined by
             latitude and longitude. Kilometers. **This is an INGV extension to
             the FDSN specification.**
@@ -125,7 +125,7 @@ parameters:
             items:
                 type: string
             format: double
-    mindepthParameter:
+    mindepth:
         description: Specify minimum depth (kilometers), values increase positively with depth.
         in: query
         name:  mindepth
@@ -135,7 +135,7 @@ parameters:
             items:
                 type: string
             format: double
-    maxdepthParameter:
+    maxdepth:
         description: Specify maximum depth (kilometers), values increase positively with depth.
         in: query
         name:  maxdepth
@@ -145,7 +145,7 @@ parameters:
             items:
                 type: string
             format: double
-    limitParameter:
+    limit:
         description: Limit the results to the specified number of events.
         in: query
         name:  limit
@@ -155,7 +155,7 @@ parameters:
             items:
                 type: string
             format: integer
-    offsetParameter:
+    offset:
         description: Return results starting at the event count specified.
         in: query
         name:  offset
@@ -165,7 +165,7 @@ parameters:
             items:
                 type: string
             format: integer
-    updatedafterParameter:
+    updatedafter:
         description: Limit to events updated after the specified time (useful for
             synchronizing events).
         in: query
@@ -176,7 +176,7 @@ parameters:
             items:
                 type: string
             format: date-time
-    eventidParameter:
+    eventid:
         description: Retrieve an event based on the unique INGV event id.
         in: query
         name:  eventid
@@ -185,7 +185,7 @@ parameters:
             type: integer
             items:
                 type: integer
-    includealloriginsParameter:
+    includeallorigins:
         description: Is used to retrive all origins associated with each event.
         in: query
         name:  includeallorigins
@@ -195,7 +195,7 @@ parameters:
             items:
                 type: boolean
             default: false
-    includeallmagnitudesParameter:
+    includeallmagnitudes:
         description: Is used to retrive all magnitudes associated with each event.
         in: query
         name:  includeallmagnitudes
@@ -205,7 +205,7 @@ parameters:
             items:
                 type: boolean
             default: false
-    includeallstationsmagnitudesParameter:
+    includeallstationsmagnitudes:
         description: Is used to retrive all stations magnitudes associated with each hypocenter.
         in: query
         name:  includeallstationsmagnitudes
@@ -215,7 +215,7 @@ parameters:
             items:
                 type: boolean
             default: false
-    includearrivalsParameter:
+    includearrivals:
         description: Is used to retrive any associated phase arrival information for each event.
         in: query
         name:  includearrivals
