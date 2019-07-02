@@ -298,7 +298,7 @@ components:
     lon:
       description: Specify the central longitude point for a radial search.
       in: query
-      name: lat
+      name: lon
       required: false
       schema:
         $ref: '#/components/schemas/longitude'
