@@ -111,8 +111,8 @@ paths:
         description: Returns a QuakeML message with the following schema
           https://quake.ethz.ch/quakeml/
         parameters:
-          - $ref: '#/components/parameters/starttime'
-          #- $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
+          - $ref: '#/components/schemas/starttime2'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/endtime'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlat'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlat'
@@ -210,11 +210,6 @@ servers:
 
 components:
     parameters:
-        starttime:
-            allOf:
-                - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
-                - description: pippo
-            
         orderby:
             name: orderby
             in: query
@@ -299,3 +294,7 @@ components:
         ErrorResponse:
             type: string
             example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
+        starttime2:
+            allOf:
+                - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
+                - description: pippo            
