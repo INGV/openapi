@@ -109,30 +109,30 @@ paths:
     get:
       description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
       parameters:
-      - $ref: '#/components/parameters/starttimeParameter'
-      - $ref: '#/components/parameters/endtimeParameter'
-      - $ref: '#/components/parameters/minlatParameter'
-      - $ref: '#/components/parameters/maxlatParameter'
-      - $ref: '#/components/parameters/minlonParameter'
-      - $ref: '#/components/parameters/maxlonParameter'
-      - $ref: '#/components/parameters/latParameter'
-      - $ref: '#/components/parameters/lonParameter'
-      - $ref: '#/components/parameters/minradiusParameter'
-      - $ref: '#/components/parameters/maxradiusParameter'
-      - $ref: '#/components/parameters/minradiuskmParameter'
-      - $ref: '#/components/parameters/maxradiuskmParameter'
-      - $ref: '#/components/parameters/mindepthParameter'
-      - $ref: '#/components/parameters/maxdepthParameter'
-      - $ref: '#/components/parameters/orderbyParameter'
-      - $ref: '#/components/parameters/limitParameter'
-      - $ref: '#/components/parameters/offsetParameter'
-      - $ref: '#/components/parameters/updatedafterParameter'
-      - $ref: '#/components/parameters/formatParameter'
-      - $ref: '#/components/parameters/eventidParameter'
-      - $ref: '#/components/parameters/includealloriginsParameter'
-      - $ref: '#/components/parameters/includeallmagnitudesParameter'
-      - $ref: '#/components/parameters/includeallstationsmagnitudesParameter'
-      - $ref: '#/components/parameters/includearrivalsParameter'
+      - $ref: '#/components/parameters/starttime'
+      - $ref: '#/components/parameters/endtime'
+      - $ref: '#/components/parameters/minlat'
+      - $ref: '#/components/parameters/maxlat'
+      - $ref: '#/components/parameters/minlon'
+      - $ref: '#/components/parameters/maxlon'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/minradius'
+      - $ref: '#/components/parameters/maxradius'
+      - $ref: '#/components/parameters/minradiuskm'
+      - $ref: '#/components/parameters/maxradiuskm'
+      - $ref: '#/components/parameters/mindepth'
+      - $ref: '#/components/parameters/maxdepth'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/updatedafter'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/eventid'
+      - $ref: '#/components/parameters/includeallorigins'
+      - $ref: '#/components/parameters/includeallmagnitudes'
+      - $ref: '#/components/parameters/includeallstationsmagnitudes'
+      - $ref: '#/components/parameters/includearrivals'
       responses:
         '200':
           content:
@@ -203,7 +203,7 @@ components:
         format: int32
         type: integer
   parameters:
-    endtimeParameter:
+    endtime:
       description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ]
         (ex. 2013-02-19T17:06:38)
       in: query
@@ -214,7 +214,7 @@ components:
         items:
           type: string
         type: string
-    eventidParameter:
+    eventid:
       description: Retrieve an event based on the unique INGV event id.
       in: query
       name: eventid
@@ -223,7 +223,7 @@ components:
         items:
           type: integer
         type: integer
-    formatParameter:
+    format:
       description: Specify output format.
       in: query
       name: format
@@ -236,7 +236,7 @@ components:
         items:
           type: string
         type: string
-    includeallmagnitudesParameter:
+    includeallmagnitudes:
       description: Is used to retrive all magnitudes associated with each event.
       in: query
       name: includeallmagnitudes
@@ -246,7 +246,7 @@ components:
         items:
           type: boolean
         type: boolean
-    includealloriginsParameter:
+    includeallorigins:
       description: Is used to retrive all origins associated with each event.
       in: query
       name: includeallorigins
@@ -256,7 +256,7 @@ components:
         items:
           type: boolean
         type: boolean
-    includeallstationsmagnitudesParameter:
+    includeallstationsmagnitudes:
       description: Is used to retrive all stations magnitudes associated with each
         hypocenter.
       in: query
@@ -267,7 +267,7 @@ components:
         items:
           type: boolean
         type: boolean
-    includearrivalsParameter:
+    includearrivals:
       description: Is used to retrive any associated phase arrival information for
         each event.
       in: query
@@ -278,7 +278,7 @@ components:
         items:
           type: boolean
         type: boolean
-    latParameter:
+    lat:
       description: Specify the central latitude point for a radial search.
       in: query
       name: lat
@@ -288,7 +288,7 @@ components:
         items:
           type: string
         type: number
-    limitParameter:
+    limit:
       description: Limit the results to the specified number of events.
       in: query
       name: limit
@@ -298,7 +298,7 @@ components:
         items:
           type: string
         type: number
-    lonParameter:
+    lon:
       description: Specify the central longitude point for a radial search.
       in: query
       name: lat
@@ -308,7 +308,7 @@ components:
         items:
           type: string
         type: number
-    maxdepthParameter:
+    maxdepth:
       description: Specify maximum depth (kilometers), values increase positively
         with depth.
       in: query
@@ -319,7 +319,7 @@ components:
         items:
           type: string
         type: number
-    maxlatParameter:
+    maxlat:
       description: Specify northern boundary for search.
       in: query
       name: maxlat
@@ -329,7 +329,7 @@ components:
         items:
           type: string
         type: number
-    maxlonParameter:
+    maxlon:
       description: Specify eastern boundary for search.
       in: query
       name: maxlon
@@ -339,7 +339,7 @@ components:
         items:
           type: string
         type: number
-    maxradiusParameter:
+    maxradius:
       description: Specify maximum distance from the geographic point defined by latitude
         and longitude. Degrees.
       in: query
@@ -350,7 +350,7 @@ components:
         items:
           type: string
         type: number
-    maxradiuskmParameter:
+    maxradiuskm:
       description: Specify maximum distance from the geographic point defined by latitude
         and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
       in: query
@@ -361,7 +361,7 @@ components:
         items:
           type: string
         type: number
-    mindepthParameter:
+    mindepth:
       description: Specify minimum depth (kilometers), values increase positively
         with depth.
       in: query
@@ -372,7 +372,7 @@ components:
         items:
           type: string
         type: number
-    minlatParameter:
+    minlat:
       description: Specify southern boundary for search.
       in: query
       name: minlat
@@ -382,7 +382,7 @@ components:
         items:
           type: string
         type: number
-    minlonParameter:
+    minlon:
       description: Specify western boundary for search.
       in: query
       name: minlon
@@ -392,7 +392,7 @@ components:
         items:
           type: string
         type: number
-    minradiusParameter:
+    minradius:
       description: Specify minimum distance from the geographic point defined by latitude
         and longitude. Degrees.
       in: query
@@ -403,7 +403,7 @@ components:
         items:
           type: string
         type: number
-    minradiuskmParameter:
+    minradiuskm:
       description: Specify minimum distance from the geographic point defined by latitude
         and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
       in: query
@@ -414,7 +414,7 @@ components:
         items:
           type: string
         type: number
-    offsetParameter:
+    offset:
       description: Return results starting at the event count specified.
       in: query
       name: offset
@@ -424,7 +424,7 @@ components:
         items:
           type: string
         type: number
-    orderbyParameter:
+    orderby:
       description: Is used to order the output.
       in: query
       name: orderby
@@ -439,7 +439,7 @@ components:
         items:
           type: string
         type: string
-    starttimeParameter:
+    starttime:
       description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
         ] (ex. 2013-02-18T15:06:38)
       in: query
@@ -450,7 +450,7 @@ components:
         items:
           type: string
         type: string
-    updatedafterParameter:
+    updatedafter:
       description: Limit to events updated after the specified time (useful for synchronizing
         events).
       in: query

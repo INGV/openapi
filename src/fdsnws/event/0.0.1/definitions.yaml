@@ -111,30 +111,30 @@ paths:
         description: Returns a QuakeML message with the following schema
           https://quake.ethz.ch/quakeml/
         parameters:
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttimeParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/endtimeParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlatParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlatParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlonParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlonParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/latParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lonParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiusParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiusParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiuskmParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiuskmParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/mindepthParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxdepthParameter'
-          - $ref: '#/components/parameters/orderbyParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/limitParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/offsetParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/updatedafterParameter'
-          - $ref: '#/components/parameters/formatParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventidParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includealloriginsParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallmagnitudesParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallstationsmagnitudesParameter'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includearrivalsParameter'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/endtime'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlat'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlat'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlon'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlon'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lat'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lon'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradius'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradius'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiuskm'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiuskm'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/mindepth'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxdepth'
+          - $ref: '#/components/parameters/orderby'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/limit'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/offset'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/updatedafter'
+          - $ref: '#/components/parameters/format'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallorigins'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallmagnitudes'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallstationsmagnitudes'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includearrivals'
         responses:
           '200':
             description: Successful request, results follow
@@ -209,7 +209,7 @@ servers:
 
 components:
     parameters:
-        orderbyParameter:
+        orderby:
             name: orderby
             in: query
             description: Is used to order the output.
@@ -224,7 +224,7 @@ components:
                     - magnitude
                     - magnitude-asc
                 default: time
-        formatParameter:
+        format:
             name: format
             in: query
             description: Specify output format.
@@ -238,7 +238,7 @@ components:
                     - text
                 default: xml
           
-#    starttimeParameter:
+#    starttime:
 #      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
         
     headers:
