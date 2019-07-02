@@ -110,7 +110,6 @@ paths:
       description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
       parameters:
       - $ref: '#/components/parameters/starttime'
-      - $ref: '#/components/schemas/starttime2'
       - $ref: '#/components/parameters/endtime'
       - $ref: '#/components/parameters/minlat'
       - $ref: '#/components/parameters/maxlat'
@@ -558,18 +557,3 @@ components:
       items:
         type: string
       type: number
-    starttime:
-      description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
-        ] (ex. 2013-02-18T15:06:38)
-      in: query
-      name: starttime
-      required: false
-      schema:
-        format: date-time
-        items:
-          type: string
-        type: string
-    starttime2:
-      allOf:
-      - $ref: '#/components/schemas/starttime'
-      - description: pippo
