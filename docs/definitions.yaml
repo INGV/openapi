@@ -20,50 +20,49 @@ parameters:
                 type: string
             type: string
     minlat:
-        description: Specify southern boundary for search.
+        description: Specify southern boundary for search (in WGS84).
         in: query
         name: minlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     maxlat:
-        description: Specify northern boundary for search.
+        description: Specify northern boundary for search (in WGS84).
         in: query
         name: maxlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     minlon:
-        description: Specify western boundary for search.
+        description: Specify western boundary for search (in WGS84).
         in: query
         name: minlon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
     maxlon:
-        description: Specify eastern boundary for search.
+        description: Specify eastern boundary for search (in WGS84).
         in: query
         name: maxlon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
     lat:
-        description: Specify the central latitude point for a radial search.
+        description: Specify the central latitude point for a radial search (in WGS84).
         in: query
         name: lat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     lon:
-        description: Specify the central longitude point for a radial search.
+        description: Specify the central longitude point for a radial search (in WGS84).
         in: query
         name: lon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
     minradius:
-        description: Specify minimum distance from the geographic point defined by
-            latitude and longitude. Degrees.
+        description: Specify minimum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
         name:  minradius
         required: false
@@ -73,8 +72,7 @@ parameters:
                 type: string
             format: double
     maxradius:
-        description: Specify maximum distance from the geographic point defined by
-            latitude and longitude. Degrees.
+        description: Specify maximum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
         name:  maxradius
         required: false
