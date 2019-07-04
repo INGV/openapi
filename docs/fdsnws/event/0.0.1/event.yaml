@@ -3,10 +3,11 @@ info:
   contact:
     email: valentino.lauciani@ingv.it
     name: Valentino Lauciani
+    url: http://cnt.rm.ingv.it/en/webservices_and_software
   description: |2-
 
 
-    The **fdsnws-event** web service returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
+    The **fdsnws-event** API returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
 
     The results are returnd as XML in [QuakeML](https://quake.ethz.ch/quakeml) format ([schema](https://quake.ethz.ch/quakeml/docs/xml?action=AttachFile&do=get&target=QuakeML-BED-1.2.xsd)), but may also be requested in text formats.
 
