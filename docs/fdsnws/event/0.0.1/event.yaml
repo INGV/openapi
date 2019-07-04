@@ -77,7 +77,7 @@ info:
   title: INGV Earthquake event
   version: 1.1.50
   x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
-  x-logo: http://webservices.ingv.it/ingv_logo.png
+  x-logo: http://webservices.ingv.it/ingv_logo_text_two_lines.png
   x-summary: The fdsnws-event web service returns event (earthquake) information from
     catalogs originating from the INGV data center.
 servers:
