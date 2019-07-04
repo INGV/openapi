@@ -74,11 +74,12 @@ info:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
   termsOfService: http://www.fdsn.org/webservices/
-  title: INGV ONT FDSNWS event Web Service Documentation
+  title: INGV Earthquake event
   version: 1.1.50
   x-api-id: 4a4a81b3-f01f-4316-94f1-e150718aed2b
   x-logo: http://webservices.ingv.it/ingv_logo.png
-  x-summary: fdsnws-event
+  x-summary: The fdsnws-event web service returns event (earthquake) information from
+    catalogs originating from the INGV data center.
 servers:
 - description: Production
   url: http://webservices.ingv.it/fdsnws/event/1
