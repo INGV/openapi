@@ -250,7 +250,9 @@ components:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Remaining'
         X-RateLimit-Reset:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Reset'
-      
+        Retry-After:
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
+
     responses:
         204NoContent:
           description: Request was properly formatted and submitted but no data matches the selection
@@ -281,7 +283,7 @@ components:
             description: Service Unavailable
             headers:
                 Retry-After:
-                    $ref: '#/headers/Retry-After'
+                    $ref: '#/components/headers/Retry-After'
         default:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/default'
 
