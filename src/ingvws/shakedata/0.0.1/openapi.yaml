@@ -222,7 +222,7 @@ components:
             X-RateLimit-Reset:
                 $ref: '#/components/headers/X-RateLimit-Reset'
         400BadRequest:
-          #$ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'      
+            #$ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/400BadRequest'      
             content:
                 text/plain:
                     schema:
@@ -231,7 +231,15 @@ components:
         404NotFound:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/404NotFound'
         429TooManyRequests:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/429TooManyRequests'
+            #$ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/429TooManyRequests'
+            description: Too many requests
+            headers:
+              X-RateLimit-Limit:
+                  $ref: '#/components/headers/X-RateLimit-Limit'
+              #X-RateLimit-Remaining:
+              #    $ref: '#/components/headers/X-RateLimit-Remaining'
+              X-RateLimit-Reset:
+                  $ref: '#/components/headers/X-RateLimit-Reset'
         503ServiceUnavailable:
           #$ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/503ServiceUnavailable'
             content:
