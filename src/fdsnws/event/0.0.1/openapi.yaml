@@ -78,7 +78,8 @@ info:
        
       # Rate limit:
         The **Rate Limit** and **Rate Reset** are specified in the HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`.
-        The rate limiti is *per* `IP`.
+        
+        The rate limit is *per* `IP`.
         
     termsOfService: http://www.fdsn.org/webservices/
     contact:
