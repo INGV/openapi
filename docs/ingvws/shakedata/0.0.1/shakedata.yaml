@@ -43,22 +43,6 @@ tags:
     url: http://www.fdsn.org/xml/station/
   name: shakedata
 paths:
-  /application.wadl:
-    get:
-      description: Returns application.wadl file content
-      responses:
-        '200':
-          content:
-            application/xml:
-              schema:
-                additionalProperties:
-                  format: int32
-                  type: integer
-                type: object
-          description: successful operation
-      summary: Get application.wadl
-      tags:
-      - shakedata
   /query:
     get:
       description: Returns a XML message with the ShakeMap schema
