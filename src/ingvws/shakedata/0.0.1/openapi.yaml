@@ -1,14 +1,11 @@
 openapi: 3.0.0
-x-origin:
-  - url: http://webservices.ingv.it/ingvws/shakedata/1/swagger.yml
-    format: swagger
-    version: "2.0"
-    converter:
-      url: https://github.com/mermade/oas-kit
-      version: 5.3.0
+servers:
+  - url: http://webservices.ingv.it/ingvws/shakedata/1
 info:
-  title: INGV Shakedata Web Service Documentation
-  description: >-
+  title: INGV Shakedata 
+  x-summary: The ingvws-shakedata web service returns Intensity Measure (IM).
+  x-logo: http://webservices.ingv.it/ingv_logo_text_two_lines.png  
+  description: |-
     
 
     This web service have been designed to retrieve Intensity Measure (IM) parameters based on eventId.
@@ -66,7 +63,8 @@ paths:
       summary: Get ShakeMap XML format
       description: Returns a XML message with the ShakeMap schema
       parameters:
-        - name: eventid
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid'
+        - name: eventid2
           in: query
           description: INGV event id
           required: true
@@ -217,8 +215,7 @@ tags:
     externalDocs:
       description: Find out more
       url: http://www.fdsn.org/xml/station/
-servers:
-  - url: http://webservices.ingv.it/ingvws/shakedata/1
+
 components:
   schemas:
     StationXMLResponse:
