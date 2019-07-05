@@ -89,19 +89,7 @@ paths:
       description: Returns a XML message with the ShakeMap schema
       parameters:
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid__required'
-        - name: catalog
-          in: query
-          description: Limit catalog for the specified 'eventid'
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            enum:
-              - INGV
-              - ESM
-              - ONT
-            default: INGV
+        - $ref: '#/components/parameters/catalog'
         - name: format
           in: query
           description: Specify output format for USGS ShakeMap program input
@@ -234,6 +222,21 @@ tags:
       url: http://www.fdsn.org/xml/station/
 
 components:
+    parameters:
+        catalog:
+            name: catalog
+            in: query
+            description: Limit catalog for the specified 'eventid'
+            required: false
+            schema:
+              type: string
+              items:
+                type: string
+              enum:
+                - INGV
+                - ESM
+                - ONT
+              default: INGV
     responses:
         204NoContent:
           description: Request was properly formatted and submitted but no data matches the selection
