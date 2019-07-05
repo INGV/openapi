@@ -103,9 +103,9 @@ paths:
               X-RateLimit-Reset:
                 $ref: '#/components/headers/X-RateLimit-Reset'
             content:
-              application/xml:
-                schema:
-                  $ref: "#/components/schemas/StationXMLResponse"
+                application/xml:
+                    schema:
+                        $ref: "#/components/schemas/StationXMLResponse"
         '204':
             $ref: '#/components/responses/204NoContent'
         '400':
@@ -233,8 +233,6 @@ components:
         429TooManyRequests:
             #$ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/429TooManyRequests'
             description: Too many requests
-            content:
-                application/problem+json:
             headers:
               X-RateLimit-Limit:
                   $ref: '#/components/headers/X-RateLimit-Limit'
@@ -262,8 +260,8 @@ components:
         MessageResponse:
             type: object
             properties:
-              message:
-                type: string
+                message:
+                    type: string
         VersionResponse:
             type: string
             example: 1.41.0
