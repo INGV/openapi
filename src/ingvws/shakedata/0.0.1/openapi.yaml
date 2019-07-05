@@ -235,8 +235,6 @@ components:
             description: Too many requests
             content:
                 application/problem+json:
-                    schema:
-                        #$ref: '#/schemas/Problem'
             headers:
               X-RateLimit-Limit:
                   $ref: '#/components/headers/X-RateLimit-Limit'
@@ -258,18 +256,18 @@ components:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/default'
 
     schemas:
-      StationXMLResponse:
-        xml:
-          namespace: http://www.fdsn.org/xml/station/1
-      MessageResponse:
-        type: object
-        properties:
-          message:
+        StationXMLResponse:
+            xml:
+              namespace: http://www.fdsn.org/xml/station/1
+        MessageResponse:
+            type: object
+            properties:
+              message:
+                type: string
+        VersionResponse:
             type: string
-      VersionResponse:
-        type: string
-        example: 1.41.0
-      ErrorResponse:
-        type: string
-        example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
+            example: 1.41.0
+        ErrorResponse:
+            type: string
+            example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
      
