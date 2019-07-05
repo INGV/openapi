@@ -140,16 +140,16 @@ parameters:
         name:  eventid
         required: false
         schema:
-            type: number
-            format: integer
+            type: integer
+            format: int64
     eventid__required:
         description: Retrieve an event based on the unique INGV event id.
         in: query
         name:  eventid
         required: true
         schema:
-            type: number
-            format: integer            
+            type: integer
+            format: int64
     includeallorigins:
         description: Is used to retrive all origins associated with each event.
         in: query
