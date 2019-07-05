@@ -94,31 +94,31 @@ paths:
         - $ref: '#/components/parameters/flag'
       responses:
         '200':
-          description: Successful request, results follow
-          headers:
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
-            #X-RateLimit-Remaining:
-            #  $ref: '#/components/headers/X-RateLimit-Remaining'
-            X-RateLimit-Reset:
-              $ref: '#/components/headers/X-RateLimit-Reset'
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/StationXMLResponse"
-          '204':
-              $ref: '#/components/responses/204NoContent'
-          '400':
+            description: Successful request, results follow
+            headers:
+              X-RateLimit-Limit:
+                $ref: '#/components/headers/X-RateLimit-Limit'
+              #X-RateLimit-Remaining:
+              #  $ref: '#/components/headers/X-RateLimit-Remaining'
+              X-RateLimit-Reset:
+                $ref: '#/components/headers/X-RateLimit-Reset'
+            content:
+              application/xml:
+                schema:
+                  $ref: "#/components/schemas/StationXMLResponse"
+        '204':
+            $ref: '#/components/responses/204NoContent'
+        '400':
             $ref: '#/components/responses/400BadRequest'
           # for 401, 403 see the following post before adding the,
           #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
-          '404':
+        '404':
             $ref: '#/components/responses/404NotFound'
-          '429':
+        '429':
             $ref: '#/components/responses/429TooManyRequests'
-          '503':
+        '503':
             $ref: '#/components/responses/503ServiceUnavailable'
-          default:
+        default:
             $ref: '#/components/responses/default'
             
   /version:
@@ -256,7 +256,7 @@ components:
             type: string
       VersionResponse:
         type: string
-        example: 1.1.4
+        example: 1.41.0
       ErrorResponse:
         type: string
         example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
