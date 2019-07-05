@@ -88,16 +88,7 @@ paths:
       summary: Get ShakeMap XML format
       description: Returns a XML message with the ShakeMap schema
       parameters:
-        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid'
-          required: true
-        - name: eventid2
-          in: query
-          description: INGV event id
-          required: true
-          schema:
-            type: number
-            items:
-              type: integer
+        - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid__required'
         - name: catalog
           in: query
           description: Limit catalog for the specified 'eventid'
