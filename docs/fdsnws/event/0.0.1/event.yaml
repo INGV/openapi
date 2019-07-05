@@ -33,8 +33,8 @@ info:
     \ (text format)\n  - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true)\n\
     \n\n Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/\n\
     \ \n# Rate limit:\n  The **Rate Limit** and **Rate Reset** are specified in the\
-    \ HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`.\n  The rate limiti\
-    \ is *per* `IP`.\n  "
+    \ HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`.\n  \n  The rate\
+    \ limit is *per* `IP`.\n  "
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
