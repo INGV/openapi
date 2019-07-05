@@ -65,18 +65,7 @@ paths:
       parameters:
       - $ref: '#/components/parameters/eventid__required'
       - $ref: '#/components/parameters/catalog'
-      - description: Specify output format for USGS ShakeMap program input
-        in: query
-        name: format
-        required: true
-        schema:
-          default: event_dat
-          enum:
-          - event
-          - event_dat
-          items:
-            type: string
-          type: string
+      - $ref: '#/components/parameters/format'
       - description: Specify problematic data
         in: query
         name: flag
@@ -223,6 +212,19 @@ components:
       schema:
         format: integer
         type: number
+    format:
+      description: Specify output format for USGS ShakeMap program input
+      in: query
+      name: format
+      required: true
+      schema:
+        default: event_dat
+        enum:
+        - event
+        - event_dat
+        items:
+          type: string
+        type: string
   responses:
     204NoContent:
       description: Request was properly formatted and submitted but no data matches
