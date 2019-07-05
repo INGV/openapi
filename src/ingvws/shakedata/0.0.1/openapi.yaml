@@ -90,18 +90,7 @@ paths:
       parameters:
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid__required'
         - $ref: '#/components/parameters/catalog'
-        - name: format
-          in: query
-          description: Specify output format for USGS ShakeMap program input
-          required: true
-          schema:
-            type: string
-            items:
-              type: string
-            enum:
-              - event
-              - event_dat
-            default: event_dat
+        - $ref: '#/components/parameters/format'
         - name: flag
           in: query
           description: Specify problematic data
@@ -237,6 +226,19 @@ components:
                 - ESM
                 - ONT
               default: INGV
+        format:
+            name: format
+            in: query
+            description: Specify output format for USGS ShakeMap program input
+            required: true
+            schema:
+              type: string
+              items:
+                type: string
+              enum:
+                - event
+                - event_dat
+              default: event_dat              
     responses:
         204NoContent:
           description: Request was properly formatted and submitted but no data matches the selection
