@@ -77,7 +77,8 @@ info:
        Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
        
       # Rate limit:
-        The **Rate Limit** and **Rate Reset** are specified in the HTTP header and are *per* `IP`.
+        The **Rate Limit** and **Rate Reset** are specified in the HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`.
+        The rate limiti is *per* `IP`.
         
     termsOfService: http://www.fdsn.org/webservices/
     contact:
