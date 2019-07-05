@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   contact:
-    email: valentino.lauciani[at]ingv.it
+    email: valentino.lauciani@ingv.it
     name: Valentino Lauciani
   description: "\n\nThis web service have been designed to retrieve Intensity Measure\
     \ (IM) parameters based on eventId.\n\n\n# Query Usage\n\n\nTo retrieve data from\
