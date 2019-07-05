@@ -199,8 +199,7 @@ components:
       description: Not Found
     429TooManyRequests:
       content:
-        application/problem+json:
-          schema: null
+        application/problem+json: null
       description: Too many requests
       headers:
         X-RateLimit-Limit:
