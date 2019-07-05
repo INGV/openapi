@@ -134,22 +134,6 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/VersionResponse"
-  /application.wadl:
-    get:
-      tags:
-        - shakedata
-      summary: Get application.wadl
-      description: Returns application.wadl file content
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                type: object
-                additionalProperties:
-                  type: integer
-                  format: int32
 tags:
   - name: shakedata
     description: ""
@@ -256,7 +240,7 @@ components:
     schemas:
         StationXMLResponse:
             xml:
-              namespace: http://www.fdsn.org/xml/station/1
+                namespace: http://www.fdsn.org/xml/station/1
         MessageResponse:
             type: object
             properties:
