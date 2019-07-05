@@ -1,0 +1,222 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: valentino.lauciani[at]ingv.it
+  description: "\n\nThis web service have been designed to retrieve Intensity Measure\
+    \ (IM) parameters based on eventId.\n\n# Query Usage\n\nTo retrieve data from\
+    \ the shakedata web service, submit a request by the methods below:\n```\n/query?\
+    \ (eventid) (format) [catalog]\n```\n\nwhere\n```\neventid (required)   ::  Select\
+    \ a specific event by ID.\n                            \ncatalog             \
+    \  ::  Select a catalog for the specified 'eventid'; available catalogs are:\n\
+    \                            - ESM: reviewed data from 'Engineering Strong-Motion\
+    \ database (ESM) - http://esm.mi.ingv.it'\n                            - ONT:\
+    \ automatic data from Real-Time waveforms received to INGV\n                 \
+    \           - INGV (default): union of ESM and ONT data with priority to ESM\n\
+    format (required)     ::  Specify output format for USGS ShakeMap program input;\
+    \ available output are:\n                            - event\n               \
+    \             - event_dat\nflag                  ::  Include problematic data.\
+    \ Valid values are: \n                            - 0 (default): problematic data\
+    \ are not included\n                            - all: problematic data are included\
+    \ and marked with flag=\"1\" in 'event_dat' output\n```\n\n\n# Sample Queries:\n\
+    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event)\n\
+    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat)\n\
+    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=INGV](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=INGV)\n\
+    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ESM](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ESM)\n\
+    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT)"
+  license:
+    name: Creative Commons Attribution 4.0 International
+    url: http://creativecommons.org/licenses/by/4.0/
+  title: INGV Shakedata Web Service Documentation
+  version: 1.41.0
+servers:
+- url: http://webservices.ingv.it/ingvws/shakedata/1
+tags:
+- description: ''
+  externalDocs:
+    description: Find out more
+    url: http://www.fdsn.org/xml/station/
+  name: shakedata
+paths:
+  /application.wadl:
+    get:
+      description: Returns application.wadl file content
+      responses:
+        '200':
+          content:
+            application/xml:
+              schema:
+                additionalProperties:
+                  format: int32
+                  type: integer
+                type: object
+          description: successful operation
+      summary: Get application.wadl
+      tags:
+      - shakedata
+  /query:
+    get:
+      description: Returns a XML message with the ShakeMap schema
+      parameters:
+      - description: INGV event id
+        in: query
+        name: eventid
+        required: true
+        schema:
+          items:
+            type: integer
+          type: number
+      - description: Limit catalog for the specified 'eventid'
+        in: query
+        name: catalog
+        required: false
+        schema:
+          default: INGV
+          enum:
+          - INGV
+          - ESM
+          - ONT
+          items:
+            type: string
+          type: string
+      - description: Specify output format for USGS ShakeMap program input
+        in: query
+        name: format
+        required: true
+        schema:
+          default: event_dat
+          enum:
+          - event
+          - event_dat
+          items:
+            type: string
+          type: string
+      - description: Specify problematic data
+        in: query
+        name: flag
+        required: false
+        schema:
+          default: 0
+          enum:
+          - 0
+          - 1
+          - all
+          items:
+            type: string
+          type: string
+      responses:
+        '200':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StationXMLResponse'
+          description: Successful request, results follow
+        '204':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request was properly formatted and submitted but no data matches
+            the selection
+        '400':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request due to improper specification, unrecognized parameter,
+            parameter value out of range, etc.
+        '401':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized, authentication required
+        '403':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authentication failed or access blocked to restricted data
+        '404':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Alternate to 204 (set via the 'nodata' parameter), normally
+            used for results returned to a web browser.
+        '413':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request would result in too much data being returned or the
+            request itself is too large returned error message should include the
+            service limitations in the detailed description. Service limits should
+            also be documented in the service WADL.
+        '414':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request URI too large
+        '500':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error
+        '503':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service temporarily unavailable, used in maintenance and error
+            conditions
+        default:
+          description: ''
+      summary: Get ShakeMap XML format
+      tags:
+      - shakedata
+  /version:
+    get:
+      description: Returns a string containing StationXML version
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+          description: successful operation
+      summary: Get StationXML version
+      tags:
+      - shakedata
+components:
+  schemas:
+    BodyRequestContent:
+      example: |-
+        parameter1=value
+        parameter2=value
+        NET STA LOC CHA STARTTIME ENDTIME
+        NET STA LOC CHA STARTTIME ENDTIME
+        NET STA LOC CHA STARTTIME ENDTIME
+      type: string
+    ErrorResponse:
+      example: 'Error CODE: SIMPLE ERROR DESCRIPTION ...'
+      type: string
+    MessageResponse:
+      properties:
+        message:
+          type: string
+      type: object
+    StationXMLResponse:
+      xml:
+        namespace: http://www.fdsn.org/xml/station/1
+    VersionResponse:
+      example: 1.1.4
+      type: string
+x-origin:
+- converter:
+    url: https://github.com/mermade/oas-kit
+    version: 5.3.0
+  format: swagger
+  url: http://webservices.ingv.it/ingvws/shakedata/1/swagger.yml
+  version: '2.0'
