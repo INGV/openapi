@@ -91,89 +91,36 @@ paths:
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid__required'
         - $ref: '#/components/parameters/catalog'
         - $ref: '#/components/parameters/format'
-        - name: flag
-          in: query
-          description: Specify problematic data
-          required: false
-          schema:
-            type: string
-            items:
-              type: string
-            enum:
-              - 0
-              - 1
-              - all
-            default: 0
+        - $ref: '#/components/parameters/flag'
       responses:
-        "200":
+        '200':
           description: Successful request, results follow
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            #X-RateLimit-Remaining:
+            #  $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
           content:
             application/xml:
               schema:
                 $ref: "#/components/schemas/StationXMLResponse"
-        "204":
-          description: Request was properly formatted and submitted but no data matches the
-            selection
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "400":
-          description: Bad request due to improper specification, unrecognized parameter,
-            parameter value out of range, etc.
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "401":
-          description: Unauthorized, authentication required
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "403":
-          description: Authentication failed or access blocked to restricted data
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "404":
-          description: Alternate to 204 (set via the 'nodata' parameter), normally used for
-            results returned to a web browser.
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "413":
-          description: Request would result in too much data being returned or the request
-            itself is too large returned error message should include the
-            service limitations in the detailed description. Service limits
-            should also be documented in the service WADL.
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "414":
-          description: Request URI too large
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: Internal server error
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "503":
-          description: Service temporarily unavailable, used in maintenance and error
-            conditions
-          content:
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        default:
-          description: ""
+          '204':
+              $ref: '#/components/responses/204NoContent'
+          '400':
+            $ref: '#/components/responses/400BadRequest'
+          # for 401, 403 see the following post before adding the,
+          #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
+          '404':
+            $ref: '#/components/responses/404NotFound'
+          '429':
+            $ref: '#/components/responses/429TooManyRequests'
+          '503':
+            $ref: '#/components/responses/503ServiceUnavailable'
+          default:
+            $ref: '#/components/responses/default'
+            
   /version:
     get:
       tags:
@@ -238,7 +185,32 @@ components:
               enum:
                 - event
                 - event_dat
-              default: event_dat              
+              default: event_dat
+        flag:
+            name: flag
+            in: query
+            description: Specify problematic data
+            required: false
+            schema:
+              type: string
+              items:
+                type: string
+              enum:
+                - 0
+                - 1
+                - all
+              default: 0
+              
+    headers:
+        X-RateLimit-Limit:
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Limit'
+        #X-RateLimit-Remaining:
+        #    $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Reset'
+        Retry-After:
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
+
     responses:
         204NoContent:
           description: Request was properly formatted and submitted but no data matches the selection
@@ -272,16 +244,6 @@ components:
                     $ref: '#/components/headers/Retry-After'
         default:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/responses/default'
-            
-    headers:
-        X-RateLimit-Limit:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Limit'
-        #X-RateLimit-Remaining:
-        #    $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Remaining'
-        X-RateLimit-Reset:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Reset'
-        Retry-After:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/Retry-After'
 
     schemas:
       StationXMLResponse:
@@ -298,12 +260,4 @@ components:
       ErrorResponse:
         type: string
         example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
-      BodyRequestContent:
-        type: string
-        example: |-
-          parameter1=value
-          parameter2=value
-          NET STA LOC CHA STARTTIME ENDTIME
-          NET STA LOC CHA STARTTIME ENDTIME
-          NET STA LOC CHA STARTTIME ENDTIME
      
