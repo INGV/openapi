@@ -23,7 +23,10 @@ info:
     \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat)\n\
     \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=INGV](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=INGV)\n\
     \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ESM](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ESM)\n\
-    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT)"
+    \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT)\n\
+    \  \n# Rate limit:\n  The **Rate Limit** and **Rate Reset** are specified in the\
+    \ HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`; the rate limit\
+    \ is *per* `IP`.\n  "
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
