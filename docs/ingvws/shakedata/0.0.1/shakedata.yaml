@@ -63,15 +63,7 @@ paths:
     get:
       description: Returns a XML message with the ShakeMap schema
       parameters:
-      - $ref: '#/components/parameters/eventid'
-      - description: INGV event id
-        in: query
-        name: eventid2
-        required: true
-        schema:
-          items:
-            type: integer
-          type: number
+      - $ref: '#/components/parameters/eventid__required'
       - description: Limit catalog for the specified 'eventid'
         in: query
         name: catalog
@@ -221,11 +213,11 @@ components:
         format: int32
         type: integer
   parameters:
-    eventid:
+    eventid__required:
       description: Retrieve an event based on the unique INGV event id.
       in: query
       name: eventid
-      required: false
+      required: true
       schema:
         format: integer
         type: number
