@@ -64,19 +64,7 @@ paths:
       description: Returns a XML message with the ShakeMap schema
       parameters:
       - $ref: '#/components/parameters/eventid__required'
-      - description: Limit catalog for the specified 'eventid'
-        in: query
-        name: catalog
-        required: false
-        schema:
-          default: INGV
-          enum:
-          - INGV
-          - ESM
-          - ONT
-          items:
-            type: string
-          type: string
+      - $ref: '#/components/parameters/catalog'
       - description: Specify output format for USGS ShakeMap program input
         in: query
         name: format
@@ -213,6 +201,20 @@ components:
         format: int32
         type: integer
   parameters:
+    catalog:
+      description: Limit catalog for the specified 'eventid'
+      in: query
+      name: catalog
+      required: false
+      schema:
+        default: INGV
+        enum:
+        - INGV
+        - ESM
+        - ONT
+        items:
+          type: string
+        type: string
     eventid__required:
       description: Retrieve an event based on the unique INGV event id.
       in: query
