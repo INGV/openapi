@@ -3,12 +3,12 @@ info:
   contact:
     email: valentino.lauciani[at]ingv.it
   description: "\n\nThis web service have been designed to retrieve Intensity Measure\
-    \ (IM) parameters based on eventId.\n\n# Query Usage\n\nTo retrieve data from\
-    \ the shakedata web service, submit a request by the methods below:\n```\n/query?\
-    \ (eventid) (format) [catalog]\n```\n\nwhere\n```\neventid (required)   ::  Select\
-    \ a specific event by ID.\n                            \ncatalog             \
-    \  ::  Select a catalog for the specified 'eventid'; available catalogs are:\n\
-    \                            - ESM: reviewed data from 'Engineering Strong-Motion\
+    \ (IM) parameters based on eventId.\n\n\n# Query Usage\n\n\nTo retrieve data from\
+    \ the shakedata web service, submit a request by the methods below:\n\n```\n\n\
+    /query? (eventid) (format) [catalog]\n\n```\n\n\nwhere\n\n```\n\neventid (required)\
+    \   ::  Select a specific event by ID.\n                            \ncatalog\
+    \               ::  Select a catalog for the specified 'eventid'; available catalogs\
+    \ are:\n                            - ESM: reviewed data from 'Engineering Strong-Motion\
     \ database (ESM) - http://esm.mi.ingv.it'\n                            - ONT:\
     \ automatic data from Real-Time waveforms received to INGV\n                 \
     \           - INGV (default): union of ESM and ONT data with priority to ESM\n\
@@ -17,7 +17,7 @@ info:
     \             - event_dat\nflag                  ::  Include problematic data.\
     \ Valid values are: \n                            - 0 (default): problematic data\
     \ are not included\n                            - all: problematic data are included\
-    \ and marked with flag=\"1\" in 'event_dat' output\n```\n\n\n# Sample Queries:\n\
+    \ and marked with flag=\"1\" in 'event_dat' output\n```\n\n\n\n# Sample Queries:\n\
     \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event)\n\
     \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat)\n\
     \  - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=INGV](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=INGV)\n\
@@ -26,8 +26,10 @@ info:
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
-  title: INGV Shakedata Web Service Documentation
+  title: INGV Shakedata
   version: 1.41.0
+  x-logo: http://webservices.ingv.it/ingv_logo_text_two_lines.png
+  x-summary: The ingvws-shakedata web service returns Intensity Measure (IM).
 servers:
 - url: http://webservices.ingv.it/ingvws/shakedata/1
 tags:
@@ -57,9 +59,10 @@ paths:
     get:
       description: Returns a XML message with the ShakeMap schema
       parameters:
+      - $ref: '#/components/parameters/eventid'
       - description: INGV event id
         in: query
-        name: eventid
+        name: eventid2
         required: true
         schema:
           items:
@@ -190,6 +193,15 @@ paths:
       tags:
       - shakedata
 components:
+  parameters:
+    eventid:
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name: eventid
+      required: false
+      schema:
+        format: integer
+        type: number
   schemas:
     BodyRequestContent:
       example: |-
@@ -213,10 +225,3 @@ components:
     VersionResponse:
       example: 1.1.4
       type: string
-x-origin:
-- converter:
-    url: https://github.com/mermade/oas-kit
-    version: 5.3.0
-  format: swagger
-  url: http://webservices.ingv.it/ingvws/shakedata/1/swagger.yml
-  version: '2.0'
