@@ -75,6 +75,10 @@ info:
 
 
        Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
+       
+      # Rate limit:
+        The **Rate Limit** and **Rate Reset** are specified in the HTTP header and are *per* `IP`.
+        
     termsOfService: http://www.fdsn.org/webservices/
     contact:
       name: 'Valentino Lauciani'
@@ -143,8 +147,8 @@ paths:
             headers:
               X-RateLimit-Limit:
                 $ref: '#/components/headers/X-RateLimit-Limit'
-              X-RateLimit-Remaining:
-                $ref: '#/components/headers/X-RateLimit-Remaining'
+              #X-RateLimit-Remaining:
+              #  $ref: '#/components/headers/X-RateLimit-Remaining'
               X-RateLimit-Reset:
                 $ref: '#/components/headers/X-RateLimit-Reset'
             content:
@@ -246,8 +250,8 @@ components:
     headers:
         X-RateLimit-Limit:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Limit'
-        X-RateLimit-Remaining:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Remaining'
+        #X-RateLimit-Remaining:
+        #    $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Remaining'
         X-RateLimit-Reset:
             $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/headers/X-RateLimit-Reset'
         Retry-After:
@@ -259,8 +263,8 @@ components:
           headers:
             X-RateLimit-Limit:
                 $ref: '#/components/headers/X-RateLimit-Limit'
-            X-RateLimit-Remaining:
-                $ref: '#/components/headers/X-RateLimit-Remaining'
+            #X-RateLimit-Remaining:
+            #    $ref: '#/components/headers/X-RateLimit-Remaining'
             X-RateLimit-Reset:
                 $ref: '#/components/headers/X-RateLimit-Reset'
         400BadRequest:
