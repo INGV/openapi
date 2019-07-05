@@ -50,6 +50,7 @@ info:
       - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ESM](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ESM)
       - [http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT](http://webservices.ingv.it/ingvws/shakedata/1/query?eventid=12697591&format=event_dat&catalog=ONT)
   contact:
+    name: 'Valentino Lauciani'
     email: valentino.lauciani[at]ingv.it
   license:
     name: Creative Commons Attribution 4.0 International
