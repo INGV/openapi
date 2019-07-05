@@ -55,7 +55,7 @@ info:
       
   contact:
     name: 'Valentino Lauciani'
-    email: valentino.lauciani[at]ingv.it
+    email: valentino.lauciani@ingv.it
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
@@ -89,6 +89,7 @@ paths:
       description: Returns a XML message with the ShakeMap schema
       parameters:
         - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid'
+          required: true
         - name: eventid2
           in: query
           description: INGV event id
