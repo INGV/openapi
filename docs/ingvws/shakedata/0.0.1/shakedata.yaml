@@ -69,28 +69,28 @@ paths:
       - $ref: '#/components/parameters/flag'
       responses:
         '200':
-          '204':
-            $ref: '#/components/responses/204NoContent'
-          '400':
-            $ref: '#/components/responses/400BadRequest'
-          '404':
-            $ref: '#/components/responses/404NotFound'
-          '429':
-            $ref: '#/components/responses/429TooManyRequests'
-          '503':
-            $ref: '#/components/responses/503ServiceUnavailable'
           content:
             application/xml:
               schema:
                 $ref: '#/components/schemas/StationXMLResponse'
-          default:
-            $ref: '#/components/responses/default'
           description: Successful request, results follow
           headers:
             X-RateLimit-Limit:
               $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Reset:
               $ref: '#/components/headers/X-RateLimit-Reset'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+        default:
+          $ref: '#/components/responses/default'
       summary: Get ShakeMap XML format
       tags:
       - shakedata
@@ -286,5 +286,5 @@ components:
       xml:
         namespace: http://www.fdsn.org/xml/station/1
     VersionResponse:
-      example: 1.1.4
+      example: 1.41.0
       type: string
