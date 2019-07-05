@@ -198,6 +198,9 @@ components:
             $ref: '#/components/schemas/Problem'
       description: Not Found
     429TooManyRequests:
+      content:
+        application/problem+json:
+          schema: null
       description: Too many requests
       headers:
         X-RateLimit-Limit:
