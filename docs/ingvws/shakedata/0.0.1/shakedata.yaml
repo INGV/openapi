@@ -66,89 +66,31 @@ paths:
       - $ref: '#/components/parameters/eventid__required'
       - $ref: '#/components/parameters/catalog'
       - $ref: '#/components/parameters/format'
-      - description: Specify problematic data
-        in: query
-        name: flag
-        required: false
-        schema:
-          default: 0
-          enum:
-          - 0
-          - 1
-          - all
-          items:
-            type: string
-          type: string
+      - $ref: '#/components/parameters/flag'
       responses:
         '200':
+          '204':
+            $ref: '#/components/responses/204NoContent'
+          '400':
+            $ref: '#/components/responses/400BadRequest'
+          '404':
+            $ref: '#/components/responses/404NotFound'
+          '429':
+            $ref: '#/components/responses/429TooManyRequests'
+          '503':
+            $ref: '#/components/responses/503ServiceUnavailable'
           content:
             application/xml:
               schema:
                 $ref: '#/components/schemas/StationXMLResponse'
+          default:
+            $ref: '#/components/responses/default'
           description: Successful request, results follow
-        '204':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Request was properly formatted and submitted but no data matches
-            the selection
-        '400':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad request due to improper specification, unrecognized parameter,
-            parameter value out of range, etc.
-        '401':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Unauthorized, authentication required
-        '403':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Authentication failed or access blocked to restricted data
-        '404':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Alternate to 204 (set via the 'nodata' parameter), normally
-            used for results returned to a web browser.
-        '413':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Request would result in too much data being returned or the
-            request itself is too large returned error message should include the
-            service limitations in the detailed description. Service limits should
-            also be documented in the service WADL.
-        '414':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Request URI too large
-        '500':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Internal server error
-        '503':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Service temporarily unavailable, used in maintenance and error
-            conditions
-        default:
-          description: ''
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
       summary: Get ShakeMap XML format
       tags:
       - shakedata
@@ -210,8 +152,22 @@ components:
       name: eventid
       required: true
       schema:
-        format: integer
-        type: number
+        format: int64
+        type: integer
+    flag:
+      description: Specify problematic data
+      in: query
+      name: flag
+      required: false
+      schema:
+        default: 0
+        enum:
+        - 0
+        - 1
+        - all
+        items:
+          type: string
+        type: string
     format:
       description: Specify output format for USGS ShakeMap program input
       in: query
@@ -277,14 +233,6 @@ components:
             $ref: '#/components/schemas/Problem'
       description: Unexpected error
   schemas:
-    BodyRequestContent:
-      example: |-
-        parameter1=value
-        parameter2=value
-        NET STA LOC CHA STARTTIME ENDTIME
-        NET STA LOC CHA STARTTIME ENDTIME
-        NET STA LOC CHA STARTTIME ENDTIME
-      type: string
     ErrorResponse:
       example: 'Error CODE: SIMPLE ERROR DESCRIPTION ...'
       type: string
