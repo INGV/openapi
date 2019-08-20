@@ -81,8 +81,8 @@ info:
         
     termsOfService: http://www.fdsn.org/webservices/
     contact:
-      name: 'Valentino Lauciani'
-      #url: FIXME
+      name: 'INGV'
+      url: http://terremoti.ingv.it/webservices_and_software
       email: valentino.lauciani@ingv.it
     license:
       name: Creative Commons Attribution 4.0 International
