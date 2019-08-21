@@ -208,7 +208,7 @@ tags:
         description: Find out more
         url: https://quake.ethz.ch/quakeml/
 servers:
-    - url: https://webservices.ingv.it/fdsnws/event/1
+    - url: http://webservices.ingv.it/fdsnws/event/1
       description: Production
 components:
     parameters:
