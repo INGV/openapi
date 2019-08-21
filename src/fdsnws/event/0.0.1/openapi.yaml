@@ -1,6 +1,4 @@
 openapi: 3.0.0
-servers:
-  - url: 'https://webservices.ingv.it/fdsnws/event/1'
 info:
     title: INGV Earthquake event
     x-summary: The fdsnws-event web service returns event (earthquake) information from catalogs originating from the INGV data center.
@@ -212,7 +210,6 @@ tags:
 servers:
     - url: http://webservices.ingv.it/fdsnws/event/1
       description: Production
-
 components:
     parameters:
         orderby:
