@@ -48,7 +48,7 @@ info:
     catalogs originating from the INGV data center.
 servers:
 - description: Production
-  url: http://webservices.ingv.it/fdsnws/event/1
+  url: https://webservices.ingv.it/fdsnws/event/1
 tags:
 - description: ''
   externalDocs:
