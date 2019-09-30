@@ -447,6 +447,10 @@ schemas:
             $ref: '#/schemas/cha'
           loc:
             $ref: '#/schemas/loc'
+          latitude:
+            $ref: '#/schemas/latitude'
+          longitude:
+            $ref: '#/schemas/longitude'
           Plabel:
             type: string
             description: Todo description | ???
