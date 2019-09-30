@@ -270,8 +270,7 @@ schemas:
               $ref: '#/schemas/type_hypocenter__name'
             originTime:
               $ref: '#/schemas/hypocenter__ot'
-            latitude:
-              $ref: '#/schemas/latitude'
+            $ref: '#/schemas/latitude'
             longitude:
               $ref: '#/schemas/longitude'
             depth:
