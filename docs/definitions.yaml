@@ -498,7 +498,6 @@ schemas:
             type: number
             description: Importance of S arrival | col105 F4.3
             format: float
-schemas:
     latitude:
         type: number
         format: double
