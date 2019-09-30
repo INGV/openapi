@@ -271,9 +271,9 @@ schemas:
             originTime:
               $ref: '#/schemas/hypocenter__ot'
             latitude:
-              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
+              $ref: '#/schemas/latitude'
             longitude:
-              $ref: '#/schemas/hypocenter__lon'
+              $ref: '#/schemas/longitude'
             depth:
               $ref: '#/schemas/hypocenter__depth'
             nph:
