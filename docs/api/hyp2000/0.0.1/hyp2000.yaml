@@ -373,6 +373,8 @@ paths:
           description: successful operation
           schema:
             $ref: '#/components/schemas/hyp2000arc'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       summary: Hypoinverse 2000
       tags:
       - hyp2000
