@@ -224,6 +224,46 @@ schemas:
         type: number
         description: Azimutal gap | double
         format: double
+    hypocenter__rms:
+        type: number
+        description: Root mean square | double
+        format: double
+    hypocenter__e0_az:
+        type: integer
+        description: azimuth of largest principal error | double
+        format: double
+    hypocenter__e0_dip:
+        type: integer
+        description: dip of largest principal error | double
+        format: double
+    hypocenter__e0:
+        type: number
+        description: magnitude (km) of largest principal error | double
+        format: double
+    hypocenter__e1_az:
+        type: integer
+        description: azimuth of intermediate principal error | double
+        format: double
+    hypocenter__e1_dip:
+        type: integer
+        description: dip of intermediate principal error | double
+        format: double
+    hypocenter__e1:
+        type: number
+        description: magnitude (km) of intermed principal error | double
+        format: double
+    hypocenter__e2_az:
+        type: integer
+        description: azimuth of smallest principal error | double
+        format: double
+    hypocenter__e2_dip:
+        type: integer
+        description: dip of smallest principal error | double
+        format: double
+    hypocenter__e2:
+        type: number
+        description: magnitude (km) of smallest principal error | double
+        format: double
     type_hypocenter__name:
         description: Localization name (es:01,XX,WW,..) | varchar(255)
         type: string
