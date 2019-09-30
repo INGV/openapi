@@ -220,6 +220,10 @@ schemas:
         type: integer
         description: '# P first motions | int(11)'
         format: int64
+    hypocenter__azim_gap:
+        type: number
+        description: Azimutal gap | double
+        format: double
     type_hypocenter__name:
         description: Localization name (es:01,XX,WW,..) | varchar(255)
         type: string
