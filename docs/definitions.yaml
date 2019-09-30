@@ -214,6 +214,140 @@ definitions:
         description: Channel location | char(2)
         example: '00'
         default: '--'
+    hyp2000arc:
+      properties:
+        data:
+          allOf:
+            - $ref: '#/definitions/ewLogo'
+            - $ref: '#/definitions/hyp2000arc__base'
+    ewLogo:
+      properties:
+        ewLogo:
+          required:
+            - type
+            - module
+            - installation
+            - instance
+          properties:
+            type:
+              type: string
+              description: Type description | ???
+              example: TYPE_QUAKE2K
+            module:
+              type: string
+              description: Module description | ???
+              example: MOD_BINDER_EW
+            installation:
+              type: string
+              description: Installation description | ???
+              example: INST_INGV
+            user:
+              type: string
+              description: Hostname user | ???
+              example: ew
+            hostname:
+              type: string
+              description: Hostname | ???
+              example: hew3.int.ingv.it
+            instance:
+              type: string
+              description: Instance description | ???
+              example: hew3_mole
+    hyp2000arc__base:
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - originTime
+            - latitude
+            - longitude
+            - depth
+          properties:
+            quakeId:
+              $ref: '#/definitions/event__id_locator'
+            version:
+              $ref: '#/definitions/type_hypocenter__name'
+            originTime:
+              $ref: '#/definitions/hypocenter__ot'
+            latitude:
+              $ref: '#/definitions/hypocenter__lat'
+            longitude:
+              $ref: '#/definitions/hypocenter__lon'
+            depth:
+              $ref: '#/definitions/hypocenter__depth'
+            nph:
+              $ref: '#/definitions/hypocenter__nph'
+            nphS:
+              $ref: '#/definitions/hypocenter__nph_s'
+            nphtot:
+              $ref: '#/definitions/hypocenter__nph_tot'
+            nPfm:
+              $ref: '#/definitions/hypocenter__nph_fm'
+            gap:
+              $ref: '#/definitions/hypocenter__azim_gap'
+            dmin:
+              type: number
+              description: dmin description | ???
+              format: double
+            rms:
+              $ref: '#/definitions/hypocenter__rms'
+            e0az:
+              $ref: '#/definitions/hypocenter__e0_az'
+            e0dp:
+              $ref: '#/definitions/hypocenter__e0_dip'
+            e0:
+              $ref: '#/definitions/hypocenter__e0'
+            e1az:
+              $ref: '#/definitions/hypocenter__e1_az'
+            e1dp:
+              $ref: '#/definitions/hypocenter__e1_dip'
+            e1:
+              $ref: '#/definitions/hypocenter__e1'
+            e2:
+              $ref: '#/definitions/hypocenter__e2'
+            erh:
+              $ref: '#/definitions/hypocenter__err_h'
+            erz:
+              $ref: '#/definitions/hypocenter__err_z'
+            Md:
+              type: number
+              description: Md description | ???
+              format: double
+            reg:
+              type: string
+              description: ingvQuality description | ???
+              example: ' '
+            labelpref:
+              type: string
+              description: ingvQuality description | ???
+              example: ' '
+            Mpref:
+              type: number
+              description: Mpref description | ???
+              format: double
+            wtpref:
+              type: number
+              description: wtpref description | ???
+              format: double
+            mdtype:
+              type: string
+              description: ingvQuality description | ???
+              example: D
+            mdmad:
+              type: number
+              description: mdmad description | ???
+              format: double
+            mdwt:
+              type: number
+              description: mdwt description | ???
+              format: double
+            ingvQuality:
+              type: string
+              description: ingvQuality description | ???
+              example: DD
+            phases:
+              $ref: '#/definitions/hyp2000arc__phases'
     hyp2000arc__phases:
       type: array
       items:
