@@ -199,8 +199,7 @@ schemas:
         format: double
         example: 0.02
     latitude:
-        type: number
-        format: double
+        $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
         type: number
         format: double
