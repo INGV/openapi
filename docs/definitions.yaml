@@ -193,6 +193,11 @@ schemas:
         type: string
         description: Origin time | datetime(6)
         example: '2016-06-22 16:52:06.260000'
+    depth:
+        type: number
+        description: Depth in Km | double
+        format: double
+        example: 0.02
     type_hypocenter__name:
         description: Localization name (es:01,XX,WW,..) | varchar(255)
         type: string
@@ -275,7 +280,7 @@ schemas:
             longitude:
               $ref: '#/schemas/longitude'
             depth:
-              $ref: '#/schemas/hypocenter__depth'
+              $ref: '#/schemas/depth'
             nph:
               $ref: '#/schemas/hypocenter__nph'
             nphS:
