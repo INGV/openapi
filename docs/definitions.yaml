@@ -182,6 +182,188 @@ parameters:
         schema:
             type: boolean
             default: false
+definitions:
+    event__id_locator:
+        type: integer
+        description: Event id created by locator | bigint(20)
+        format: int64
+        example: 182491
+        default: 0
+    hypocenter__ot:
+        type: string
+        description: Origin time | datetime(6)
+        example: '2016-06-22 16:52:06.260000'
+    type_hypocenter__name:
+        description: Localization name (es:01,XX,WW,..) | varchar(255)
+        type: string
+        example: ew prelim
+    net:
+        type: string
+        description: Channel net code | char(2)
+        example: IV
+    sta:
+        type: string
+        description: Channel station code | varchar(5)
+        example: ACER
+    cha:
+        type: string
+        description: Channel code | char(3)
+        example: HHZ
+    loc:
+        type: string
+        description: Channel location | char(2)
+        example: '00'
+        default: '--'
+    hyp2000arc__phases:
+      type: array
+      items:
+        required:
+          - net
+          - sta
+          - comp
+          - loc
+        properties:
+          net:
+            $ref: '#/definitions/net'
+          sta:
+            $ref: '#/definitions/sta'
+          comp:
+            $ref: '#/definitions/cha'
+          loc:
+            $ref: '#/definitions/loc'
+          Plabel:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Slabel:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Ponset:
+            type: string
+            description: Todo description | ???
+            example: P
+          Sonset:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Pat:
+            $ref: '#/definitions/hypocenter__ot'
+          Sat:
+            $ref: '#/definitions/hypocenter__ot'
+          Pres:
+            type: number
+            description: Todo description | ???
+            format: double
+          Sres:
+            type: number
+            description: Todo description | ???
+            format: double
+          Pqual:
+            type: number
+            description: Todo description | ???
+            format: double
+          Squal:
+            type: number
+            description: Todo description | ???
+            format: double
+          codalen:
+            type: number
+            description: Todo description | ???
+            format: double
+          codawt:
+            type: number
+            description: Todo description | ???
+            format: double
+          Pfm:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Sfm:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          datasrc:
+            type: string
+            description: Todo description | ???
+            example: W
+          Md:
+            type: number
+            description: Todo description | ???
+            format: double
+          azm:
+            type: number
+            description: Todo description | ???
+            format: double
+          takeoff:
+            type: number
+            description: Todo description | ???
+            format: double
+          dist:
+            type: number
+            description: Todo description | ???
+            format: double
+          Pwt:
+            type: number
+            description: Todo description | ???
+            format: double
+          Swt:
+            type: number
+            description: Todo description | ???
+            format: double
+          pamp:
+            type: number
+            description: Todo description | ???
+            format: double
+          codalenObs:
+            type: number
+            description: Todo description | ???
+            format: double
+          ccntr:
+            type: array
+            items:
+              description: Todo description | ???
+              example:
+                - 0
+                - 0
+                - 0
+                - 0
+                - 0
+          caav:
+            type: array
+            items:
+              description: Todo description | ???
+              example:
+                - 0
+                - 0
+                - 0
+                - 0
+                - 0
+          amplitude:
+            type: number
+            description: Amplitude (Normally peak-to-peak) | col55 F7.2
+            format: float
+          ampUnitsCode:
+            type: integer
+            description: 'Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital counts | col62 I2'
+          ampType:
+            type: integer
+            description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration 4=no magnitude | col114 I2
+          ampMag:
+            type: number
+            description: Amplitude magnitude for this station | col98 F3.2
+            format: float
+          ampMagWeightCode:
+            type: integer
+            description: Amplitude magnitude weight code | col82 I1
+          importanceP:
+            type: number
+            description: Importance of P arrival | col101 F4.3
+            format: float
+          importanceS:
+            type: number
+            description: Importance of S arrival | col105 F4.3
+            format: float
 schemas:
     latitude:
         type: number
