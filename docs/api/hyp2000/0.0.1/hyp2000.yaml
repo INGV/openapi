@@ -54,80 +54,6 @@ tags:
     url: https://quake.ethz.ch/quakeml/
   name: fdsnws-event-1.1
 paths:
-  /application.wadl:
-    get:
-      description: Returns application.wadl file content
-      responses:
-        '200':
-          content:
-            application/xml:
-              schema:
-                additionalProperties:
-                  format: int32
-                  type: integer
-                type: object
-          description: Successful request, results follow
-      summary: Get application.wadl
-      tags:
-      - fdsnws-event-1.1
-  /query:
-    get:
-      description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
-      parameters:
-      - $ref: '#/components/parameters/starttime'
-      - $ref: '#/components/parameters/endtime'
-      - $ref: '#/components/parameters/minlat'
-      - $ref: '#/components/parameters/maxlat'
-      - $ref: '#/components/parameters/minlon'
-      - $ref: '#/components/parameters/maxlon'
-      - $ref: '#/components/parameters/lat'
-      - $ref: '#/components/parameters/lon'
-      - $ref: '#/components/parameters/minradius'
-      - $ref: '#/components/parameters/maxradius'
-      - $ref: '#/components/parameters/minradiuskm'
-      - $ref: '#/components/parameters/maxradiuskm'
-      - $ref: '#/components/parameters/mindepth'
-      - $ref: '#/components/parameters/maxdepth'
-      - $ref: '#/components/parameters/orderby'
-      - $ref: '#/components/parameters/limit'
-      - $ref: '#/components/parameters/offset'
-      - $ref: '#/components/parameters/updatedafter'
-      - $ref: '#/components/parameters/format'
-      - $ref: '#/components/parameters/eventid'
-      - $ref: '#/components/parameters/includeallorigins'
-      - $ref: '#/components/parameters/includeallmagnitudes'
-      - $ref: '#/components/parameters/includeallstationsmagnitudes'
-      - $ref: '#/components/parameters/includearrivals'
-      responses:
-        '200':
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/QuakeMLResponse'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/QuakeMLResponse'
-          description: Successful request, results follow
-          headers:
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
-            X-RateLimit-Reset:
-              $ref: '#/components/headers/X-RateLimit-Reset'
-        '204':
-          $ref: '#/components/responses/204NoContent'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '429':
-          $ref: '#/components/responses/429TooManyRequests'
-        '503':
-          $ref: '#/components/responses/503ServiceUnavailable'
-        default:
-          $ref: '#/components/responses/default'
-      summary: Get QuakeML
-      tags:
-      - fdsnws-event-1.1
   /v1/hyp2000/:
     post:
       description: Hypoinverse 2000 location using WS.
@@ -189,189 +115,11 @@ paths:
                   allOf:
                   - properties:
                       phases:
-                        items:
-                          properties:
-                            Md:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            Pat:
-                              description: Origin time | datetime(6)
-                              example: '2016-06-22 16:52:06.260000'
-                              type: string
-                            Pfm:
-                              description: Todo description | ???
-                              example: ' '
-                              type: string
-                            Plabel:
-                              description: Todo description | ???
-                              example: ' '
-                              type: string
-                            Ponset:
-                              description: Todo description | ???
-                              example: P
-                              type: string
-                            Pqual:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            Pres:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            Pwt:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            Sat:
-                              description: Origin time | datetime(6)
-                              example: '2016-06-22 16:52:06.260000'
-                              type: string
-                            Sfm:
-                              description: Todo description | ???
-                              example: ' '
-                              type: string
-                            Slabel:
-                              description: Todo description | ???
-                              example: ' '
-                              type: string
-                            Sonset:
-                              description: Todo description | ???
-                              example: ' '
-                              type: string
-                            Squal:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            Sres:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            Swt:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            ampMag:
-                              description: Amplitude magnitude for this station |
-                                col98 F3.2
-                              format: float
-                              type: number
-                            ampMagWeightCode:
-                              description: Amplitude magnitude weight code | col82
-                                I1
-                              type: integer
-                            ampType:
-                              description: Amplitude type 0=unspecified 1=Wood-Anderson
-                                2=velocity 3=acceleration 4=no magnitude | col114
-                                I2
-                              type: integer
-                            ampUnitsCode:
-                              description: Amp units code. 0=PP mm, 1=0 to peak mm
-                                (UCB), 2=digital counts | col62 I2
-                              type: integer
-                            amplitude:
-                              description: Amplitude (Normally peak-to-peak) | col55
-                                F7.2
-                              format: float
-                              type: number
-                            azm:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            caav:
-                              items:
-                                description: Todo description | ???
-                                example:
-                                - 0
-                                - 0
-                                - 0
-                                - 0
-                                - 0
-                              type: array
-                            ccntr:
-                              items:
-                                description: Todo description | ???
-                                example:
-                                - 0
-                                - 0
-                                - 0
-                                - 0
-                                - 0
-                              type: array
-                            codalen:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            codalenObs:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            codawt:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            comp:
-                              description: Channel code | char(3)
-                              example: HHZ
-                              type: string
-                            datasrc:
-                              description: Todo description | ???
-                              example: W
-                              type: string
-                            dist:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            importanceP:
-                              description: Importance of P arrival | col101 F4.3
-                              format: float
-                              type: number
-                            importanceS:
-                              description: Importance of S arrival | col105 F4.3
-                              format: float
-                              type: number
-                            latitude:
-                              $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
-                            loc:
-                              default: --
-                              description: Channel location | char(2)
-                              example: '00'
-                              type: string
-                            longitude:
-                              format: double
-                              type: number
-                            net:
-                              description: Channel net code | char(2)
-                              example: IV
-                              type: string
-                            pamp:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                            sta:
-                              description: Channel station code | varchar(5)
-                              example: ACER
-                              type: string
-                            takeoff:
-                              description: Todo description | ???
-                              format: double
-                              type: number
-                          required:
-                          - net
-                          - sta
-                          - comp
-                          - loc
-                        type: array
+                        $ref: '#/components/schemas/hyp2000arc__phases'
                       quakeId:
-                        default: 0
-                        description: Event id created by locator | bigint(20)
-                        example: 182491
-                        format: int64
-                        type: integer
+                        $ref: '#/components/schemas/event__id_locator'
                       version:
-                        description: Localization name (es:01,XX,WW,..) | varchar(255)
-                        example: ew prelim
-                        type: string
+                        $ref: '#/components/schemas/type_hypocenter__name'
                     required: []
       responses:
         '200':
@@ -381,19 +129,6 @@ paths:
       summary: Hypoinverse 2000
       tags:
       - hyp2000
-  /version:
-    get:
-      description: Returns a string containing QuakeML version
-      responses:
-        '200':
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/VersionResponse'
-          description: Successful request, results follow
-      summary: Get QuakeML version
-      tags:
-      - fdsnws-event-1.1
 components:
   headers:
     Retry-After:
@@ -414,23 +149,6 @@ components:
         format: int32
         type: integer
   parameters:
-    endtime:
-      description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ]
-        (ex. 2013-02-19T17:06:38)
-      in: query
-      name: endtime
-      required: false
-      schema:
-        format: date-time
-        type: string
-    eventid:
-      description: Retrieve an event based on the unique INGV event id.
-      in: query
-      name: eventid
-      required: false
-      schema:
-        format: int64
-        type: integer
     format:
       description: Specify output format.
       in: query
@@ -444,152 +162,6 @@ components:
         items:
           type: string
         type: string
-    includeallmagnitudes:
-      description: Is used to retrive all magnitudes associated with each event.
-      in: query
-      name: includeallmagnitudes
-      required: false
-      schema:
-        default: false
-        type: boolean
-    includeallorigins:
-      description: Is used to retrive all origins associated with each event.
-      in: query
-      name: includeallorigins
-      required: false
-      schema:
-        default: false
-        type: boolean
-    includeallstationsmagnitudes:
-      description: Is used to retrive all stations magnitudes associated with each
-        hypocenter.
-      in: query
-      name: includeallstationsmagnitudes
-      required: false
-      schema:
-        default: false
-        type: boolean
-    includearrivals:
-      description: Is used to retrive any associated phase arrival information for
-        each event.
-      in: query
-      name: includearrivals
-      required: false
-      schema:
-        default: false
-        type: boolean
-    lat:
-      description: Specify the central latitude point for a radial search (in WGS84).
-      in: query
-      name: lat
-      required: false
-      schema:
-        $ref: '#/components/schemas/latitude'
-    limit:
-      description: Limit the results to the specified number of events.
-      in: query
-      name: limit
-      required: false
-      schema:
-        format: int32
-        type: integer
-    lon:
-      description: Specify the central longitude point for a radial search (in WGS84).
-      in: query
-      name: lon
-      required: false
-      schema:
-        $ref: '#/components/schemas/longitude'
-    maxdepth:
-      description: Specify maximum depth (kilometers), values increase positively
-        with depth.
-      in: query
-      name: maxdepth
-      required: false
-      schema:
-        format: double
-        type: number
-    maxlat:
-      description: Specify northern boundary for search (in WGS84).
-      in: query
-      name: maxlat
-      required: false
-      schema:
-        $ref: '#/components/schemas/latitude'
-    maxlon:
-      description: Specify eastern boundary for search (in WGS84).
-      in: query
-      name: maxlon
-      required: false
-      schema:
-        $ref: '#/components/schemas/longitude'
-    maxradius:
-      description: Specify maximum distance from the geographic point defined by latitude
-        and longitude (in Degrees).
-      in: query
-      name: maxradius
-      required: false
-      schema:
-        format: double
-        type: number
-    maxradiuskm:
-      description: Specify maximum distance from the geographic point defined by latitude
-        and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
-      in: query
-      name: maxradiuskm
-      required: false
-      schema:
-        format: double
-        type: number
-    mindepth:
-      description: Specify minimum depth (kilometers), values increase positively
-        with depth.
-      in: query
-      name: mindepth
-      required: false
-      schema:
-        format: double
-        type: number
-    minlat:
-      description: Specify southern boundary for search (in WGS84).
-      in: query
-      name: minlat
-      required: false
-      schema:
-        $ref: '#/components/schemas/latitude'
-    minlon:
-      description: Specify western boundary for search (in WGS84).
-      in: query
-      name: minlon
-      required: false
-      schema:
-        $ref: '#/components/schemas/longitude'
-    minradius:
-      description: Specify minimum distance from the geographic point defined by latitude
-        and longitude (in Degrees).
-      in: query
-      name: minradius
-      required: false
-      schema:
-        format: double
-        type: number
-    minradiuskm:
-      description: Specify minimum distance from the geographic point defined by latitude
-        and longitude. Kilometers. **This is an INGV extension to the FDSN specification.**
-      in: query
-      name: minradiuskm
-      required: false
-      schema:
-        format: double
-        type: number
-    offset:
-      description: Return results starting at the event count specified.
-      in: query
-      name: offset
-      required: false
-      schema:
-        format: int32
-        type: number
     orderby:
       description: Is used to order the output.
       in: query
@@ -604,24 +176,6 @@ components:
         - magnitude-asc
         items:
           type: string
-        type: string
-    starttime:
-      description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD**
-        ] (ex. 2013-02-18T15:06:38)
-      in: query
-      name: starttime
-      required: false
-      schema:
-        format: date-time
-        type: string
-    updatedafter:
-      description: Limit to events updated after the specified time (useful for synchronizing
-        events).
-      in: query
-      name: updatedafter
-      required: false
-      schema:
-        format: date-time
         type: string
   responses:
     204NoContent:
@@ -1071,8 +625,195 @@ components:
     VersionResponse:
       example: 1.1.50
       type: string
+    cha:
+      description: Channel code | char(3)
+      example: HHZ
+      type: string
+    event__id_locator:
+      default: 0
+      description: Event id created by locator | bigint(20)
+      example: 182491
+      format: int64
+      type: integer
+    hyp2000arc__phases:
+      items:
+        properties:
+          Md:
+            description: Todo description | ???
+            format: double
+            type: number
+          Pat:
+            $ref: '#/components/schemas/hypocenter__ot'
+          Pfm:
+            description: Todo description | ???
+            example: ' '
+            type: string
+          Plabel:
+            description: Todo description | ???
+            example: ' '
+            type: string
+          Ponset:
+            description: Todo description | ???
+            example: P
+            type: string
+          Pqual:
+            description: Todo description | ???
+            format: double
+            type: number
+          Pres:
+            description: Todo description | ???
+            format: double
+            type: number
+          Pwt:
+            description: Todo description | ???
+            format: double
+            type: number
+          Sat:
+            $ref: '#/components/schemas/hypocenter__ot'
+          Sfm:
+            description: Todo description | ???
+            example: ' '
+            type: string
+          Slabel:
+            description: Todo description | ???
+            example: ' '
+            type: string
+          Sonset:
+            description: Todo description | ???
+            example: ' '
+            type: string
+          Squal:
+            description: Todo description | ???
+            format: double
+            type: number
+          Sres:
+            description: Todo description | ???
+            format: double
+            type: number
+          Swt:
+            description: Todo description | ???
+            format: double
+            type: number
+          ampMag:
+            description: Amplitude magnitude for this station | col98 F3.2
+            format: float
+            type: number
+          ampMagWeightCode:
+            description: Amplitude magnitude weight code | col82 I1
+            type: integer
+          ampType:
+            description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration
+              4=no magnitude | col114 I2
+            type: integer
+          ampUnitsCode:
+            description: Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital
+              counts | col62 I2
+            type: integer
+          amplitude:
+            description: Amplitude (Normally peak-to-peak) | col55 F7.2
+            format: float
+            type: number
+          azm:
+            description: Todo description | ???
+            format: double
+            type: number
+          caav:
+            items:
+              description: Todo description | ???
+              example:
+              - 0
+              - 0
+              - 0
+              - 0
+              - 0
+            type: array
+          ccntr:
+            items:
+              description: Todo description | ???
+              example:
+              - 0
+              - 0
+              - 0
+              - 0
+              - 0
+            type: array
+          codalen:
+            description: Todo description | ???
+            format: double
+            type: number
+          codalenObs:
+            description: Todo description | ???
+            format: double
+            type: number
+          codawt:
+            description: Todo description | ???
+            format: double
+            type: number
+          comp:
+            $ref: '#/components/schemas/cha'
+          datasrc:
+            description: Todo description | ???
+            example: W
+            type: string
+          dist:
+            description: Todo description | ???
+            format: double
+            type: number
+          importanceP:
+            description: Importance of P arrival | col101 F4.3
+            format: float
+            type: number
+          importanceS:
+            description: Importance of S arrival | col105 F4.3
+            format: float
+            type: number
+          latitude:
+            $ref: '#/components/schemas/latitude'
+          loc:
+            $ref: '#/components/schemas/loc'
+          longitude:
+            $ref: '#/components/schemas/longitude'
+          net:
+            $ref: '#/components/schemas/net'
+          pamp:
+            description: Todo description | ???
+            format: double
+            type: number
+          sta:
+            $ref: '#/components/schemas/sta'
+          takeoff:
+            description: Todo description | ???
+            format: double
+            type: number
+        required:
+        - net
+        - sta
+        - comp
+        - loc
+      type: array
+    hypocenter__ot:
+      description: Origin time | datetime(6)
+      example: '2016-06-22 16:52:06.260000'
+      type: string
     latitude:
       $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
+    loc:
+      default: --
+      description: Channel location | char(2)
+      example: '00'
+      type: string
     longitude:
       format: double
       type: number
+    net:
+      description: Channel net code | char(2)
+      example: IV
+      type: string
+    sta:
+      description: Channel station code | varchar(5)
+      example: ACER
+      type: string
+    type_hypocenter__name:
+      description: Localization name (es:01,XX,WW,..) | varchar(255)
+      example: ew prelim
+      type: string
