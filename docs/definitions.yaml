@@ -263,6 +263,14 @@ schemas:
     hypocenter__e2:
         type: number
         description: magnitude (km) of smallest principal error | double
+        format: double        
+    hypocenter__err_h:
+        type: number
+        description: Depth error | double
+        format: double
+    hypocenter__err_z:
+        type: number
+        description: Depth error | double
         format: double
     type_hypocenter__name:
         description: Localization name (es:01,XX,WW,..) | varchar(255)
