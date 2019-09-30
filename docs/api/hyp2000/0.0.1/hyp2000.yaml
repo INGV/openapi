@@ -375,9 +375,7 @@ paths:
                     required: []
       responses:
         '200':
-          description: successful operation
-          schema:
-            $ref: '#/components/schemas/hyp2000arc'
+          $ref: '#/components/responses/hyp2000arc'
         '404':
           $ref: '#/components/responses/404NotFound'
       summary: Hypoinverse 2000
@@ -668,6 +666,347 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
       description: Unexpected error
+    hyp2000arc:
+      properties:
+        data:
+          allOf:
+          - properties:
+              ewLogo:
+                properties:
+                  hostname:
+                    description: Hostname | ???
+                    example: hew3.int.ingv.it
+                    type: string
+                  installation:
+                    description: Installation description | ???
+                    example: INST_INGV
+                    type: string
+                  instance:
+                    description: Instance description | ???
+                    example: hew3_mole
+                    type: string
+                  module:
+                    description: Module description | ???
+                    example: MOD_BINDER_EW
+                    type: string
+                  type:
+                    description: Type description | ???
+                    example: TYPE_QUAKE2K
+                    type: string
+                  user:
+                    description: Hostname user | ???
+                    example: ew
+                    type: string
+                required:
+                - type
+                - module
+                - installation
+                - instance
+          - properties:
+              ewMessage:
+                properties:
+                  Md:
+                    description: Md description | ???
+                    format: double
+                    type: number
+                  Mpref:
+                    description: Mpref description | ???
+                    format: double
+                    type: number
+                  depth:
+                    description: Depth in Km | double
+                    example: 0.02
+                    format: double
+                    type: number
+                  dmin:
+                    description: dmin description | ???
+                    format: double
+                    type: number
+                  e0:
+                    description: magnitude (km) of largest principal error | double
+                    format: double
+                    type: number
+                  e0az:
+                    description: azimuth of largest principal error | double
+                    format: double
+                    type: integer
+                  e0dp:
+                    description: dip of largest principal error | double
+                    format: double
+                    type: integer
+                  e1:
+                    description: magnitude (km) of intermed principal error | double
+                    format: double
+                    type: number
+                  e1az:
+                    description: azimuth of intermediate principal error | double
+                    format: double
+                    type: integer
+                  e1dp:
+                    description: dip of intermediate principal error | double
+                    format: double
+                    type: integer
+                  e2:
+                    description: magnitude (km) of smallest principal error | double
+                    format: double
+                    type: number
+                  erh:
+                    description: Depth error | double
+                    format: double
+                    type: number
+                  erz:
+                    description: Depth error | double
+                    format: double
+                    type: number
+                  gap:
+                    description: Azimutal gap | double
+                    format: double
+                    type: number
+                  ingvQuality:
+                    description: ingvQuality description | ???
+                    example: DD
+                    type: string
+                  labelpref:
+                    description: ingvQuality description | ???
+                    example: ' '
+                    type: string
+                  latitude:
+                    $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
+                  longitude:
+                    format: double
+                    type: number
+                  mdmad:
+                    description: mdmad description | ???
+                    format: double
+                    type: number
+                  mdtype:
+                    description: ingvQuality description | ???
+                    example: D
+                    type: string
+                  mdwt:
+                    description: mdwt description | ???
+                    format: double
+                    type: number
+                  nPfm:
+                    description: '# P first motions | int(11)'
+                    format: int64
+                    type: integer
+                  nph:
+                    description: '# phases (P&S) weight >0.1 | int(11)'
+                    format: int64
+                    type: integer
+                  nphS:
+                    description: '# S phases weight >0.1 | int(11)'
+                    format: int64
+                    type: integer
+                  nphtot:
+                    description: '# phases (P&S) weight >0.0 | int(11)'
+                    format: int64
+                    type: integer
+                  originTime:
+                    description: Origin time | datetime(6)
+                    example: '2016-06-22 16:52:06.260000'
+                    type: string
+                  phases:
+                    items:
+                      properties:
+                        Md:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        Pat:
+                          description: Origin time | datetime(6)
+                          example: '2016-06-22 16:52:06.260000'
+                          type: string
+                        Pfm:
+                          description: Todo description | ???
+                          example: ' '
+                          type: string
+                        Plabel:
+                          description: Todo description | ???
+                          example: ' '
+                          type: string
+                        Ponset:
+                          description: Todo description | ???
+                          example: P
+                          type: string
+                        Pqual:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        Pres:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        Pwt:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        Sat:
+                          description: Origin time | datetime(6)
+                          example: '2016-06-22 16:52:06.260000'
+                          type: string
+                        Sfm:
+                          description: Todo description | ???
+                          example: ' '
+                          type: string
+                        Slabel:
+                          description: Todo description | ???
+                          example: ' '
+                          type: string
+                        Sonset:
+                          description: Todo description | ???
+                          example: ' '
+                          type: string
+                        Squal:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        Sres:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        Swt:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        ampMag:
+                          description: Amplitude magnitude for this station | col98
+                            F3.2
+                          format: float
+                          type: number
+                        ampMagWeightCode:
+                          description: Amplitude magnitude weight code | col82 I1
+                          type: integer
+                        ampType:
+                          description: Amplitude type 0=unspecified 1=Wood-Anderson
+                            2=velocity 3=acceleration 4=no magnitude | col114 I2
+                          type: integer
+                        ampUnitsCode:
+                          description: Amp units code. 0=PP mm, 1=0 to peak mm (UCB),
+                            2=digital counts | col62 I2
+                          type: integer
+                        amplitude:
+                          description: Amplitude (Normally peak-to-peak) | col55 F7.2
+                          format: float
+                          type: number
+                        azm:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        caav:
+                          items:
+                            description: Todo description | ???
+                            example:
+                            - 0
+                            - 0
+                            - 0
+                            - 0
+                            - 0
+                          type: array
+                        ccntr:
+                          items:
+                            description: Todo description | ???
+                            example:
+                            - 0
+                            - 0
+                            - 0
+                            - 0
+                            - 0
+                          type: array
+                        codalen:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        codalenObs:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        codawt:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        comp:
+                          description: Channel code | char(3)
+                          example: HHZ
+                          type: string
+                        datasrc:
+                          description: Todo description | ???
+                          example: W
+                          type: string
+                        dist:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        importanceP:
+                          description: Importance of P arrival | col101 F4.3
+                          format: float
+                          type: number
+                        importanceS:
+                          description: Importance of S arrival | col105 F4.3
+                          format: float
+                          type: number
+                        latitude:
+                          $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
+                        loc:
+                          default: --
+                          description: Channel location | char(2)
+                          example: '00'
+                          type: string
+                        longitude:
+                          format: double
+                          type: number
+                        net:
+                          description: Channel net code | char(2)
+                          example: IV
+                          type: string
+                        pamp:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                        sta:
+                          description: Channel station code | varchar(5)
+                          example: ACER
+                          type: string
+                        takeoff:
+                          description: Todo description | ???
+                          format: double
+                          type: number
+                      required:
+                      - net
+                      - sta
+                      - comp
+                      - loc
+                    type: array
+                  quakeId:
+                    default: 0
+                    description: Event id created by locator | bigint(20)
+                    example: 182491
+                    format: int64
+                    type: integer
+                  reg:
+                    description: ingvQuality description | ???
+                    example: ' '
+                    type: string
+                  rms:
+                    description: Root mean square | double
+                    format: double
+                    type: number
+                  version:
+                    description: Localization name (es:01,XX,WW,..) | varchar(255)
+                    example: ew prelim
+                    type: string
+                  wtpref:
+                    description: wtpref description | ???
+                    format: double
+                    type: number
+                required:
+                - quakeId
+                - version
+                - originTime
+                - latitude
+                - longitude
+                - depth
   schemas:
     ErrorResponse:
       example: 'Error CODE: SIMPLE ERROR DESCRIPTION ...'
@@ -732,394 +1071,8 @@ components:
     VersionResponse:
       example: 1.1.50
       type: string
-    cha:
-      description: Channel code | char(3)
-      example: HHZ
-      type: string
-    depth:
-      description: Depth in Km | double
-      example: 0.02
-      format: double
-      type: number
-    event__id_locator:
-      default: 0
-      description: Event id created by locator | bigint(20)
-      example: 182491
-      format: int64
-      type: integer
-    ewLogo:
-      properties:
-        ewLogo:
-          properties:
-            hostname:
-              description: Hostname | ???
-              example: hew3.int.ingv.it
-              type: string
-            installation:
-              description: Installation description | ???
-              example: INST_INGV
-              type: string
-            instance:
-              description: Instance description | ???
-              example: hew3_mole
-              type: string
-            module:
-              description: Module description | ???
-              example: MOD_BINDER_EW
-              type: string
-            type:
-              description: Type description | ???
-              example: TYPE_QUAKE2K
-              type: string
-            user:
-              description: Hostname user | ???
-              example: ew
-              type: string
-          required:
-          - type
-          - module
-          - installation
-          - instance
-    hyp2000arc:
-      properties:
-        data:
-          allOf:
-          - $ref: '#/components/schemas/ewLogo'
-          - $ref: '#/components/schemas/hyp2000arc__base'
-    hyp2000arc__base:
-      properties:
-        ewMessage:
-          properties:
-            Md:
-              description: Md description | ???
-              format: double
-              type: number
-            Mpref:
-              description: Mpref description | ???
-              format: double
-              type: number
-            depth:
-              $ref: '#/components/schemas/depth'
-            dmin:
-              description: dmin description | ???
-              format: double
-              type: number
-            e0:
-              $ref: '#/components/schemas/hypocenter__e0'
-            e0az:
-              $ref: '#/components/schemas/hypocenter__e0_az'
-            e0dp:
-              $ref: '#/components/schemas/hypocenter__e0_dip'
-            e1:
-              $ref: '#/components/schemas/hypocenter__e1'
-            e1az:
-              $ref: '#/components/schemas/hypocenter__e1_az'
-            e1dp:
-              $ref: '#/components/schemas/hypocenter__e1_dip'
-            e2:
-              $ref: '#/components/schemas/hypocenter__e2'
-            erh:
-              $ref: '#/components/schemas/hypocenter__err_h'
-            erz:
-              $ref: '#/components/schemas/hypocenter__err_z'
-            gap:
-              $ref: '#/components/schemas/hypocenter__azim_gap'
-            ingvQuality:
-              description: ingvQuality description | ???
-              example: DD
-              type: string
-            labelpref:
-              description: ingvQuality description | ???
-              example: ' '
-              type: string
-            latitude:
-              $ref: '#/components/schemas/latitude'
-            longitude:
-              $ref: '#/components/schemas/longitude'
-            mdmad:
-              description: mdmad description | ???
-              format: double
-              type: number
-            mdtype:
-              description: ingvQuality description | ???
-              example: D
-              type: string
-            mdwt:
-              description: mdwt description | ???
-              format: double
-              type: number
-            nPfm:
-              $ref: '#/components/schemas/hypocenter__nph_fm'
-            nph:
-              $ref: '#/components/schemas/hypocenter__nph'
-            nphS:
-              $ref: '#/components/schemas/hypocenter__nph_s'
-            nphtot:
-              $ref: '#/components/schemas/hypocenter__nph_tot'
-            originTime:
-              $ref: '#/components/schemas/hypocenter__ot'
-            phases:
-              $ref: '#/components/schemas/hyp2000arc__phases'
-            quakeId:
-              $ref: '#/components/schemas/event__id_locator'
-            reg:
-              description: ingvQuality description | ???
-              example: ' '
-              type: string
-            rms:
-              $ref: '#/components/schemas/hypocenter__rms'
-            version:
-              $ref: '#/components/schemas/type_hypocenter__name'
-            wtpref:
-              description: wtpref description | ???
-              format: double
-              type: number
-          required:
-          - quakeId
-          - version
-          - originTime
-          - latitude
-          - longitude
-          - depth
-    hyp2000arc__phases:
-      items:
-        properties:
-          Md:
-            description: Todo description | ???
-            format: double
-            type: number
-          Pat:
-            $ref: '#/components/schemas/hypocenter__ot'
-          Pfm:
-            description: Todo description | ???
-            example: ' '
-            type: string
-          Plabel:
-            description: Todo description | ???
-            example: ' '
-            type: string
-          Ponset:
-            description: Todo description | ???
-            example: P
-            type: string
-          Pqual:
-            description: Todo description | ???
-            format: double
-            type: number
-          Pres:
-            description: Todo description | ???
-            format: double
-            type: number
-          Pwt:
-            description: Todo description | ???
-            format: double
-            type: number
-          Sat:
-            $ref: '#/components/schemas/hypocenter__ot'
-          Sfm:
-            description: Todo description | ???
-            example: ' '
-            type: string
-          Slabel:
-            description: Todo description | ???
-            example: ' '
-            type: string
-          Sonset:
-            description: Todo description | ???
-            example: ' '
-            type: string
-          Squal:
-            description: Todo description | ???
-            format: double
-            type: number
-          Sres:
-            description: Todo description | ???
-            format: double
-            type: number
-          Swt:
-            description: Todo description | ???
-            format: double
-            type: number
-          ampMag:
-            description: Amplitude magnitude for this station | col98 F3.2
-            format: float
-            type: number
-          ampMagWeightCode:
-            description: Amplitude magnitude weight code | col82 I1
-            type: integer
-          ampType:
-            description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration
-              4=no magnitude | col114 I2
-            type: integer
-          ampUnitsCode:
-            description: Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital
-              counts | col62 I2
-            type: integer
-          amplitude:
-            description: Amplitude (Normally peak-to-peak) | col55 F7.2
-            format: float
-            type: number
-          azm:
-            description: Todo description | ???
-            format: double
-            type: number
-          caav:
-            items:
-              description: Todo description | ???
-              example:
-              - 0
-              - 0
-              - 0
-              - 0
-              - 0
-            type: array
-          ccntr:
-            items:
-              description: Todo description | ???
-              example:
-              - 0
-              - 0
-              - 0
-              - 0
-              - 0
-            type: array
-          codalen:
-            description: Todo description | ???
-            format: double
-            type: number
-          codalenObs:
-            description: Todo description | ???
-            format: double
-            type: number
-          codawt:
-            description: Todo description | ???
-            format: double
-            type: number
-          comp:
-            $ref: '#/components/schemas/cha'
-          datasrc:
-            description: Todo description | ???
-            example: W
-            type: string
-          dist:
-            description: Todo description | ???
-            format: double
-            type: number
-          importanceP:
-            description: Importance of P arrival | col101 F4.3
-            format: float
-            type: number
-          importanceS:
-            description: Importance of S arrival | col105 F4.3
-            format: float
-            type: number
-          latitude:
-            $ref: '#/components/schemas/latitude'
-          loc:
-            $ref: '#/components/schemas/loc'
-          longitude:
-            $ref: '#/components/schemas/longitude'
-          net:
-            $ref: '#/components/schemas/net'
-          pamp:
-            description: Todo description | ???
-            format: double
-            type: number
-          sta:
-            $ref: '#/components/schemas/sta'
-          takeoff:
-            description: Todo description | ???
-            format: double
-            type: number
-        required:
-        - net
-        - sta
-        - comp
-        - loc
-      type: array
-    hypocenter__azim_gap:
-      description: Azimutal gap | double
-      format: double
-      type: number
-    hypocenter__e0:
-      description: magnitude (km) of largest principal error | double
-      format: double
-      type: number
-    hypocenter__e0_az:
-      description: azimuth of largest principal error | double
-      format: double
-      type: integer
-    hypocenter__e0_dip:
-      description: dip of largest principal error | double
-      format: double
-      type: integer
-    hypocenter__e1:
-      description: magnitude (km) of intermed principal error | double
-      format: double
-      type: number
-    hypocenter__e1_az:
-      description: azimuth of intermediate principal error | double
-      format: double
-      type: integer
-    hypocenter__e1_dip:
-      description: dip of intermediate principal error | double
-      format: double
-      type: integer
-    hypocenter__e2:
-      description: magnitude (km) of smallest principal error | double
-      format: double
-      type: number
-    hypocenter__err_h:
-      description: Depth error | double
-      format: double
-      type: number
-    hypocenter__err_z:
-      description: Depth error | double
-      format: double
-      type: number
-    hypocenter__nph:
-      description: '# phases (P&S) weight >0.1 | int(11)'
-      format: int64
-      type: integer
-    hypocenter__nph_fm:
-      description: '# P first motions | int(11)'
-      format: int64
-      type: integer
-    hypocenter__nph_s:
-      description: '# S phases weight >0.1 | int(11)'
-      format: int64
-      type: integer
-    hypocenter__nph_tot:
-      description: '# phases (P&S) weight >0.0 | int(11)'
-      format: int64
-      type: integer
-    hypocenter__ot:
-      description: Origin time | datetime(6)
-      example: '2016-06-22 16:52:06.260000'
-      type: string
-    hypocenter__rms:
-      description: Root mean square | double
-      format: double
-      type: number
     latitude:
       $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
-    loc:
-      default: --
-      description: Channel location | char(2)
-      example: '00'
-      type: string
     longitude:
       format: double
       type: number
-    net:
-      description: Channel net code | char(2)
-      example: IV
-      type: string
-    sta:
-      description: Channel station code | varchar(5)
-      example: ACER
-      type: string
-    type_hypocenter__name:
-      description: Localization name (es:01,XX,WW,..) | varchar(255)
-      example: ew prelim
-      type: string
