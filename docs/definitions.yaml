@@ -270,8 +270,7 @@ schemas:
               $ref: '#/schemas/type_hypocenter__name'
             originTime:
               $ref: '#/schemas/hypocenter__ot'
-            latitude:
-              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
             longitude:
               $ref: '#/schemas/hypocenter__lon'
             depth:
