@@ -54,65 +54,65 @@ tags:
     url: https://quake.ethz.ch/quakeml/
   name: fdsnws-event-1.1
 paths:
+  /query:
+    get:
+      description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
+      parameters:
+      - $ref: '#/components/parameters/starttime'
+      - $ref: '#/components/parameters/endtime'
+      - $ref: '#/components/parameters/minlat'
+      - $ref: '#/components/parameters/maxlat'
+      - $ref: '#/components/parameters/minlon'
+      - $ref: '#/components/parameters/maxlon'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/minradius'
+      - $ref: '#/components/parameters/maxradius'
+      - $ref: '#/components/parameters/minradiuskm'
+      - $ref: '#/components/parameters/maxradiuskm'
+      - $ref: '#/components/parameters/mindepth'
+      - $ref: '#/components/parameters/maxdepth'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/updatedafter'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/eventid'
+      - $ref: '#/components/parameters/includeallorigins'
+      - $ref: '#/components/parameters/includeallmagnitudes'
+      - $ref: '#/components/parameters/includeallstationsmagnitudes'
+      - $ref: '#/components/parameters/includearrivals'
+      responses:
+        '200':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/QuakeMLResponse'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/QuakeMLResponse'
+          description: Successful request, results follow
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+        default:
+          $ref: '#/components/responses/default'
+      summary: Get QuakeML
+      tags:
+      - fdsnws-event-1.1
   /v1/hyp2000/:
-    /query:
-      get:
-        description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
-        parameters:
-        - $ref: '#/components/parameters/starttime'
-        - $ref: '#/components/parameters/endtime'
-        - $ref: '#/components/parameters/minlat'
-        - $ref: '#/components/parameters/maxlat'
-        - $ref: '#/components/parameters/minlon'
-        - $ref: '#/components/parameters/maxlon'
-        - $ref: '#/components/parameters/lat'
-        - $ref: '#/components/parameters/lon'
-        - $ref: '#/components/parameters/minradius'
-        - $ref: '#/components/parameters/maxradius'
-        - $ref: '#/components/parameters/minradiuskm'
-        - $ref: '#/components/parameters/maxradiuskm'
-        - $ref: '#/components/parameters/mindepth'
-        - $ref: '#/components/parameters/maxdepth'
-        - $ref: '#/components/parameters/orderby'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/updatedafter'
-        - $ref: '#/components/parameters/format'
-        - $ref: '#/components/parameters/eventid'
-        - $ref: '#/components/parameters/includeallorigins'
-        - $ref: '#/components/parameters/includeallmagnitudes'
-        - $ref: '#/components/parameters/includeallstationsmagnitudes'
-        - $ref: '#/components/parameters/includearrivals'
-        responses:
-          '200':
-            content:
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/QuakeMLResponse'
-              text/plain:
-                schema:
-                  $ref: '#/components/schemas/QuakeMLResponse'
-            description: Successful request, results follow
-            headers:
-              X-RateLimit-Limit:
-                $ref: '#/components/headers/X-RateLimit-Limit'
-              X-RateLimit-Reset:
-                $ref: '#/components/headers/X-RateLimit-Reset'
-          '204':
-            $ref: '#/components/responses/204NoContent'
-          '400':
-            $ref: '#/components/responses/400BadRequest'
-          '404':
-            $ref: '#/components/responses/404NotFound'
-          '429':
-            $ref: '#/components/responses/429TooManyRequests'
-          '503':
-            $ref: '#/components/responses/503ServiceUnavailable'
-          default:
-            $ref: '#/components/responses/default'
-        summary: Get QuakeML
-        tags:
-        - fdsnws-event-1.1
     post:
       description: Hypoinverse 2000 location using WS.
       parameters:
