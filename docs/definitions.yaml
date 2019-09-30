@@ -182,7 +182,7 @@ parameters:
         schema:
             type: boolean
             default: false
-definitions:
+schemas:
     event__id_locator:
         type: integer
         description: Event id created by locator | bigint(20)
@@ -218,8 +218,8 @@ definitions:
       properties:
         data:
           allOf:
-            - $ref: '#/definitions/ewLogo'
-            - $ref: '#/definitions/hyp2000arc__base'
+            - $ref: '#/schemas/ewLogo'
+            - $ref: '#/schemas/hyp2000arc__base'
     ewLogo:
       properties:
         ewLogo:
@@ -265,51 +265,51 @@ definitions:
             - depth
           properties:
             quakeId:
-              $ref: '#/definitions/event__id_locator'
+              $ref: '#/schemas/event__id_locator'
             version:
-              $ref: '#/definitions/type_hypocenter__name'
+              $ref: '#/schemas/type_hypocenter__name'
             originTime:
-              $ref: '#/definitions/hypocenter__ot'
+              $ref: '#/schemas/hypocenter__ot'
             latitude:
-              $ref: '#/definitions/hypocenter__lat'
+              $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
             longitude:
-              $ref: '#/definitions/hypocenter__lon'
+              $ref: '#/schemas/hypocenter__lon'
             depth:
-              $ref: '#/definitions/hypocenter__depth'
+              $ref: '#/schemas/hypocenter__depth'
             nph:
-              $ref: '#/definitions/hypocenter__nph'
+              $ref: '#/schemas/hypocenter__nph'
             nphS:
-              $ref: '#/definitions/hypocenter__nph_s'
+              $ref: '#/schemas/hypocenter__nph_s'
             nphtot:
-              $ref: '#/definitions/hypocenter__nph_tot'
+              $ref: '#/schemas/hypocenter__nph_tot'
             nPfm:
-              $ref: '#/definitions/hypocenter__nph_fm'
+              $ref: '#/schemas/hypocenter__nph_fm'
             gap:
-              $ref: '#/definitions/hypocenter__azim_gap'
+              $ref: '#/schemas/hypocenter__azim_gap'
             dmin:
               type: number
               description: dmin description | ???
               format: double
             rms:
-              $ref: '#/definitions/hypocenter__rms'
+              $ref: '#/schemas/hypocenter__rms'
             e0az:
-              $ref: '#/definitions/hypocenter__e0_az'
+              $ref: '#/schemas/hypocenter__e0_az'
             e0dp:
-              $ref: '#/definitions/hypocenter__e0_dip'
+              $ref: '#/schemas/hypocenter__e0_dip'
             e0:
-              $ref: '#/definitions/hypocenter__e0'
+              $ref: '#/schemas/hypocenter__e0'
             e1az:
-              $ref: '#/definitions/hypocenter__e1_az'
+              $ref: '#/schemas/hypocenter__e1_az'
             e1dp:
-              $ref: '#/definitions/hypocenter__e1_dip'
+              $ref: '#/schemas/hypocenter__e1_dip'
             e1:
-              $ref: '#/definitions/hypocenter__e1'
+              $ref: '#/schemas/hypocenter__e1'
             e2:
-              $ref: '#/definitions/hypocenter__e2'
+              $ref: '#/schemas/hypocenter__e2'
             erh:
-              $ref: '#/definitions/hypocenter__err_h'
+              $ref: '#/schemas/hypocenter__err_h'
             erz:
-              $ref: '#/definitions/hypocenter__err_z'
+              $ref: '#/schemas/hypocenter__err_z'
             Md:
               type: number
               description: Md description | ???
@@ -347,7 +347,7 @@ definitions:
               description: ingvQuality description | ???
               example: DD
             phases:
-              $ref: '#/definitions/hyp2000arc__phases'
+              $ref: '#/schemas/hyp2000arc__phases'
     hyp2000arc__phases:
       type: array
       items:
@@ -358,13 +358,13 @@ definitions:
           - loc
         properties:
           net:
-            $ref: '#/definitions/net'
+            $ref: '#/schemas/net'
           sta:
-            $ref: '#/definitions/sta'
+            $ref: '#/schemas/sta'
           comp:
-            $ref: '#/definitions/cha'
+            $ref: '#/schemas/cha'
           loc:
-            $ref: '#/definitions/loc'
+            $ref: '#/schemas/loc'
           Plabel:
             type: string
             description: Todo description | ???
@@ -382,9 +382,9 @@ definitions:
             description: Todo description | ???
             example: ' '
           Pat:
-            $ref: '#/definitions/hypocenter__ot'
+            $ref: '#/schemas/hypocenter__ot'
           Sat:
-            $ref: '#/definitions/hypocenter__ot'
+            $ref: '#/schemas/hypocenter__ot'
           Pres:
             type: number
             description: Todo description | ???
