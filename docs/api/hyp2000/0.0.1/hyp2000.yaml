@@ -55,22 +55,6 @@ tags:
   name: fdsnws-event-1.1
 paths:
   /v1/hyp2000/:
-    /application.wadl:
-      get:
-        description: Returns application.wadl file content
-        responses:
-          '200':
-            content:
-              application/xml:
-                schema:
-                  additionalProperties:
-                    format: int32
-                    type: integer
-                  type: object
-            description: Successful request, results follow
-        summary: Get application.wadl
-        tags:
-        - fdsnws-event-1.1
     /query:
       get:
         description: Returns a QuakeML message with the following schema https://quake.ethz.ch/quakeml/
@@ -127,19 +111,6 @@ paths:
           default:
             $ref: '#/components/responses/default'
         summary: Get QuakeML
-        tags:
-        - fdsnws-event-1.1
-    /version:
-      get:
-        description: Returns a string containing QuakeML version
-        responses:
-          '200':
-            content:
-              text/plain:
-                schema:
-                  $ref: '#/components/schemas/VersionResponse'
-            description: Successful request, results follow
-        summary: Get QuakeML version
         tags:
         - fdsnws-event-1.1
     post:
