@@ -21,14 +21,14 @@ parameters:
         name: minlat
         required: false
         schema:
-            $ref:  '#/schemas/latitude'
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
     maxlat:
         description: Specify northern boundary for search (in WGS84).
         in: query
         name: maxlat
         required: false
         schema:
-            $ref:  '#/schemas/latitude'
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
     minlon:
         description: Specify western boundary for search (in WGS84).
         in: query
@@ -49,7 +49,7 @@ parameters:
         name: lat
         required: false
         schema:
-            $ref:  '#/schemas/latitude'
+            $ref: 'https://teamdigitale.github.io/openapi/0.0.5/definitions.yaml#/schemas/Latitude'
     lon:
         description: Specify the central longitude point for a radial search (in WGS84).
         in: query
