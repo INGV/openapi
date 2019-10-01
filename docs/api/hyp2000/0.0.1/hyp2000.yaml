@@ -4,16 +4,20 @@ info:
     email: valentino.lauciani@ingv.it
     name: INGV
     url: http://terremoti.ingv.it/webservices_and_software
-  description: |2-
-
-    Hypoinverse is software used to Locate earthquakes and determine magnitudes in a local or regional seismic network.
-
-    More info, here: https://www.usgs.gov/software/hypoinverse-earthquake-location
-
-    At INGV we build Docker to deploy "hyp2000" (https://github.com/ingv/hyp2000) and on top of this docker was build a Web Service.
-
-    # Rate limit:
-      The **Rate Limit** and **Rate Reset** are specified in the HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`; the rate limit is *per* `IP`.
+  description: "\n# Introduction\nHypoinverse is software used to Locate earthquakes\
+    \ and determine magnitudes in a local or regional seismic network.\n\nMore info,\
+    \ here: [https://www.usgs.gov/software/hypoinverse-earthquake-location](https://www.usgs.gov/software/hypoinverse-earthquake-location)\n\
+    \nAt INGV we build stand-alone Docker to deploy \"hyp2000\" ([https://github.com/ingv/hyp2000](https://github.com/ingv/hyp2000))\
+    \ and on top of this docker was build a Web Service.\n\n# Input\nThe input file\
+    \ is a JSON with four sections: \n  - **HYP2000_CONF**: HYPOINVERS configuration\
+    \ file (refer to manual for more details)\n  - **MODEL**: Crustal velocity model\n\
+    \  - **OUTPUT**: It could be `json`, `prt`, `arc`, `sum`\n  - **TYPE_HYP2000ARC**:\
+    \ An array of phases in **ew2openapi** format.\n\n# Output\nThe output could be\
+    \ `json`, `prt`, `arc` or `sum`:\n  - `prt`: print format\n  - `arc`: archive\
+    \ format\n  - `sum`: summary format\n  - `json`: NON STANDARD json format developed\
+    \ in **ew2openapi**\n\n# Rate limit:\n  The **Rate Limit** and **Rate Reset**\
+    \ are specified in the HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`;\
+    \ the rate limit is *per* `IP`."
   license:
     name: Creative Commons Attribution 4.0 International
     url: http://creativecommons.org/licenses/by/4.0/
