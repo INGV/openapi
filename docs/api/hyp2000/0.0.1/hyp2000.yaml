@@ -93,11 +93,11 @@ tags:
   name: fdsnws-event-1.1
 paths:
   /v1/hyp2000/:
+    description: Hypoinverse 2000 location using WS.
     post:
-      description: Hypoinverse 2000 location using WS.
+      description: Input file
       parameters:
-      - description: Input file
-        in: body
+      - in: body
         name: body
         required: true
         schema:
@@ -159,18 +159,18 @@ paths:
                       version:
                         $ref: '#/components/schemas/type_hypocenter__name'
                     required: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hyp2000arc'
-          description: successful operation
-        '404':
-          $ref: '#/components/responses/404NotFound'
-      summary: Hypoinverse 2000
-      tags:
-      - hyp2000
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/hyp2000arc'
+        description: successful operation
+      '404':
+        $ref: '#/components/responses/404NotFound'
+    summary: Hypoinverse 2000
+    tags:
+    - hyp2000
 components:
   headers:
     Retry-After:
