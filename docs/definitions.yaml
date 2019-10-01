@@ -182,11 +182,6 @@ parameters:
         schema:
             type: boolean
             default: false
-definitions:
-    hypocenter__nph_tot:
-        type: integer
-        description: '# phases (P&S) weight >0.0 | int(11)'
-        format: int64
 schemas:
     event__id_locator:
         type: integer
@@ -215,6 +210,10 @@ schemas:
     hypocenter__nph_s:
         type: integer
         description: '# S phases weight >0.1 | int(11)'
+        format: int64
+    hypocenter__nph_tot:
+        type: integer
+        description: '# phases (P&S) weight >0.0 | int(11)'
         format: int64
     hypocenter__nph_fm:
         type: integer
@@ -364,7 +363,7 @@ schemas:
             nphS:
               $ref: '#/schemas/hypocenter__nph_s'
             nphtot:
-              $ref: '#/definitions/hypocenter__nph_tot'
+              $ref: '#/schemas/hypocenter__nph_tot'
             nPfm:
               $ref: '#/schemas/hypocenter__nph_fm'
             gap:
