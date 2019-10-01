@@ -54,7 +54,8 @@ info:
       The **Rate Limit** and **Rate Reset** are specified in the HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`; the rate limit is *per* `IP`.
       
   contact:
-    name: 'Valentino Lauciani'
+    name: 'INGV'
+    url: http://terremoti.ingv.it/webservices_and_software
     email: valentino.lauciani@ingv.it
   license:
     name: Creative Commons Attribution 4.0 International
