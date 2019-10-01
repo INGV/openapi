@@ -228,9 +228,6 @@ components:
           format: uri
           type: string
       type: object
-    QuakeMLResponse:
-      xml:
-        namespace: https://quake.ethz.ch/quakeml/
     VersionResponse:
       example: 1.1.50
       type: string
