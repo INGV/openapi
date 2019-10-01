@@ -171,9 +171,6 @@ components:
             $ref: '#/components/schemas/Problem'
       description: Unexpected error
   schemas:
-    ErrorResponse:
-      example: 'Error CODE: SIMPLE ERROR DESCRIPTION ...'
-      type: string
     Latitude:
       description: |-
         Latitude of a point expressed in:
