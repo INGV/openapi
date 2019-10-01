@@ -32,7 +32,7 @@ servers:
 paths:
   /v1/hyp2000/:
     post:
-      description: Hypoinverse 2000 location using WS.
+      description: Send new input to HYP2000 WS
       requestBody:
         content:
           application/json:
