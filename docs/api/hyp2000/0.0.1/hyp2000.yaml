@@ -138,9 +138,9 @@ components:
           $ref: '#/components/headers/X-RateLimit-Reset'
     400BadRequest:
       content:
-        text/plain:
+        application/problem+json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/Problem'
       description: Bad Request
     404NotFound:
       content:
@@ -157,9 +157,9 @@ components:
           $ref: '#/components/headers/X-RateLimit-Reset'
     503ServiceUnavailable:
       content:
-        text/plain:
+        application/problem+json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/Problem'
       description: Service Unavailable
       headers:
         Retry-After:
