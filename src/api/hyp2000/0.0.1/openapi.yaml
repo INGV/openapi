@@ -8,322 +8,132 @@ info:
     x-api-id: fa78e2be-826e-4451-8979-0a0dfd598dff
     description: |-
 
+      # Introduction
+      Hypoinverse is software used to Locate earthquakes and determine magnitudes in a local or regional seismic network.
+      
+      More info, here: [https://www.usgs.gov/software/hypoinverse-earthquake-location](https://www.usgs.gov/software/hypoinverse-earthquake-location)
+      
+      At INGV we build stand-alone Docker to deploy "hyp2000" ([https://github.com/ingv/hyp2000](https://github.com/ingv/hyp2000)) and on top of this docker was build a Web Service.
 
-      The **fdsnws-event** API returns event (earthquake) information from the catalogs [ISIDe](http://iside.rm.ingv.it/).
-
-      The results are returnd as XML in [QuakeML](https://quake.ethz.ch/quakeml) format ([schema](https://quake.ethz.ch/quakeml/docs/xml?action=AttachFile&do=get&target=QuakeML-BED-1.2.xsd)), but may also be requested in text formats.
-
-
-      # Query Usage
-
-
-      To retrieve data from the event service, submit a request by either of the methods below:
-
-        - _via HTTP GET_: Provide a series of parameter-value pairs in the URL that specify the start-time and end-time, along with the desired network(s) and others param(s). Please refer to the table below titled "Detailed Descriptions of each Query Parameter" for usage details. Each parameter-value pair should be separated by an ampersand **&**, and with no space. A GET request may take the following general form:
-
-      ```
-
-      /query? [geographic-constraints] [depth-constraints] [temporal-constraints] [magnitude-constraints] [format-option]
-
-      ```
-
-
-      or
-
-      ```
-
-      /query? (id-options) [includeallmagnitudes] [includeallorigins] [includearrivals] [includeallstationsmagnitudes] [format-option]
-
-      ```
-
-
-      where
-
-      ```
-
-      id-options              ::  eventid= OR originid= OR magnitudeid= OR focalmechanismid=
-
-      geographic-constraints  ::  [boundaries-rect] OR [boundaries-radial]
-
-      boundaries-rect         ::  [minlat=] [maxlat=] [minlon=] [maxlon=]
-
-      boundaries-radial       ::  [lat=&lon=&(maxradius= | maxradiuskm=)] [minradius= | minradiuskm=]
-
-      depth-constraints       ::  [mindepth=] [maxdepth=]
-
-      temporal-constraints    ::  [starttime=] [endtime=]
-
-      magnitude-constraints   ::  [minmag=] [maxmag=] [magnitudetype=]
-
-      misc-parameters         ::  [limit=] [offset=] [orderby=] [includeallmagnitude=]
-                                  [includearrivals=] [includeallorigins=] [includeallstationsmagnitudes=]
-      format-option           ::  [format=]
-
-
-        (..) required parameter
-        [..] optional parameter
-      ```
-
-
-      # Sample Queries:
-        - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59)
-        - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2)
-        - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text) (text format)
-        - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true)
-
-
-       Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
-       
+      # Input
+      The input file is a JSON with four sections: 
+        - **HYP2000_CONF**: HYPOINVERS configuration file (refer to manual for more details)
+        - **MODEL**: Crustal velocity model
+        - **OUTPUT**: It could be `json`, `prt`, `arc`, `sum`
+        - **TYPE_HYP2000ARC**: An array of phases in **ew2openapi** format.
+      
+      # Output
+      The output could be `json`, `prt`, `arc` or `sum`:
+        - `prt`: print format
+        - `arc`: archive format
+        - `sum`: summary format
+        - `json`: NON STANDARD json format developed in **ew2openapi**
+      
       # Rate limit:
         The **Rate Limit** and **Rate Reset** are specified in the HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`; the rate limit is *per* `IP`.
-        
+
     contact:
-      name: 'INGV'
-      url: http://terremoti.ingv.it/webservices_and_software
-      email: valentino.lauciani@ingv.it
+        name: 'INGV'
+        url: http://terremoti.ingv.it/webservices_and_software
+        email: valentino.lauciani@ingv.it
     license:
-      name: Creative Commons Attribution 4.0 International
-      url: http://creativecommons.org/licenses/by/4.0/
+        name: Creative Commons Attribution 4.0 International
+        url: http://creativecommons.org/licenses/by/4.0/
     version: 2.0.0
     #x-lifecycle:
     #  maturity: FIXME
 x-commons:
     common_responses: &common_responses
-      '400':
-        $ref: '#/components/responses/400BadRequest'
-      '404':
-        $ref: '#/components/responses/404NotFound'      
-      '429':
-        $ref: '#/components/responses/429TooManyRequests'
-      '503':
-        $ref: '#/components/responses/503ServiceUnavailable'
-
-    common_contents: &common_content
-      application/xml:
-        schema:
-          $ref: "#/components/schemas/ErrorResponse"
-      text/plain:
-        schema:
-          $ref: "#/components/schemas/ErrorResponse"
+        '400':
+            $ref: '#/components/responses/400BadRequest'
+        '404':
+            $ref: '#/components/responses/404NotFound'
+        '429':
+            $ref: '#/components/responses/429TooManyRequests'
+        '503':
+            $ref: '#/components/responses/503ServiceUnavailable'
 paths:
     /v1/hyp2000/:
-      post:
-        parameters:
-          - required: true
-            in: body
-            schema:
-              properties:
-                data:
-                  properties:
-                    TYPE_HYP2000ARC:
-                      allOf:
-                        - properties:
-                            quakeId:
-                              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
-                            version:
-                              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
-                            phases:
-                              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hyp2000arc__phases'
-                          required: []
-                    HYP2000_CONF:
-                      example:
-                        - 200 T 2000 0
-                        - LET 5 2 3 2 2
-                        - H71 1 1 3
-                        - STA './all_stations.hinv'
-                        - CRH 1 './italy.crh'
-                        - MAG 1 T 3 1
-                        - 'DUR -.81 2.22 0 .0011 0, 5*0, 9999 1'
-                        - FC1 'D' 2 'HHZ' 'EHZ'
-                        - 'PRE 7, 3 0 4 9, 5 6 4 9, 1 1 0 9, 2 1 0 9, 4 4 4 9, 3 0 0 9, 4 0 0 9'
-                        - RMS 4 .40 2 4
-                        - ERR .10
-                        - POS 1.78
-                        - REP T T
-                        - JUN T
-                        - MIN 4
-                        - NET 4
-                        - ZTR 5 T
-                        - DIS 6 100 1. 7.
-                        - DAM 7 30 0.5 0.9 0.005 0.02 0.6 100 500
-                        - WET 1. .75 .5 .25
-                        - ERF T
-                        - TOP F
-                        - LST 1 1 0
-                        - KPR 2
-                        - COP 5
-                        - CAR 3
-                        - PRT '../output/hypo.prt'
-                        - SUM '../output/hypo.sum'
-                        - ARC '../output/hypo.arc'
-                        - APP F T F
-                        - CON 25 0.04 0.001
-                        - PHS './input.arc'
-                        - LOC
-                    OUTPUT:
-                      example:
-                        - json
-                    MODEL:
-                      example:
-                        - Italy
-                        - 5.00  0.00
-                        - 6.00 10.00
-                        - 8.10 30.00
-            name: body
-            description: Input file
-        tags:
-          - hyp2000
-        responses:
-          '200':
-            schema:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hyp2000arc'
-            description: successful operation
-          '404':
-            $ref: '#/components/responses/404NotFound'
-        description: Hypoinverse 2000 location using WS.
-        summary: Hypoinverse 2000
-      
-      
-      
-      
-      
-    /query:
-      get:
-        tags:
-          - fdsnws-event-1.1
-        summary: Get QuakeML
-        description: Returns a QuakeML message with the following schema
-          https://quake.ethz.ch/quakeml/
-        parameters:
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/endtime'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlat'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlat'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minlon'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxlon'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lat'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/lon'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradius'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradius'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiuskm'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiuskm'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/mindepth'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxdepth'
-          - $ref: '#/components/parameters/orderby'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/limit'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/offset'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/updatedafter'
-          - $ref: '#/components/parameters/format'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallorigins'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallmagnitudes'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallstationsmagnitudes'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includearrivals'
-        responses:
-          '200':
-            description: Successful request, results follow
-            headers:
-              X-RateLimit-Limit:
-                $ref: '#/components/headers/X-RateLimit-Limit'
-              #X-RateLimit-Remaining:
-              #  $ref: '#/components/headers/X-RateLimit-Remaining'
-              X-RateLimit-Reset:
-                $ref: '#/components/headers/X-RateLimit-Reset'
-            content:
-              application/xml:
-                schema:
-                  $ref: "#/components/schemas/QuakeMLResponse"
-              text/plain:
-                schema:
-                  $ref: "#/components/schemas/QuakeMLResponse"
-          '204':
-              $ref: '#/components/responses/204NoContent'
-          '400':
-            $ref: '#/components/responses/400BadRequest'
-          # for 401, 403 see the following post before adding the,
-          #  https://forum.italia.it/t/quali-status-code-indicare-nelle-specifiche-dellapi/6474
-          '404':
-            $ref: '#/components/responses/404NotFound'
-          '429':
-            $ref: '#/components/responses/429TooManyRequests'
-          '503':
-            $ref: '#/components/responses/503ServiceUnavailable'
-          default:
-            $ref: '#/components/responses/default'
-
-    /version:
-      get:
-        tags:
-          - fdsnws-event-1.1
-        summary: Get QuakeML version
-        description: Returns a string containing QuakeML version
-        responses:
-          '200':
-            description: Successful request, results follow
-            content:
-              text/plain:
-                schema:
-                  $ref: "#/components/schemas/VersionResponse"
-    /application.wadl:
-      get:
-        tags:
-          - fdsnws-event-1.1
-        summary: Get application.wadl
-        description: Returns application.wadl file content
-        responses:
-          #<<: *common_responses
-          '200':
-            description: Successful request, results follow
-            content:
-              application/xml:
-                schema:
-                  type: object
-                  additionalProperties:
-                    type: integer
-                    format: int32
-tags:
-    - name: fdsnws-event-1.1
-      description: ""
-      externalDocs:
-        description: Find out more
-        url: https://quake.ethz.ch/quakeml/
+        post:
+            summary: Hypoinverse 2000
+            description: Send new input to HYP2000 WS
+            requestBody:
+                description: JSON to send
+                required: true
+                content:
+                  application/json:
+                    schema:
+                        properties:
+                          data:
+                            properties:
+                                TYPE_HYP2000ARC:
+                                    allOf:
+                                        - properties:
+                                            quakeId:
+                                                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+                                            version:
+                                                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+                                            phases:
+                                                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hyp2000arc__phases'
+                                HYP2000_CONF:
+                                    example:
+                                        - 200 T 2000 0
+                                        - LET 5 2 3 2 2
+                                        - H71 1 1 3
+                                        - STA './all_stations.hinv'
+                                        - CRH 1 './italy.crh'
+                                        - MAG 1 T 3 1
+                                        - 'DUR -.81 2.22 0 .0011 0, 5*0, 9999 1'
+                                        - FC1 'D' 2 'HHZ' 'EHZ'
+                                        - 'PRE 7, 3 0 4 9, 5 6 4 9, 1 1 0 9, 2 1 0 9, 4 4 4 9, 3 0 0 9, 4 0 0 9'
+                                        - RMS 4 .40 2 4
+                                        - ERR .10
+                                        - POS 1.78
+                                        - REP T T
+                                        - JUN T
+                                        - MIN 4
+                                        - NET 4
+                                        - ZTR 5 T
+                                        - DIS 6 100 1. 7.
+                                        - DAM 7 30 0.5 0.9 0.005 0.02 0.6 100 500
+                                        - WET 1. .75 .5 .25
+                                        - ERF T
+                                        - TOP F
+                                        - LST 1 1 0
+                                        - KPR 2
+                                        - COP 5
+                                        - CAR 3
+                                        - PRT '../output/hypo.prt'
+                                        - SUM '../output/hypo.sum'
+                                        - ARC '../output/hypo.arc'
+                                        - APP F T F
+                                        - CON 25 0.04 0.001
+                                        - PHS './input.arc'
+                                        - LOC
+                                OUTPUT:
+                                    example:
+                                        - json
+                                MODEL:
+                                    example:
+                                        - Italy
+                                        - 5.00  0.00
+                                        - 6.00 10.00
+                                        - 8.10 30.00
+            tags:
+                - hyp2000
+            responses:
+                '200':
+                    description: successful operation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hyp2000arc'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
 servers:
-    - url: https://webservices.ingv.it/fdsnws/event/1
+    - url: https://webservices.ingv.it/api/v1/hyp2000
       description: Production
 components:
-    parameters:
-        orderby:
-            name: orderby
-            in: query
-            description: Is used to order the output.
-            required: false
-            schema:
-                type: string
-                items:
-                  type: string
-                enum:
-                    - time
-                    - time-asc
-                    - magnitude
-                    - magnitude-asc
-                default: time
-        format:
-            name: format
-            in: query
-            description: Specify output format.
-            required: false
-            schema:
-                type: string
-                items:
-                  type: string
-                enum:
-                    - xml
-                    - text
-                default: xml
-          
-#    starttime:
-#      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/starttime'
-        
     headers:
         X-RateLimit-Limit:
             $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/headers/X-RateLimit-Limit'
@@ -333,7 +143,6 @@ components:
             $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/headers/X-RateLimit-Reset'
         Retry-After:
             $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/headers/Retry-After'
-
     responses:
         204NoContent:
           description: Request was properly formatted and submitted but no data matches the selection
@@ -345,12 +154,7 @@ components:
             X-RateLimit-Reset:
                 $ref: '#/components/headers/X-RateLimit-Reset'
         400BadRequest:
-          #$ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/responses/400BadRequest'      
-            content:
-                text/plain:
-                    schema:
-                        $ref: "#/components/schemas/ErrorResponse"
-            description: Bad Request
+            $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/responses/400BadRequest'
         404NotFound:
             $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/responses/404NotFound'
         429TooManyRequests:
@@ -364,25 +168,6 @@ components:
               X-RateLimit-Reset:
                   $ref: '#/components/headers/X-RateLimit-Reset'
         503ServiceUnavailable:
-          #$ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/responses/503ServiceUnavailable'
-            content:
-                text/plain:
-                    schema:
-                        $ref: "#/components/schemas/ErrorResponse"
-            description: Service Unavailable
-            headers:
-                Retry-After:
-                    $ref: '#/components/headers/Retry-After'
+            $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/responses/503ServiceUnavailable'
         default:
             $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/responses/default'
-
-    schemas:
-        QuakeMLResponse:
-            xml:
-              namespace: https://quake.ethz.ch/quakeml/
-        VersionResponse:
-            type: string
-            example: 1.1.50
-        ErrorResponse:
-            type: string
-            example: "Error CODE: SIMPLE ERROR DESCRIPTION ..."
