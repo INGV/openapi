@@ -85,12 +85,6 @@ info:
 servers:
 - description: Production
   url: https://webservices.ingv.it/fdsnws/event/1
-tags:
-- description: ''
-  externalDocs:
-    description: Find out more
-    url: https://quake.ethz.ch/quakeml/
-  name: fdsnws-event-1.1
 paths:
   /v1/hyp2000/:
     post:
