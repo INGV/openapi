@@ -24,7 +24,7 @@ info:
   x-summary: The hyp2000 web service bla bla bla
 servers:
 - description: Production
-  url: https://webservices.ingv.it/fdsnws/event/1
+  url: https://webservices.ingv.it/api/v1/hyp2000
 paths:
   /v1/hyp2000/:
     post:
@@ -123,35 +123,6 @@ components:
       schema:
         format: int32
         type: integer
-  parameters:
-    format:
-      description: Specify output format.
-      in: query
-      name: format
-      required: false
-      schema:
-        default: xml
-        enum:
-        - xml
-        - text
-        items:
-          type: string
-        type: string
-    orderby:
-      description: Is used to order the output.
-      in: query
-      name: orderby
-      required: false
-      schema:
-        default: time
-        enum:
-        - time
-        - time-asc
-        - magnitude
-        - magnitude-asc
-        items:
-          type: string
-        type: string
   responses:
     204NoContent:
       description: Request was properly formatted and submitted but no data matches
