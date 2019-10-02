@@ -201,18 +201,8 @@ schemas:
     latitude:
         $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
-        description: |-
-          Longitude of a point expressed in:
-
-          * the ETRS89 system for Italian and European territories
-          * and in WGS84 for the others.
-        example: 9.19289
-        externalDocs:
-          url: http://dati.gov.it/onto/clvapit#long
-        format: double
-        maximum: 180
-        minimum: -180
         type: number
+        format: double
     hypocenter__nph:
         type: integer
         description: '# phases (P&S) weight >0.1 | int(11)'
