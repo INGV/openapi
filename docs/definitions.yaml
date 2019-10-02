@@ -201,8 +201,7 @@ schemas:
     latitude:
         $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
-        type: number
-        format: double
+        $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
     hypocenter__nph:
         type: integer
         description: '# phases (P&S) weight >0.1 | int(11)'
