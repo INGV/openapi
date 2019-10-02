@@ -419,6 +419,32 @@ components:
     ErrorResponse:
       example: 'Error CODE: SIMPLE ERROR DESCRIPTION ...'
       type: string
+    Latitude:
+      description: |-
+        Latitude of a point expressed in:
+
+        * the ETRS89 system for Italian and European territories
+        * and in WGS84 for the others.
+      example: 45.492599
+      externalDocs:
+        url: http://dati.gov.it/onto/clvapit#long
+      format: double
+      maximum: 90
+      minimum: -90
+      type: number
+    Longitude:
+      description: |-
+        Longitude of a point expressed in:
+
+        * the ETRS89 system for Italian and European territories
+        * and in WGS84 for the others.
+      example: 9.19289
+      externalDocs:
+        url: http://dati.gov.it/onto/clvapit#long
+      format: double
+      maximum: 180
+      minimum: -180
+      type: number
     Problem:
       properties:
         detail:
@@ -467,8 +493,6 @@ components:
       example: 1.1.50
       type: string
     latitude:
-      format: double
-      type: number
+      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
     longitude:
-      format: double
-      type: number
+      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude
