@@ -184,6 +184,19 @@ components:
       maximum: 90
       minimum: -90
       type: number
+    Longitude:
+      description: |-
+        Longitude of a point expressed in:
+
+        * the ETRS89 system for Italian and European territories
+        * and in WGS84 for the others.
+      example: 9.19289
+      externalDocs:
+        url: http://dati.gov.it/onto/clvapit#long
+      format: double
+      maximum: 180
+      minimum: -180
+      type: number
     Problem:
       properties:
         detail:
@@ -618,6 +631,8 @@ components:
       description: Channel net code | char(2)
       example: IV
       type: string
+    pippo:
+      $ref: '#/components/schemas/Longitude'
     sta:
       description: Channel station code | varchar(5)
       example: ACER
