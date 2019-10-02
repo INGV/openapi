@@ -615,8 +615,7 @@ components:
       example: '00'
       type: string
     longitude:
-      format: double
-      type: number
+      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude
     net:
       description: Channel net code | char(2)
       example: IV
