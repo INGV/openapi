@@ -110,8 +110,6 @@ paths:
       - hyp2000
 components:
   headers:
-    Pippo:
-      $ref: '#/components/headers/X-RateLimit-Limit'
     Retry-After:
       description: |-
         Retry contacting the endpoint *at least* after seconds.
