@@ -615,17 +615,7 @@ components:
       example: '00'
       type: string
     longitude:
-      description: |-
-        Longitude of a point expressed in:
-
-        * the ETRS89 system for Italian and European territories
-        * and in WGS84 for the others.
-      example: 9.19289
-      externalDocs:
-        url: http://dati.gov.it/onto/clvapit#long
       format: double
-      maximum: 180
-      minimum: -180
       type: number
     net:
       description: Channel net code | char(2)
