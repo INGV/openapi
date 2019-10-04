@@ -608,14 +608,14 @@ components:
       format: double
       type: number
     latitude:
-      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
+      $ref: '#/components/schemas/Latitude'
     loc:
       default: --
       description: Channel location | char(2)
       example: '00'
       type: string
     longitude:
-      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude
+      $ref: '#/components/schemas/Longitude'
     net:
       description: Channel net code | char(2)
       example: IV
