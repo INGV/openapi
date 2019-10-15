@@ -493,6 +493,6 @@ components:
       example: 1.1.50
       type: string
     latitude:
-      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude
+      $ref: '#/components/schemas/Latitude'
     longitude:
-      $ref: https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude
+      $ref: '#/components/schemas/Longitude'
