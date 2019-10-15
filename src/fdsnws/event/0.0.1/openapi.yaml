@@ -127,6 +127,8 @@ paths:
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradius'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minradiuskm'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxradiuskm'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/minmag'
+          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxmag'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/mindepth'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/maxdepth'
           - $ref: '#/components/parameters/orderby'

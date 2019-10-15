@@ -88,6 +88,8 @@ paths:
       - $ref: '#/components/parameters/maxradius'
       - $ref: '#/components/parameters/minradiuskm'
       - $ref: '#/components/parameters/maxradiuskm'
+      - $ref: '#/components/parameters/minmag'
+      - $ref: '#/components/parameters/maxmag'
       - $ref: '#/components/parameters/mindepth'
       - $ref: '#/components/parameters/maxdepth'
       - $ref: '#/components/parameters/orderby'
@@ -272,6 +274,14 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/longitude'
+    maxmag:
+      description: Limit to events with a magnitude smaller than or equal to the specified
+        maximum.
+      in: query
+      name: maxmag
+      required: false
+      schema:
+        $ref: '#/components/schemas/magnitude'
     maxradius:
       description: Specify maximum distance from the geographic point defined by latitude
         and longitude (in Degrees).
@@ -313,6 +323,14 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/longitude'
+    minmag:
+      description: Limit to events with a magnitude larger than or equal to the specified
+        minimum.
+      in: query
+      name: minmag
+      required: false
+      schema:
+        $ref: '#/components/schemas/magnitude'
     minradius:
       description: Specify minimum distance from the geographic point defined by latitude
         and longitude (in Degrees).
@@ -496,3 +514,8 @@ components:
       $ref: '#/components/schemas/Latitude'
     longitude:
       $ref: '#/components/schemas/Longitude'
+    magnitude:
+      description: Magnitude | double
+      example: 3.2
+      format: double
+      type: number
