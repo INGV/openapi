@@ -295,6 +295,11 @@ schemas:
         description: Channel location | char(2)
         example: '00'
         default: '--'
+    magnitude:
+        type: number
+        description: Magnitude | double
+        example: 3.2
+        format: double
     hyp2000arc:
       properties:
         data:
