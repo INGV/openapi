@@ -109,6 +109,20 @@ parameters:
         schema:
             format: double
             type: number
+    minmag:
+        description: Limit to events with a magnitude larger than or equal to the specified minimum.
+        in: query
+        name: minmag
+        required: false
+        schema:
+            $ref:  '#/schemas/magnitude'
+    maxmag:
+        description: Limit to events with a magnitude smaller than or equal to the specified maximum.
+        in: query
+        name: maxmag
+        required: false
+        schema:
+            $ref:  '#/schemas/magnitude'
     limit:
         description: Limit the results to the specified number of events.
         in: query
@@ -236,7 +250,7 @@ schemas:
         format: double
     hypocenter__e0:
         type: number
-        description: magnitude (km) of largest principal error | double
+        description: largest principal error | double
         format: double
     hypocenter__e1_az:
         type: integer
@@ -248,7 +262,7 @@ schemas:
         format: double
     hypocenter__e1:
         type: number
-        description: magnitude (km) of intermed principal error | double
+        description: intermed principal error | double
         format: double
     hypocenter__e2_az:
         type: integer
@@ -260,7 +274,7 @@ schemas:
         format: double
     hypocenter__e2:
         type: number
-        description: magnitude (km) of smallest principal error | double
+        description: smallest principal error | double
         format: double        
     hypocenter__err_h:
         type: number
