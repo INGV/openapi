@@ -314,6 +314,31 @@ schemas:
         description: Magnitude | double
         example: 3.2
         format: double
+    quake2k:
+      properties:
+        data:
+          allOf:
+            - $ref: '#/schemas/ewLogo'
+            - $ref: '#/schemas/quake2k__base'
+    quake2k__base:
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - originTime
+            - latitude
+            - longitude
+            - depth
+          properties:
+            quakeId:
+              $ref: '#/schemas/event__id_locator'
+            version:
+              $ref: '#/schemas/type_hypocenter__name'
+            originTime:
+              $ref: '#/schemas/hypocenter__ot'
+            latitude:
+              $ref: '#/schemas/latitude'
     hyp2000arc:
       properties:
         data:
