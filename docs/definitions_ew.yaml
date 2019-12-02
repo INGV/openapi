@@ -32,6 +32,12 @@ schemas:
             type: string
             description: Instance description | ???
             example: hew3_mole
+  quake2k:
+    properties:
+      data:
+        allOf:
+          - $ref: '#/schemas/ewLogoSchema'
+          - $ref: '#/schemas/quake2k__base'
   quake2k__base:
     properties:
       ewMessage:
