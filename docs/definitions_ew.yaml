@@ -59,23 +59,23 @@ schemas:
                   - module
                   - installation
                   - instance
-              properties:
-                type:
-                  type: string
-                  description: Type description | ???
-                  example: TYPE_QUAKE2K
-                module:
-                  type: string
-                  description: Module description | ???
-                  example: MOD_BINDER_EW
-                installation:
-                  $ref: '#/schemas/ewLogo__installation'
-                user:
-                  $ref: '#/schemas/ewLogo__user'
-                hostname:
-                  $ref: '#/schemas/ewLogo__hostname'
-                instance:
-                  $ref: '#/schemas/ewLogo__instance'
+                properties:
+                  type:
+                    type: string
+                    description: Type description | ???
+                    example: TYPE_QUAKE2K
+                  module:
+                    type: string
+                    description: Module description | ???
+                    example: MOD_BINDER_EW
+                  installation:
+                    $ref: '#/schemas/ewLogo__installation'
+                  user:
+                    $ref: '#/schemas/ewLogo__user'
+                  hostname:
+                    $ref: '#/schemas/ewLogo__hostname'
+                  instance:
+                    $ref: '#/schemas/ewLogo__instance'
   quake2k__base:
     properties:
       ewMessage:
