@@ -1,34 +1,34 @@
 schemas:
-    ewLogoSchema:
-        properties:
-        ewLogo:
-            required:
-                - type
-                - module
-                - installation
-                - instance
-            properties:
-                type:
-                  type: string
-                  description: Type descriptionnnnn | ???
-                  example: TYPE_QUAKE2K
-                module:
-                  type: string
-                  description: Module description | ???
-                  example: MOD_BINDER_EW
-                installation:
-                  type: string
-                  description: Installation description | ???
-                  example: INST_INGV
-                user:
-                  type: string
-                  description: Hostname user | ???
-                  example: ew
-                hostname:
-                  type: string
-                  description: Hostname | ???
-                  example: hew3.int.ingv.it
-                instance:
-                  type: string
-                  description: Instance description | ???
-                  example: hew3_mole
+  ewLogoSchema:
+    properties:
+    ewLogo:
+      required:
+        - type
+        - module
+        - installation
+        - instance
+      properties:
+        type:
+          type: string
+          description: Type descriptionnnnn | ???
+          example: TYPE_QUAKE2K
+        module:
+          type: string
+          description: Module description | ???
+          example: MOD_BINDER_EW
+        installation:
+          type: string
+          description: Installation description | ???
+          example: INST_INGV
+        user:
+          type: string
+          description: Hostname user | ???
+          example: ew
+        hostname:
+          type: string
+          description: Hostname | ???
+          example: hew3.int.ingv.it
+        instance:
+          type: string
+          description: Instance description | ???
+          example: hew3_mole
