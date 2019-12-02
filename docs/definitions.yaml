@@ -318,7 +318,7 @@ schemas:
       properties:
         data:
           allOf:
-            - $ref: '#/schemas/ewLogo'
+            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/ewLogo'
             - $ref: '#/schemas/quake2k__base'
     quake2k__base:
       properties:
