@@ -10,7 +10,7 @@ schemas:
                 properties:
                     type:
                       type: string
-                      description: Type descriptionnnn | ???
+                      description: Type descriptionnnnn | ???
                       example: TYPE_QUAKE2K
                     module:
                       type: string
