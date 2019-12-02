@@ -64,7 +64,7 @@ schemas:
           rms:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
           dmin:
-            type": number
+            type: number
             description: dmin description | ???
             format: double
           ravg:
