@@ -1,4 +1,10 @@
 schemas:
+  ewLogo__type:
+    properties:
+      type:
+        type: string
+        description: Type description | ???
+        example: TYPE_QUAKE2K
   ewLogoSchema:
     properties:
       ewLogo:
