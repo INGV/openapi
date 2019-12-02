@@ -1,5 +1,5 @@
 schemas:
-    ewLogo:
+    ewLogoSchema:
         properties:
             ewLogo:
                 required:
