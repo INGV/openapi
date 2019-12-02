@@ -1,13 +1,13 @@
 schemas:
-      ewLogo:
-      properties:
-        ewLogo:
-          required:
+    ewLogo:
+    properties:
+    ewLogo:
+        required:
             - type
             - module
             - installation
             - instance
-          properties:
+        properties:
             type:
               type: string
               description: Type description | ???
