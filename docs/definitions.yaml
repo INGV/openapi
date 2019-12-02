@@ -317,3 +317,6 @@ responses:
         schema:
           $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Problem'
     description: Internal Server Error
+  204NoContent:
+    description: Request was properly formatted and submitted but no data matches
+      the selection
