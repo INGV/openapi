@@ -64,12 +64,12 @@ schemas:
           rms:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
           dmin:
-            "type": "number",
-            "description": "dmin description | ???",
+            "type": "number"
+            "description": "dmin description | ???"
             "format": "double"
           ravg:
-            "type": "number",
-            "description": "ravg description | ???",
+            "type": "number"
+            "description": "ravg description | ???"
             "format": "double"
           gap:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
