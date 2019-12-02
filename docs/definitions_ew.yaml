@@ -208,7 +208,7 @@ schemas:
             description: ingvQuality description | ???
             example: DD
           phases:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hyp2000arc__phases'
+            $ref: '#/schemas/hyp2000arc__phases'
   hyp2000arc__phases:
     type: array
     items:
