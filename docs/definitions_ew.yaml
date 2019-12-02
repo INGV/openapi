@@ -1,34 +1,22 @@
 schemas:
   ewLogo__type:
-    properties:
-      type:
-        type: string
-        description: Type description | ???
-        example: TYPE_QUAKE2K
+    type: string
+    description: Type description | ???
   ewLogo__module:
-    properties:
-      module:
-        type: string
-        description: Module description | ???
-        example: MOD_BINDER_EW
+    type: string
+    description: Module description | ???
   ewLogo__installation:
-    properties:
-      installation:
-        type: string
-        description: Installation description | ???
-        example: INST_INGV
+    type: string
+    description: Installation description | ???
+    example: INST_INGV
   ewLogo__user:
-    properties:
-      user:
-        type: string
-        description: User | ???
-        example: ew
+    type: string
+    description: User | ???
+    example: ew
   ewLogo__hostname:
-    properties:
-      hostname:
-        type: string
-        description: Hostname | ???
-        example: hew3.int.ingv.it
+    type: string
+    description: Hostname | ???
+    example: hew3.int.ingv.it
   ewLogo__instance:
     type: string
     description: Instance description | ???
@@ -51,17 +39,11 @@ schemas:
             description: Module description | ???
             example: MOD_BINDER_EW
           installation:
-            type: string
-            description: Installation description | ???
-            example: INST_INGV
+            $ref: '#/schemas/ewLogo__installation'
           user:
-            type: string
-            description: Hostname user | ???
-            example: ew
+            $ref: '#/schemas/ewLogo__user'
           hostname:
-            type: string
-            description: Hostname | ???
-            example: hew3.int.ingv.it
+            $ref: '#/schemas/ewLogo__hostname'
           instance:
             $ref: '#/schemas/ewLogo__instance'
   quake2kSchema:
