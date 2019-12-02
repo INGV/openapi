@@ -57,3 +57,21 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
           latitude:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
+          longitude:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
+          depth:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
+          rms:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
+          dmin:
+            "type": "number",
+            "description": "dmin description | ???",
+            "format": "double"
+          ravg:
+            "type": "number",
+            "description": "ravg description | ???",
+            "format": "double"
+          gap:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
+          nph:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph'
