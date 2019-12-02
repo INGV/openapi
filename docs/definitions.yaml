@@ -314,12 +314,6 @@ schemas:
         description: Magnitude | double
         example: 3.2
         format: double
-    quake2k:
-      properties:
-        data:
-          allOf:
-            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/ewLogoSchema'
-            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/quake2k__base'
     hyp2000arc:
       properties:
         data:
