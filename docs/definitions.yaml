@@ -284,10 +284,6 @@ schemas:
         type: number
         description: Depth error | double
         format: double
-    hypocenter__rms:
-        type: number
-        description: Root mean square | double
-        format: double
     type_hypocenter__name:
         description: Localization name (es:01,XX,WW,..) | varchar(255)
         type: string
