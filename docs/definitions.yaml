@@ -349,7 +349,7 @@ schemas:
               $ref: '#/schemas/hypocenter__nph_fm'
             gap:
               $ref: '#/schemas/hypocenter__azim_gap'
-            dmin:
+            dminnnn:
               type: number
               description: dmin description | ???
               format: double
