@@ -564,4 +564,10 @@ schemas:
             type: number
             description: Importance of S arrival | col105 F4.3
             format: float
-        
+responses:
+  500InternalServerError:
+    content:
+      application/problem+json:
+        schema:
+          $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Problem'
+    description: Internal Server Error
