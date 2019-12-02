@@ -318,7 +318,7 @@ schemas:
       properties:
         data:
           allOf:
-            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/ewLogo'
+            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/ewLogoSchema'
             - $ref: '#/schemas/quake2k__base'
     quake2k__base:
       properties:
@@ -343,7 +343,7 @@ schemas:
       properties:
         data:
           allOf:
-            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/ewLogo'
+            - $ref: 'https://ingv.github.io/openapi/definitions_ew.yaml#/schemas/ewLogoSchema'
             - $ref: '#/schemas/hyp2000arc__base'
     hyp2000arc__base:
       properties:
