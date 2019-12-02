@@ -32,7 +32,7 @@ schemas:
             type: string
             description: Instance description | ???
             example: hew3_mole
-  quake2k:
+  quake2kSchema:
     properties:
       data:
         allOf:
