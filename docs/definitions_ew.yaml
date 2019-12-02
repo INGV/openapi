@@ -86,3 +86,280 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
           nph:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph'
+  hyp2000arcSchema:
+    allOf:
+      - $ref: '#/schemas/hyp2000arc__base'
+      - type: object
+        properties:
+          ewLogo:
+            required:
+              - type
+              - module
+              - installation
+              - instance
+            properties:
+              type:
+                type: string
+                description: Type description | ???
+                example: TYPE_HYP2000ARC
+              module:
+                type: string
+                description: Module description | ???
+                example: MOD_EQASSEMBLE
+              installation:
+                $ref: '#/schemas/ewLogo__installation'
+              user:
+                $ref: '#/schemas/ewLogo__user'
+              hostname:
+                $ref: '#/schemas/ewLogo__hostname'
+              instance:
+                $ref: '#/schemas/ewLogo__instance'
+  hyp2000arc__base:
+    properties:
+      ewMessage:
+        required:
+          - quakeId
+          - version
+          - originTime
+          - latitude
+          - longitude
+          - depth
+        properties:
+          quakeId:
+            $ref: '#/schemas/event__id_locator'
+          version:
+            $ref: '#/schemas/type_hypocenter__name'
+          originTime:
+            $ref: '#/schemas/hypocenter__ot'
+          latitude:
+            $ref: '#/schemas/latitude'
+          longitude:
+            $ref: '#/schemas/longitude'
+          depth:
+            $ref: '#/schemas/depth'
+          nph:
+            $ref: '#/schemas/hypocenter__nph'
+          nphS:
+            $ref: '#/schemas/hypocenter__nph_s'
+          nphtot:
+            $ref: '#/schemas/hypocenter__nph_tot'
+          nPfm:
+            $ref: '#/schemas/hypocenter__nph_fm'
+          gap:
+            $ref: '#/schemas/hypocenter__azim_gap'
+          dminnnn:
+            type: number
+            description: dmin description | ???
+            format: double
+          rms:
+            $ref: '#/schemas/hypocenter__rms'
+          e0az:
+            $ref: '#/schemas/hypocenter__e0_az'
+          e0dp:
+            $ref: '#/schemas/hypocenter__e0_dip'
+          e0:
+            $ref: '#/schemas/hypocenter__e0'
+          e1az:
+            $ref: '#/schemas/hypocenter__e1_az'
+          e1dp:
+            $ref: '#/schemas/hypocenter__e1_dip'
+          e1:
+            $ref: '#/schemas/hypocenter__e1'
+          e2:
+            $ref: '#/schemas/hypocenter__e2'
+          erh:
+            $ref: '#/schemas/hypocenter__err_h'
+          erz:
+            $ref: '#/schemas/hypocenter__err_z'
+          Md:
+            type: number
+            description: Md description | ???
+            format: double
+          reg:
+            type: string
+            description: ingvQuality description | ???
+            example: ' '
+          labelpref:
+            type: string
+            description: ingvQuality description | ???
+            example: ' '
+          Mpref:
+            type: number
+            description: Mpref description | ???
+            format: double
+          wtpref:
+            type: number
+            description: wtpref description | ???
+            format: double
+          mdtype:
+            type: string
+            description: ingvQuality description | ???
+            example: D
+          mdmad:
+            type: number
+            description: mdmad description | ???
+            format: double
+          mdwt:
+            type: number
+            description: mdwt description | ???
+            format: double
+          ingvQuality:
+            type: string
+            description: ingvQuality description | ???
+            example: DD
+          phases:
+            $ref: '#/schemas/hyp2000arc__phases'
+  hyp2000arc__phases:
+    type: array
+    items:
+      required:
+        - net
+        - sta
+        - comp
+        - loc
+      properties:
+        net:
+          $ref: '#/schemas/net'
+        sta:
+          $ref: '#/schemas/sta'
+        comp:
+          $ref: '#/schemas/cha'
+        loc:
+          $ref: '#/schemas/loc'
+        latitude:
+          $ref: '#/schemas/latitude'
+        longitude:
+          $ref: '#/schemas/longitude'
+        Plabel:
+          type: string
+          description: Todo description | ???
+          example: ' '
+        Slabel:
+          type: string
+          description: Todo description | ???
+          example: ' '
+        Ponset:
+          type: string
+          description: Todo description | ???
+          example: P
+        Sonset:
+          type: string
+          description: Todo description | ???
+          example: ' '
+        Pat:
+          $ref: '#/schemas/hypocenter__ot'
+        Sat:
+          $ref: '#/schemas/hypocenter__ot'
+        Pres:
+          type: number
+          description: Todo description | ???
+          format: double
+        Sres:
+          type: number
+          description: Todo description | ???
+          format: double
+        Pqual:
+          type: number
+          description: Todo description | ???
+          format: double
+        Squal:
+          type: number
+          description: Todo description | ???
+          format: double
+        codalen:
+          type: number
+          description: Todo description | ???
+          format: double
+        codawt:
+          type: number
+          description: Todo description | ???
+          format: double
+        Pfm:
+          type: string
+          description: Todo description | ???
+          example: ' '
+        Sfm:
+          type: string
+          description: Todo description | ???
+          example: ' '
+        datasrc:
+          type: string
+          description: Todo description | ???
+          example: W
+        Md:
+          type: number
+          description: Todo description | ???
+          format: double
+        azm:
+          type: number
+          description: Todo description | ???
+          format: double
+        takeoff:
+          type: number
+          description: Todo description | ???
+          format: double
+        dist:
+          type: number
+          description: Todo description | ???
+          format: double
+        Pwt:
+          type: number
+          description: Todo description | ???
+          format: double
+        Swt:
+          type: number
+          description: Todo description | ???
+          format: double
+        pamp:
+          type: number
+          description: Todo description | ???
+          format: double
+        codalenObs:
+          type: number
+          description: Todo description | ???
+          format: double
+        ccntr:
+          type: array
+          items:
+            description: Todo description | ???
+            example:
+              - 0
+              - 0
+              - 0
+              - 0
+              - 0
+        caav:
+          type: array
+          items:
+            description: Todo description | ???
+            example:
+              - 0
+              - 0
+              - 0
+              - 0
+              - 0
+        amplitude:
+          type: number
+          description: Amplitude (Normally peak-to-peak) | col55 F7.2
+          format: float
+        ampUnitsCode:
+          type: integer
+          description: 'Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital counts | col62 I2'
+        ampType:
+          type: integer
+          description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration 4=no magnitude | col114 I2
+        ampMag:
+          type: number
+          description: Amplitude magnitude for this station | col98 F3.2
+          format: float
+        ampMagWeightCode:
+          type: integer
+          description: Amplitude magnitude weight code | col82 I1
+        importanceP:
+          type: number
+          description: Importance of P arrival | col101 F4.3
+          format: float
+        importanceS:
+          type: number
+          description: Importance of S arrival | col105 F4.3
+          format: float
