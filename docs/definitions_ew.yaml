@@ -69,8 +69,7 @@ schemas:
           originTime:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
           latitude:
-            #$ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
-            $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
           longitude:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
           depth:
