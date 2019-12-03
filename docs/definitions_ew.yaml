@@ -406,7 +406,7 @@ schemas:
           mag:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag'
           error:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__error'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__err'
           quality:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__quality'
           minDist:
