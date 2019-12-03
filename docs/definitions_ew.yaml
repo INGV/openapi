@@ -21,6 +21,10 @@ schemas:
     type: string
     description: Instance description | ???
     example: hew3_mole
+  qAuthor:
+    type: string
+    description: qAuthor description
+    example: 014101073:028130073
   quake2kSchema:
     allOf:
       - $ref: '#/schemas/quake2k__base'
@@ -418,9 +422,7 @@ schemas:
           nChannels:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__ncha'
           qAuthor:
-            type: string
-            description: qAuthor description
-            example: 014101073:028130073
+            $ref: '#/schemas/qAuthor'
           qddsVersion:
             type: number
             description: qddsVersion description
@@ -536,3 +538,82 @@ schemas:
             items:
             description: Todo description | ???
             example: [109, 101, 122]
+  strongmotioniiSchema:
+    allOf:
+      - $ref: '#/schemas/strongmotionii__base'
+      - type: object
+        properties:
+          ewLogo:
+            required:
+              - type
+              - module
+              - installation
+              - instance
+            properties:
+              type:
+                type: string
+                description: Type description | ???
+                example: TYPE_STRONGMOTIONII
+              module:
+                type: string
+                description: Module description | ???
+                example: MOD_GMEW
+              installation:
+                $ref: '#/schemas/ewLogo__installation'
+              user:
+                $ref: '#/schemas/ewLogo__user'
+              hostname:
+                $ref: '#/schemas/ewLogo__hostname'
+              instance:
+                $ref: '#/schemas/ewLogo__instance'
+  strongmotionii__base:
+    properties:
+      ewMessage:
+        required:
+          - quakeId
+          - version
+        properties:
+          quakeId:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+          version:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+          network:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
+          station:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
+          component:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
+          location:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
+          qAuthor:
+            $ref: '#/schemas/qAuthor'
+          time:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__t_dt'
+          alternateTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__t_alt_dt'
+          alternateCode:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__altcode'
+          pga:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pga'
+          pgaTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpga_dt'
+          pgv:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgv'
+          pgvTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgv_dt'
+          pgd:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgd'
+          pgdTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgd_dt'
+          RSA:
+            type: array
+            items:
+              properties:
+                value:
+                  type: number
+                  description: RSA(response spectrum accel) value for period
+                  example: 0.000724
+                period:
+                  type: number
+                  description: Period
+                  example: 0.3
