@@ -21,11 +21,11 @@ schemas:
   events_prefResponse:
     properties:
       meta:
-        $ref: '#/schema/metaDefinition'
+        $ref: '#/schemas/metaDefinition'
       data:
         type: array
         items:
-          $ref: '#/definitions/events_pref'
+          $ref: '#/schemas/events_pref'
   metaDefinition:
     type: object
     properties:
@@ -64,7 +64,7 @@ schemas:
   events_pref:
     properties:
       id:
-        $ref: '#/definitions/id'
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
       fk_events_group:
         type: integer
         description: 'Link: event group | bigint(20)'
