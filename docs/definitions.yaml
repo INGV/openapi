@@ -347,6 +347,11 @@ schemas:
       type: string
       description: INGV quality code of the magnitude (computed by ew2moledb) | char(2)
       example: BB
+    type_magnitude__name:
+      type: string
+      description: Type of the magnitude | varchar(50)
+      example: ML-VAX
+      default: null
 responses:
   500InternalServerError:
     content:
