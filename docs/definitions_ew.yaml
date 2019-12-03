@@ -535,8 +535,4 @@ schemas:
             type: array
             items:
               description: Todo description | ???
-              example: [
-                109
-                101
-                122
-              ]
+              example: [109, 101, 122]
