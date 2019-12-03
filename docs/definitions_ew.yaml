@@ -404,7 +404,7 @@ schemas:
           version:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
           mag:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__ot'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag'
           error:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__error'
           quality:
