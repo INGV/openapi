@@ -363,3 +363,68 @@ schemas:
           type: number
           description: Importance of S arrival | col105 F4.3
           format: float
+  magnitudeSchema:
+    allOf:
+      - $ref: '#/schemas/magnitude__base'
+      - type: object
+        properties:
+          ewLogo:
+            required:
+              - type
+              - module
+              - installation
+              - instance
+            properties:
+              type:
+                type: string
+                description: Type description | ???
+                example: TYPE_MAGNITUDE
+              module:
+                type: string
+                description: Module description | ???
+                example: MOD_LOCALMAG_PREL
+              installation:
+                $ref: '#/schemas/ewLogo__installation'
+              user:
+                $ref: '#/schemas/ewLogo__user'
+              hostname:
+                $ref: '#/schemas/ewLogo__hostname'
+              instance:
+                $ref: '#/schemas/ewLogo__instance'
+  magnitude__base:
+    properties:
+      ewMessage:
+        required:
+          - quakeId
+          - version
+          - originTime
+          - latitude
+          - longitude
+          - depth
+        properties:
+          quakeId:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+          version:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+          originTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+          latitude:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
+          longitude:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
+          depth:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
+          rms:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
+          dmin:
+            type: number
+            description: dmin description | ???
+            format: double
+          ravg:
+            type: number
+            description: ravg description | ???
+            format: double
+          gap:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
+          nph:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph'
