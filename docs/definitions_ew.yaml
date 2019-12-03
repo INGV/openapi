@@ -466,11 +466,11 @@ schemas:
         mag:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag'
         dist:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/phase-st_amp_mag-st_dur_mag__ep_distance'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/ep_distance'
         corr:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag_correction'
         time1:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__time1'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__time1'
         amp1:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp1'
         period1:
