@@ -397,34 +397,87 @@ schemas:
         required:
           - quakeId
           - version
-          - originTime
-          - latitude
-          - longitude
-          - depth
+          - mag
         properties:
           quakeId:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
           version:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
-          originTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
-          latitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
-          longitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
-          depth:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
-          rms:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
-          dmin:
+          mag:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__ot'
+          error:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__error'
+          quality:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__quality'
+          minDist:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__min_dist'
+          azimuth:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__azimut'
+          nStations:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__nsta'
+          nChannels:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__ncha'
+          qAuthor:
+            type: string
+            description: qAuthor description
+            example: 014101073:028130073
+          qddsVersion:
             type: number
-            description: dmin description | ???
+            description: qddsVersion description
             format: double
-          ravg:
+            example: 0
+          iMagType:
             type: number
-            description: ravg description | ???
+            description: iMagType description
             format: double
-          gap:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
-          nph:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph'
+            example: 1
+          magType:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_magnitude__name'
+          algorithm:
+            type: string
+            description: algorithm description
+            format: double
+            example: MED
+          ingvQuality:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
+          phases:
+            $ref: '#/schemas/mangitude__phases'
+  magnitude__phases:
+    type: array
+    items:
+      required:
+        - net
+        - sta
+        - comp
+        - loc
+        - time1
+        - amp1
+        - time2
+        - amp2
+      properties:
+        net:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
+        sta:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
+        comp:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
+        loc:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
+        mag:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag'
+        dist:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/phase-st_amp_mag-st_dur_mag__ep_distance'
+        corr:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag_correction'
+        time1:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__time1'
+        amp1:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp1'
+        period1:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period1'
+        time2:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__time2'
+        amp2:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp2'
+        period2:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period2'
