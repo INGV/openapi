@@ -481,3 +481,62 @@ schemas:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp2'
         period2:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period2'
+  pick_scnlSchema:
+    allOf:
+      - $ref: '#/schemas/pick_scnl__base'
+      - type: object
+        properties:
+          ewLogo:
+            required:
+              - type
+              - module
+              - installation
+              - instance
+            properties:
+              type:
+                type: string
+                description: Type description | ???
+                example: TYPE_PICK_SCNL
+              module:
+                type: string
+                description: Module description | ???
+                example: MOD_PICK_EW
+              installation:
+                $ref: '#/schemas/ewLogo__installation'
+              user:
+                $ref: '#/schemas/ewLogo__user'
+              hostname:
+                $ref: '#/schemas/ewLogo__hostname'
+              instance:
+                $ref: '#/schemas/ewLogo__instance'
+  pick_scnl__base:
+    properties:
+      ewMessage:
+        required:
+          - pickId
+        properties:
+          pickId:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+          network:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
+          station:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
+          component:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
+          location:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
+          firstMotion:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__firstmotion'
+          pickWeight:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__weight'
+          timeOfPick:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__arrival_time'
+          pAmplitude:
+            type: array
+            items:
+              description: Todo description | ???
+              example: [
+                109
+                101
+                122
+              ]
