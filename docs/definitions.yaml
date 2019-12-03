@@ -139,6 +139,24 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
+    orderbyForViewQueryParameter:
+      name: orderby
+      in: query
+      description: Select order
+      required: false
+      type: string
+      format: string
+      enum:
+        - id
+        - id-asc
+        - id-desc
+        - modified
+        - modified-asc
+        - modified-desc
+        - hyp_ot-asc
+        - hyp_ot-desc
+        - mag_mag-asc
+        - mag_mag-desc
     limit:
         description: Limit the results to the specified number of events.
         in: query
