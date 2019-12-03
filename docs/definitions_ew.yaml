@@ -441,7 +441,7 @@ schemas:
           ingvQuality:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
           phases:
-            $ref: '#/schemas/mangitude__phases'
+            $ref: '#/schemas/magnitude__phases'
   magnitude__phases:
     type: array
     items:
