@@ -534,5 +534,5 @@ schemas:
           pAmplitude:
             type: array
             items:
-              description: Todo description | ???
-              example: [109, 101, 122]
+            description: Todo description | ???
+            example: [109, 101, 122]
