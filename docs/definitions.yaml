@@ -391,9 +391,26 @@ schemas:
       example: 0.292
     amplitude__period2:
       type: number
-      description: Amlitude period | double
+      description: Amplitude period | double
       format: double
       example: -1
+    pick__weight:
+      type: integer
+      description: Picking weight of the phase | int(11)
+      format: int64
+      example: 2
+    pick__arrival_time:
+      type: string
+      description: arrival time | datetime(6)
+      example: '2017-04-12 08:46:30.930000'
+    pick__err_arrival_time:
+      type: number
+      description: Error arrival time | double
+      format: double
+    pick__firstmotion:
+      type: string
+      description: Up or down | char(1)
+      example: D
 responses:
   500InternalServerError:
     content:
