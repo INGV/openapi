@@ -204,8 +204,8 @@ schemas:
       default: 0
     hypocenter__ot:
       type: string
-      description: Origin time | datetime(6)
-      example: '2016-06-22 16:52:06.260000'
+      description: Origin time | datetime(3)
+      example: '2016-06-22 16:52:06.260'
     depth:
       type: number
       description: Depth in Km | double
@@ -368,8 +368,8 @@ schemas:
       example: 0
     amplitude__time1:
       type: string
-      description: ' | datetime(6)'
-      example: '2017-04-28 06:34:15.350000'
+      description: ' | datetime(3)'
+      example: '2017-04-28 06:34:15.350'
     amplitude__amp1:
       type: number
       description: Amplitude value | double
@@ -382,8 +382,8 @@ schemas:
       example: -1
     amplitude__time2:
       type: string
-      description: ' | datetime(6)'
-      example: '2017-04-28 06:34:15.850000'
+      description: ' | datetime(3)'
+      example: '2017-04-28 06:34:15.850'
     amplitude__amp2:
       type: number
       description: Amplitude value | double
@@ -401,8 +401,8 @@ schemas:
       example: 2
     pick__arrival_time:
       type: string
-      description: arrival time | datetime(6)
-      example: '2017-04-12 08:46:30.930000'
+      description: arrival time | datetime(3)
+      example: '2017-04-12 08:46:30.9300'
     pick__err_arrival_time:
       type: number
       description: Error arrival time | double
