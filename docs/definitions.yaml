@@ -411,6 +411,66 @@ schemas:
       type: string
       description: Up or down | char(1)
       example: D
+    strongmotion__t_dt:
+      type: string
+      description: 'time: trigger reported by SM box - datetime part | datetime(6)'
+      example: '2017-04-12 08:46:56.190'
+      default: '1970-01-01 00:00:00.000'
+    strongmotion__pga:
+      type: number
+      description: 'REQUIRED: peak ground acceleration (cm/s/s) | double'
+      format: double
+      example: 0.000162
+    strongmotion__tpga_dt:
+      type: string
+      description: 'OPTIONAL: time of pga - datetime part | datetime(3)'
+      example: '2017-04-12 08:47:06.990'
+    strongmotion__pgv:
+      type: number
+      description: 'REQUIRED: peak ground velocity (cm/s) | double'
+      format: double
+      example: 0.000034
+    strongmotion__tpgv_dt:
+      type: string
+      description: 'OPTIONAL: time of pgv - datetime part | datetime(3)'
+      example: '2017-04-12 08:46:56.190'
+    strongmotion__pgd:
+      type: number
+      description: 'REQUIRED: peak ground displacement (cm) | double'
+      format: double
+      example: 0.000025
+    strongmotion__tpgd_dt:
+      type: string
+      description: 'OPTIONAL: time of pgd - datetime part | datetime(3)'
+      example: '2017-04-12 08:46:59.989'
+    strongmotion__rsa_030:
+      type: number
+      description: RSA(response spectrum accel) value for period 0.30 | double
+      example: 0.02604
+    strongmotion__rsa_100:
+      type: number
+      description: RSA(response spectrum accel) value for period 1.00 | double
+      example: 0.003673
+    strongmotion__rsa_300:
+      type: number
+      description: RSA(response spectrum accel) value for period 3.00 | double
+      example: 0.000339
+    strongmotion_alt__t_alt_dt:
+      type: string
+      description: 'alternate time: trigger reported by SM box - time with microseconds | datetime(3)'
+      example: '1970-01-01 00:00:00.000'
+    strongmotion_alt__altcode:
+      type: number
+      description: code specifying the source of the alternate time field | int(11)
+      example: 0
+    strongmotion_rsa__value:
+      type: number
+      description: RSA value (cm/s/s) at given period | double
+      example: 1.5
+    strongmotion_rsa__period:
+      type: number
+      description: period (s) at which RSA values are given | double
+      example: 0.000096
 responses:
   500InternalServerError:
     content:
