@@ -77,7 +77,7 @@ schemas:
     content:
       application/json:
         schema:
-          schema:
+          allOf:
           - properties:
               data:
                 type: array
