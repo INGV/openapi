@@ -80,12 +80,11 @@ schemas:
           allOf:
           - properties:
               data:
-                properties:
-                  $ref: '#/schemas/DanteEventBase'
-                  hypocenter:
-                    $ref: '#/schemas/DanteHypocenterBase'
-                  magnitude:
-                    $ref: '#/schemas/DanteMagnitudeBase'                
+                $ref: '#/schemas/DanteEventBase'
+                hypocenter:
+                  $ref: '#/schemas/DanteHypocenterBase'
+                magnitude:
+                  $ref: '#/schemas/DanteMagnitudeBase'                
           - $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
