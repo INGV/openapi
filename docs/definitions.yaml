@@ -511,6 +511,10 @@ schemas:
       type: string
       description: Name | varchar(255)
       example: earthquake
+    hypocenter_region_name__region:
+      type: string
+      description: Event location remark region | varchar(255)
+      example: Norcia
 responses:
   500InternalServerError:
     content:
