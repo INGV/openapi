@@ -46,7 +46,7 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
   DanteEventBase:
     properties:
-      id5:
+      id:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
       id_locator:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
@@ -78,12 +78,17 @@ schemas:
       application/json:
         schema:
           properties:
+            type: object
             $ref: '#/schemas/metaDefinition'
             data:
               type: array
               items:
                 $ref: '#/schemas/DanteEventBase'
   metaDefinition:
+    current_page:
+      type: string
+      description: Current page.
+      example: '2'
     total:
       type: string
       description: Total records.
@@ -91,11 +96,7 @@ schemas:
     per_page:
       type: string
       description: Record per page.
-      example: '4000'
-    current_page:
-      type: string
-      description: Current page.
-      example: '1'      
+      example: '4000'      
     last_page:
       type: string
       description: Last page.
