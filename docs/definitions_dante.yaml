@@ -37,7 +37,7 @@ schemas:
       provenance_instance:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__instance'
       provenance_softwarename:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__softwarename
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__softwarename'
       provenance_username:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__username'
       provenance_hostname:
