@@ -21,7 +21,7 @@ schemas:
       depth:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
       quality:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/quality'
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__quality'
       region:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter_region_name__region'
       modified:
