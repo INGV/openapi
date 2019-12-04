@@ -63,7 +63,7 @@ schemas:
       to:
         type: string
         description: Showed record to.
-        example: '4000'
+        example: '1999'
   events_pref:
     properties:
       id:
