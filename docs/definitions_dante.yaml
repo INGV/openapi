@@ -80,7 +80,7 @@ schemas:
           allOf:
           - properties:
               data:
-                $ref: '#/schemas/events_pref'
+                $ref: '#/schemas/DanteEventBase'
           - $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
