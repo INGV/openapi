@@ -212,6 +212,21 @@ parameters:
         type: boolean
         default: false
 schemas:
+    id:
+      type: integer
+      description: Unique incremental id | bigint(20)
+      format: int64
+      example: 14932631
+    modified:
+      type: string
+      description: Last Review | timestamp
+      example: '2017-04-18 15:04:42'
+      default: CURRENT_TIMESTAMP
+    inserted:
+      type: string
+      description: Insert time | timestamp
+      example: '2017-04-18 15:04:42'
+      default: CURRENT_TIMESTAMP
     event__id_locator:
       type: integer
       description: Event id created by locator | bigint(20)
