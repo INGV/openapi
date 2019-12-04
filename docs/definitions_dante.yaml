@@ -9,13 +9,17 @@ parameters:
       enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
 schemas:
   events_prefResponse:
-    properties:
-      meta:
-        $ref: '#/schemas/metaDefinition'
-      data:
-        type: array
-        items:
-          $ref: '#/schemas/events_pref'
+    description: Operation successful
+    content:
+      application/json:
+        schema:
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/schemas/events_pref'
+            meta:
+              $ref: '#/schemas/metaDefinition'
   metaDefinition:
     type: object
     properties:
