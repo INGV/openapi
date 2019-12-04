@@ -15,7 +15,7 @@ schemas:
         schema:
           allOf:
           - $ref: '#/schemas/events_pref'
-          - $ref: '#/schemas/metaDefinition
+          - $ref: '#/schemas/metaDefinition'
             type: object
   metaDefinition:
     properties:
