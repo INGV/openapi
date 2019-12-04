@@ -84,13 +84,19 @@ schemas:
                   items:
                     properties:
                       $ref: '#/schemas/DanteEventBase'
+                      hypocenter:
+                        current_page2:
+                          type: string
+                          description: Current page.
+                          example: '8'
+                        
   metaDefinition:
     type: object
     properties:  
       current_page:
         type: string
         description: Current page.
-        example: '8'
+        example: '9'
       total:
         type: string
         description: Total records.
