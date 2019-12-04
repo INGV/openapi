@@ -59,6 +59,7 @@ schemas:
       inserted:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
   DanteMagnitudeBase:
+    type: object
     properties:
       id:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
