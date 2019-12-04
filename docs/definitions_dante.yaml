@@ -85,9 +85,9 @@ schemas:
                   type: array
                   items:
                     $ref: '#/schemas/DanteEventBase'
-                      type: object
-                      hypocenter:
-                        $ref: '#/schemas/DanteHypocenterBase'
+                      properties:
+                        hypocenter:                      
+                          $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
     properties:  
