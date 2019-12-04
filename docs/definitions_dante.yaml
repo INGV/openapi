@@ -93,7 +93,7 @@ schemas:
       current_page:
         type: string
         description: Current page.
-        example: '1'
+        example: '2'
       total:
         type: string
         description: Total records.
