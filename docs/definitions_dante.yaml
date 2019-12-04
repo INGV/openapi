@@ -76,32 +76,6 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
       provenance:
         $ref: '#/schemas/DanteProvenanceBase'
-  events_prefResponse:
-    description: Operation successful
-    content:
-      application/json:
-        schema:
-          allOf:
-            - $ref: '#/schemas/metaDefinition'
-            - type: object
-              properties:
-                data:
-                  type: array
-                  items:
-                    allOf:
-                      - $ref: '#/schemas/DanteEventBase'
-                      - type: object
-                        properties:
-                          hypocenter:
-                            $ref: '#/schemas/DanteHypocenterBase'
-                      - type: object
-                        properties:
-                          magnitude:
-                            $ref: '#/schemas/DanteMagnitudeBase'
-                      - type: object
-                        properties:
-                          provenance:
-                            $ref: '#/schemas/DanteProvenanceBase'
   metaDefinition:
     type: object
     properties:  
