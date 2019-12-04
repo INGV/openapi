@@ -82,10 +82,11 @@ schemas:
               data:
                 type: array
                 items:
-                  - $ref: '#/schemas/DanteEventBase'
-                  - hypocenter:
+                  $ref: '#/schemas/DanteEventBase'
+                  properties:
+                    hypocenter:
                       $ref: '#/schemas/DanteHypocenterBase'
-                  - magnitude:
+                    magnitude:
                       $ref: '#/schemas/DanteMagnitudeBase'                
           - $ref: '#/schemas/metaDefinition'
   metaDefinition:
