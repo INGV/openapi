@@ -9,27 +9,26 @@ parameters:
       enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
 schemas:
   DanteHypocenterBase:
-    properties:
-      id:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
-      ot:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
-      lat:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
-      lon:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
-      depth:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
-      quality:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__quality'
-      region:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter_region_name__region'
-      modified:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
-      inserted:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
-      provenance:
-        $ref: '#/schemas/DanteProvenanceBase'
+    id:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+    ot:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+    lat:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
+    lon:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
+    depth:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
+    quality:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__quality'
+    region:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter_region_name__region'
+    modified:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
+    inserted:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
+    provenance:
+      $ref: '#/schemas/DanteProvenanceBase'
   DanteProvenanceBase:
     properties:
       name:
@@ -45,19 +44,18 @@ schemas:
       description:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
   DanteEventBase:
-    properties:
-      id:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
-      id_locator:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
-      fk_events_group:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
-      type_event:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
-      modified:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
-      inserted:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
+    id:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+    id_locator:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+    fk_events_group:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
+    type_event:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
+    modified:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
+    inserted:
+      $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
   DanteMagnitudeBase:
     properties:
       id:
@@ -83,8 +81,9 @@ schemas:
                 data:
                   type: array
                   items:
-                    - $ref: '#/schemas/DanteEventBase'
-                    - hypocenter:                      
+                    properties:
+                      $ref: '#/schemas/DanteEventBase'
+                      hypocenter:                      
                         $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
