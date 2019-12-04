@@ -8,6 +8,28 @@ parameters:
       type: string
       enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
 schemas:
+  DanteHypocenterBase:
+    properties:
+      id:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+      ot:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+      lat:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/lat'
+      lon:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/lon'
+      depth:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
+      quality:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/quality'
+      region:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter_region_name__region'
+      modified:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
+      inserted:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
+      #provenance:
+      #  $ref: '#/definitions/ntProvenanceBase'
   events_prefResponse:
     description: Operation successful
     content:
@@ -63,7 +85,7 @@ schemas:
       to:
         type: string
         description: Showed record to.
-        example: '1999'
+        example: '4000'
   events_pref:
     properties:
       id:
@@ -78,7 +100,7 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
       inserted:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
-      #hypocenter:
-      #  $ref: '#/definitions/ntHypocenterBase'
+      hypocenter:
+        $ref: '#/definitions/DanteHypocenterBase'
       #magnitude:
       #  $ref: '#/definitions/ntMagnitudeBase'
