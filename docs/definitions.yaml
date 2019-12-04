@@ -532,7 +532,7 @@ schemas:
     provenance__softwarename:
       type: string
       description: 'Software name. i.e. SisPick, eqassemble, hypoinverse | char(255)'
-      example: MOD_LOCALMAG_RAPID
+      example: software
     provenance__username:
       type: string
       description: User name | char(255)
@@ -541,7 +541,7 @@ schemas:
     provenance__hostname:
       type: string
       description: Hostname | char(255)
-      example: hew3.int.ingv.it
+      example: hew10.ingv.it
       default: null
     provenance__description:
       type: string
