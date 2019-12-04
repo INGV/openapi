@@ -83,8 +83,10 @@ schemas:
                   items:
                     properties:
                       $ref: '#/schemas/DanteEventBase'
-                      hypocenter:                      
-                        $ref: '#/schemas/DanteHypocenterBase'
+                      hypocenter:
+                        type: object
+                        items:
+                          $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
     properties:  
