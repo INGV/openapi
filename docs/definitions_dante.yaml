@@ -80,11 +80,7 @@ schemas:
         schema:
           properties:
             meta:
-              $ref: '#/schemas/metaDefinition'
-            data:
-              type: array
-              items:
-                $ref: '#/schemas/DanteEventBase'              
+              $ref: '#/schemas/metaDefinition'              
   metaDefinition:
     type: object
     properties:
