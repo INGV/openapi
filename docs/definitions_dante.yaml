@@ -101,6 +101,6 @@ schemas:
       inserted:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
       hypocenter:
-        $ref: '#/definitions/DanteHypocenterBase'
+        $ref: '#/schemas/DanteHypocenterBase'
       #magnitude:
-      #  $ref: '#/definitions/ntMagnitudeBase'
+      #  $ref: '#/schemas/ntMagnitudeBase'
