@@ -76,14 +76,14 @@ schemas:
     description: Operation successful
     content:
       application/json:
-        properties:
-          meta:
-            $ref: '#/schemas/metaDefinition'
-          data:
-            type: array
-            items:
-              $ref: '#/schemas/DanteEventBase'
-              
+        schema:
+          properties:
+            meta:
+              $ref: '#/schemas/metaDefinition'
+            data:
+              type: array
+              items:
+                $ref: '#/schemas/DanteEventBase'              
   metaDefinition:
     properties:
       total:
