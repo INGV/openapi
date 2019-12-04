@@ -58,6 +58,8 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
       inserted:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
+      hypocenters:
+        $ref: '#/schemas/DanteHypocenterBase'
   DanteMagnitudeBase:
     properties:
       id:
@@ -90,7 +92,7 @@ schemas:
       current_page:
         type: string
         description: Current page.
-        example: '3'
+        example: '1'
       total:
         type: string
         description: Total records.
