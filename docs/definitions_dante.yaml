@@ -81,19 +81,16 @@ schemas:
               properties:
                 data:
                   type: array
-                    items:
-                      - $ref: '#/schemas/DanteEventBase'
-                      - type: object
-                        properties:
-                          hypocenter:
-                            $ref: '#/schemas/DanteHypocenterBase'
+                  items:
+                    properties:
+                      $ref: '#/schemas/DanteEventBase'
   metaDefinition:
     type: object
     properties:  
       current_page:
         type: string
         description: Current page.
-        example: '7'
+        example: '8'
       total:
         type: string
         description: Total records.
