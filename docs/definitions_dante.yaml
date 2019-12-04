@@ -71,13 +71,13 @@ schemas:
       id_locator:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
       fk_events_group:
-        type: integer
-        description: 'Link: event group | bigint(20)'
-        format: int64
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
       type_event:
-        type: string
-        description: Name | varchar(255)
-        example: earthquake
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
+      modified:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
+      inserted:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
       #hypocenter:
       #  $ref: '#/definitions/ntHypocenterBase'
       #magnitude:
