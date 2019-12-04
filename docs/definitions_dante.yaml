@@ -76,23 +76,9 @@ schemas:
     description: Operation successful
     content:
       application/json:
-        schema:
-          allOf:
-          - properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/schemas/DanteEventBase'
-                  properties:
-                    hypocenter:
-                      type: array
-                      items:
-                        $ref: '#/schemas/DanteHypocenterBase'
-                    magnitude:
-                      type: array
-                      items:
-                        $ref: '#/schemas/DanteMagnitudeBase'                
-          - $ref: '#/schemas/metaDefinition'
+        properties:
+          meta:
+            $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
       total:
