@@ -85,9 +85,13 @@ schemas:
                   $ref: '#/schemas/DanteEventBase'
                   properties:
                     hypocenter:
-                      $ref: '#/schemas/DanteHypocenterBase'
+                      type: array
+                      items:
+                        $ref: '#/schemas/DanteHypocenterBase'
                     magnitude:
-                      $ref: '#/schemas/DanteMagnitudeBase'                
+                      type: array
+                      items:
+                        $ref: '#/schemas/DanteMagnitudeBase'                
           - $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
