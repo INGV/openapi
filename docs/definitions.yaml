@@ -235,7 +235,7 @@ schemas:
       default: 0
     event__fk_events_group:
         type: integer
-        description: "Link: event group | bigint(20)
+        description: Link: event group | bigint(20)
         format: int64
         default: 0
     hypocenter__ot:
@@ -507,6 +507,10 @@ schemas:
       type: number
       description: period (s) at which RSA values are given | double
       example: 0.000096
+    type_event__name:
+      type: string
+      description: Name | varchar(255)
+      example: earthquake
 responses:
   500InternalServerError:
     content:
