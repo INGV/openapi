@@ -535,7 +535,6 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__arrival_time'
           pAmplitude:
             type: array
-            items:
             description: Todo description | ???
             example: [109, 101, 122]
   strongmotioniiSchema:
