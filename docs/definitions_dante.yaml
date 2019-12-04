@@ -77,16 +77,17 @@ schemas:
     content:
       application/json:
         schema:
-        - properties:
-            data:
-              type: array
-              items:
-                $ref: '#/schemas/DanteEventBase'
-                hypocenter:
-                  $ref: '#/schemas/DanteHypocenterBase'
-                magnitude:
-                  $ref: '#/schemas/DanteMagnitudeBase'                
-        - $ref: '#/schemas/metaDefinition'
+          allOf:
+          - properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/schemas/DanteEventBase'
+                  hypocenter:
+                    $ref: '#/schemas/DanteHypocenterBase'
+                  magnitude:
+                    $ref: '#/schemas/DanteMagnitudeBase'                
+          - $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
       total:
