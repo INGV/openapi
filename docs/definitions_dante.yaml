@@ -20,50 +20,51 @@ schemas:
                 $ref: '#/schemas/events_pref'
             $ref: '#/schemas/metaDefinition'
   metaDefinition:
-    total:
-      type: string
-      description: Total records.
-      example: '50'
-    per_page:
-      type: string
-      description: Record per page.
-      example: '4000'
-    current_page:
-      type: string
-      description: Current page.
-      example: '1'      
-    last_page:
-      type: string
-      description: Last page.
-      example: '967'
-    first_page_url:
-      type: string
-      description: URL first page.
-      example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=2'
-    last_page_url:
-      type: string
-      description: URL last page.
-      example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=4'   
-    next_page_url:
-      type: string
-      description: URL next page.
-      example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=3'
-    prev_page_url:
-      type: string
-      description: URL previous page.
-      example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=1'
-    path:
-      type: string
-      description: URL base path.
-      example: 'http://localhost:8087'
-    from:
-      type: string
-      description: Showed record from.
-      example: '1'      
-    to:
-      type: string
-      description: Showed record to.
-      example: '4000'
+    properties:
+      total:
+        type: string
+        description: Total records.
+        example: '50'
+      per_page:
+        type: string
+        description: Record per page.
+        example: '4000'
+      current_page:
+        type: string
+        description: Current page.
+        example: '1'      
+      last_page:
+        type: string
+        description: Last page.
+        example: '967'
+      first_page_url:
+        type: string
+        description: URL first page.
+        example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=2'
+      last_page_url:
+        type: string
+        description: URL last page.
+        example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=4'   
+      next_page_url:
+        type: string
+        description: URL next page.
+        example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=3'
+      prev_page_url:
+        type: string
+        description: URL previous page.
+        example: 'http://localhost:8087/api/eventdb/v1/events_pref/?page=1'
+      path:
+        type: string
+        description: URL base path.
+        example: 'http://localhost:8087'
+      from:
+        type: string
+        description: Showed record from.
+        example: '1'      
+      to:
+        type: string
+        description: Showed record to.
+        example: '4000'
   events_pref:
     properties:
       id:
