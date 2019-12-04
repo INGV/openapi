@@ -18,43 +18,40 @@ schemas:
               type: array
               items:
                 $ref: '#/schemas/events_pref'
-            meta:
-              $ref: '#/schemas/metaDefinition'
+            $ref: '#/schemas/metaDefinition'
   metaDefinition:
-    type: object
-    properties:
-      total:
-        type: string
-        description: Total records.
-        example: '1234'
-      last_page:
-        type: string
-        description: Last page.
-        example: '967'
-      per_page:
-        type: string
-        description: Record per page.
-        example: '4000'
-      current_page:
-        type: string
-        description: Current page.
-        example: '1'
-      next_page_url:
-        type: string
-        description: URL next page.
-        example: 'http://hgp5.int.ingv.it:8080/api/---dbname---/<ws>/1?page=2'
-      prev_page_url:
-        type: string
-        description: URL previous page.
-        example: 'http://hgp5.int.ingv.it:8080/api/---dbname---/<ws>/1?page=1'
-      from:
-        type: string
-        description: Showed record from.
-        example: '1'
-      to:
-        type: string
-        description: Showed record to.
-        example: '4000'
+    total:
+      type: string
+      description: Total records.
+      example: '1234'
+    last_page:
+      type: string
+      description: Last page.
+      example: '967'
+    per_page:
+      type: string
+      description: Record per page.
+      example: '4000'
+    current_page:
+      type: string
+      description: Current page.
+      example: '1'
+    next_page_url:
+      type: string
+      description: URL next page.
+      example: 'http://hgp5.int.ingv.it:8080/api/---dbname---/<ws>/1?page=2'
+    prev_page_url:
+      type: string
+      description: URL previous page.
+      example: 'http://hgp5.int.ingv.it:8080/api/---dbname---/<ws>/1?page=1'
+    from:
+      type: string
+      description: Showed record from.
+      example: '1'
+    to:
+      type: string
+      description: Showed record to.
+      example: '4000'
   events_pref:
     properties:
       id:
