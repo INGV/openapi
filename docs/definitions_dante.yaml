@@ -32,17 +32,17 @@ schemas:
         $ref: '#/schemas/DanteProvenanceBase'
   DanteProvenanceBase:
     properties:
-      provenance_name:
+      name:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__name'
-      provenance_instance:
+      instance:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__instance'
-      provenance_softwarename:
+      softwarename:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__softwarename'
-      provenance_username:
+      username:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__username'
-      provenance_hostname:
+      hostname:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__hostname'
-      provenance_description:
+      description:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
   DanteMagnitudeBase:
     properties:
