@@ -44,6 +44,20 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__hostname'
       description:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
+  DanteEventBase:
+    properties:
+      id:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+      id_locator:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+      fk_events_group:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
+      type_event:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
+      modified:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
+      inserted:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
   DanteMagnitudeBase:
     properties:
       id:
@@ -116,18 +130,7 @@ schemas:
         example: '4000'
   events_pref:
     properties:
-      id:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
-      id_locator:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
-      fk_events_group:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
-      type_event:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
-      modified:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
-      inserted:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
+      $ref: '#/schemas/DanteEventBase'
       hypocenter:
         $ref: '#/schemas/DanteHypocenterBase'
       magnitude:
