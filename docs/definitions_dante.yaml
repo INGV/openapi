@@ -98,6 +98,10 @@ schemas:
                         properties:
                           magnitude:
                             $ref: '#/schemas/DanteMagnitudeBase'
+                      - type: object
+                        properties:
+                          provenance:
+                            $ref: '#/schemas/DanteProvenanceBase'
   metaDefinition:
     type: object
     properties:  
