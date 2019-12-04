@@ -418,7 +418,7 @@ schemas:
     pick__arrival_time:
       type: string
       description: arrival time | datetime(3)
-      example: '2017-04-12 08:46:30.9300'
+      example: '2017-04-12 08:46:30.930'
     pick__err_arrival_time:
       type: number
       description: Error arrival time | double
