@@ -46,7 +46,7 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
   DanteEventBase:
     properties:
-      id5:
+      id6:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
       id_locator:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
@@ -82,10 +82,11 @@ schemas:
               data:
                 type: array
                 items:
-                  $ref: '#/schemas/DanteEventBase'
-                  $ref: '#/schemas/DanteHypocenterBase'
-                  magnitude:
-                    $ref: '#/schemas/DanteMagnitudeBase'                
+                  - $ref: '#/schemas/DanteEventBase'
+                  - hypocenter:
+                      $ref: '#/schemas/DanteHypocenterBase'
+                  - magnitude:
+                      $ref: '#/schemas/DanteMagnitudeBase'                
           - $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
