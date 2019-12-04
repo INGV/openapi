@@ -81,13 +81,9 @@ schemas:
             - $ref: '#/schemas/metaDefinition'
             - properties:
                 data:
-                  type: object
+                  type: array
                   items:
                     $ref: '#/schemas/DanteEventBase'
-            - properties:
-                data:
-                  type: object
-                  items:
                     $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
