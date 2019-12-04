@@ -44,6 +44,20 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__hostname'
       provenance_description:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
+  DanteMagnitudeBase:
+    properties:
+      id:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+      type:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_magnitude__name'
+      value:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag'
+      quality:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__quality'
+      mag_quality:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
+      provenance:
+        $ref: '#/schemas/DanteProvenanceBase'
   events_prefResponse:
     description: Operation successful
     content:
