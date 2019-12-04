@@ -13,12 +13,10 @@ schemas:
     content:
       application/json:
         schema:
-          properties:
-            data:
-              type: array
-              items:
-                $ref: '#/schemas/events_pref'
-            $ref: '#/schemas/metaDefinition'
+          allOf:
+          - $ref: '#/schemas/events_pref'
+          - $ref: '#/schemas/metaDefinition
+            type: object
   metaDefinition:
     properties:
       total:
