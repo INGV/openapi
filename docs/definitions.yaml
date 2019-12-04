@@ -550,6 +550,27 @@ schemas:
       format: int64
       example: 0
       default: 0
+    type_magnitude__name:
+      type: string
+      description: Type of the magnitude | varchar(50)
+      example: ML-VAX
+      default: null
+    type_amplitude__type:
+      type: string
+      description: Type of the amplitude | varchar(50)
+      example: Acceleration
+    type_amplitude__priority:
+      type: integer
+      description: Type of the amplitude | tinyint(4)
+      format: int64
+      example: 0
+      default: 0
+    type_amplitude__remark:
+      type: string
+      description: Italian note | varchar(255)
+    type_amplitude__remark_en:
+      type: string
+      description: English note | varchar(255)
 responses:
   500InternalServerError:
     content:
