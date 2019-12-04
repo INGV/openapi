@@ -81,7 +81,7 @@ schemas:
               properties:
                 data:
                   type: array
-                  allOf:
+                  items:
                     - $ref: '#/schemas/DanteEventBase'
                     - type: object
                       properties:
@@ -93,7 +93,7 @@ schemas:
       current_page:
         type: string
         description: Current page.
-        example: '4'
+        example: '6'
       total:
         type: string
         description: Total records.
