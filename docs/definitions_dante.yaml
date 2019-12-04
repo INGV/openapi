@@ -77,23 +77,21 @@ schemas:
         schema:
           allOf:
             - $ref: '#/schemas/metaDefinition'
-            - properties:
+            - type: object
+              properties:
                 data:
-                  type: array
-                  items:
-                    properties:
-                      $ref: '#/schemas/DanteEventBase'
-                      hypocenter:
-                        type: object
-                        items:
-                          $ref: '#/schemas/DanteHypocenterBase'
+                  allOf:
+                    - $ref: '#/schemas/DanteEventBase'
+                    - type object
+                      properties:
+                        $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
     properties:  
       current_page:
         type: string
         description: Current page.
-        example: '2'
+        example: '3'
       total:
         type: string
         description: Total records.
