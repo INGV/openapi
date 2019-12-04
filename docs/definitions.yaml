@@ -1,4 +1,11 @@
 parameters:
+    fk_events_group:
+        name: event_group_id
+        in: query
+        description: Select events with same event_group_id.
+        required: false,
+        type: integer
+        format: integer
     starttime:
         description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
         in: query
