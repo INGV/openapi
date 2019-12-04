@@ -82,7 +82,7 @@ schemas:
                 data:
                   allOf:
                     - $ref: '#/schemas/DanteEventBase'
-                    - type object
+                    - type: object
                       properties:
                         $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
