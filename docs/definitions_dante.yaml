@@ -45,6 +45,7 @@ schemas:
       description:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
   DanteEventBase:
+    type: object
     properties:
       id:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
@@ -84,6 +85,7 @@ schemas:
                   type: array
                   items:
                     $ref: '#/schemas/DanteEventBase'
+                      type: object
                       hypocenter:
                         $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
