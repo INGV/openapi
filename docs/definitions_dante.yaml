@@ -129,9 +129,8 @@ schemas:
         description: Showed record to.
         example: '4000'
   events_pref:
-    properties:
-      $ref: '#/schemas/DanteEventBase'
-      hypocenter:
-        $ref: '#/schemas/DanteHypocenterBase'
-      magnitude:
-        $ref: '#/schemas/DanteMagnitudeBase'
+    $ref: '#/schemas/DanteEventBase'
+    hypocenter:
+      $ref: '#/schemas/DanteHypocenterBase'
+    magnitude:
+      $ref: '#/schemas/DanteMagnitudeBase'
