@@ -319,6 +319,10 @@ schemas:
       type: number
       description: Depth error | double
       format: double
+    hypocenter__quality:
+      type: string
+      description: Quality of the localization | char(2)
+      example: AB
     type_hypocenter__name:
       description: Localization name (es:01,XX,WW,..) | varchar(255)
       type: string
