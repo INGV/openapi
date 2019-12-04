@@ -86,14 +86,8 @@ schemas:
                 data:
                   type: array
                   items:
-                    properties:
-                      $ref: '#/schemas/DanteEventBase'
-                      hypocenter:
-                        current_page2:
-                          type: string
-                          description: Current page.
-                          example: '8'
-                        
+                    allOf:
+                      - $ref: '#/schemas/DanteEventBase'
   metaDefinition:
     type: object
     properties:  
