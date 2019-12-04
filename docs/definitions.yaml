@@ -3,7 +3,7 @@ parameters:
         name: event_group_id
         in: query
         description: Select events with same event_group_id.
-        required: false,
+        required: false
         type: integer
         format: integer
     starttime:
