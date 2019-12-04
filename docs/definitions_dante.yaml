@@ -15,9 +15,9 @@ schemas:
       ot:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
       lat:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/lat'
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
       lon:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/lon'
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
       depth:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
       quality:
