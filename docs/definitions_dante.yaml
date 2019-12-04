@@ -87,7 +87,7 @@ schemas:
                     $ref: '#/schemas/DanteHypocenterBase'
                   magnitude:
                     $ref: '#/schemas/DanteMagnitudeBase'                
-          - $ref: '#/schemas/metaDefinition'
+          #- $ref: '#/schemas/metaDefinition'
   metaDefinition:
     properties:
       total:
