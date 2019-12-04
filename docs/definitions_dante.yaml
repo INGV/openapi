@@ -68,6 +68,8 @@ schemas:
     properties:
       id:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+      id_locator:
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
       fk_events_group:
         type: integer
         description: 'Link: event group | bigint(20)'
