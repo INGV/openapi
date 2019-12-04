@@ -75,7 +75,14 @@ schemas:
       mag_quality:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
       provenance:
-        $ref: '#/schemas/DanteProvenanceBase'
+        allOf:
+          - $ref: '#/schemas/DanteProvenanceBase'
+          - type: object
+            properties:
+              softwarename2:
+                type: string
+                description: 'Software name. i.e. SisPick, eqassemble, hypoinverse | char(255)'
+                example: MOD_LOCALMAG_RAPID
   events_prefResponse:
     description: Operation successful
     content:
