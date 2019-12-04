@@ -58,8 +58,6 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
       inserted:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
-      hypocenters:
-        $ref: '#/schemas/DanteHypocenterBase'
   DanteMagnitudeBase:
     properties:
       id:
@@ -83,9 +81,14 @@ schemas:
             - $ref: '#/schemas/metaDefinition'
             - properties:
                 data:
-                  type: array
+                  type: object
                   items:
                     $ref: '#/schemas/DanteEventBase'
+            - properties:
+                data:
+                  type: object
+                  items:
+                    $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
     properties:  
