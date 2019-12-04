@@ -89,11 +89,9 @@ schemas:
                     allOf:
                       - $ref: '#/schemas/DanteEventBase'
                       - type: object
-                        required:
-                          - rootCause
                         properties:
-                          rootCause:
-                            type: string
+                          hypocenter:
+                            $ref: '#/schemas/DanteHypocenterBase'
   metaDefinition:
     type: object
     properties:  
