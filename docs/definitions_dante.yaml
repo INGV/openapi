@@ -18,7 +18,6 @@ schemas:
               data:
                 $ref: '#/schemas/events_pref'
           - $ref: '#/schemas/metaDefinition'
-            type: object
   metaDefinition:
     properties:
       total:
