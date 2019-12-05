@@ -306,6 +306,10 @@ schemas:
       type: integer
       description: '# P first motions | int(11)'
       format: int64
+    hypocenter__err_depth:
+      type: number
+      description: Depth error | double
+      format: double
     hypocenter__azim_gap:
       type: number
       description: Azimutal gap | double
