@@ -487,21 +487,87 @@ schemas:
       type: string
       description: Type of the magnitude | varchar(50)
       example: ML-VAX
+    phase-st_amp_mag-st_dur_mag__ep_distance:
+      type: number
+      description: Distance from epicenter of the station | double
+      format: double
+      example: 694
+    phase-st_amp_mag-st_dur_mag__hyp_distance:
+      type: number
+      description: Distance from hypocenter of the station | double
+      format: double
+    phase-st_amp_mag-st_dur_mag__azimut:
+      type: number
+      description: Station hypocenter azimut | double
+      format: double
+      example: 161
+    phase__take_off:
+      type: number
+      description: Take off angle | double
+      format: double
+      example: 94
+    phase__polarity_is_used:
+      type: integer
+      description: 1 if it is used for polarity calculation | tinyint(4)
+      format: int64
+    phase__arr_time_is_used:
+      type: integer
+      description: 1 if it is used for hypocenter calculation | tinyint(4)
+      format: int64
+    phase__residual:
+      type: number
+      description: Residual | double
+      format: double
+      example: 6.19
+    phase__teo_travel_time:
+      type: string
+      description: Teoretical travel time | datetime(6)
+      example: '2017-04-12 08:47:10'
+    phase__weight_in:
+      type: integer
+      description: A priori weight | bigint(20)
+      example: 4
+    phase__weight_out:
+      type: integer
+      description: Localization weight | double
+      example: 0.88
+    phase__std_error:
+      type: integer
+      description: Error evaluation | int(11)
+      format: int64
+    st_amp_mag-st_dur_mag__polarity_is_used:
+      type: integer
+      description: 1 if used | tinyint(4)
+      format: int64
+    st_dur_mag__dur:
+      type: number
+      description: ' Coda duration in seconds | double'
+      format: double
+      example: 6
+    st_dur_mag__mag:
+      type: number
+      description: Duration magnitude value | double
+      format: double
+      example: 0.8
     st_amp_mag__mag:
       type: number
       description: Amplitude magnitude value | double
       format: double
       example: 3.04
-    ep_distance:
-      type: number
-      description: Distance from epicenter of the station | double
-      format: double
-      example: 694
     st_amp_mag__mag_correction:
       type: number
       description: magnitude correction | double
       format: double
       example: 0
+    st_amp_mag-st_dur_mag__err_mag:
+      type: number
+      description: magnitude error | double
+      format: double
+    ep_distance:
+      type: number
+      description: Distance from epicenter of the station | double
+      format: double
+      example: 694
     amplitude__time1:
       type: string
       description: ' | datetime(3)'
