@@ -340,6 +340,10 @@ schemas:
       type: integer
       description: azimuth of largest principal error | double
       format: double
+    hypocenter__min_distance:
+      type: number
+      description: Distance from the closest station | double
+      format: double
     hypocenter__max_distance:
       type: number
       description: Distance from the furthest station | double
