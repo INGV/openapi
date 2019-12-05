@@ -40,12 +40,6 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__instance'
       softwarename:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__softwarename'
-      username:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__username'
-      hostname:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__hostname'
-      description:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/provenance__description'
   DanteEventBase:
     type: object
     properties:
