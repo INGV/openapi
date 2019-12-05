@@ -310,6 +310,14 @@ schemas:
       type: number
       description: Depth error | double
       format: double
+    hypocenter__err_lat:
+      type: number
+      description: Latitude error | double
+      format: double
+    hypocenter__err_lon:
+      type: number
+      description: Longitude error | double
+      format: double
     hypocenter__azim_gap:
       type: number
       description: Azimutal gap | double
