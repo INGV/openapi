@@ -76,27 +76,6 @@ schemas:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
       provenance:
         $ref: '#/schemas/DanteProvenanceBase'
-  eventBase:
-    type: object
-    properties:
-      id_locator:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
-      fk_pref_hyp:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_pref_hyp'
-      fk_pref_mag:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_pref_mag'
-      fk_events_group:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
-      type_group:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__type_group'
-      fk_type_event:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/fk_type_event'
-      fk_provenance:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/fk_provenance'
-    required:
-      - id_locator
-      - fk_type_event
-      - fk_provenance
   metaDefinition:
     type: object
     properties:  
