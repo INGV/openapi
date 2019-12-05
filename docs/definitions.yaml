@@ -362,6 +362,12 @@ schemas:
       type: number
       description: Origin time error | double
       format: double
+    hypocenter__confidence_lev:
+      type: number
+      description: confidence level | double
+      format: double
+      example: 68.3
+      default: 68.3
     hypocenter__quality:
       type: string
       description: Quality of the localization | char(2)
