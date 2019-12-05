@@ -1,4 +1,12 @@
 parameters:
+    orderby:
+      name: orderby
+      in: query
+      description: Select order
+      required: false
+      schema:
+          type: string
+          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
     fk_events_group:
         name: event_group_id
         in: query
