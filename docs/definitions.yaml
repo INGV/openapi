@@ -245,6 +245,11 @@ schemas:
       format: int64
       example: 697
       default: 1
+    fk_provenance:
+      type: integer
+      description: 'Link: provenance | bigint(20)'
+      format: int64
+      example: 13      
     event__id_locator:
       type: integer
       description: Event id created by locator | bigint(20)
