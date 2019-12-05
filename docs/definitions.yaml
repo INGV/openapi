@@ -597,7 +597,7 @@ schemas:
     phase__isc_code:
       type: string
       description: ISC phase code | varchar(8)
-      example: P
+      example: S
     type_magnitude__name:
       type: string
       description: Type of the magnitude | varchar(50)
