@@ -306,6 +306,12 @@ schemas:
       type: integer
       description: '# P first motions | int(11)'
       format: int64
+    hypocenter__is_centroid:
+      type: integer
+      description: 1 if it is a centroid | tinyint(4)
+      format: int64
+      example: 0
+      default: 0
     hypocenter__err_depth:
       type: number
       description: Depth error | double
