@@ -483,6 +483,38 @@ schemas:
       type: string
       description: INGV quality code of the magnitude (computed by ew2moledb) | char(2)
       example: BB
+    scnl__net:
+      type: string
+      description: Channel net code | char(2)
+      example: IV
+    scnl__sta:
+      type: string
+      description: Channel station code | varchar(5)
+      example: ACER
+    scnl__cha:
+      type: string
+      description: Channel code | char(3)
+      example: HHZ
+    scnl__loc:
+      type: string
+      description: Channel location | char(2)
+      example: '00'
+      default: '--'
+    scnl__lat:
+      type: string
+      description: latitude if not using seisnet | varchar(50)
+      example: '-19.755530'
+      default: '--'
+    scnl__lon:
+      type: string
+      description: longitude if not using seisnet | varchar(50)
+      example: '63.370140'
+      default: '--'
+    scnl__elev:
+      type: string
+      description: elevation if not using seisnet | varchar(50)
+      example: '52.000000'
+      default: '--'
     type_magnitude__name:
       type: string
       description: Type of the magnitude | varchar(50)
