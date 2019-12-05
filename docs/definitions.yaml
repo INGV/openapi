@@ -250,7 +250,11 @@ schemas:
       type: integer
       description: 'Link: provenance | bigint(20)'
       format: int64
-      example: 13      
+      example: 13
+    loc_program__name:
+      type: string
+      description: Name of the localization program | char(255)
+      example: IPO-EW__tdmt_invc.c
     event__id_locator:
       type: integer
       description: Event id created by locator | bigint(20)
