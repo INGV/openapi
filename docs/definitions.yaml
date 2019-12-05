@@ -515,6 +515,85 @@ schemas:
       description: elevation if not using seisnet | varchar(50)
       example: '52.000000'
       default: '--'
+    pick__id_picker:
+      type: integer
+      description: Picker id | int(11)
+      format: int64
+      example: 243432354
+    pick__weight:
+      type: integer
+      description: Picking weight of the phase | int(11)
+      format: int64
+      example: 2
+    pick__arrival_time:
+      type: string
+      description: arrival time | datetime(6)
+      example: '2017-04-12 08:46:30.930000'
+    pick__err_arrival_time:
+      type: number
+      description: Error arrival time | double
+      format: double
+    pick__firstmotion:
+      type: string
+      description: Up or down | char(1)
+      example: D
+    pick__emersio:
+      type: string
+      description: 'Impulsive or emersio, pamp description | char(1)'
+      example: null
+    pick__pamp:
+      type: number
+      description: peak P-wave half amplitude | double
+      format: double
+      example: 283
+    pick_ew_coda__ccntr_0:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_1:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_2:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_3:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_4:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_5:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_0:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_1:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_2:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_3:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_4:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_5:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
     type_magnitude__name:
       type: string
       description: Type of the magnitude | varchar(50)
