@@ -294,6 +294,10 @@ schemas:
       $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
       $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
+    model__name:
+      type: string
+      description: Name of the model | varchar(20)
+      example: prem      
     hypocenter__nph:
       type: integer
       description: '# phases (P&S) weight >0.1 | int(11)'
