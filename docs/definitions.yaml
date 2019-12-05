@@ -594,6 +594,10 @@ schemas:
       type: integer
       description: peak P-wave half amplitude | int(11)
       format: int64
+    phase__isc_code:
+      type: string
+      description: ISC phase code | varchar(8)
+      example: P
     type_magnitude__name:
       type: string
       description: Type of the magnitude | varchar(50)
