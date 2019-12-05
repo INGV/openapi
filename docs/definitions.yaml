@@ -245,6 +245,16 @@ schemas:
       description: Link event group | bigint(20)
       format: int64
       default: 0
+    event__fk_pref_hyp:
+      type: integer
+      description: 'Link: preferred hypocenter. It can be NULL. | bigint(20)'
+      format: int64
+      default: null
+    event__fk_pref_mag:
+      type: integer
+      description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
+      format: int64
+      default: null
     hypocenter__ot:
       type: string
       description: Origin time | datetime(3)
