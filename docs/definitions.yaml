@@ -358,6 +358,10 @@ schemas:
       type: number
       description: Depth error | double
       format: double
+    hypocenter__err_ot:
+      type: number
+      description: Origin time error | double
+      format: double
     hypocenter__quality:
       type: string
       description: Quality of the localization | char(2)
