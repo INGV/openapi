@@ -439,6 +439,10 @@ schemas:
       description: Localization name (es:01,XX,WW,..) | varchar(255)
       type: string
       example: ew prelim
+    type_hypocenter__value:
+      type: string
+      description: Define a numeric value for type hypocenter. < 100 is automatic location | bigint(20)
+      example: '10'
     net:
       type: string
       description: Channel net code | char(2)
