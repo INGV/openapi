@@ -374,6 +374,11 @@ schemas:
       type: number
       description: Origin time error | double
       format: double
+    hypocenter__fix_depth:
+      type: boolean
+      description: 1 if depth is fixed | tinyint(1)
+      example: 0
+      default: 0
     hypocenter__confidence_lev:
       type: number
       description: confidence level | double
