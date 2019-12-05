@@ -15,7 +15,7 @@ parameters:
         schema:
             type: integer
             format: integer
-    fk_hypocenter:
+    originid:
         name: originid
         in: query
         description: Select by origin/hypocenter id.
