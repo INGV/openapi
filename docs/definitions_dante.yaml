@@ -92,7 +92,7 @@ schemas:
       fk_type_event:
         $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/fk_type_event'
       fk_provenance:
-        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/definitions/fk_provenance'
+        $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/fk_provenance'
     required:
       - id_locator
       - fk_type_event
