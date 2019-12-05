@@ -255,6 +255,11 @@ schemas:
       description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
       format: int64
       default: null
+    event__type_group:
+      type: integer
+      description: Group type. Used by clustering algorithm | tinyint(4)
+      format: int64
+      default: 0
     hypocenter__ot:
       type: string
       description: Origin time | datetime(3)
