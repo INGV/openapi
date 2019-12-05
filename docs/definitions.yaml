@@ -234,6 +234,17 @@ schemas:
       description: Insert time | timestamp
       example: '2017-04-18 15:04:42'
       default: CURRENT_TIMESTAMP
+    fk_type_hypocenter:
+      type: integer
+      description: 'Link: type_hypocenter | bigint(20)'
+      format: int64
+      example: 0
+    fk_type_event:
+      type: integer
+      description: ' | bigint(20)'
+      format: int64
+      example: 697
+      default: 1
     event__id_locator:
       type: integer
       description: Event id created by locator | bigint(20)
