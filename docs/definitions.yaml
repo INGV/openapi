@@ -15,6 +15,14 @@ parameters:
         schema:
             type: integer
             format: integer
+    fk_hypocenter:
+        name: originid
+        in: query
+        description: Select by origin/hypocenter id.
+        required: false
+        schema:
+            type: integer
+            format: integer            
     starttime:
         description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
         in: query
