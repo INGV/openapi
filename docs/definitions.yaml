@@ -90,6 +90,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/latitude'
+        example: 42
     lon:
         description: Specify the central longitude point for a radial search (in WGS84).
         in: query
@@ -97,6 +98,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/longitude'
+        example: 12
     minradius:
         description: Specify minimum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
@@ -105,6 +107,7 @@ parameters:
         schema:
             type: number
             format: double
+        example: 0
     maxradius:
         description: Specify maximum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
@@ -113,6 +116,7 @@ parameters:
         schema:
             type: number
             format: double
+        example: 5
     minradiuskm:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Kilometers. **This is an INGV extension to
@@ -141,6 +145,7 @@ parameters:
         schema:
             format: double
             type: number
+        example: 0
     maxdepth:
         description: Specify maximum depth (kilometers), values increase positively with depth.
         in: query
@@ -149,6 +154,7 @@ parameters:
         schema:
             format: double
             type: number
+        example: 50
     minmag:
         description: Limit to events with a magnitude larger than or equal to the specified minimum.
         in: query
@@ -164,6 +170,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
+        example: 7.3
     limit:
         description: Limit the results to the specified number of events.
         in: query
