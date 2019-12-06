@@ -156,6 +156,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
+        example: 1.1
     maxmag:
         description: Limit to events with a magnitude smaller than or equal to the specified maximum.
         in: query
