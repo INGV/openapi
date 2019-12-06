@@ -122,7 +122,7 @@ paths:
       tags:
       - get
     post:
-      summary: Event object that needs to be added to the DB using ew2openapi module
+      summary: Add a new event to the DB
       requestBody:
         description: JSON to store
         required: true
@@ -130,6 +130,48 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/insertEventPost'           
+      responses:
+        '201':
+          description: record inserted
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+      tags:
+      - store api
+  /v1/hypocenter/:
+    post:
+      summary: Add a new hypocenter(s) to the DB
+      requestBody:
+        description: JSON to store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/insertHypocenterPost'           
+      responses:
+        '201':
+          description: record inserted
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+      tags:
+      - store api
+  /v1/magnitude/:
+    post:
+      summary: Add a new magnitude(s) to the DB
+      requestBody:
+        description: JSON to store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/insertMagnitudePost'           
       responses:
         '201':
           description: record inserted
@@ -358,6 +400,32 @@ components:
         properties:
             data:
                 $ref: '#/components/schemas/objectEventBase'
+    insertHypocenterPost:
+        type: object
+        properties:
+            data:
+                allOf:
+                    - type: object
+                      properties:
+                        eventid:
+                          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+                    - type: object
+                      properties:
+                        hypocenter:
+                          $ref: '#/components/schemas/objectHypocenterBase'    
+    insertMagnitudePost:
+        type: object
+        properties:
+            data:
+                allOf:
+                    - type: object
+                      properties:
+                        hypocenter_id:
+                          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+                    - type: object
+                      properties:
+                        magnitudes:
+                          $ref: '#/components/schemas/objectMagnitudeBase'
     objectEventBase:
         type: object
         properties:
