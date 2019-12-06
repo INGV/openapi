@@ -1,20 +1,64 @@
 parameters:
+    orderby:
+      name: orderby
+      in: query
+      description: Select order
+      required: false
+      schema:
+          type: string
+          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
+    fk_events_group:
+        name: event_group_id
+        in: query
+        description: Select events with same event_group_id.
+        required: false
+        schema:
+            type: integer
+            format: integer
+    originid:
+        name: originid
+        in: query
+        description: Select by origin/hypocenter id.
+        required: false
+        schema:
+            type: integer
+            format: integer            
     starttime:
         description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
         in: query
         name: starttime
         required: false
         schema:
-            type: string
-            format: date-time
+          type: string
+          format: date-time
+        example: '2019-01-01T00:00:00'
+    starttime__REQUIRED:
+        description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
+        in: query
+        name: starttime
+        required: true
+        schema:
+          type: string
+          format: date-time
+        example: '2019-01-01T00:00:00'
     endtime:
         description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
         in: query
         name: endtime
         required: false
         schema:
+          type: string
+          format: date-time
+        example: '2019-01-31T23:59:59'
+    endtime__REQUIRED:
+        description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
+        in: query
+        name: endtime
+        required: true
+        schema:
             type: string
-            format: date-time            
+            format: date-time
+        example: '2019-01-31T23:59:59'
     minlat:
         description: Specify southern boundary for search (in WGS84).
         in: query
@@ -22,6 +66,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/latitude'
+        example: 39.12
     maxlat:
         description: Specify northern boundary for search (in WGS84).
         in: query
@@ -29,6 +74,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/latitude'
+        example: 46.52
     minlon:
         description: Specify western boundary for search (in WGS84).
         in: query
@@ -36,6 +82,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/longitude'
+        example: 10.12
     maxlon:
         description: Specify eastern boundary for search (in WGS84).
         in: query
@@ -43,6 +90,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/longitude'
+        example: 15.12
     lat:
         description: Specify the central latitude point for a radial search (in WGS84).
         in: query
@@ -50,6 +98,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/latitude'
+        example: 42
     lon:
         description: Specify the central longitude point for a radial search (in WGS84).
         in: query
@@ -57,6 +106,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/longitude'
+        example: 12
     minradius:
         description: Specify minimum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
@@ -65,6 +115,7 @@ parameters:
         schema:
             type: number
             format: double
+        example: '0'
     maxradius:
         description: Specify maximum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
@@ -73,6 +124,7 @@ parameters:
         schema:
             type: number
             format: double
+        example: 5
     minradiuskm:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Kilometers. **This is an INGV extension to
@@ -101,6 +153,7 @@ parameters:
         schema:
             format: double
             type: number
+        example: 0
     maxdepth:
         description: Specify maximum depth (kilometers), values increase positively with depth.
         in: query
@@ -109,6 +162,7 @@ parameters:
         schema:
             format: double
             type: number
+        example: 50
     minmag:
         description: Limit to events with a magnitude larger than or equal to the specified minimum.
         in: query
@@ -116,6 +170,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
+        example: 1.1
     maxmag:
         description: Limit to events with a magnitude smaller than or equal to the specified maximum.
         in: query
@@ -123,6 +178,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
+        example: 7.3
     limit:
         description: Limit the results to the specified number of events.
         in: query
@@ -132,474 +188,712 @@ parameters:
             format: int32
             type: integer
     offset:
-        description: Return results starting at the event count specified.
-        in: query
-        name:  offset
-        required: false
-        schema:
-            type: number
-            format: int32
+      description: Return results starting at the event count specified.
+      in: query
+      name:  offset
+      required: false
+      schema:
+        type: number
+        format: int32
     updatedafter:
-        description: Limit to events updated after the specified time (useful for
-            synchronizing events).
-        in: query
-        name:  updatedafter
-        required: false
-        schema:
-            type: string
-            format: date-time 
+      description: Limit to events updated after the specified time (useful for synchronizing events).
+      in: query
+      name:  updatedafter
+      required: false
+      schema:
+        type: string
+        format: date-time 
     eventid:
-        description: Retrieve an event based on the unique INGV event id.
-        in: query
-        name:  eventid
-        required: false
-        schema:
-            type: integer
-            format: int64
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name:  eventid
+      required: false
+      schema:
+        type: integer
+        format: int64
     eventid__required:
-        description: Retrieve an event based on the unique INGV event id.
-        in: query
-        name:  eventid
-        required: true
-        schema:
-            type: integer
-            format: int64
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name:  eventid
+      required: true
+      schema:
+        type: integer
+        format: int64
     includeallorigins:
-        description: Is used to retrive all origins associated with each event.
-        in: query
-        name:  includeallorigins
-        required: false
-        schema:
-            type: boolean
-            default: false
+      description: Is used to retrive all origins associated with each event.
+      in: query
+      name:  includeallorigins
+      required: false
+      schema:
+        type: boolean
+        default: false
     includeallmagnitudes:
-        description: Is used to retrive all magnitudes associated with each event.
-        in: query
-        name:  includeallmagnitudes
-        required: false
-        schema:
-            type: boolean
-            default: false
+      description: Is used to retrive all magnitudes associated with each event.
+      in: query
+      name:  includeallmagnitudes
+      required: false
+      schema:
+        type: boolean
+        default: false
     includeallstationsmagnitudes:
-        description: Is used to retrive all stations magnitudes associated with each hypocenter.
-        in: query
-        name:  includeallstationsmagnitudes
-        required: false
-        schema:
-            type: boolean
-            default: false
+      description: Is used to retrive all stations magnitudes associated with each hypocenter.
+      in: query
+      name:  includeallstationsmagnitudes
+      required: false
+      schema:
+        type: boolean
+        default: false
     includearrivals:
-        description: Is used to retrive any associated phase arrival information for each event.
-        in: query
-        name:  includearrivals
-        required: false
-        schema:
-            type: boolean
-            default: false
+      description: Is used to retrive any associated phase arrival information for each event.
+      in: query
+      name:  includearrivals
+      required: false
+      schema:
+        type: boolean
+        default: false
 schemas:
+    id:
+      type: integer
+      description: Unique incremental id | bigint(20)
+      format: int64
+      example: 14932631
+    modified:
+      type: string
+      description: Last Review | timestamp
+      example: '2017-04-18 15:04:42'
+      default: CURRENT_TIMESTAMP
+    inserted:
+      type: string
+      description: Insert time | timestamp
+      example: '2017-04-18 15:04:42'
+      default: CURRENT_TIMESTAMP
+    fk_type_hypocenter:
+      type: integer
+      description: 'Link: type_hypocenter | bigint(20)'
+      format: int64
+      example: 0
+    fk_type_event:
+      type: integer
+      description: ' | bigint(20)'
+      format: int64
+      example: 697
+      default: 1
+    fk_provenance:
+      type: integer
+      description: 'Link: provenance | bigint(20)'
+      format: int64
+      example: 13
+    loc_program__name:
+      type: string
+      description: Name of the localization program | char(255)
+      example: IPO-EW__tdmt_invc.c
     event__id_locator:
-        type: integer
-        description: Event id created by locator | bigint(20)
-        format: int64
-        example: 182491
-        default: 0
+      type: integer
+      description: Event id created by locator | bigint(20)
+      format: int64
+      example: 182491
+      default: 0
+    event__fk_events_group:
+      type: integer
+      description: Link event group | bigint(20)
+      format: int64
+      default: 0
+    event__fk_pref_hyp:
+      type: integer
+      description: 'Link: preferred hypocenter. It can be NULL. | bigint(20)'
+      format: int64
+      default: null
+    event__fk_pref_mag:
+      type: integer
+      description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
+      format: int64
+      default: null
+    event__type_group:
+      type: integer
+      description: Group type. Used by clustering algorithm | tinyint(4)
+      format: int64
+      default: 0
     hypocenter__ot:
-        type: string
-        description: Origin time | datetime(6)
-        example: '2016-06-22 16:52:06.260000'
+      type: string
+      description: Origin time | datetime(3)
+      example: '2016-06-22 16:52:06.260'
     depth:
-        type: number
-        description: Depth in Km | double
-        format: double
-        example: 0.02
+      type: number
+      description: Depth in Km | double
+      format: double
+      example: 0.02
     latitude:
-        $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
+      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
-        $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
+      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
+    model__name:
+      type: string
+      description: Name of the model | varchar(20)
+      example: prem      
     hypocenter__nph:
-        type: integer
-        description: '# phases (P&S) weight >0.1 | int(11)'
-        format: int64
+      type: integer
+      description: '# phases (P&S) weight >0.1 | int(11)'
+      format: int64
     hypocenter__nph_s:
-        type: integer
-        description: '# S phases weight >0.1 | int(11)'
-        format: int64
+      type: integer
+      description: '# S phases weight >0.1 | int(11)'
+      format: int64
     hypocenter__nph_tot:
-        type: integer
-        description: '# phases (P&S) weight >0.0 | int(11)'
-        format: int64
+      type: integer
+      description: '# phases (P&S) weight >0.0 | int(11)'
+      format: int64
     hypocenter__nph_fm:
-        type: integer
-        description: '# P first motions | int(11)'
-        format: int64
+      type: integer
+      description: '# P first motions | int(11)'
+      format: int64
+    hypocenter__is_centroid:
+      type: integer
+      description: 1 if it is a centroid | tinyint(4)
+      format: int64
+      example: 0
+      default: 0
+    hypocenter__sec_azim_gap:
+      type: number
+      description: Secondary Azimutal gap | double
+      format: double
+    hypocenter__err_depth:
+      type: number
+      description: Depth error | double
+      format: double
+    hypocenter__err_lat:
+      type: number
+      description: Latitude error | double
+      format: double
+    hypocenter__err_lon:
+      type: number
+      description: Longitude error | double
+      format: double
     hypocenter__azim_gap:
-        type: number
-        description: Azimutal gap | double
-        format: double
+      type: number
+      description: Azimutal gap | double
+      format: double
     hypocenter__rms:
-        type: number
-        description: Root mean square | double
-        format: double
+      type: number
+      description: Root mean square | double
+      format: double
     hypocenter__e0_az:
-        type: integer
-        description: azimuth of largest principal error | double
-        format: double
+      type: integer
+      description: azimuth of largest principal error | double
+      format: double
+    hypocenter__min_distance:
+      type: number
+      description: Distance from the closest station | double
+      format: double
+    hypocenter__w_rms:
+      type: number
+      description: Root mean square Weighted | double
+      format: double
+    hypocenter__max_distance:
+      type: number
+      description: Distance from the furthest station | double
+      format: double
     hypocenter__e0_dip:
-        type: integer
-        description: dip of largest principal error | double
-        format: double
+      type: integer
+      description: dip of largest principal error | double
+      format: double
     hypocenter__e0:
-        type: number
-        description: largest principal error | double
-        format: double
+      type: number
+      description: largest principal error | double
+      format: double
     hypocenter__e1_az:
-        type: integer
-        description: azimuth of intermediate principal error | double
-        format: double
+      type: integer
+      description: azimuth of intermediate principal error | double
+      format: double
     hypocenter__e1_dip:
-        type: integer
-        description: dip of intermediate principal error | double
-        format: double
+      type: integer
+      description: dip of intermediate principal error | double
+      format: double
     hypocenter__e1:
-        type: number
-        description: intermed principal error | double
-        format: double
+      type: number
+      description: intermed principal error | double
+      format: double
     hypocenter__e2_az:
-        type: integer
-        description: azimuth of smallest principal error | double
-        format: double
+      type: integer
+      description: azimuth of smallest principal error | double
+      format: double
     hypocenter__e2_dip:
-        type: integer
-        description: dip of smallest principal error | double
-        format: double
+      type: integer
+      description: dip of smallest principal error | double
+      format: double
     hypocenter__e2:
-        type: number
-        description: smallest principal error | double
-        format: double        
+      type: number
+      description: smallest principal error | double
+      format: double        
     hypocenter__err_h:
-        type: number
-        description: Depth error | double
-        format: double
+      type: number
+      description: Depth error | double
+      format: double
     hypocenter__err_z:
-        type: number
-        description: Depth error | double
-        format: double
-    hypocenter__rms:
-        type: number
-        description: Root mean square | double
-        format: double
+      type: number
+      description: Depth error | double
+      format: double
+    hypocenter__err_ot:
+      type: number
+      description: Origin time error | double
+      format: double
+    hypocenter__fix_depth:
+      type: boolean
+      description: 1 if depth is fixed | tinyint(1)
+      example: 0
+      default: 0
+    hypocenter__confidence_lev:
+      type: number
+      description: confidence level | double
+      format: double
+      example: 68.3
+      default: 68.3
+    hypocenter__quality:
+      type: string
+      description: Quality of the localization | char(2)
+      example: AB
     type_hypocenter__name:
-        description: Localization name (es:01,XX,WW,..) | varchar(255)
-        type: string
-        example: ew prelim
+      description: Localization name (es:01,XX,WW,..) | varchar(255)
+      type: string
+      example: ew prelim
+    type_hypocenter__value:
+      type: string
+      description: Define a numeric value for type hypocenter. < 100 is automatic location | bigint(20)
+      example: '10'
     net:
-        type: string
-        description: Channel net code | char(2)
-        example: IV
+      type: string
+      description: Channel net code | char(2)
+      example: IV
     sta:
-        type: string
-        description: Channel station code | varchar(5)
-        example: ACER
+      type: string
+      description: Channel station code | varchar(5)
+      example: ACER
     cha:
-        type: string
-        description: Channel code | char(3)
-        example: HHZ
+      type: string
+      description: Channel code | char(3)
+      example: HHZ
     loc:
-        type: string
-        description: Channel location | char(2)
-        example: '00'
-        default: '--'
+      type: string
+      description: Channel location | char(2)
+      example: '00'
+      default: '--'
     magnitude:
-        type: number
-        description: Magnitude | double
-        example: 3.2
-        format: double
-    hyp2000arc:
-      properties:
-        data:
-          allOf:
-            - $ref: '#/schemas/ewLogo'
-            - $ref: '#/schemas/hyp2000arc__base'
-    ewLogo:
-      properties:
-        ewLogo:
-          required:
-            - type
-            - module
-            - installation
-            - instance
-          properties:
-            type:
-              type: string
-              description: Type description | ???
-              example: TYPE_QUAKE2K
-            module:
-              type: string
-              description: Module description | ???
-              example: MOD_BINDER_EW
-            installation:
-              type: string
-              description: Installation description | ???
-              example: INST_INGV
-            user:
-              type: string
-              description: Hostname user | ???
-              example: ew
-            hostname:
-              type: string
-              description: Hostname | ???
-              example: hew3.int.ingv.it
-            instance:
-              type: string
-              description: Instance description | ???
-              example: hew3_mole
-    hyp2000arc__base:
-      properties:
-        ewMessage:
-          required:
-            - quakeId
-            - version
-            - originTime
-            - latitude
-            - longitude
-            - depth
-          properties:
-            quakeId:
-              $ref: '#/schemas/event__id_locator'
-            version:
-              $ref: '#/schemas/type_hypocenter__name'
-            originTime:
-              $ref: '#/schemas/hypocenter__ot'
-            latitude:
-              $ref: '#/schemas/latitude'
-            longitude:
-              $ref: '#/schemas/longitude'
-            depth:
-              $ref: '#/schemas/depth'
-            nph:
-              $ref: '#/schemas/hypocenter__nph'
-            nphS:
-              $ref: '#/schemas/hypocenter__nph_s'
-            nphtot:
-              $ref: '#/schemas/hypocenter__nph_tot'
-            nPfm:
-              $ref: '#/schemas/hypocenter__nph_fm'
-            gap:
-              $ref: '#/schemas/hypocenter__azim_gap'
-            dmin:
-              type: number
-              description: dmin description | ???
-              format: double
-            rms:
-              $ref: '#/schemas/hypocenter__rms'
-            e0az:
-              $ref: '#/schemas/hypocenter__e0_az'
-            e0dp:
-              $ref: '#/schemas/hypocenter__e0_dip'
-            e0:
-              $ref: '#/schemas/hypocenter__e0'
-            e1az:
-              $ref: '#/schemas/hypocenter__e1_az'
-            e1dp:
-              $ref: '#/schemas/hypocenter__e1_dip'
-            e1:
-              $ref: '#/schemas/hypocenter__e1'
-            e2:
-              $ref: '#/schemas/hypocenter__e2'
-            erh:
-              $ref: '#/schemas/hypocenter__err_h'
-            erz:
-              $ref: '#/schemas/hypocenter__err_z'
-            Md:
-              type: number
-              description: Md description | ???
-              format: double
-            reg:
-              type: string
-              description: ingvQuality description | ???
-              example: ' '
-            labelpref:
-              type: string
-              description: ingvQuality description | ???
-              example: ' '
-            Mpref:
-              type: number
-              description: Mpref description | ???
-              format: double
-            wtpref:
-              type: number
-              description: wtpref description | ???
-              format: double
-            mdtype:
-              type: string
-              description: ingvQuality description | ???
-              example: D
-            mdmad:
-              type: number
-              description: mdmad description | ???
-              format: double
-            mdwt:
-              type: number
-              description: mdwt description | ???
-              format: double
-            ingvQuality:
-              type: string
-              description: ingvQuality description | ???
-              example: DD
-            phases:
-              $ref: '#/schemas/hyp2000arc__phases'
-    hyp2000arc__phases:
-      type: array
-      items:
-        required:
-          - net
-          - sta
-          - comp
-          - loc
-        properties:
-          net:
-            $ref: '#/schemas/net'
-          sta:
-            $ref: '#/schemas/sta'
-          comp:
-            $ref: '#/schemas/cha'
-          loc:
-            $ref: '#/schemas/loc'
-          latitude:
-            $ref: '#/schemas/latitude'
-          longitude:
-            $ref: '#/schemas/longitude'
-          Plabel:
-            type: string
-            description: Todo description | ???
-            example: ' '
-          Slabel:
-            type: string
-            description: Todo description | ???
-            example: ' '
-          Ponset:
-            type: string
-            description: Todo description | ???
-            example: P
-          Sonset:
-            type: string
-            description: Todo description | ???
-            example: ' '
-          Pat:
-            $ref: '#/schemas/hypocenter__ot'
-          Sat:
-            $ref: '#/schemas/hypocenter__ot'
-          Pres:
-            type: number
-            description: Todo description | ???
-            format: double
-          Sres:
-            type: number
-            description: Todo description | ???
-            format: double
-          Pqual:
-            type: number
-            description: Todo description | ???
-            format: double
-          Squal:
-            type: number
-            description: Todo description | ???
-            format: double
-          codalen:
-            type: number
-            description: Todo description | ???
-            format: double
-          codawt:
-            type: number
-            description: Todo description | ???
-            format: double
-          Pfm:
-            type: string
-            description: Todo description | ???
-            example: ' '
-          Sfm:
-            type: string
-            description: Todo description | ???
-            example: ' '
-          datasrc:
-            type: string
-            description: Todo description | ???
-            example: W
-          Md:
-            type: number
-            description: Todo description | ???
-            format: double
-          azm:
-            type: number
-            description: Todo description | ???
-            format: double
-          takeoff:
-            type: number
-            description: Todo description | ???
-            format: double
-          dist:
-            type: number
-            description: Todo description | ???
-            format: double
-          Pwt:
-            type: number
-            description: Todo description | ???
-            format: double
-          Swt:
-            type: number
-            description: Todo description | ???
-            format: double
-          pamp:
-            type: number
-            description: Todo description | ???
-            format: double
-          codalenObs:
-            type: number
-            description: Todo description | ???
-            format: double
-          ccntr:
-            type: array
-            items:
-              description: Todo description | ???
-              example:
-                - 0
-                - 0
-                - 0
-                - 0
-                - 0
-          caav:
-            type: array
-            items:
-              description: Todo description | ???
-              example:
-                - 0
-                - 0
-                - 0
-                - 0
-                - 0
-          amplitude:
-            type: number
-            description: Amplitude (Normally peak-to-peak) | col55 F7.2
-            format: float
-          ampUnitsCode:
-            type: integer
-            description: 'Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital counts | col62 I2'
-          ampType:
-            type: integer
-            description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration 4=no magnitude | col114 I2
-          ampMag:
-            type: number
-            description: Amplitude magnitude for this station | col98 F3.2
-            format: float
-          ampMagWeightCode:
-            type: integer
-            description: Amplitude magnitude weight code | col82 I1
-          importanceP:
-            type: number
-            description: Importance of P arrival | col101 F4.3
-            format: float
-          importanceS:
-            type: number
-            description: Importance of S arrival | col105 F4.3
-            format: float
-        
+      type: number
+      description: Magnitude | double
+      example: 3.2
+      format: double
+    magnitude__mag:
+      type: number
+      description: Magnitudo value | double
+      format: double
+      example: 3.01
+    magnitude__err:
+      type: number
+      description: Magnitudo error | double
+      format: double
+      example: 2.01
+    magnitude__quality:
+      type: number
+      description: quality | double
+      format: double
+    magnitude__min_dist:
+      type: number
+      description: Minimal distance from station to hypocenter | double
+      format: double
+    magnitude__azimut:
+      type: number
+      description: Azimut | double
+      format: double
+    magnitude__nsta:
+      type: integer
+      description: Number of the stations on magnitudo calculation | int(11)
+      format: int64
+    magnitude__ncha:
+      type: integer
+      description: Number of the channel on magnitudo calculation | int(11)
+      format: int64
+    magnitude__nsta_used:
+      type: integer
+      description: Number of the stations used on magnitudo calculation | int(11)
+      format: int64
+    magnitude__mag_quality:
+      type: string
+      description: INGV quality code of the magnitude (computed by ew2moledb) | char(2)
+      example: BB
+    scnl__net:
+      type: string
+      description: Channel net code | char(2)
+      example: IV
+    scnl__sta:
+      type: string
+      description: Channel station code | varchar(5)
+      example: ACER
+    scnl__cha:
+      type: string
+      description: Channel code | char(3)
+      example: HHZ
+    scnl__loc:
+      type: string
+      description: Channel location | char(2)
+      example: '00'
+      default: '--'
+    scnl__lat:
+      type: string
+      description: latitude if not using seisnet | varchar(50)
+      example: '-19.755530'
+      default: '--'
+    scnl__lon:
+      type: string
+      description: longitude if not using seisnet | varchar(50)
+      example: '63.370140'
+      default: '--'
+    scnl__elev:
+      type: string
+      description: elevation if not using seisnet | varchar(50)
+      example: '52.000000'
+      default: '--'
+    pick__id_picker:
+      type: integer
+      description: Picker id | int(11)
+      format: int64
+      example: 243432354
+    pick__weight:
+      type: integer
+      description: Picking weight of the phase | int(11)
+      format: int64
+      example: 2
+    pick__arrival_time:
+      type: string
+      description: arrival time | datetime(6)
+      example: '2017-04-12 08:46:30.930000'
+    pick__err_arrival_time:
+      type: number
+      description: Error arrival time | double
+      format: double
+    pick__firstmotion:
+      type: string
+      description: Up or down | char(1)
+      example: D
+    pick__emersio:
+      type: string
+      description: 'Impulsive or emersio, pamp description | char(1)'
+      example: null
+    pick__pamp:
+      type: number
+      description: peak P-wave half amplitude | double
+      format: double
+      example: 283
+    pick_ew_coda__ccntr_0:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_1:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_2:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_3:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_4:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__ccntr_5:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_0:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_1:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_2:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_3:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_4:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    pick_ew_coda__caav_5:
+      type: integer
+      description: peak P-wave half amplitude | int(11)
+      format: int64
+    phase__isc_code:
+      type: string
+      description: ISC phase code | varchar(8)
+      example: S
+    type_magnitude__name:
+      type: string
+      description: Type of the magnitude | varchar(50)
+      example: ML-VAX
+    phase-st_amp_mag-st_dur_mag__ep_distance:
+      type: number
+      description: Distance from epicenter of the station | double
+      format: double
+      example: 694
+    phase-st_amp_mag-st_dur_mag__hyp_distance:
+      type: number
+      description: Distance from hypocenter of the station | double
+      format: double
+    phase-st_amp_mag-st_dur_mag__azimut:
+      type: number
+      description: Station hypocenter azimut | double
+      format: double
+      example: 161
+    phase__take_off:
+      type: number
+      description: Take off angle | double
+      format: double
+      example: 94
+    phase__polarity_is_used:
+      type: integer
+      description: 1 if it is used for polarity calculation | tinyint(4)
+      format: int64
+    phase__arr_time_is_used:
+      type: integer
+      description: 1 if it is used for hypocenter calculation | tinyint(4)
+      format: int64
+    phase__residual:
+      type: number
+      description: Residual | double
+      format: double
+      example: 6.19
+    phase__teo_travel_time:
+      type: string
+      description: Teoretical travel time | datetime(6)
+      example: '2017-04-12 08:47:10'
+    phase__weight_in:
+      type: integer
+      description: A priori weight | bigint(20)
+      example: 4
+    phase__weight_out:
+      type: integer
+      description: Localization weight | double
+      example: 0.88
+    phase__std_error:
+      type: integer
+      description: Error evaluation | int(11)
+      format: int64
+    st_amp_mag-st_dur_mag__polarity_is_used:
+      type: integer
+      description: 1 if used | tinyint(4)
+      format: int64
+    st_dur_mag__dur:
+      type: number
+      description: ' Coda duration in seconds | double'
+      format: double
+      example: 6
+    st_dur_mag__mag:
+      type: number
+      description: Duration magnitude value | double
+      format: double
+      example: 0.8
+    st_amp_mag__mag:
+      type: number
+      description: Amplitude magnitude value | double
+      format: double
+      example: 3.04
+    st_amp_mag__mag_correction:
+      type: number
+      description: magnitude correction | double
+      format: double
+      example: 0
+    st_amp_mag-st_dur_mag__err_mag:
+      type: number
+      description: magnitude error | double
+      format: double
+    ep_distance:
+      type: number
+      description: Distance from epicenter of the station | double
+      format: double
+      example: 694
+    amplitude__time1:
+      type: string
+      description: ' | datetime(3)'
+      example: '2017-04-28 06:34:15.350'
+    amplitude__amp1:
+      type: number
+      description: Amplitude value | double
+      format: double
+      example: -0.358
+    amplitude__period1:
+      type: number
+      description: Amlitude period | double
+      format: double
+      example: -1
+    amplitude__time2:
+      type: string
+      description: ' | datetime(3)'
+      example: '2017-04-28 06:34:15.850'
+    amplitude__amp2:
+      type: number
+      description: Amplitude value | double
+      format: double
+      example: 0.292
+    amplitude__period2:
+      type: number
+      description: Amplitude period | double
+      format: double
+      example: -1
+    pick__weight:
+      type: integer
+      description: Picking weight of the phase | int(11)
+      format: int64
+      example: 2
+    pick__arrival_time:
+      type: string
+      description: arrival time | datetime(3)
+      example: '2017-04-12 08:46:30.930'
+    pick__err_arrival_time:
+      type: number
+      description: Error arrival time | double
+      format: double
+    pick__firstmotion:
+      type: string
+      description: Up or down | char(1)
+      example: D
+    strongmotion__t_dt:
+      type: string
+      description: 'time: trigger reported by SM box - datetime part | datetime(6)'
+      example: '2017-04-12 08:46:56.190'
+      default: '1970-01-01 00:00:00.000'
+    strongmotion__pga:
+      type: number
+      description: 'REQUIRED: peak ground acceleration (cm/s/s) | double'
+      format: double
+      example: 0.000162
+    strongmotion__tpga_dt:
+      type: string
+      description: 'OPTIONAL: time of pga - datetime part | datetime(3)'
+      example: '2017-04-12 08:47:06.990'
+    strongmotion__pgv:
+      type: number
+      description: 'REQUIRED: peak ground velocity (cm/s) | double'
+      format: double
+      example: 0.000034
+    strongmotion__tpgv_dt:
+      type: string
+      description: 'OPTIONAL: time of pgv - datetime part | datetime(3)'
+      example: '2017-04-12 08:46:56.190'
+    strongmotion__pgd:
+      type: number
+      description: 'REQUIRED: peak ground displacement (cm) | double'
+      format: double
+      example: 0.000025
+    strongmotion__tpgd_dt:
+      type: string
+      description: 'OPTIONAL: time of pgd - datetime part | datetime(3)'
+      example: '2017-04-12 08:46:59.989'
+    strongmotion__rsa_030:
+      type: number
+      description: RSA(response spectrum accel) value for period 0.30 | double
+      example: 0.02604
+    strongmotion__rsa_100:
+      type: number
+      description: RSA(response spectrum accel) value for period 1.00 | double
+      example: 0.003673
+    strongmotion__rsa_300:
+      type: number
+      description: RSA(response spectrum accel) value for period 3.00 | double
+      example: 0.000339
+    strongmotion_alt__t_alt_dt:
+      type: string
+      description: 'alternate time: trigger reported by SM box - time with microseconds | datetime(3)'
+      example: '1970-01-01 00:00:00.000'
+    strongmotion_alt__altcode:
+      type: number
+      description: code specifying the source of the alternate time field | int(11)
+      example: 0
+    strongmotion_rsa__value:
+      type: number
+      description: RSA value (cm/s/s) at given period | double
+      example: 1.5
+    strongmotion_rsa__period:
+      type: number
+      description: period (s) at which RSA values are given | double
+      example: 0.000096
+    type_event__name:
+      type: string
+      description: Name | varchar(255)
+      example: earthquake
+    hypocenter_region_name__region:
+      type: string
+      description: Event location remark region | varchar(255)
+      example: Norcia
+    provenance__name:
+      type: string
+      description: 'Name of Provenance. i.e. INGV, ETH, USGS | char(255)'
+      example: INGV
+      default: INGV
+    provenance__instance:
+      type: string
+      description: 'Istance name. i.e. hew1_mole, endeavour_mole | char(255)'
+      example: hew1_mole
+      default: null
+    provenance__softwarename:
+      type: string
+      description: 'Software name. i.e. SisPick, eqassemble, hypoinverse | char(255)'
+      example: software
+    provenance__username:
+      type: string
+      description: User name | char(255)
+      example: ew
+      default: null
+    provenance__hostname:
+      type: string
+      description: Hostname | char(255)
+      example: hew10.ingv.it
+      default: null
+    provenance__description:
+      type: string
+      description: Additional information | char(255)
+      example: Auto added
+      default: null
+    provenance__priority:
+      type: integer
+      description: Provenance priority | int(11)
+      format: int64
+      example: 0
+      default: 0
+    type_magnitude__name:
+      type: string
+      description: Type of the magnitude | varchar(50)
+      example: ML-VAX
+      default: null
+    type_amplitude__type:
+      type: string
+      description: Type of the amplitude | varchar(50)
+      example: Acceleration
+    type_amplitude__priority:
+      type: integer
+      description: Type of the amplitude | tinyint(4)
+      format: int64
+      example: 0
+      default: 0
+    type_amplitude__remark:
+      type: string
+      description: Italian note | varchar(255)
+    type_amplitude__remark_en:
+      type: string
+      description: English note | varchar(255)
+responses:
+  500InternalServerError:
+    content:
+      application/problem+json:
+        schema:
+          $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Problem'
+    description: Internal Server Error
+  204NoContent:
+    description: Request was properly formatted and submitted but no data matches the selection
