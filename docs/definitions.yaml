@@ -58,6 +58,7 @@ parameters:
         schema:
             type: string
             format: date-time
+        example: '2019-01-31T23:59:59'
     minlat:
         description: Specify southern boundary for search (in WGS84).
         in: query
@@ -65,6 +66,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/latitude'
+        example: 39.12
     maxlat:
         description: Specify northern boundary for search (in WGS84).
         in: query
@@ -72,6 +74,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/latitude'
+        example: 46.52
     minlon:
         description: Specify western boundary for search (in WGS84).
         in: query
@@ -79,6 +82,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/longitude'
+        example: 10.12
     maxlon:
         description: Specify eastern boundary for search (in WGS84).
         in: query
@@ -86,6 +90,7 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/longitude'
+        example: 15.12
     lat:
         description: Specify the central latitude point for a radial search (in WGS84).
         in: query
