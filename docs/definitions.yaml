@@ -837,6 +837,16 @@ schemas:
       description: 'Name of Provenance. i.e. INGV, ETH, USGS | char(255)'
       example: INGV
       default: INGV
+    instance__name:
+      type: string
+      description: 'Istance name. i.e. hew1_mole, endeavour_mole | char(255)'
+      example: hew1_mole
+      default: null
+    instance__description:
+      type: string
+      description: Additional information | char(255)
+      example: Auto added
+      default: null
     provenance__instance:
       type: string
       description: 'Istance name. i.e. hew1_mole, endeavour_mole | char(255)'
