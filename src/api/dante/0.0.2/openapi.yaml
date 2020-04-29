@@ -348,11 +348,14 @@ components:
         content:
             application/json:
                 schema:
-                    type: object
                     properties:
-                      data:
-                        $ref: '#/components/schemas/objectEventBase'
-
+                        data:
+                            type: object
+                            properties:
+                                event:
+                                    allOf:
+                                        - $ref: '#/components/schemas/objectEventBase'
+                                        - $ref: '#/components/schemas/objectIdModifiedInserted'
     200EventsAndEventsPref:
         description: Operation successful
         content:
@@ -403,10 +406,18 @@ components:
             instance_description:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/instance__description'
     insertEventPost:
-        type: object
         properties:
             data:
-                $ref: '#/components/schemas/objectEventBase'
+                type: object
+                properties:
+                    event:
+                      allOf:
+                        - $ref: '#/components/schemas/objectEventBase'
+                      required:
+                      - id_local_instance
+                      - type_event
+                      - instance_name              
+        type: object
     insertHypocenterPost:
         type: object
         properties:
@@ -434,23 +445,27 @@ components:
                         magnitudes:
                           $ref: '#/components/schemas/objectMagnitudeBase'
     objectEventBase:
-        type: object
-        properties:
-            event:
-                required:
-                  - id_locator
-                  - type_event
-                  - instance_name
-                allOf:
-                    - $ref: '#/components/schemas/objectProvenance'
-                    - type: object
-                      properties:
-                        id_locator:
-                          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
-                        type_event:
-                          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
-                        hypocenters:
-                            $ref: '#/components/schemas/objectHypocenterBase'
+        allOf:
+        - $ref: '#/components/schemas/objectProvenance'
+        - $ref: '#/components/schemas/objectInstance'
+        - properties:
+            hypocenters:
+                $ref: '#/components/schemas/objectHypocenterBase'
+            id_local_instance:
+                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
+            type_event:
+                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
+          type: object
+    objectIdModifiedInserted:
+        allOf:
+        - properties:
+            id:
+                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
+            modified:
+                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/modified'
+            inserted:
+                $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/inserted'
+          type: object          
     objectHypocenterBase:
       type: array
       items:
@@ -750,8 +765,8 @@ components:
       properties:
         id:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id'
-        id_locator:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__id_locator'
+        id_local_instance:
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
         fk_events_group:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/event__fk_events_group'
         type_event:
