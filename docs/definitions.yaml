@@ -287,12 +287,12 @@ schemas:
       type: string
       description: Name of the localization program | char(255)
       example: IPO-EW__tdmt_invc.c
-    event__id_locator:
+    id_local_instance:
       type: integer
-      description: Event id created by locator | bigint(20)
+      description: Local Instance Event ID | bigint(19)
       format: int64
       example: 182491
-      default: 0
+      default: null
     event__fk_events_group:
       type: integer
       description: Link event group | bigint(20)
