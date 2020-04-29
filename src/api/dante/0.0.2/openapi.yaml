@@ -129,7 +129,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/insertEventPost'           
+                properties:
+                  data:
+                    properties:
+                      event:
+                        $ref: '#/components/schemas/objectEventBasePost'
       responses:
         '201':
           description: record inserted
@@ -350,12 +354,9 @@ components:
                 schema:
                     properties:
                         data:
-                            type: object
                             properties:
                                 event:
-                                    allOf:
-                                        - $ref: '#/components/schemas/objectEventBase'
-                                        - $ref: '#/components/schemas/objectIdModifiedInserted'
+                                    $ref: '#/components/schemas/objectEventBaseGet'
     200EventsAndEventsPref:
         description: Operation successful
         content:
@@ -404,20 +405,7 @@ components:
             instance_name:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/instance__name'
             instance_description:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/instance__description'
-    insertEventPost:
-        properties:
-            data:
-                type: object
-                properties:
-                    event:
-                      allOf:
-                        - $ref: '#/components/schemas/objectEventBase'
-                      required:
-                      - id_local_instance
-                      - type_event
-                      - instance_name              
-        type: object
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/instance__description'             
     insertHypocenterPost:
         type: object
         properties:
@@ -430,7 +418,7 @@ components:
                     - type: object
                       properties:
                         hypocenter:
-                          $ref: '#/components/schemas/objectHypocenterBase'    
+                            $ref: '#/components/schemas/objectHypocenterBase'    
     insertMagnitudePost:
         type: object
         properties:
@@ -445,17 +433,34 @@ components:
                         magnitudes:
                           $ref: '#/components/schemas/objectMagnitudeBase'
     objectEventBase:
-        allOf:
-        - $ref: '#/components/schemas/objectProvenance'
-        - $ref: '#/components/schemas/objectInstance'
-        - properties:
-            hypocenters:
-                $ref: '#/components/schemas/objectHypocenterBase'
+        properties:
             id_local_instance:
                 $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
             type_event:
                 $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_event__name'
-          type: object
+    objectEventBasePost:
+        allOf:
+        - required:
+            - id_local_instance
+            - type_event
+            - instance_name            
+        - $ref: '#/components/schemas/objectProvenance'
+        - $ref: '#/components/schemas/objectInstance'
+        - $ref: '#/components/schemas/objectEventBase'
+        - type: object
+          properties:
+            hypocenters:
+                $ref: '#/components/schemas/objectHypocenterBase'
+    objectEventBaseGet:
+        allOf:
+        - $ref: '#/components/schemas/objectIdModifiedInserted'
+        - $ref: '#/components/schemas/objectProvenance'
+        - $ref: '#/components/schemas/objectInstance'
+        - $ref: '#/components/schemas/objectEventBase'
+        - type: object
+          properties:
+            hypocenters:
+                $ref: '#/components/schemas/objectHypocenterBase'
     objectIdModifiedInserted:
         allOf:
         - properties:
@@ -476,6 +481,7 @@ components:
           - depth
         allOf:
             - $ref: '#/components/schemas/objectProvenance'
+            - $ref: '#/components/schemas/objectInstance'
             - type: object
               properties:
                 ot:
