@@ -860,11 +860,6 @@ schemas:
       format: int64
       example: 0
       default: 0
-    type_magnitude__name:
-      type: string
-      description: Type of the magnitude | varchar(50)
-      example: ML-VAX
-      default: null
     type_amplitude__type:
       type: string
       description: Type of the amplitude | varchar(50)
