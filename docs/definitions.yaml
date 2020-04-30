@@ -561,18 +561,10 @@ schemas:
       description: Picking weight of the phase | int(11)
       format: int64
       example: 2
-    pick__arrival_time:
-      type: string
-      description: arrival time | datetime(6)
-      example: '2017-04-12 08:46:30.930000'
     pick__err_arrival_time:
       type: number
       description: Error arrival time | double
       format: double
-    pick__firstmotion:
-      type: string
-      description: Up or down | char(1)
-      example: D
     pick__emersio:
       type: string
       description: 'Impulsive or emersio, pamp description | char(1)'
@@ -582,6 +574,14 @@ schemas:
       description: peak P-wave half amplitude | double
       format: double
       example: 283
+    pick__arrival_time:
+      type: string
+      description: arrival time | datetime(3)
+      example: '2017-04-12 08:46:30.930'
+    pick__firstmotion:
+      type: string
+      description: Up or down | char(1)
+      example: D
     pick_ew_coda__ccntr_0:
       type: integer
       description: peak P-wave half amplitude | int(11)
@@ -747,23 +747,6 @@ schemas:
       description: Amplitude period | double
       format: double
       example: -1
-    pick__weight:
-      type: integer
-      description: Picking weight of the phase | int(11)
-      format: int64
-      example: 2
-    pick__arrival_time:
-      type: string
-      description: arrival time | datetime(3)
-      example: '2017-04-12 08:46:30.930'
-    pick__err_arrival_time:
-      type: number
-      description: Error arrival time | double
-      format: double
-    pick__firstmotion:
-      type: string
-      description: Up or down | char(1)
-      example: D
     strongmotion__t_dt:
       type: string
       description: 'time: trigger reported by SM box - datetime part | datetime(6)'
