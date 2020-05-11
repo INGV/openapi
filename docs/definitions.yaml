@@ -830,11 +830,10 @@ schemas:
       description: Additional information | char(255)
       example: Auto added
       default: null
-    provenance__instance:
+    provenance__version:
       type: string
-      description: 'Istance name. i.e. hew1_mole, endeavour_mole | char(255)'
+      description: 'Version name | char(255)'
       example: hew1_mole
-      default: null
     provenance__softwarename:
       type: string
       description: 'Software name. i.e. SisPick, eqassemble, hypoinverse | char(255)'
