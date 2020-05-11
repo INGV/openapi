@@ -287,9 +287,9 @@ schemas:
       type: string
       description: Name of the localization program | char(255)
       example: IPO-EW__tdmt_invc.c
-    id_local_instance:
+    id_local:
       type: integer
-      description: Local Instance Event ID | bigint(19)
+      description: Local IdSpace | bigint(19)
       format: int64
       example: 182491
       default: null
@@ -820,12 +820,12 @@ schemas:
       description: 'Name of Provenance. i.e. INGV, ETH, USGS | char(255)'
       example: INGV
       default: INGV
-    instance__name:
+    idspace__name:
       type: string
-      description: 'Istance name. i.e. hew1_mole, endeavour_mole | char(255)'
+      description: 'IdSpace name. i.e. hew1_mole, endeavour_mole | char(255)'
       example: hew1_mole
       default: null
-    instance__description:
+    idspace__description:
       type: string
       description: Additional information | char(255)
       example: Auto added
@@ -859,10 +859,6 @@ schemas:
       format: int64
       example: 0
       default: 0
-    idspace__name:
-      type: string
-      description: IdSpace name. i.e. hew1_mole, endeavour_mole | char(255)
-      example: hew10_mole
     type_amplitude__type:
       type: string
       description: Type of the amplitude | varchar(50)
