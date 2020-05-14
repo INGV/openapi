@@ -650,6 +650,7 @@ schemas:
       type: string
       description: Unit of measurement of type amplitude | varchar(255)
       default: null
+      example: m/s
     phase-st_amp_mag-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
