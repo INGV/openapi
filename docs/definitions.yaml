@@ -644,8 +644,12 @@ schemas:
       example: S
     type_magnitude__name:
       type: string
-      description: Type of the magnitude | varchar(50)
+      description: Type of the magnitude | varchar(255)
       example: ML-VAX
+    type_magnitude__unit:
+      type: string
+      description: Unit of measurement of type amplitude | varchar(255)
+      default: null
     phase-st_amp_mag-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
