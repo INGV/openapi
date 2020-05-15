@@ -258,7 +258,7 @@ schemas:
       type: string
       format: date-time
       description: Last Review | timestamp
-      example: '2017-04-18T15:04:42Z'
+      example: '2017-04-18T15:04:42'
       default: CURRENT_TIMESTAMP
     inserted:
       type: string
