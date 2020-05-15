@@ -799,10 +799,12 @@ schemas:
       example: 0.02604
     strongmotion__rsa_100:
       type: number
+      format: double
       description: RSA(response spectrum accel) value for period 1.00 | double
       example: 0.003673
     strongmotion__rsa_300:
       type: number
+      format: double
       description: RSA(response spectrum accel) value for period 3.00 | double
       example: 0.000339
     strongmotion_alt__t_alt_dt:
@@ -811,15 +813,18 @@ schemas:
       description: 'alternate time: trigger reported by SM box - time with microseconds | datetime(3)'
       example: '1970-01-01T00:00:00.000Z'
     strongmotion_alt__altcode:
-      type: number
+      type: integer
+      format: int64
       description: code specifying the source of the alternate time field | int(11)
       example: 0
     strongmotion_rsa__value:
       type: number
+      format: double
       description: RSA value (cm/s/s) at given period | double
       example: 1.5
     strongmotion_rsa__period:
       type: number
+      format: double
       description: period (s) at which RSA values are given | double
       example: 0.000096
     type_event__name:
