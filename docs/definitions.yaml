@@ -264,7 +264,7 @@ schemas:
       type: string
       format: date-time
       description: Insert time | timestamp
-      example: '2017-04-18 15:04:42'
+      example: '2017-04-18T15:04:42'
       default: CURRENT_TIMESTAMP
     fk_type_hypocenter:
       type: integer
