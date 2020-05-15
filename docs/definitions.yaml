@@ -259,11 +259,13 @@ schemas:
       example: 14932631
     modified:
       type: string
+      format: date-time
       description: Last Review | timestamp
       example: '2017-04-18 15:04:42'
       default: CURRENT_TIMESTAMP
     inserted:
       type: string
+      format: date-time
       description: Insert time | timestamp
       example: '2017-04-18 15:04:42'
       default: CURRENT_TIMESTAMP
@@ -311,6 +313,7 @@ schemas:
       default: 0
     hypocenter__ot:
       type: string
+      format: date-time
       description: Origin time | datetime(3)
       example: '2016-06-22 16:52:06.260'
     depth:
@@ -560,6 +563,7 @@ schemas:
       default: null
     pick__arrival_time:
       type: string
+      format: date-time
       description: Arrival time with microseconds | datetime(3)
       example: '2017-04-12 08:46:30.930'
     pick__err_arrival_time:
@@ -677,6 +681,7 @@ schemas:
       example: 6.19
     phase__teo_travel_time:
       type: string
+      format: date-time
       description: Teoretical travel time | datetime(6)
       example: '2017-04-12 08:47:10'
     phase__weight_in:
@@ -727,6 +732,7 @@ schemas:
       example: 694
     amplitude__time1:
       type: string
+      format: date-time
       description: ' | datetime(3)'
       example: '2017-04-28 06:34:15.350'
     amplitude__amp1:
@@ -741,6 +747,7 @@ schemas:
       example: -1
     amplitude__time2:
       type: string
+      format: date-time
       description: ' | datetime(3)'
       example: '2017-04-28 06:34:15.850'
     amplitude__amp2:
@@ -755,6 +762,7 @@ schemas:
       example: -1
     strongmotion__t_dt:
       type: string
+      format: date-time
       description: 'time: trigger reported by SM box - datetime part | datetime(6)'
       example: '2017-04-12 08:46:56.190'
       default: '1970-01-01 00:00:00.000'
@@ -765,6 +773,7 @@ schemas:
       example: 0.000162
     strongmotion__tpga_dt:
       type: string
+      format: date-time
       description: 'OPTIONAL: time of pga - datetime part | datetime(3)'
       example: '2017-04-12 08:47:06.990'
     strongmotion__pgv:
@@ -774,6 +783,7 @@ schemas:
       example: 0.000034
     strongmotion__tpgv_dt:
       type: string
+      format: date-time
       description: 'OPTIONAL: time of pgv - datetime part | datetime(3)'
       example: '2017-04-12 08:46:56.190'
     strongmotion__pgd:
@@ -783,6 +793,7 @@ schemas:
       example: 0.000025
     strongmotion__tpgd_dt:
       type: string
+      format: date-time
       description: 'OPTIONAL: time of pgd - datetime part | datetime(3)'
       example: '2017-04-12 08:46:59.989'
     strongmotion__rsa_030:
@@ -799,6 +810,7 @@ schemas:
       example: 0.000339
     strongmotion_alt__t_alt_dt:
       type: string
+      format: date-time
       description: 'alternate time: trigger reported by SM box - time with microseconds | datetime(3)'
       example: '1970-01-01 00:00:00.000'
     strongmotion_alt__altcode:
