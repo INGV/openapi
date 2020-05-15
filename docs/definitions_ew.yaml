@@ -65,7 +65,7 @@ schemas:
           - depth
         properties:
           quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local'
           version:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
           originTime:
@@ -130,7 +130,7 @@ schemas:
           - depth
         properties:
           quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local'
           version:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
           originTime:
@@ -404,7 +404,7 @@ schemas:
           - mag
         properties:
           quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local'
           version:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
           mag:
@@ -518,7 +518,7 @@ schemas:
           - pickId
         properties:
           pickId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local'
           network:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
           station:
@@ -573,7 +573,7 @@ schemas:
           - version
         properties:
           quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local_instance'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local'
           version:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
           network:
