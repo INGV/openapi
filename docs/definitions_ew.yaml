@@ -577,3 +577,17 @@ schemas:
         properties:
           quakeId:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_local'        
+          version:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+          network:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
+          station:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
+          component:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
+          location:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
+          qAuthor:
+            $ref: '#/schemas/qAuthor'
+          time:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__t_dt'
