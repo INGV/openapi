@@ -587,6 +587,8 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
           location:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
+          qAuthor:
+            $ref: '#/schemas/qAuthor'            
           time:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__t_dt'
           alternateTime:
