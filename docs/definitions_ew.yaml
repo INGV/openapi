@@ -607,22 +607,6 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgd'
           pgdTime:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgd_dt'
-          alternateTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__t_alt_dt'
-          alternateCode:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__altcode'
-          pga:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pga'
-          pgaTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpga_dt'
-          pgv:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgv'
-          pgvTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgv_dt'
-          pgd:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgd'
-          pgdTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgd_dt'
           RSA:
             type: array
             items:
