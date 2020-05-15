@@ -45,9 +45,8 @@ parameters:
         in: query
         name: endtime
         required: false
-        schema:
-          type: string
-          format: date-time
+        type: string
+        format: date-time
         example: '2019-01-31T23:59:59'
     endtime__REQUIRED:
         description: Select date end. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-19T17:06:38)
