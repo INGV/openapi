@@ -312,7 +312,7 @@ schemas:
       type: string
       format: date-time
       description: Origin time | datetime(3)
-      example: '2016-06-22 16:52:06.260'
+      example: '2016-06-22T16:52:06.260Z'
     depth:
       type: number
       description: Depth in Km | double
@@ -562,7 +562,7 @@ schemas:
       type: string
       format: date-time
       description: Arrival time with microseconds | datetime(3)
-      example: '2017-04-12 08:46:30.930'
+      example: '2017-04-12T08:46:30.930Z'
     pick__err_arrival_time:
       type: number
       description: Error arrival time | double(22)
@@ -680,7 +680,7 @@ schemas:
       type: string
       format: date-time
       description: Teoretical travel time | datetime(6)
-      example: '2017-04-12 08:47:10'
+      example: '2017-04-12T08:47:10.123Z'
     phase__weight_in:
       type: integer
       description: A priori weight | bigint(20)
@@ -731,7 +731,7 @@ schemas:
       type: string
       format: date-time
       description: ' | datetime(3)'
-      example: '2017-04-28 06:34:15.350'
+      example: '2017-04-28T06:34:15.350Z'
     amplitude__amp1:
       type: number
       description: Amplitude value | double
@@ -746,7 +746,7 @@ schemas:
       type: string
       format: date-time
       description: ' | datetime(3)'
-      example: '2017-04-28 06:34:15.850'
+      example: '2017-04-28T06:34:15.850Z'
     amplitude__amp2:
       type: number
       description: Amplitude value | double
@@ -761,8 +761,8 @@ schemas:
       type: string
       format: date-time
       description: 'time: trigger reported by SM box - datetime part | datetime(6)'
-      example: '2017-04-12 08:46:56.190'
-      default: '1970-01-01 00:00:00.000'
+      example: '2017-04-12T08:46:56.190Z'
+      default: '1970-01-01T00:00:00.000Z'
     strongmotion__pga:
       type: number
       description: 'REQUIRED: peak ground acceleration (cm/s/s) | double'
@@ -772,7 +772,7 @@ schemas:
       type: string
       format: date-time
       description: 'OPTIONAL: time of pga - datetime part | datetime(3)'
-      example: '2017-04-12 08:47:06.990'
+      example: '2017-04-12T08:47:06.990Z'
     strongmotion__pgv:
       type: number
       description: 'REQUIRED: peak ground velocity (cm/s) | double'
@@ -782,7 +782,7 @@ schemas:
       type: string
       format: date-time
       description: 'OPTIONAL: time of pgv - datetime part | datetime(3)'
-      example: '2017-04-12 08:46:56.190'
+      example: '2017-04-12T08:46:56.190Z'
     strongmotion__pgd:
       type: number
       description: 'REQUIRED: peak ground displacement (cm) | double'
@@ -792,7 +792,7 @@ schemas:
       type: string
       format: date-time
       description: 'OPTIONAL: time of pgd - datetime part | datetime(3)'
-      example: '2017-04-12 08:46:59.989'
+      example: '2017-04-12T08:46:59.989Z'
     strongmotion__rsa_030:
       type: number
       description: RSA(response spectrum accel) value for period 0.30 | double
@@ -809,7 +809,7 @@ schemas:
       type: string
       format: date-time
       description: 'alternate time: trigger reported by SM box - time with microseconds | datetime(3)'
-      example: '1970-01-01 00:00:00.000'
+      example: '1970-01-01T00:00:00.000Z'
     strongmotion_alt__altcode:
       type: number
       description: code specifying the source of the alternate time field | int(11)
