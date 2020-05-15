@@ -283,10 +283,6 @@ schemas:
       description: 'Link: provenance | bigint(20)'
       format: int64
       example: 13
-    provenance__loc_program:
-      type: string
-      description: Name of the localization program | char(255)
-      example: IPO-EW__tdmt_invc.c
     id_local:
       type: integer
       description: Local IdSpace | bigint(19)
@@ -325,11 +321,7 @@ schemas:
     latitude:
       $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
-      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
-    provenance__model:
-      type: string
-      description: Name of the model | varchar(20)
-      example: prem      
+      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'      
     hypocenter__nph:
       type: integer
       description: '# phases (P&S) weight >0.1 | int(11)'
@@ -828,11 +820,6 @@ schemas:
       type: string
       description: Event location remark region | varchar(255)
       example: Norcia
-    provenance__name:
-      type: string
-      description: 'Name of Provenance. i.e. INGV, ETH, USGS | char(255)'
-      example: INGV
-      default: INGV
     idspace__name:
       type: string
       description: 'IdSpace name. i.e. hew1_mole, endeavour_mole | char(255)'
@@ -843,9 +830,19 @@ schemas:
       description: Additional information | char(255)
       example: Auto added
       default: null
+    provenance__model:
+      type: string
+      description: Name/URI/DOI of the model | varchar(255)
+      example: prem
+      default: null
+    provenance__parameters:
+      type: string
+      description: Name/URI/DOI of the parameters | varchar(255)
+      example: ToDo
+      default: null
     provenance__version:
       type: string
-      description: 'Version name, i.e. BULLETIN-INGV, hew1_mole, CSEM, ende_mole | char(255)'
+      description: Version name | varchar(255)
       example: hew1_mole
     provenance__softwarename:
       type: string
@@ -872,6 +869,20 @@ schemas:
       format: int64
       example: 0
       default: 0
+    provenance__name:
+      type: string
+      description: 'Name of Provenance. i.e. INGV, ETH, USGS | varchar(255)'
+      example: INGV
+      default: INGV
+    provenance__program:
+      type: string
+      description: Name/URI/DOI of the program | varchar(255)
+      example: IPO-EW__tdmt_invc.c
+    provenance__method:
+      type: string
+      description: Name/URI/DOI of the method | varchar(255)
+      example: ToDo
+      default: null      
     type_amplitude__type:
       type: string
       description: Type of the amplitude | varchar(50)
