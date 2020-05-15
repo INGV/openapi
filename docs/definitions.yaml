@@ -53,9 +53,8 @@ parameters:
         in: query
         name: endtime
         required: true
-        schema:
-          type: string
-          format: date-time
+        type: string
+        format: date-time
         example: '2019-01-31T23:59:59'
     minlat:
         description: Specify southern boundary for search (in WGS84).
