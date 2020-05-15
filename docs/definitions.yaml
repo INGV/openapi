@@ -411,7 +411,7 @@ schemas:
     hypocenter__e2_dip:
       type: integer
       description: dip of smallest principal error | double
-      format: double
+      format: int64
     hypocenter__e2:
       type: number
       description: smallest principal error | double
@@ -684,8 +684,9 @@ schemas:
       description: A priori weight | bigint(20)
       example: 4
     phase__weight_out:
-      type: integer
+      type: number
       description: Localization weight | double
+      format: double
       example: 0.88
     phase__std_error:
       type: integer
