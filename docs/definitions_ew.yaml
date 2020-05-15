@@ -348,9 +348,11 @@ schemas:
           format: float
         ampUnitsCode:
           type: integer
+          format: int64
           description: 'Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital counts | col62 I2'
         ampType:
           type: integer
+          format: int64
           description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration 4=no magnitude | col114 I2
         ampMag:
           type: number
@@ -358,6 +360,7 @@ schemas:
           format: float
         ampMagWeightCode:
           type: integer
+          format: int64
           description: Amplitude magnitude weight code | col82 I1
         importanceP:
           type: number
