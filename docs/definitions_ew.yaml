@@ -587,8 +587,6 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
           location:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
-          qAuthor:
-            $ref: '#/schemas/qAuthor'
           time:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__t_dt'
           alternateTime:
@@ -607,3 +605,33 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgd'
           pgdTime:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgd_dt'
+          alternateTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__t_alt_dt'
+          alternateCode:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__altcode'
+          pga:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pga'
+          pgaTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpga_dt'
+          pgv:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgv'
+          pgvTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgv_dt'
+          pgd:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgd'
+          pgdTime:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgd_dt'
+          RSA:
+            type: array
+            items:
+              properties:
+                value:
+                  type: number
+                  format: double
+                  description: RSA(response spectrum accel) value for period
+                  example: 0.000724
+                period:
+                  type: number
+                  format: double
+                  description: Period
+                  example: 0.3    
