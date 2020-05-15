@@ -258,13 +258,13 @@ schemas:
       type: string
       format: date-time
       description: Last Review | timestamp
-      example: '2017-04-18T15:04:42'
+      example: '2017-04-18T15:04:42Z'
       default: CURRENT_TIMESTAMP
     inserted:
       type: string
       format: date-time
       description: Insert time | timestamp
-      example: '2017-04-18T15:04:42'
+      example: '2017-04-18T15:04:42Z'
       default: CURRENT_TIMESTAMP
     fk_type_hypocenter:
       type: integer
