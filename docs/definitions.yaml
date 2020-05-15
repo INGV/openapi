@@ -326,7 +326,7 @@ schemas:
       $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
       $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
-    model__name:
+    provenance__model:
       type: string
       description: Name of the model | varchar(20)
       example: prem      
