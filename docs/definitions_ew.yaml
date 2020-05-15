@@ -610,9 +610,11 @@ schemas:
               properties:
                 value:
                   type: number
+                  format: double
                   description: RSA(response spectrum accel) value for period
                   example: 0.000724
                 period:
                   type: number
+                  format: double
                   description: Period
                   example: 0.3
