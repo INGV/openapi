@@ -114,7 +114,7 @@ parameters:
         schema:
             type: number
             format: double
-        example: '0'
+        example: 1.5
     maxradius:
         description: Specify maximum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
