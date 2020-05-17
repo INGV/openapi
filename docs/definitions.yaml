@@ -686,6 +686,7 @@ schemas:
       example: '2017-04-12T08:47:10.123Z'
     phase__weight_in:
       type: integer
+      format: int64
       description: A priori weight | bigint(20)
       example: 4
     phase__weight_out:
