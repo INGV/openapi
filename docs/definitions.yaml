@@ -642,11 +642,6 @@ schemas:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
-    type_magnitude__unit:
-      type: string
-      description: Unit of measurement of type amplitude | varchar(255)
-      default: null
-      example: m/s
     phase-st_amp_mag-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
@@ -902,22 +897,26 @@ schemas:
       description: Name/URI/DOI of the method | varchar(255)
       example: ToDo
       default: null      
-    type_amplitude__type:
+    type_amplitude__name:
       type: string
       description: Type of the amplitude | varchar(50)
       example: Acceleration
+    type_amplitude__unit:
+      type: string
+      description: Unit of measurement of type amplitude | varchar(255)
+      default: null
+      example: m/s      
     type_amplitude__priority:
       type: integer
       description: Type of the amplitude | tinyint(4)
       format: int64
       example: 0
       default: 0
-    type_amplitude__remark:
+    type_amplitude__description:
       type: string
-      description: Italian note | varchar(255)
-    type_amplitude__remark_en:
-      type: string
-      description: English note | varchar(255)
+      description: Description of type amplitude | varchar(255)
+      example: Auto added
+      default: null
 responses:
   500InternalServerError:
     content:
