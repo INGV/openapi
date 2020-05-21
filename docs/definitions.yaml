@@ -574,11 +574,12 @@ schemas:
     pick__firstmotion:
       type: string
       description: Up or down | char(1)
-      example: D   
+      example: D
       default: null      
     pick__emersio:
       type: string
       description: Impulsive or emersio, pamp description | char(1)
+      example: i
       default: null
     pick__pamp:
       type: number
