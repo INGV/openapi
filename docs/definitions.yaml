@@ -700,10 +700,6 @@ schemas:
       description: Localization weight | double
       format: double
       example: 0.88
-    phase__std_error:
-      type: integer
-      description: Error evaluation | int(11)
-      format: int64
     st_amp_mag-st_dur_mag__polarity_is_used:
       type: integer
       description: 1 if used | tinyint(4)
