@@ -485,7 +485,17 @@ schemas:
       type: number
       description: Magnitudo error | double
       format: double
-      example: 2.01
+      example: 0.51
+    magnitude__lower_uncertainty:
+      type: number
+      description: Magnitudo lower_uncertainty | double
+      format: double
+      example: 0.52
+    magnitude__upper_uncertainty:
+      type: number
+      description: Magnitudo upper_uncertainty | double
+      format: double
+      example: 0.53
     magnitude__quality:
       type: number
       description: quality | double
