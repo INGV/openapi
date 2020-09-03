@@ -575,7 +575,17 @@ schemas:
       type: number
       description: Pick quality class expressed by a REAL number | double
       format: double
-      example: 2.3      
+      example: 2.3
+    pick__lower_uncertainty:
+      type: number
+      description: Valore di incertezza (in secondi) prima della lettura (arrival time) | decimal(10,3)
+      format: double
+      example: 0.52
+    pick__upper_uncertainty:
+      type: number
+      description: Valore di incertezza (in secondi) dopo la lettura (arrival time) | decimal(10,3)
+      format: double
+      example: 0.53
     pick__firstmotion:
       type: string
       description: Up or down | char(1)
