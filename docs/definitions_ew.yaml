@@ -471,7 +471,7 @@ schemas:
         mag:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag'
         dist:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/ep_distance'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/ep_distance_km'
         corr:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag_correction'
         time1:
@@ -533,7 +533,7 @@ schemas:
           firstMotion:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__firstmotion'
           pickWeight:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__weight_int'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__weight'
           timeOfPick:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__arrival_time'
           pAmplitude:
