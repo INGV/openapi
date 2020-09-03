@@ -566,11 +566,6 @@ schemas:
       format: date-time
       description: Arrival time with microseconds | datetime(3)
       example: '2017-04-12T08:46:30.930Z'
-    pick__err_arrival_time:
-      type: number
-      description: Error arrival time | double(22)
-      format: double
-      default: null
     pick__pick_quality_class:
       type: number
       description: Pick quality class expressed by a REAL number | double
