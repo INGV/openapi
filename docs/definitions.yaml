@@ -732,11 +732,16 @@ schemas:
       type: number
       description: magnitude error | double
       format: double
-    ep_distance:
+    ep_distance_km:
       type: number
-      description: Distance from epicenter of the station | double
+      description: Distance from epicenter of the station expressed in Km | double
       format: double
-      example: 694
+      example: 223.3
+    ep_distance_delta:
+      type: number
+      description: Distance from epicenter of the station expressed in Degrees | double
+      format: double
+      example: 2      
     amplitude__time1:
       type: string
       format: date-time
