@@ -586,6 +586,11 @@ schemas:
       description: Valore di incertezza (in secondi) dopo la lettura (arrival time) | decimal(10,3)
       format: double
       example: 0.53
+    pick__uncertainty:
+      type: number
+      description: Symmetric uncertanty value (1sigma, 2 sigma o 3 sigma) | bigint(19)
+      format: integer
+      example: 7
     pick__firstmotion:
       type: string
       description: Up or down | char(1)
