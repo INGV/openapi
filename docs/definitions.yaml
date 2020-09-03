@@ -556,21 +556,11 @@ schemas:
       description: elevation if not using seisnet | varchar(50)
       example: '52.000000'
       default: '--'
-    pick__weight_int:
+    pick__weight:
       type: integer
-      description: Pick weight expressed by INTEGER number | int(10)
+      description: Picking weight of the phase | int(10)
       format: int64
-      example: 243432354
-    pick__weight_real_1:
-      type: number
-      description: Pick weight expressed by a single or couple of REAL numbers | double(22)
-      format: double
-      default: null
-    pick__weight_real_2:
-      type: number
-      description: Pick weight expressed by a couple of REAL numbers | double(22)
-      format: double
-      default: null
+      example: 2
     pick__arrival_time:
       type: string
       format: date-time
@@ -581,6 +571,11 @@ schemas:
       description: Error arrival time | double(22)
       format: double
       default: null
+    pick__pick_quality_class:
+      type: number
+      description: Pick quality class expressed by a REAL number | double
+      format: double
+      example: 2.3      
     pick__firstmotion:
       type: string
       description: Up or down | char(1)
