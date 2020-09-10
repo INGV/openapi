@@ -324,7 +324,12 @@ schemas:
     latitude:
       $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
     longitude:
-      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'      
+      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
+    standard_dev:
+      type: number
+      description: Standard deviation SQRT[ rms / (n - 1) ] | double
+      format: double
+      example: 0.53
     hypocenter__nph:
       type: integer
       description: '# phases (P&S) weight >0.1 | int(11)'
