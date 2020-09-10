@@ -758,7 +758,7 @@ schemas:
       description: Amplitude value | double
       format: double
       example: -0.358
-    amplitude__period1:
+    amplitude__period:
       type: number
       description: Amlitude period | double
       format: double
@@ -773,11 +773,6 @@ schemas:
       description: Amplitude value | double
       format: double
       example: 0.292
-    amplitude__period2:
-      type: number
-      description: Amplitude period | double
-      format: double
-      example: -1
     strongmotion__t_dt:
       type: string
       format: date-time
