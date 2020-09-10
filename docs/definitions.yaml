@@ -524,6 +524,12 @@ schemas:
       type: integer
       description: Number of the stations used on magnitudo calculation | int(11)
       format: int64
+      example: 9
+    magnitude__ncha_used:
+      type: integer
+      description: Number of the channels used on magnitude calculation | int(11)
+      format: int64
+      example: 27
     magnitude__mag_quality:
       type: string
       description: INGV quality code of the magnitude (computed by ew2moledb) | char(2)
