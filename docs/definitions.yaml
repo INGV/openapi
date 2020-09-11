@@ -417,7 +417,7 @@ schemas:
       description: intermed principal error | double
       format: double
     hypocenter__e2_az:
-      type: integer
+      type: number
       description: azimuth of smallest principal error | double
       format: double
     hypocenter__e2_dip:
