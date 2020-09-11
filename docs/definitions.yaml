@@ -772,6 +772,11 @@ schemas:
       description: Amplitude value | double
       format: double
       example: 0.292
+    amplitude__revised:
+      type: integer
+      description: Dichiara se tale ampiezza è stata rivista dall’analista, eventualmente anche non modificata, oppure no. (1/0, true/false) | tinyint(3)
+      format: int32
+      example: 0
     strongmotion__t_dt:
       type: string
       format: date-time
