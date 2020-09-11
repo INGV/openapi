@@ -413,7 +413,10 @@ schemas:
           mag:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag'
           error:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__err'
+            type: number
+            description: Magnitude error | double
+            format: double
+            example: 0.52
           quality:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__quality'
           minDist:
