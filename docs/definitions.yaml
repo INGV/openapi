@@ -487,17 +487,17 @@ schemas:
       format: double
     magnitude__mag:
       type: number
-      description: Magnitudo value | double
+      description: Magnitude value | double
       format: double
       example: 3.01
     magnitude__lower_uncertainty:
       type: number
-      description: Magnitudo lower_uncertainty | double
+      description: Magnitude lower_uncertainty | double
       format: double
       example: 0.52
     magnitude__upper_uncertainty:
       type: number
-      description: Magnitudo upper_uncertainty | double
+      description: Magnitude upper_uncertainty | double
       format: double
       example: 0.53
     magnitude__quality:
@@ -762,7 +762,6 @@ schemas:
       type: number
       description: Amlitude period | double
       format: double
-      example: -1
     amplitude__time2:
       type: string
       format: date-time
