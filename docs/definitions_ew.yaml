@@ -479,13 +479,13 @@ schemas:
         amp1:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp1'
         period1:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period1'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period'
         time2:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__time2'
         amp2:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp2'
         period2:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period2'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period'
   pick_scnlSchema:
     allOf:
       - $ref: '#/schemas/pick_scnl__base'
