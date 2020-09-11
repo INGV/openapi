@@ -592,9 +592,9 @@ schemas:
       format: double
       example: 0.53
     pick__uncertainty:
-      type: number
+      type: integer
       description: Symmetric uncertanty value (1sigma, 2 sigma o 3 sigma) | bigint(19)
-      format: integer
+      format: int64
       example: 7
     pick__firstmotion:
       type: string
