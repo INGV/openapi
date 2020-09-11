@@ -22,7 +22,7 @@ parameters:
         required: false
         schema:
           type: integer
-          format: integer            
+          format: int64            
     starttime:
         description: Select date start. - [ **YYYY-MM-DDThh:mm:ss** | **YYYY-MM-DD** ] (ex. 2013-02-18T15:06:38)
         in: query
@@ -377,7 +377,7 @@ schemas:
       description: Root mean square | double
       format: double
     hypocenter__e0_az:
-      type: integer
+      type: number
       description: azimuth of largest principal error | double
       format: double
     hypocenter__min_distance:
