@@ -409,7 +409,7 @@ schemas:
       description: azimuth of intermediate principal error | double
       format: double
     hypocenter__e1_dip:
-      type: integer
+      type: number
       description: dip of intermediate principal error | double
       format: double
     hypocenter__e1:
