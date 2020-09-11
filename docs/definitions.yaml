@@ -397,7 +397,7 @@ schemas:
       description: Root mean square Weighted | double
       format: double
     hypocenter__e0_dip:
-      type: integer
+      type: number
       description: dip of largest principal error | double
       format: double
     hypocenter__e0:
