@@ -668,16 +668,16 @@ schemas:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
-    phase-st_amp_mag-st_dur_mag__ep_distance:
+    phase-stationmagnitude-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
       format: double
       example: 694
-    phase-st_amp_mag-st_dur_mag__hyp_distance:
+    phase-stationmagnitude-st_dur_mag__hyp_distance:
       type: number
       description: Distance from hypocenter of the station | double
       format: double
-    phase-st_amp_mag-st_dur_mag__azimut:
+    phase-stationmagnitude-st_dur_mag__azimut:
       type: number
       description: Station hypocenter azimut | double
       format: double
@@ -710,7 +710,7 @@ schemas:
       description: Localization weight | double
       format: double
       example: 0.88
-    st_amp_mag-st_dur_mag__polarity_is_used:
+    stationmagnitude-st_dur_mag__polarity_is_used:
       type: integer
       description: 1 if used | tinyint(4)
       format: int64
@@ -724,17 +724,17 @@ schemas:
       description: Duration magnitude value | double
       format: double
       example: 0.8
-    st_amp_mag__mag:
+    stationmagnitude__mag:
       type: number
       description: Amplitude magnitude value | double
       format: double
       example: 3.04
-    st_amp_mag__mag_correction:
+    stationmagnitude__mag_correction:
       type: number
       description: magnitude correction | double
       format: double
       example: 0
-    st_amp_mag-st_dur_mag__err_mag:
+    stationmagnitude-st_dur_mag__err_mag:
       type: number
       description: magnitude error | double
       format: double
