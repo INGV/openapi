@@ -472,11 +472,11 @@ schemas:
         loc:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
         mag:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/stationmagnitude__mag'
         dist:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/ep_distance_km'
         corr:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/st_amp_mag__mag_correction'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/stationmagnitude__mag_correction'
         time1:
           $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__time1'
         amp1:
