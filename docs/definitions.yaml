@@ -7,7 +7,7 @@ parameters:
       schema:
           type: string
           enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
-    fk_events_group:
+    fk_event_group:
         name: event_group_id
         in: query
         description: Select events with same event_group_id.
@@ -291,7 +291,7 @@ schemas:
       format: int64
       example: 182491
       default: null
-    event__fk_events_group:
+    event__fk_event_group:
       type: integer
       description: Link event group | bigint(20)
       format: int64
