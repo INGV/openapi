@@ -285,9 +285,9 @@ schemas:
       description: 'Link: provenance | bigint(20)'
       format: int64
       example: 13
-    id_local:
+    id_localspace:
       type: integer
-      description: Local IdSpace | bigint(19)
+      description: Localspace Id | bigint(19)
       format: int64
       example: 182491
       default: null
@@ -855,12 +855,12 @@ schemas:
       type: string
       description: Event location remark region | varchar(255)
       example: Norcia
-    idspace__name:
+    localspace__name:
       type: string
-      description: 'IdSpace name. i.e. hew1_mole, endeavour_mole | char(255)'
+      description: 'Localspace name. i.e. hew1_mole, endeavour_mole | char(255)'
       example: hew1_mole
       default: null
-    idspace__description:
+    localspace__description:
       type: string
       description: Additional information | char(255)
       example: Auto added
