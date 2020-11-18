@@ -244,7 +244,7 @@ parameters:
         type: boolean
         default: false
     includearrivals:
-      description: Is used to retrive any associated phase arrival information for each event.
+      description: Is used to retrive any associated arrival information for each event.
       in: query
       name:  includearrivals
       required: false
@@ -332,15 +332,15 @@ schemas:
       example: 0.53
     hypocenter__nph:
       type: integer
-      description: '# phases (P&S) weight >0.1 | int(11)'
+      description: '# arrivals (P&S) weight >0.1 | int(11)'
       format: int64
     hypocenter__nph_s:
       type: integer
-      description: '# S phases weight >0.1 | int(11)'
+      description: '# S arrivals weight >0.1 | int(11)'
       format: int64
     hypocenter__nph_tot:
       type: integer
-      description: '# phases (P&S) weight >0.0 | int(11)'
+      description: '# arrivals (P&S) weight >0.0 | int(11)'
       format: int64
     hypocenter__nph_fm:
       type: integer
@@ -568,7 +568,7 @@ schemas:
       default: '--'
     pick__weight:
       type: integer
-      description: Picking weight of the phase | int(10)
+      description: Picking weight of the arrival | int(10)
       format: int64
       example: 2
     pick__arrival_time:
@@ -660,52 +660,52 @@ schemas:
       type: integer
       description: peak P-wave half amplitude | int(11)
       format: int64
-    phase__isc_code:
+    arrival__isc_code:
       type: string
-      description: ISC phase code | varchar(8)
+      description: ISC arrival code | varchar(8)
       example: S
     type_magnitude__name:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
-    phase-stationmagnitude-st_dur_mag__ep_distance:
+    arrival-stationmagnitude-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
       format: double
       example: 694
-    phase-stationmagnitude-st_dur_mag__hyp_distance:
+    arrival-stationmagnitude-st_dur_mag__hyp_distance:
       type: number
       description: Distance from hypocenter of the station | double
       format: double
-    phase-stationmagnitude-st_dur_mag__azimut:
+    arrival-stationmagnitude-st_dur_mag__azimut:
       type: number
       description: Station hypocenter azimut | double
       format: double
       example: 161
-    phase__take_off:
+    arrival__take_off:
       type: number
       description: Take off angle | double
       format: double
       example: 94
-    phase__polarity_is_used:
+    arrival__polarity_is_used:
       type: integer
       description: 1 if it is used for polarity calculation | tinyint(4)
       format: int64
-    phase__arr_time_is_used:
+    arrival__arr_time_is_used:
       type: integer
       description: 1 if it is used for hypocenter calculation | tinyint(4)
       format: int64
-    phase__residual:
+    arrival__residual:
       type: number
       description: Residual | double
       format: double
       example: 6.19
-    phase__teo_travel_time:
+    arrival__teo_travel_time:
       type: string
       format: date-time
       description: Teoretical travel time | datetime(6)
       example: '2017-04-12T08:47:10.123Z'
-    phase__weight:
+    arrival__weight:
       type: number
       description: Localization weight | double
       format: double
