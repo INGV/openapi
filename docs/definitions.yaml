@@ -684,9 +684,15 @@ schemas:
       format: double
     arrival-stationmagnitude-st_dur_mag__azimut:
       type: number
+      description: Distance from origin of the station | double
+      format: double
+      example: 161
+    arrival-stationmagnitude-st_dur_mag__orig_distance:
+      type: number
       description: Station origin azimut | double
       format: double
       example: 161
+      default: null
     arrival__take_off:
       type: number
       description: Take off angle | double
