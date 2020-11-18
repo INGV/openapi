@@ -6,7 +6,7 @@ parameters:
       required: false
       schema:
           type: string
-          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, hyp_ot-asc, hyp_ot-desc, mag_mag-asc, mag_mag-desc]
+          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, origin_ot-asc, origin_ot-desc, mag_mag-asc, mag_mag-desc]
     fk_event_group:
         name: event_group_id
         in: query
@@ -678,18 +678,14 @@ schemas:
       description: Distance from epicenter of the station | double
       format: double
       example: 694
-    arrival-stationmagnitude-st_dur_mag__hyp_distance:
-      type: number
-      description: Distance from origin of the station | double
-      format: double
     arrival-stationmagnitude-st_dur_mag__azimut:
       type: number
-      description: Distance from origin of the station | double
+      description: Station origin azimut | double
       format: double
       example: 161
     arrival-stationmagnitude-st_dur_mag__orig_distance:
       type: number
-      description: Station origin azimut | double
+      description: Distance from origin of the station | double
       format: double
       example: 161
       default: null
