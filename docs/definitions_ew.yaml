@@ -67,9 +67,9 @@ schemas:
           quakeId:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
           version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
           originTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
           latitude:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
           longitude:
@@ -77,7 +77,7 @@ schemas:
           depth:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
           rms:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__rms'
           dmin:
             type: number
             description: dmin description | ???
@@ -87,9 +87,9 @@ schemas:
             description: ravg description | ???
             format: double
           gap:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__azim_gap'
           nph:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph'
   hyp2000arcSchema:
     allOf:
       - $ref: '#/schemas/hyp2000arc__base'
@@ -132,9 +132,9 @@ schemas:
           quakeId:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
           version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
           originTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
           latitude:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
           longitude:
@@ -142,39 +142,39 @@ schemas:
           depth:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
           nph:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph'
           nphS:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph_s'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph_s'
           nphtot:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph_tot'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph_tot'
           nPfm:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__nph_fm'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph_fm'
           gap:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__azim_gap'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__azim_gap'
           dminnnn:
             type: number
             description: dmin description | ???
             format: double
           rms:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__rms'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__rms'
           e0az:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e0_az'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e0_az'
           e0dp:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e0_dip'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e0_dip'
           e0:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e0'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e0'
           e1az:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e1_az'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e1_az'
           e1dp:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e1_dip'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e1_dip'
           e1:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e1'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e1'
           e2:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__e2'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e2'
           erh:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__err_h'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__err_h'
           erz:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__err_z'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__err_z'
           Md:
             type: number
             description: Md description | ???
@@ -251,9 +251,9 @@ schemas:
           description: Todo description | ???
           example: ' '
         Pat:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
         Sat:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/hypocenter__ot'
+          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
         Pres:
           type: number
           description: Todo description | ???
@@ -409,7 +409,7 @@ schemas:
           quakeId:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
           version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
           mag:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag'
           error:
@@ -581,7 +581,7 @@ schemas:
           quakeId:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'        
           version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_hypocenter__name'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
           network:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
           station:
