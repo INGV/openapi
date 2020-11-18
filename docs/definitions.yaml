@@ -18,7 +18,7 @@ parameters:
     originid:
         name: originid
         in: query
-        description: Select by origin/hypocenter id.
+        description: Select by origin id.
         required: false
         schema:
           type: integer
@@ -236,7 +236,7 @@ parameters:
         type: boolean
         default: false
     includeallstationsmagnitudes:
-      description: Is used to retrive all stations magnitudes associated with each hypocenter.
+      description: Is used to retrive all stations magnitudes associated with each origin.
       in: query
       name:  includeallstationsmagnitudes
       required: false
@@ -269,9 +269,9 @@ schemas:
       description: Insert time | timestamp
       example: '2017-04-18T15:04:42Z'
       default: CURRENT_TIMESTAMP
-    fk_type_hypocenter:
+    fk_type_origin:
       type: integer
-      description: 'Link: type_hypocenter | bigint(20)'
+      description: 'Link: type_origin | bigint(20)'
       format: int64
       example: 0
     fk_type_event:
@@ -296,14 +296,19 @@ schemas:
       description: Link event group | bigint(20)
       format: int64
       default: 0
-    event__fk_pref_hyp:
+    event__fk_origin_preferred:
       type: integer
-      description: 'Link: preferred hypocenter. It can be NULL. | bigint(20)'
+      description: 'Link: preferred origin. It can be NULL. | bigint(20)'
       format: int64
       default: null
-    event__fk_pref_mag:
+    event__fk_magnitude_preferred:
       type: integer
       description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
+      format: int64
+      default: null
+    event__fk_focalmechanism_preferred:
+      type: integer
+      description: 'Link: preferred focalmechanism. It can be NULL. | bigint(20)'
       format: int64
       default: null
     event__type_group:
@@ -311,7 +316,7 @@ schemas:
       description: Group type. Used by clustering algorithm | tinyint(4)
       format: int64
       default: 0
-    hypocenter__ot:
+    origin__ot:
       type: string
       format: date-time
       description: Origin time | datetime(3)
@@ -330,117 +335,117 @@ schemas:
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
       format: double
       example: 0.53
-    hypocenter__nph:
+    origin__nph:
       type: integer
       description: '# arrivals (P&S) weight >0.1 | int(11)'
       format: int64
-    hypocenter__nph_s:
+    origin__nph_s:
       type: integer
       description: '# S arrivals weight >0.1 | int(11)'
       format: int64
-    hypocenter__nph_tot:
+    origin__nph_tot:
       type: integer
       description: '# arrivals (P&S) weight >0.0 | int(11)'
       format: int64
-    hypocenter__nph_fm:
+    origin__nph_fm:
       type: integer
       description: '# P first motions | int(11)'
       format: int64
-    hypocenter__is_centroid:
+    origin__is_centroid:
       type: integer
       description: 1 if it is a centroid | tinyint(4)
       format: int64
       example: 0
       default: 0
-    hypocenter__sec_azim_gap:
+    origin__sec_azim_gap:
       type: number
       description: Secondary Azimutal gap | double
       format: double
-    hypocenter__err_depth:
+    origin__err_depth:
       type: number
       description: Depth error | double
       format: double
-    hypocenter__err_lat:
+    origin__err_lat:
       type: number
       description: Latitude error | double
       format: double
-    hypocenter__err_lon:
+    origin__err_lon:
       type: number
       description: Longitude error | double
       format: double
-    hypocenter__azim_gap:
+    origin__azim_gap:
       type: number
       description: Azimutal gap | double
       format: double
-    hypocenter__rms:
+    origin__rms:
       type: number
       description: Root mean square | double
       format: double
-    hypocenter__e0_az:
+    origin__e0_az:
       type: number
       description: azimuth of largest principal error | double
       format: double
-    hypocenter__min_distance:
+    origin__min_distance:
       type: number
       description: Distance from the closest station (km) | double
       format: double
-    hypocenter__med_distance:
+    origin__med_distance:
       type: number
       description: Median distance from the epicenter to the used stations (km) | double
       format: double
-    hypocenter__max_distance:
+    origin__max_distance:
       type: number
       description: Distance from the furthest station (km) | double
       format: double      
-    hypocenter__w_rms:
+    origin__w_rms:
       type: number
       description: Root mean square Weighted | double
       format: double
-    hypocenter__e0_dip:
+    origin__e0_dip:
       type: number
       description: dip of largest principal error | double
       format: double
-    hypocenter__e0:
+    origin__e0:
       type: number
       description: largest principal error | double
       format: double
-    hypocenter__e1_az:
+    origin__e1_az:
       type: number
       description: azimuth of intermediate principal error | double
       format: double
-    hypocenter__e1_dip:
+    origin__e1_dip:
       type: number
       description: dip of intermediate principal error | double
       format: double
-    hypocenter__e1:
+    origin__e1:
       type: number
       description: intermed principal error | double
       format: double
-    hypocenter__e2_az:
+    origin__e2_az:
       type: number
       description: azimuth of smallest principal error | double
       format: double
-    hypocenter__e2_dip:
+    origin__e2_dip:
       type: integer
       description: dip of smallest principal error | double
       format: int64
-    hypocenter__e2:
+    origin__e2:
       type: number
       description: smallest principal error | double
       format: double        
-    hypocenter__err_h:
+    origin__err_h:
       type: number
       description: Depth error | double
       format: double
-    hypocenter__err_z:
+    origin__err_z:
       type: number
       description: Depth error | double
       format: double
-    hypocenter__err_ot:
+    origin__err_ot:
       type: number
       description: Origin time error | double
       format: double
-    hypocenter__fix_depth:
+    origin__fix_depth:
       type: boolean
       description: 1 if depth is fixed | tinyint(1)
       example: 0
@@ -451,17 +456,17 @@ schemas:
       format: double
       example: 68.3
       default: 68.3
-    hypocenter__quality:
+    origin__quality:
       type: string
       description: Quality of the localization | char(2)
       example: AB
-    type_hypocenter__name:
+    type_origin__name:
       description: Localization name (es:01,XX,WW,..) | varchar(255)
       type: string
       example: ew prelim
-    type_hypocenter__value:
+    type_origin__value:
       type: string
-      description: Define a numeric value for type hypocenter. < 100 is automatic location | bigint(20)
+      description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
       example: '10'
     net:
       type: string
@@ -506,7 +511,7 @@ schemas:
       format: double
     magnitude__min_dist:
       type: number
-      description: Minimal distance from station to hypocenter | double
+      description: Minimal distance from station to origin | double
       format: double
     magnitude__azimut:
       type: number
@@ -675,11 +680,11 @@ schemas:
       example: 694
     arrival-stationmagnitude-st_dur_mag__hyp_distance:
       type: number
-      description: Distance from hypocenter of the station | double
+      description: Distance from origin of the station | double
       format: double
     arrival-stationmagnitude-st_dur_mag__azimut:
       type: number
-      description: Station hypocenter azimut | double
+      description: Station origin azimut | double
       format: double
       example: 161
     arrival__take_off:
@@ -693,7 +698,7 @@ schemas:
       format: int64
     arrival__arr_time_is_used:
       type: integer
-      description: 1 if it is used for hypocenter calculation | tinyint(4)
+      description: 1 if it is used for origin calculation | tinyint(4)
       format: int64
     arrival__residual:
       type: number
@@ -851,7 +856,7 @@ schemas:
       type: string
       description: Name | varchar(255)
       example: earthquake
-    hypocenter_region_name__region:
+    origin_region_name__region:
       type: string
       description: Event location remark region | varchar(255)
       example: Norcia
