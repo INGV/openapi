@@ -327,9 +327,11 @@ schemas:
       format: double
       example: 0.02
     latitude:
-      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Latitude'
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/schemas/Latitude'
     longitude:
-      $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Longitude'
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/schemas/Longitude'
+    Problem:
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/schemas/Problem'
     standard_dev:
       type: number
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
@@ -957,7 +959,7 @@ responses:
     content:
       application/problem+json:
         schema:
-          $ref: 'https://teamdigitale.github.io/openapi/master/definitions.yaml#/schemas/Problem'
+          $ref: '#/schemas/Problem'
     description: Internal Server Error
   204NoContent:
     description: Request was properly formatted and submitted but no data matches the selection
