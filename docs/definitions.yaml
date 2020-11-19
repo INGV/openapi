@@ -955,11 +955,23 @@ schemas:
       example: Auto added
       default: null
 responses:
+  204NoContent:
+    description: Request was properly formatted and submitted but no data matches the selection
+  400BadRequest:
+    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/400BadRequest'
+  404NotFound:
+    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/404NotFound'
+  429TooManyRequests:
+    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/429TooManyRequests'
+  500InternalServerError:
+    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/responses/500InternalServerError'
+  503ServiceUnavailable:
+    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/503ServiceUnavailable'
   500InternalServerError:
     content:
       application/problem+json:
         schema:
           $ref: '#/schemas/Problem'
     description: Internal Server Error
-  204NoContent:
-    description: Request was properly formatted and submitted but no data matches the selection
+  default:
+    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/default'
