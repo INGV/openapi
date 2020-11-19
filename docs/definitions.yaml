@@ -964,14 +964,12 @@ responses:
   429TooManyRequests:
     $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/429TooManyRequests'
   500InternalServerError:
-    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/responses/500InternalServerError'
-  503ServiceUnavailable:
-    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/503ServiceUnavailable'
-  500InternalServerError:
     content:
       application/problem+json:
         schema:
           $ref: '#/schemas/Problem'
     description: Internal Server Error
+  503ServiceUnavailable:
+    $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/503ServiceUnavailable'
   default:
     $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/responses/default'
