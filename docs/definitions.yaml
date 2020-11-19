@@ -331,7 +331,7 @@ schemas:
     longitude:
       $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/schemas/Longitude'
     Problem:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/schemas/Problem'
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.6/definitions.yaml#/schemas/Longitude'
     standard_dev:
       type: number
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
