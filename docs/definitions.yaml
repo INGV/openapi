@@ -573,11 +573,6 @@ schemas:
       description: elevation if not using seisnet | varchar(50)
       example: '52.000000'
       default: '--'
-    pick__weight:
-      type: integer
-      description: Picking weight of the arrival | int(10)
-      format: int64
-      example: 2
     pick__arrival_time:
       type: string
       format: date-time
