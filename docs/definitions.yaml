@@ -452,7 +452,7 @@ schemas:
       description: 1 if depth is fixed | tinyint(1)
       example: 0
       default: 0
-    confidence_lev:
+    confidence_level:
       type: number
       description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | double
       format: double
