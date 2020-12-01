@@ -541,7 +541,7 @@ schemas:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__arrival_time'
           pAmplitude:
             type: array
-            description: Todo description | ???
+            description: peak P-wave half amplitude | ???
             example: [109, 101, 122]
   strongmotioniiSchema:
     allOf:
