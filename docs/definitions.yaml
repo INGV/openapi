@@ -922,13 +922,6 @@ schemas:
       description: Name/URI/DOI of the method | varchar(255)
       example: ToDo
       default: null
-    type_pick_weight__name:
-      type: string
-      description: Name | varchar(255)
-    type_pick_weight__description:
-      type: string
-      description: Pick weight type description | varchar(255)
-      default: null      
     type_amplitude__name:
       type: string
       description: Type of the amplitude | varchar(50)
