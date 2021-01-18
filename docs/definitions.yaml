@@ -448,10 +448,10 @@ schemas:
       description: Origin time error | double
       format: double
     origin__fix_depth:
-      type: boolean
+      type: integer
       description: 1 if depth is fixed | tinyint(1)
-      example: false
-      default: false
+      example: 0
+      default: 0
     confidence_level:
       type: number
       description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | double
