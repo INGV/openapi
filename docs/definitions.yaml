@@ -580,10 +580,10 @@ schemas:
       description: Arrival time with microseconds | datetime(3)
       example: '2017-04-12T08:46:30.930Z'
     pick__pick_quality_class:
-      type: number
-      description: Pick quality class expressed by a REAL number | double
-      format: double
-      example: 2.3
+      type: integer
+      description: Pick quality class | bigint
+      format: int32
+      example: 3
     pick__lower_uncertainty:
       type: number
       description: Valore di incertezza (in secondi) prima della lettura (arrival time) | decimal(10,3)
