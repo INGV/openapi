@@ -1,4 +1,13 @@
 parameters:
+    level:
+      name: level
+      in: query
+      description: Select deep level
+      required: false
+      schema:
+          type: string
+          enum: [event, origin, magnitude, all]
+          default: all
     orderby:
       name: orderby
       in: query
