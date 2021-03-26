@@ -472,6 +472,10 @@ schemas:
       type: string
       description: Quality of the localization | char(2)
       example: AB
+    origin__quality_numeric:
+      type: string
+      description: Quality as numeric value | int(10)
+      example: 12
     type_origin__name:
       description: Localization name (es:01,XX,WW,..) | varchar(255)
       type: string
