@@ -811,7 +811,7 @@ schemas:
     strongmotion__pga:
       type: number
       description: 'REQUIRED: peak ground acceleration (cm/s/s) | double'
-      format: double
+      format: float
       example: 0.000162
     strongmotion__tpga_dt:
       type: string
@@ -821,7 +821,7 @@ schemas:
     strongmotion__pgv:
       type: number
       description: 'REQUIRED: peak ground velocity (cm/s) | double'
-      format: double
+      format: float
       example: 0.000034
     strongmotion__tpgv_dt:
       type: string
@@ -831,7 +831,7 @@ schemas:
     strongmotion__pgd:
       type: number
       description: 'REQUIRED: peak ground displacement (cm) | double'
-      format: double
+      format: float
       example: 0.000025
     strongmotion__tpgd_dt:
       type: string
@@ -840,17 +840,17 @@ schemas:
       example: '2017-04-12T08:46:59.989Z'
     strongmotion__rsa_030:
       type: number
-      format: double
+      format: float
       description: RSA(response spectrum accel) value for period 0.30 | double
       example: 0.02604
     strongmotion__rsa_100:
       type: number
-      format: double
+      format: float
       description: RSA(response spectrum accel) value for period 1.00 | double
       example: 0.003673
     strongmotion__rsa_300:
       type: number
-      format: double
+      format: float
       description: RSA(response spectrum accel) value for period 3.00 | double
       example: 0.000339
     strongmotion_alt__t_alt_dt:
