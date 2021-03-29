@@ -581,7 +581,7 @@ schemas:
     momenttensor__scalarmoment:
       type: number
       format: double 
-      description: Scalar moment as derived in moment tensor inversion. Unit: Nm | double(22)
+      description: Scalar moment as derived in moment tensor inversion. Unit, Nm | double(22)
       example: 16607495309062.705
       default: null
     momenttensor__variancereduction:
