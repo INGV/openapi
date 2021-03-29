@@ -502,6 +502,12 @@ schemas:
       description: Channel location | char(2)
       example: '00'
       default: '--'
+    focalmechanism__strike1:
+      type: integer
+      format: int32      
+      description: strike focal plane n.1 | int(10)
+      example: 0
+      default: 0
     magnitude:
       type: number
       description: Magnitude | double
