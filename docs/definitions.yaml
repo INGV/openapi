@@ -590,6 +590,54 @@ schemas:
       description: Double couple parameter obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
       example: 0.76
       default: null
+    momenttensor__clvd:
+      type: number
+      format: double 
+      description: CLVD (compensated linear vector dipole) parameter obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
+      example: 0.24
+      default: null
+    momenttensor__iso:
+      type: number
+      format: double
+      description: Isotropic part obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
+      example: 0
+      default: null
+    momenttensor__mrr:
+      type: number
+      format: double
+      description: mrr moment tensor component | double(22)
+      example: 80.956
+      default: null
+    momenttensor__mtt:
+      type: number
+      format: double
+      description: mtt moment tensor component | double(22)
+      example: -25.017
+      default: null
+    momenttensor__mpp:
+      type: number
+      format: double
+      description: mpp moment tensor component | double(22)
+      example: -55.939
+      default: null
+    momenttensor__mrt:
+      type: number
+      format: double
+      description: mrt moment tensor component | double(22)
+      example: 7.048
+      default: null
+    momenttensor__mrp:
+      type: number
+      format: double
+      description: mrp moment tensor component | double(22)
+      example: 13.494
+      default: null
+    momenttensor__mtp:
+      type: number
+      format: double
+      description: mtp moment tensor component | double(22)
+      example: -49.466
+      default: null
     magnitude:
       type: number
       description: Magnitude | double
