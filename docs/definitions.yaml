@@ -578,6 +578,18 @@ schemas:
       description: url pdf file | varchar(255)
       example: 'http://mysite'
       default: null
+    momenttensor__variancereduction:
+      type: number
+      format: double 
+      description: Variance reduction of moment tensor inversion, given in percent (Dreger 2003). This is a goodness-of-fit measure | double(22)
+      example: 41.15
+      default: null
+    momenttensor__doublecouple:
+      type: number
+      format: double 
+      description: Double couple parameter obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
+      example: 0.76
+      default: null
     magnitude:
       type: number
       description: Magnitude | double
