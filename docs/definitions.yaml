@@ -834,6 +834,7 @@ schemas:
       example: '2017-04-12T08:46:59.989Z'
     strongmotion__rsa_030:
       type: number
+      format: double
       description: RSA(response spectrum accel) value for period 0.30 | double
       example: 0.02604
     strongmotion__rsa_100:
