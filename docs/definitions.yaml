@@ -768,7 +768,7 @@ schemas:
     pickew__pamp:
       type: number
       description: peak P-wave half amplitude | double(22)
-      format: double
+      format: float
       example: 283
       default: null      
     pick_ew_coda__ccntr_0:
