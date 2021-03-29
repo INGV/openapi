@@ -387,7 +387,7 @@ schemas:
     origin__azim_gap:
       type: number
       description: Azimutal gap | double
-      format: double
+      format: float
     origin__rms:
       type: number
       description: Root mean square | double
@@ -830,7 +830,7 @@ schemas:
     arrival-stationmagnitude-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
-      format: double
+      format: float
       example: 694
     arrival-stationmagnitude-st_dur_mag__azimut:
       type: number
@@ -846,7 +846,7 @@ schemas:
     arrival__take_off:
       type: number
       description: Take off angle | double
-      format: double
+      format: float
       example: 94
     arrival__polarity_is_used:
       type: integer
@@ -902,12 +902,12 @@ schemas:
     ep_distance_km:
       type: number
       description: Distance from epicenter of the station expressed in Km | double
-      format: double
+      format: float
       example: 223.3
     ep_distance_delta:
       type: number
       description: Distance from epicenter of the station expressed in Degrees | double
-      format: double
+      format: float
       example: 2      
     amplitude__time1:
       type: string
