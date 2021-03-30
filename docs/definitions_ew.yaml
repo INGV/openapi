@@ -536,7 +536,7 @@ schemas:
           firstMotion:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__firstmotion'
           pickWeight:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__uncertainty'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__lower_uncertainty'
           timeOfPick:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__arrival_time'
           pAmplitude:
