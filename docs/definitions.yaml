@@ -1100,6 +1100,10 @@ schemas:
       description: Description of type amplitude | varchar(255)
       example: Auto added
       default: null
+    type_momenttensor__name:
+      type: string
+      description: Type of Moment Tensor | varchar(50)
+      example: TDMT
       
 responses:
   204NoContent:
