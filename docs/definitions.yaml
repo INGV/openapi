@@ -464,8 +464,8 @@ schemas:
       default: 0
     confidence_level:
       type: number
-      description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | double
-      format: double
+      description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | decimal(5.2)
+      format: float
       example: 68.3
       default: 68.3
     origin__quality:
@@ -742,19 +742,16 @@ schemas:
       example: 3
     pick__lower_uncertainty:
       type: number
-      description: Valore di incertezza (in secondi) prima della lettura (arrival time) | decimal(10,3)
-      format: double
+      description: Uncertainty as the absolute value of deviation from the mainvalue towards smaller values. | decimal(8,3)
+      format: float
       example: 0.52
+      default: null
     pick__upper_uncertainty:
       type: number
-      description: Valore di incertezza (in secondi) dopo la lettura (arrival time) | decimal(10,3)
-      format: double
+      description: Uncertainty as the absolute value of deviation from the mainvalue towards larger values. | decimal(8,3)
+      format: float
       example: 0.53
-    pick__uncertainty:
-      type: integer
-      description: Symmetric uncertanty value (1sigma, 2 sigma o 3 sigma) | bigint(19)
-      format: int64
-      example: 7
+      default: null
     pick__firstmotion:
       type: string
       description: Up or down | char(1)
