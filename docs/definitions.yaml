@@ -858,11 +858,6 @@ schemas:
       description: Residual | double
       format: double
       example: 6.19
-    arrival__teo_travel_time:
-      type: string
-      format: date-time
-      description: Teoretical travel time | datetime(6)
-      example: '2017-04-12T08:47:10.123Z'
     arrival__weight:
       type: number
       description: Localization weight | double
