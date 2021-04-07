@@ -73,52 +73,47 @@ parameters:
           type: string
           format: date-time
     minlat:
-        description: Specify southern boundary for search in WGS84 (i.e.:39.12).
+        description: Specify southern boundary for search in WGS84 (i.e.: 39.12).
         in: query
         name: minlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     maxlat:
-        description: Specify northern boundary for search (in WGS84).
+        description: Specify northern boundary for search in WGS84 (i.e.: 46.52).
         in: query
         name: maxlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
-        example: 46.52
     minlon:
-        description: Specify western boundary for search (in WGS84).
+        description: Specify western boundary for search in WGS84 (i.e.: 10.12).
         in: query
         name: minlon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
-        example: 10.12
     maxlon:
-        description: Specify eastern boundary for search (in WGS84).
+        description: Specify eastern boundary for search (in WGS84) (i.e.: 15.12).
         in: query
         name: maxlon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
-        example: 15.12
     lat:
-        description: Specify the central latitude point for a radial search (in WGS84).
+        description: Specify the central latitude point for a radial search in WGS84 (i.e.: 42).
         in: query
         name: lat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
-        example: 42
     lon:
-        description: Specify the central longitude point for a radial search (in WGS84).
+        description: Specify the central longitude point for a radial search in WGS84 (i.e.: 12).
         in: query
         name: lon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
-        example: 12
     minradius:
         description: Specify minimum distance from the geographic point defined by latitude and longitude (in Degrees).
         in: query
