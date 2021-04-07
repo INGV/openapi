@@ -115,23 +115,21 @@ parameters:
         schema:
             $ref:  '#/schemas/longitude'
     minradius:
-        description: Specify minimum distance from the geographic point defined by latitude and longitude (in Degrees).
+        description: Specify minimum distance from the geographic point defined by latitude and longitude in Degrees (i.e.: 1.5).
         in: query
         name:  minradius
         required: false
         schema:
             type: number
             format: double
-        example: 1.5
     maxradius:
-        description: Specify maximum distance from the geographic point defined by latitude and longitude (in Degrees).
+        description: Specify maximum distance from the geographic point defined by latitude and longitude in Degrees (i.e.: 5).
         in: query
         name:  maxradius
         required: false
         schema:
             type: number
             format: double
-        example: 5
     minradiuskm:
         description: Specify minimum distance from the geographic point defined by
             latitude and longitude. Kilometers. **This is an INGV extension to
@@ -153,39 +151,35 @@ parameters:
             type: number
             format: double
     mindepth:
-        description: Specify minimum depth (kilometers), values increase positively with depth.
+        description: Specify minimum depth (kilometers), values increase positively with depth (i.e.: 0).
         in: query
         name:  mindepth
         required: false
         schema:
             format: double
             type: number
-        example: 0
     maxdepth:
-        description: Specify maximum depth (kilometers), values increase positively with depth.
+        description: Specify maximum depth (kilometers), values increase positively with depth (i.e.: 50).
         in: query
         name:  maxdepth
         required: false
         schema:
             format: double
             type: number
-        example: 50
     minmag:
-        description: Limit to events with a magnitude larger than or equal to the specified minimum.
+        description: Limit to events with a magnitude larger than or equal to the specified minimum (i.e.: 1.5).
         in: query
         name: minmag
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
-        example: 1.1
     maxmag:
-        description: Limit to events with a magnitude smaller than or equal to the specified maximum.
+        description: Limit to events with a magnitude smaller than or equal to the specified maximum (i.e.: 7.3).
         in: query
         name: maxmag
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
-        example: 7.3
     limit:
         description: Limit the results to the specified number of events.
         in: query
