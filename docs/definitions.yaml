@@ -41,7 +41,7 @@ parameters:
           type: integer
           format: int64            
     starttime:
-        description: Select date start (i.e.:2016-06-22T16:52:06.260Z).
+        description: Select date start (i.e.: 2016-06-22T16:52:06.260Z).
         in: query
         name: starttime
         required: false
@@ -49,7 +49,7 @@ parameters:
           type: string
           format: date-time
     starttime__REQUIRED:
-        description: Select date start (i.e.:2016-06-22T16:52:06.260Z).
+        description: Select date start (i.e.: 2016-06-22T16:52:06.260Z).
         in: query
         name: starttime
         required: true
@@ -57,7 +57,7 @@ parameters:
           type: string
           format: date-time
     endtime:
-        description: Select date end (i.e.:2016-06-22T16:52:06.260Z).
+        description: Select date end (i.e.: 2016-06-22T16:52:06.260Z).
         in: query
         name: endtime
         required: false
@@ -65,7 +65,7 @@ parameters:
           type: string
           format: date-time
     endtime__REQUIRED:
-        description: Select date end (i.e.:2016-06-22T16:52:06.260Z).
+        description: Select date end (i.e.: 2016-06-22T16:52:06.260Z).
         in: query
         name: endtime
         required: true
