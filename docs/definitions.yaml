@@ -252,6 +252,14 @@ parameters:
       schema:
         type: boolean
         default: false
+    wherelocalspacenamein:
+      description: Filter localspace.name by regex (i.e. hew10_mole,hew20_mole).
+      in: query
+      name: wherelocalspacenamein
+      required: false
+      schema:
+        type: string
+        format: string
 schemas:
     id:
       type: integer
