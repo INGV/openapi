@@ -41,7 +41,7 @@ parameters:
           type: integer
           format: int64            
     starttime:
-        description: Select date start (i.e.: 2016-06-22T16:52:06.260Z).
+        description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
         in: query
         name: starttime
         required: false
@@ -49,7 +49,7 @@ parameters:
           type: string
           format: date-time
     starttime__REQUIRED:
-        description: Select date start (i.e.: 2016-06-22T16:52:06.260Z).
+        description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
         in: query
         name: starttime
         required: true
@@ -57,7 +57,7 @@ parameters:
           type: string
           format: date-time
     endtime:
-        description: Select date end (i.e.: 2016-06-22T16:52:06.260Z).
+        description: Select date end (i.e. 2016-06-22T16:52:06.260Z).
         in: query
         name: endtime
         required: false
@@ -65,7 +65,7 @@ parameters:
           type: string
           format: date-time
     endtime__REQUIRED:
-        description: Select date end (i.e.: 2016-06-22T16:52:06.260Z).
+        description: Select date end (i.e. 2016-06-22T16:52:06.260Z).
         in: query
         name: endtime
         required: true
@@ -73,49 +73,49 @@ parameters:
           type: string
           format: date-time
     minlat:
-        description: Specify southern boundary for search in WGS84 (i.e.: 39.12).
+        description: Specify southern boundary for search in WGS84 (i.e. 39.12).
         in: query
         name: minlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     maxlat:
-        description: Specify northern boundary for search in WGS84 (i.e.: 46.52).
+        description: Specify northern boundary for search in WGS84 (i.e. 46.52).
         in: query
         name: maxlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     minlon:
-        description: Specify western boundary for search in WGS84 (i.e.: 10.12).
+        description: Specify western boundary for search in WGS84 (i.e. 10.12).
         in: query
         name: minlon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
     maxlon:
-        description: Specify eastern boundary for search (in WGS84) (i.e.: 15.12).
+        description: Specify eastern boundary for search (in WGS84) (i.e. 15.12).
         in: query
         name: maxlon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
     lat:
-        description: Specify the central latitude point for a radial search in WGS84 (i.e.: 42).
+        description: Specify the central latitude point for a radial search in WGS84 (i.e. 42).
         in: query
         name: lat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
     lon:
-        description: Specify the central longitude point for a radial search in WGS84 (i.e.: 12).
+        description: Specify the central longitude point for a radial search in WGS84 (i.e. 12).
         in: query
         name: lon
         required: false
         schema:
             $ref:  '#/schemas/longitude'
     minradius:
-        description: Specify minimum distance from the geographic point defined by latitude and longitude in Degrees (i.e.: 1.5).
+        description: Specify minimum distance from the geographic point defined by latitude and longitude in Degrees (i.e. 1.5).
         in: query
         name:  minradius
         required: false
@@ -123,7 +123,7 @@ parameters:
             type: number
             format: double
     maxradius:
-        description: Specify maximum distance from the geographic point defined by latitude and longitude in Degrees (i.e.: 5).
+        description: Specify maximum distance from the geographic point defined by latitude and longitude in Degrees (i.e. 5).
         in: query
         name:  maxradius
         required: false
@@ -151,7 +151,7 @@ parameters:
             type: number
             format: double
     mindepth:
-        description: Specify minimum depth (kilometers), values increase positively with depth (i.e.: 0).
+        description: Specify minimum depth (kilometers), values increase positively with depth (i.e. 0).
         in: query
         name:  mindepth
         required: false
@@ -159,7 +159,7 @@ parameters:
             format: double
             type: number
     maxdepth:
-        description: Specify maximum depth (kilometers), values increase positively with depth (i.e.: 50).
+        description: Specify maximum depth (kilometers), values increase positively with depth (i.e. 50).
         in: query
         name:  maxdepth
         required: false
@@ -167,14 +167,14 @@ parameters:
             format: double
             type: number
     minmag:
-        description: Limit to events with a magnitude larger than or equal to the specified minimum (i.e.: 1.5).
+        description: Limit to events with a magnitude larger than or equal to the specified minimum (i.e. 1.5).
         in: query
         name: minmag
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
     maxmag:
-        description: Limit to events with a magnitude smaller than or equal to the specified maximum (i.e.: 7.3).
+        description: Limit to events with a magnitude smaller than or equal to the specified maximum (i.e. 7.3).
         in: query
         name: maxmag
         required: false
