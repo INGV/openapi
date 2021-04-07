@@ -24,6 +24,14 @@ parameters:
         schema:
             type: integer
             format: int64
+    id_localspaceid:
+        name: id_localspace
+        in: query
+        description: Localspace Id.
+        required: false
+        schema:
+            type: integer
+            format: int64
     originid:
         name: originid
         in: query
@@ -33,49 +41,44 @@ parameters:
           type: integer
           format: int64            
     starttime:
-        description: Select date start.
+        description: Select date start (i.e.:2016-06-22T16:52:06.260Z).
         in: query
         name: starttime
         required: false
         schema:
           type: string
           format: date-time
-        example: '2016-06-22T16:52:06.260Z'
     starttime__REQUIRED:
-        description: Select date start.
+        description: Select date start (i.e.:2016-06-22T16:52:06.260Z).
         in: query
         name: starttime
         required: true
         schema:
           type: string
           format: date-time
-        example: '2016-06-22T16:52:06.260Z'
     endtime:
-        description: Select date end.
+        description: Select date end (i.e.:2016-06-22T16:52:06.260Z).
         in: query
         name: endtime
         required: false
         schema:
           type: string
           format: date-time
-        example: '2016-06-22T16:52:06.260Z'
     endtime__REQUIRED:
-        description: Select date end.
+        description: Select date end (i.e.:2016-06-22T16:52:06.260Z).
         in: query
         name: endtime
         required: true
         schema:
           type: string
           format: date-time
-        example: '2016-06-22T16:52:06.260Z'
     minlat:
-        description: Specify southern boundary for search (in WGS84).
+        description: Specify southern boundary for search in WGS84 (i.e.:39.12).
         in: query
         name: minlat
         required: false
         schema:
             $ref:  '#/schemas/latitude'
-        example: 39.12
     maxlat:
         description: Specify northern boundary for search (in WGS84).
         in: query
