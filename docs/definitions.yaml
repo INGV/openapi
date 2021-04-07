@@ -24,7 +24,7 @@ parameters:
         schema:
             type: integer
             format: int64
-    id_localspaceid:
+    id_localspace:
         name: id_localspace
         in: query
         description: Localspace Id.
