@@ -180,6 +180,38 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
+    net:
+        description: Network
+        in: query
+        name:  net
+        required: false
+        schema:
+            format: string
+            type: string
+    sta:
+        description: Station
+        in: query
+        name:  sta
+        required: false
+        schema:
+            format: string
+            type: string
+    cha:
+        description: Channel
+        in: query
+        name:  cha
+        required: false
+        schema:
+            format: string
+            type: string
+    loc:
+        description: Location
+        in: query
+        name:  loc
+        required: false
+        schema:
+            format: string
+            type: string            
     limit:
         description: Limit the results to the specified number of events.
         in: query
