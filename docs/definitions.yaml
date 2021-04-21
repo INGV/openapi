@@ -180,27 +180,27 @@ parameters:
         required: false
         schema:
             $ref:  '#/schemas/magnitude'
-    net:
+    net__REQUIRED:
         description: Network
         in: query
         name:  net
-        required: false
+        required: true
         schema:
             format: string
             type: string
-    sta:
+    sta__REQUIRED:
         description: Station
         in: query
         name:  sta
-        required: false
+        required: true
         schema:
             format: string
             type: string
-    cha:
+    cha__REQUIRED:
         description: Channel
         in: query
         name:  cha
-        required: false
+        required: true
         schema:
             format: string
             type: string
