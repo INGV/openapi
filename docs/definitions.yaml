@@ -589,15 +589,15 @@ schemas:
       format: double 
       description: Station distribution ratio parameter [0,1] | double(22)
       default: null
-    focalmechanism__rmsAngDiffAccPref:
+    focalmechanism__rms_ang_diff_acc_pref:
       type: number
       format: double 
-      description: rmsAngDiffAccPref | double(22)
+      description: rms_ang_diff_acc_pref | double(22)
       default: null
-    focalmechanism__fracAcc30degPref:
+    focalmechanism__frac_acc_30deg_pref:
       type: number
       format: double 
-      description: fracAcc30degPref | double(22)
+      description: frac_acc_30deg_pref | double(22)
       default: null
     focalmechanism__quality:
       type: string
