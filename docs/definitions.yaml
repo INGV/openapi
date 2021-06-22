@@ -490,7 +490,7 @@ schemas:
       format: double
     origin__fix_depth:
       type: boolean      
-      description: true/1 if depth is fixed | boolean
+      description: true if depth is fixed | boolean
       example: false
       default: false
     confidence_level:
@@ -895,9 +895,10 @@ schemas:
       format: double
       example: 0.88
     stationmagnitude-st_dur_mag__polarity_is_used:
-      type: integer
-      description: 1 if used | tinyint(4)
-      format: int64
+      type: boolean
+      description: true if used | boolean
+      example: false
+      default: false
     st_dur_mag__dur:
       type: number
       description: ' Coda duration in seconds | double'
