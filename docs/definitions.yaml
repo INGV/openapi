@@ -615,13 +615,13 @@ schemas:
       description: Scalar moment as derived in moment tensor inversion. Unit, Nm | double(22)
       example: 16607495309062.705
       default: null
-    momenttensor__variancereduction:
+    momenttensor__variancere_duction:
       type: number
       format: double 
       description: Variance reduction of moment tensor inversion, given in percent (Dreger 2003). This is a goodness-of-fit measure | double(22)
       example: 41.15
       default: null
-    momenttensor__doublecouple:
+    momenttensor__double_couple:
       type: number
       format: double 
       description: Double couple parameter obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
