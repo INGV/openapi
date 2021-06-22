@@ -489,11 +489,10 @@ schemas:
       description: Origin time error | double
       format: double
     origin__fix_depth:
-      type: integer
-      format: int32      
-      description: 1 if depth is fixed | tinyint(1)
-      example: 0
-      default: 0
+      type: boolean      
+      description: true/1 if depth is fixed | boolean
+      example: false
+      default: false
     confidence_level:
       type: number
       description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | decimal(5.2)
