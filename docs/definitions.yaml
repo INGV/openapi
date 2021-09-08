@@ -1141,7 +1141,13 @@ responses:
       application/problem+json:
         schema:
           $ref: '#/schemas/Problem'
-    description: Unauthorized        
+    description: Unauthorized
+  403Forbidden:
+    content:
+      application/problem+json:
+        schema:
+          $ref: '#/schemas/Problem'
+    description: Forbidden
   422UnprocessableEntity:
     content:
       application/problem+json:
