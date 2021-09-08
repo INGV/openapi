@@ -1136,6 +1136,12 @@ responses:
     $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/400BadRequest'
   404NotFound:
     $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/404NotFound'
+  422UnprocessableEntity:
+    content:
+      application/problem+json:
+        schema:
+          $ref: '#/schemas/Problem'
+    description: Unprocessable Entity    
   429TooManyRequests:
     $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/429TooManyRequests'
   500InternalServerError:
