@@ -1037,6 +1037,11 @@ schemas:
       type: string
       description: Name | varchar(255)
       example: earthquake
+    type_event__description:
+      type: string
+      description: Additional information | char(255)
+      example: Auto added
+      default: null      
     origin_region_name__region:
       type: string
       description: Event location remark region | varchar(255)
