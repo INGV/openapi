@@ -303,13 +303,11 @@ schemas:
       format: date-time
       description: Last Review | timestamp
       example: '2016-06-22T16:52:06.260Z'
-      default: CURRENT_TIMESTAMP
     inserted:
       type: string
       format: date-time
       description: Insert time | timestamp
       example: '2016-06-22T16:52:06.260Z'
-      default: CURRENT_TIMESTAMP
     fk_type_origin:
       type: integer
       description: 'Link: type_origin | bigint(20)'
