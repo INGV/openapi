@@ -91,6 +91,8 @@ components:
       $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Latitude'
     longitude:
       $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Longitude'
+    Problem:
+      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Problem'
     standard_dev:
       type: number
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
