@@ -88,9 +88,9 @@ components:
       format: double
       example: 0.02
     latitude:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Latitude'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Latitude'
     longitude:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Longitude'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Longitude'
     standard_dev:
       type: number
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
@@ -677,7 +677,7 @@ components:
       example: 0.292
     amplitude__revised:
       type: integer
-      description: Dichiara se tale ampiezza Ã¨ stata rivista dallâ€™analista, eventualmente anche non modificata, oppure no. (1/0, true/false) | tinyint(3)
+      description: Dichiara se tale ampiezza ÃƒÂ¨ stata rivista dallÃ¢â‚¬â„¢analista, eventualmente anche non modificata, oppure no. (1/0, true/false) | tinyint(3)
       format: int32
       example: 0
     strongmotion__t_dt:
@@ -856,35 +856,304 @@ components:
   # Common parameters
   ####################
   parameters:
-    offsetParam:
-      name: offset
+    level:
+      name: level
       in: query
+      description: Select deep level
+      required: false
       schema:
-        type: integer
-        minimum: 0
-      description: The number of items to skip before returning the results
-    limitParam:
+          type: string
+          enum: [event, origin, magnitude, all]
+          default: all
+    orderby:
+      name: orderby
       in: query
-      name: limit
+      description: Select order
+      required: false
       schema:
-        type: integer
+          type: string
+          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, origin_ot-asc, origin_ot-desc, mag_mag-asc, mag_mag-desc]
+    fk_event_group:
+        name: event_group_id
+        in: query
+        description: Select events with same event_group_id.
+        required: false
+        schema:
+            type: integer
+            format: int64
+    id_localspace:
+        name: id_localspace
+        in: query
+        description: Localspace Id.
+        required: false
+        schema:
+            type: integer
+            format: int64
+    originid:
+        name: originid
+        in: query
+        description: Select by origin id.
+        required: false
+        schema:
+          type: integer
+          format: int64            
+    starttime:
+        description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
+        in: query
+        name: starttime
+        required: false
+        schema:
+          type: string
+          format: date-time
+    starttime__REQUIRED:
+        description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
+        in: query
+        name: starttime
+        required: true
+        schema:
+          type: string
+          format: date-time
+    endtime:
+        description: Select date end (i.e. 2016-06-22T16:52:06.260Z).
+        in: query
+        name: endtime
+        required: false
+        schema:
+          type: string
+          format: date-time
+    endtime__REQUIRED:
+        description: Select date end (i.e. 2016-06-22T16:52:06.260Z).
+        in: query
+        name: endtime
+        required: true
+        schema:
+          type: string
+          format: date-time
+    minlat:
+        description: Specify southern boundary for search in WGS84 (i.e. 39.12).
+        in: query
+        name: minlat
+        required: false
+        schema:
+            $ref:  '#/components/schemas/latitude'
+    maxlat:
+        description: Specify northern boundary for search in WGS84 (i.e. 46.52).
+        in: query
+        name: maxlat
+        required: false
+        schema:
+            $ref:  '#/components/schemas/latitude'
+    minlon:
+        description: Specify western boundary for search in WGS84 (i.e. 10.12).
+        in: query
+        name: minlon
+        required: false
+        schema:
+            $ref:  '#/components/schemas/longitude'
+    maxlon:
+        description: Specify eastern boundary for search (in WGS84) (i.e. 15.12).
+        in: query
+        name: maxlon
+        required: false
+        schema:
+            $ref:  '#/components/schemas/longitude'
+    lat:
+        description: Specify the central latitude point for a radial search in WGS84 (i.e. 42).
+        in: query
+        name: lat
+        required: false
+        schema:
+            $ref:  '#/components/schemas/latitude'
+    lon:
+        description: Specify the central longitude point for a radial search in WGS84 (i.e. 12).
+        in: query
+        name: lon
+        required: false
+        schema:
+            $ref:  '#/components/schemas/longitude'
+    minradius:
+        description: Specify minimum distance from the geographic point defined by latitude and longitude in Degrees (i.e. 1.5).
+        in: query
+        name:  minradius
+        required: false
+        schema:
+            type: number
+            format: double
+    maxradius:
+        description: Specify maximum distance from the geographic point defined by latitude and longitude in Degrees (i.e. 5).
+        in: query
+        name:  maxradius
+        required: false
+        schema:
+            type: number
+            format: double
+    minradiuskm:
+        description: Specify minimum distance from the geographic point defined by
+            latitude and longitude. Kilometers. **This is an INGV extension to
+            the FDSN specification.**
+        in: query
+        name:  minradiuskm
+        required: false
+        schema:
+            type: number
+            format: double
+    maxradiuskm:
+        description: Specify maximum distance from the geographic point defined by
+            latitude and longitude. Kilometers. **This is an INGV extension to
+            the FDSN specification.**
+        in: query
+        name:  maxradiuskm
+        required: false
+        schema:
+            type: number
+            format: double
+    mindepth:
+        description: Specify minimum depth (kilometers), values increase positively with depth (i.e. 0).
+        in: query
+        name:  mindepth
+        required: false
+        schema:
+            format: double
+            type: number
+    maxdepth:
+        description: Specify maximum depth (kilometers), values increase positively with depth (i.e. 50).
+        in: query
+        name:  maxdepth
+        required: false
+        schema:
+            format: double
+            type: number
+    minmag:
+        description: Limit to events with a magnitude larger than or equal to the specified minimum (i.e. 1.5).
+        in: query
+        name: minmag
+        required: false
+        schema:
+            $ref:  '#/components/schemas/magnitude'
+    maxmag:
+        description: Limit to events with a magnitude smaller than or equal to the specified maximum (i.e. 7.3).
+        in: query
+        name: maxmag
+        required: false
+        schema:
+            $ref:  '#/components/schemas/magnitude'
+    net__REQUIRED:
+        description: Network
+        in: query
+        name:  net
+        required: true
+        schema:
+            format: string
+            type: string
+    sta__REQUIRED:
+        description: Station
+        in: query
+        name:  sta
+        required: true
+        schema:
+            format: string
+            type: string
+    cha__REQUIRED:
+        description: Channel
+        in: query
+        name:  cha
+        required: true
+        schema:
+            format: string
+            type: string
+    loc:
+        description: Location
+        in: query
+        name:  loc
+        required: false
+        schema:
+            format: string
+            type: string            
+    limit:
+        description: Limit the results to the specified number of events.
+        in: query
+        name:  limit
+        required: false
+        schema:
+            format: int32
+            type: integer
+    offset:
+      description: Return results starting at the event count specified.
+      in: query
+      name:  offset
+      required: false
+      schema:
+        type: number
         format: int32
-        minimum: 1
-        maximum: 100
-        default: 20
-      description: The number of items to return
+    updatedafter:
+      description: Limit to events updated after the specified time (useful for synchronizing events).
+      in: query
+      name:  updatedafter
+      required: false
+      schema:
+        type: string
+        format: date-time 
+    eventid:
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name:  eventid
+      required: false
+      schema:
+        type: integer
+        format: int64
+    eventid__required:
+      description: Retrieve an event based on the unique INGV event id.
+      in: query
+      name:  eventid
+      required: true
+      schema:
+        type: integer
+        format: int64
+    includeallorigins:
+      description: Is used to retrive all origins associated with each event.
+      in: query
+      name:  includeallorigins
+      required: false
+      schema:
+        type: boolean
+        default: false
+    includeallmagnitudes:
+      description: Is used to retrive all magnitudes associated with each event.
+      in: query
+      name:  includeallmagnitudes
+      required: false
+      schema:
+        type: boolean
+        default: false
+    includeallstationsmagnitudes:
+      description: Is used to retrive all stations magnitudes associated with each origin.
+      in: query
+      name:  includeallstationsmagnitudes
+      required: false
+      schema:
+        type: boolean
+        default: false
+    includearrivals:
+      description: Is used to retrive any associated arrival information for each event.
+      in: query
+      name:  includearrivals
+      required: false
+      schema:
+        type: boolean
+        default: false
+    wherelocalspacenamein:
+      description: Filter localspace.name by regex (i.e. hew10_mole,hew20_mole).
+      in: query
+      name: wherelocalspacenamein
+      required: false
+      schema:
+        type: string
+        format: string
 
   #######################
   # Common request bodies
   #######################
-  requestBodies:
-    NewItem:
-      description: A JSON object containing item data
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
+
 
   ####################
   # Common responses
@@ -893,39 +1162,39 @@ components:
     204NoContent:
       description: Request was properly formatted and submitted but no data matches the selection
     400BadRequest:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/400BadRequest'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/responses/400BadRequest'
     404NotFound:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/404NotFound'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/responses/404NotFound'
     401Unauthorized:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Problem'
       description: Unauthorized
     403Forbidden:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Problem'
       description: Forbidden
     422UnprocessableEntity:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Problem'
       description: Unprocessable Entity    
     429TooManyRequests:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/429TooManyRequests'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/responses/429TooManyRequests'
     500InternalServerError:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/schemas/Problem'
       description: Internal Server Error
     503ServiceUnavailable:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/503ServiceUnavailable'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/responses/503ServiceUnavailable'
     default:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/default'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/responses/default'
 
   #########################
   # Common headers
@@ -936,13 +1205,13 @@ components:
       schema:
         type: string
     Retry-After:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/Retry-After'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/headers/Retry-After'
     X-RateLimit-Limit:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/X-RateLimit-Limit'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/headers/X-RateLimit-Limit'
     X-RateLimit-Reset:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/X-RateLimit-Reset'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/headers/X-RateLimit-Reset'
     X-RateLimit-Remaining:
-      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/X-RateLimit-Remaining'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/components/headers/X-RateLimit-Remaining'
 
   #######################
   # Common path items
