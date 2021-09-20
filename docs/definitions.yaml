@@ -88,9 +88,9 @@ components:
       format: double
       example: 0.02
     latitude:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Latitude'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Latitude'
     longitude:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Longitude'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Longitude'
     standard_dev:
       type: number
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
@@ -893,39 +893,39 @@ components:
     204NoContent:
       description: Request was properly formatted and submitted but no data matches the selection
     400BadRequest:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/400BadRequest'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/400BadRequest'
     404NotFound:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/404NotFound'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/404NotFound'
     401Unauthorized:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
       description: Unauthorized
     403Forbidden:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
       description: Forbidden
     422UnprocessableEntity:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
       description: Unprocessable Entity    
     429TooManyRequests:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/429TooManyRequests'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/429TooManyRequests'
     500InternalServerError:
       content:
         application/problem+json:
           schema:
-            $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/schemas/Problem'
+            $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/schemas/Problem'
       description: Internal Server Error
     503ServiceUnavailable:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/503ServiceUnavailable'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/503ServiceUnavailable'
     default:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/responses/default'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/responses/default'
 
   #########################
   # Common headers
@@ -936,13 +936,13 @@ components:
       schema:
         type: string
     Retry-After:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/headers/Retry-After'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/Retry-After'
     X-RateLimit-Limit:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/headers/X-RateLimit-Limit'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/X-RateLimit-Limit'
     X-RateLimit-Reset:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/headers/X-RateLimit-Reset'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/X-RateLimit-Reset'
     X-RateLimit-Remaining:
-      $ref: 'https://teamdigitale.github.io/openapi/0.0.7/definitions.yaml#/headers/X-RateLimit-Remaining'
+      $ref: 'https://ingv.github.io/openapi/definitions_teamdigitale.yaml#/headers/X-RateLimit-Remaining'
 
   #######################
   # Common path items
