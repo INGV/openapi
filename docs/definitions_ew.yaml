@@ -1,626 +1,685 @@
-schemas:
-  ewLogo__type:
-    type: string
-    description: Type description | ???
-  ewLogo__module:
-    type: string
-    description: Module description | ???
-  ewLogo__installation:
-    type: string
-    description: Installation description | ???
-    example: INST_INGV
-  ewLogo__user:
-    type: string
-    description: User | ???
-    example: ew
-  ewLogo__hostname:
-    type: string
-    description: Hostname | ???
-    example: hew3.int.ingv.it
-  ewLogo__instance:
-    type: string
-    description: Instance description | ???
-    example: hew3_mole
-  qAuthor:
-    type: string
-    description: qAuthor description
-    example: 014101073:028130073
-  quake2kSchema:
-    allOf:
-      - $ref: '#/schemas/quake2k__base'
-      - type: object
-        properties:
-          ewLogo:
-            required:
-              - type
-              - module
-              - installation
-              - instance
-            properties:
-              type:
-                type: string
-                description: Type description | ???
-                example: TYPE_QUAKE2K
-              module:
-                type: string
-                description: Module description | ???
-                example: MOD_BINDER_EW
-              installation:
-                $ref: '#/schemas/ewLogo__installation'
-              user:
-                $ref: '#/schemas/ewLogo__user'
-              hostname:
-                $ref: '#/schemas/ewLogo__hostname'
-              instance:
-                $ref: '#/schemas/ewLogo__instance'
-  quake2k__base:
-    properties:
-      ewMessage:
+# OpenAPI version identifier - required for OpenAPI 3.0 domains
+openapi: 3.0.0
+
+#######################
+# Optional info section
+#######################
+info:
+  title: INGV Earthwomr Definitions
+  description: |
+    INGV Earthworm definitions!
+  version: 1.0.0
+
+components:
+  ####################
+  # Common data models
+  ####################
+  schemas:
+    ewLogo__type:
+      type: string
+      description: Type description | ???
+    ewLogo__module:
+      type: string
+      description: Module description | ???
+    ewLogo__installation:
+      type: string
+      description: Installation description | ???
+      example: INST_INGV
+    ewLogo__user:
+      type: string
+      description: User | ???
+      example: ew
+    ewLogo__hostname:
+      type: string
+      description: Hostname | ???
+      example: hew3.int.ingv.it
+    ewLogo__instance:
+      type: string
+      description: Instance description | ???
+      example: hew3_mole
+    qAuthor:
+      type: string
+      description: qAuthor description
+      example: 014101073:028130073
+    quake2kSchema:
+      allOf:
+        - $ref: '#/components/schemas/quake2k__base'
+        - type: object
+          properties:
+            ewLogo:
+              required:
+                - type
+                - module
+                - installation
+                - instance
+              properties:
+                type:
+                  type: string
+                  description: Type description | ???
+                  example: TYPE_QUAKE2K
+                module:
+                  type: string
+                  description: Module description | ???
+                  example: MOD_BINDER_EW
+                installation:
+                  $ref: '#/components/schemas/ewLogo__installation'
+                user:
+                  $ref: '#/components/schemas/ewLogo__user'
+                hostname:
+                  $ref: '#/components/schemas/ewLogo__hostname'
+                instance:
+                  $ref: '#/components/schemas/ewLogo__instance'
+    quake2k__base:
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - originTime
+            - latitude
+            - longitude
+            - depth
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            originTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
+            latitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
+            longitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
+            depth:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
+            rms:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__rms'
+            dmin:
+              type: number
+              description: dmin description | ???
+              format: double
+            ravg:
+              type: number
+              description: ravg description | ???
+              format: double
+            gap:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__azim_gap'
+            nph:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
+    hyp2000arcSchema:
+      allOf:
+        - $ref: '#/components/schemas/hyp2000arc__base'
+        - type: object
+          properties:
+            ewLogo:
+              required:
+                - type
+                - module
+                - installation
+                - instance
+              properties:
+                type:
+                  type: string
+                  description: Type description | ???
+                  example: TYPE_HYP2000ARC
+                module:
+                  type: string
+                  description: Module description | ???
+                  example: MOD_EQASSEMBLE
+                installation:
+                  $ref: '#/components/schemas/ewLogo__installation'
+                user:
+                  $ref: '#/components/schemas/ewLogo__user'
+                hostname:
+                  $ref: '#/components/schemas/ewLogo__hostname'
+                instance:
+                  $ref: '#/components/schemas/ewLogo__instance'
+    hyp2000arc__base:
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - originTime
+            - latitude
+            - longitude
+            - depth
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            originTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
+            latitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
+            longitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
+            depth:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
+            nph:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
+            nphS:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_s'
+            nphtot:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_tot'
+            nPfm:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_fm'
+            gap:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__azim_gap'
+            dminnnn:
+              type: number
+              description: dmin description | ???
+              format: double
+            rms:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__rms'
+            e0az:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0_az'
+            e0dp:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0_dip'
+            e0:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0'
+            e1az:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1_az'
+            e1dp:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1_dip'
+            e1:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1'
+            e2:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e2'
+            erh:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__err_h'
+            erz:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__err_z'
+            Md:
+              type: number
+              description: Md description | ???
+              format: double
+            reg:
+              type: string
+              description: ingvQuality description | ???
+              example: ' '
+            labelpref:
+              type: string
+              description: ingvQuality description | ???
+              example: ' '
+            Mpref:
+              type: number
+              description: Mpref description | ???
+              format: double
+            wtpref:
+              type: number
+              description: wtpref description | ???
+              format: double
+            mdtype:
+              type: string
+              description: ingvQuality description | ???
+              example: D
+            mdmad:
+              type: number
+              description: mdmad description | ???
+              format: double
+            mdwt:
+              type: number
+              description: mdwt description | ???
+              format: double
+            ingvQuality:
+              type: string
+              description: ingvQuality description | ???
+              example: DD
+            phases:
+              $ref: '#/components/schemas/hyp2000arc__phases'
+    hyp2000arc__phases:
+      type: array
+      items:
         required:
-          - quakeId
-          - version
-          - originTime
-          - latitude
-          - longitude
-          - depth
+          - net
+          - sta
+          - comp
+          - loc
         properties:
-          quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
-          version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
-          originTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
+          net:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
+          sta:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
+          comp:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
+          loc:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
           latitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
           longitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
-          depth:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
-          rms:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__rms'
-          dmin:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
+          Plabel:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Slabel:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Ponset:
+            type: string
+            description: Todo description | ???
+            example: P
+          Sonset:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Pat:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
+          Sat:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
+          Pres:
             type: number
-            description: dmin description | ???
+            description: Todo description | ???
             format: double
-          ravg:
+          Sres:
             type: number
-            description: ravg description | ???
+            description: Todo description | ???
             format: double
-          gap:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__azim_gap'
-          nph:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph'
-  hyp2000arcSchema:
-    allOf:
-      - $ref: '#/schemas/hyp2000arc__base'
-      - type: object
-        properties:
-          ewLogo:
-            required:
-              - type
-              - module
-              - installation
-              - instance
-            properties:
-              type:
-                type: string
-                description: Type description | ???
-                example: TYPE_HYP2000ARC
-              module:
-                type: string
-                description: Module description | ???
-                example: MOD_EQASSEMBLE
-              installation:
-                $ref: '#/schemas/ewLogo__installation'
-              user:
-                $ref: '#/schemas/ewLogo__user'
-              hostname:
-                $ref: '#/schemas/ewLogo__hostname'
-              instance:
-                $ref: '#/schemas/ewLogo__instance'
-  hyp2000arc__base:
-    properties:
-      ewMessage:
-        required:
-          - quakeId
-          - version
-          - originTime
-          - latitude
-          - longitude
-          - depth
-        properties:
-          quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
-          version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
-          originTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
-          latitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
-          longitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
-          depth:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/depth'
-          nph:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph'
-          nphS:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph_s'
-          nphtot:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph_tot'
-          nPfm:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__nph_fm'
-          gap:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__azim_gap'
-          dminnnn:
+          Pqual:
             type: number
-            description: dmin description | ???
+            description: Todo description | ???
             format: double
-          rms:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__rms'
-          e0az:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e0_az'
-          e0dp:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e0_dip'
-          e0:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e0'
-          e1az:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e1_az'
-          e1dp:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e1_dip'
-          e1:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e1'
-          e2:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__e2'
-          erh:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__err_h'
-          erz:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__err_z'
+          Squal:
+            type: number
+            description: Todo description | ???
+            format: double
+          codalen:
+            type: number
+            description: Todo description | ???
+            format: double
+          codawt:
+            type: number
+            description: Todo description | ???
+            format: double
+          Pfm:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          Sfm:
+            type: string
+            description: Todo description | ???
+            example: ' '
+          datasrc:
+            type: string
+            description: Todo description | ???
+            example: W
           Md:
             type: number
-            description: Md description | ???
-            format: double
-          reg:
-            type: string
-            description: ingvQuality description | ???
-            example: ' '
-          labelpref:
-            type: string
-            description: ingvQuality description | ???
-            example: ' '
-          Mpref:
-            type: number
-            description: Mpref description | ???
-            format: double
-          wtpref:
-            type: number
-            description: wtpref description | ???
-            format: double
-          mdtype:
-            type: string
-            description: ingvQuality description | ???
-            example: D
-          mdmad:
-            type: number
-            description: mdmad description | ???
-            format: double
-          mdwt:
-            type: number
-            description: mdwt description | ???
-            format: double
-          ingvQuality:
-            type: string
-            description: ingvQuality description | ???
-            example: DD
-          phases:
-            $ref: '#/schemas/hyp2000arc__phases'
-  hyp2000arc__phases:
-    type: array
-    items:
-      required:
-        - net
-        - sta
-        - comp
-        - loc
-      properties:
-        net:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
-        sta:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
-        comp:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
-        loc:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
-        latitude:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/latitude'
-        longitude:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/longitude'
-        Plabel:
-          type: string
-          description: Todo description | ???
-          example: ' '
-        Slabel:
-          type: string
-          description: Todo description | ???
-          example: ' '
-        Ponset:
-          type: string
-          description: Todo description | ???
-          example: P
-        Sonset:
-          type: string
-          description: Todo description | ???
-          example: ' '
-        Pat:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
-        Sat:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/origin__ot'
-        Pres:
-          type: number
-          description: Todo description | ???
-          format: double
-        Sres:
-          type: number
-          description: Todo description | ???
-          format: double
-        Pqual:
-          type: number
-          description: Todo description | ???
-          format: double
-        Squal:
-          type: number
-          description: Todo description | ???
-          format: double
-        codalen:
-          type: number
-          description: Todo description | ???
-          format: double
-        codawt:
-          type: number
-          description: Todo description | ???
-          format: double
-        Pfm:
-          type: string
-          description: Todo description | ???
-          example: ' '
-        Sfm:
-          type: string
-          description: Todo description | ???
-          example: ' '
-        datasrc:
-          type: string
-          description: Todo description | ???
-          example: W
-        Md:
-          type: number
-          description: Todo description | ???
-          format: double
-        azm:
-          type: number
-          description: Todo description | ???
-          format: double
-        takeoff:
-          type: number
-          description: Todo description | ???
-          format: double
-        dist:
-          type: number
-          description: Todo description | ???
-          format: double
-        Pwt:
-          type: number
-          description: Todo description | ???
-          format: double
-        Swt:
-          type: number
-          description: Todo description | ???
-          format: double
-        pamp:
-          type: number
-          description: Todo description | ???
-          format: double
-        codalenObs:
-          type: number
-          description: Todo description | ???
-          format: double
-        ccntr:
-          type: array
-          items:
             description: Todo description | ???
-            example:
-              - 0
-              - 0
-              - 0
-              - 0
-              - 0
-        caav:
-          type: array
-          items:
+            format: double
+          azm:
+            type: number
             description: Todo description | ???
-            example:
-              - 0
-              - 0
-              - 0
-              - 0
-              - 0
-        amplitude:
-          type: number
-          description: Amplitude (Normally peak-to-peak) | col55 F7.2
-          format: float
-        ampUnitsCode:
-          type: integer
-          format: int64
-          description: 'Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital counts | col62 I2'
-        ampType:
-          type: integer
-          format: int64
-          description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration 4=no magnitude | col114 I2
-        ampMag:
-          type: number
-          description: Amplitude magnitude for this station | col98 F3.2
-          format: float
-        ampMagWeightCode:
-          type: integer
-          format: int64
-          description: Amplitude magnitude weight code | col82 I1
-        importanceP:
-          type: number
-          description: Importance of P arrival | col101 F4.3
-          format: float
-        importanceS:
-          type: number
-          description: Importance of S arrival | col105 F4.3
-          format: float
-  magnitudeSchema:
-    allOf:
-      - $ref: '#/schemas/magnitude__base'
-      - type: object
-        properties:
-          ewLogo:
-            required:
-              - type
-              - module
-              - installation
-              - instance
-            properties:
-              type:
-                type: string
-                description: Type description | ???
-                example: TYPE_MAGNITUDE
-              module:
-                type: string
-                description: Module description | ???
-                example: MOD_LOCALMAG_PREL
-              installation:
-                $ref: '#/schemas/ewLogo__installation'
-              user:
-                $ref: '#/schemas/ewLogo__user'
-              hostname:
-                $ref: '#/schemas/ewLogo__hostname'
-              instance:
-                $ref: '#/schemas/ewLogo__instance'
-  magnitude__base:
-    properties:
-      ewMessage:
-        required:
-          - quakeId
-          - version
-          - mag
-        properties:
-          quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
-          version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
-          mag:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag'
-          error:
+            format: double
+          takeoff:
             type: number
-            description: Magnitude error | double
+            description: Todo description | ???
             format: double
-            example: 0.52
-          quality:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__quality'
-          minDist:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__min_dist'
-          azimuth:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__azimut'
-          nStations:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__nsta'
-          nChannels:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__ncha'
-          qAuthor:
-            $ref: '#/schemas/qAuthor'
-          qddsVersion:
+          dist:
             type: number
-            description: qddsVersion description
+            description: Todo description | ???
             format: double
-            example: 0
-          iMagType:
+          Pwt:
             type: number
-            description: iMagType description
+            description: Todo description | ???
             format: double
-            example: 1
-          magType:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_magnitude__name'
-          algorithm:
-            type: string
-            description: algorithm description
+          Swt:
+            type: number
+            description: Todo description | ???
             format: double
-            example: MED
-          ingvQuality:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/magnitude__mag_quality'
-          phases:
-            $ref: '#/schemas/magnitude__phases'
-  magnitude__phases:
-    type: array
-    items:
-      required:
-        - net
-        - sta
-        - comp
-        - loc
-        - time1
-        - amp1
-        - time2
-        - amp2
-      properties:
-        net:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
-        sta:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
-        comp:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
-        loc:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
-        mag:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/stationmagnitude__mag'
-        dist:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/ep_distance_km'
-        corr:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/stationmagnitude__mag_correction'
-        time1:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__time1'
-        amp1:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp1'
-        period1:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period'
-        time2:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__time2'
-        amp2:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__amp2'
-        period2:
-          $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/amplitude__period'
-  pick_scnlSchema:
-    allOf:
-      - $ref: '#/schemas/pick_scnl__base'
-      - type: object
-        properties:
-          ewLogo:
-            required:
-              - type
-              - module
-              - installation
-              - instance
-            properties:
-              type:
-                type: string
-                description: Type description | ???
-                example: TYPE_PICK_SCNL
-              module:
-                type: string
-                description: Module description | ???
-                example: MOD_PICK_EW
-              installation:
-                $ref: '#/schemas/ewLogo__installation'
-              user:
-                $ref: '#/schemas/ewLogo__user'
-              hostname:
-                $ref: '#/schemas/ewLogo__hostname'
-              instance:
-                $ref: '#/schemas/ewLogo__instance'
-  pick_scnl__base:
-    properties:
-      ewMessage:
-        required:
-          - pickId
-        properties:
-          pickId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'
-          network:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
-          station:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
-          component:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
-          location:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
-          firstMotion:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__firstmotion'
-          pickWeight:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__lower_uncertainty'
-          timeOfPick:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/pick__arrival_time'
-          pAmplitude:
-            type: array
-            description: peak P-wave half amplitude | ???
-            example: [109, 101, 122]
-  strongmotioniiSchema:
-    allOf:
-      - $ref: '#/schemas/strongmotionii__base'
-      - type: object
-        properties:
-          ewLogo:
-            required:
-              - type
-              - module
-              - installation
-              - instance
-            properties:
-              type:
-                type: string
-                description: Type description | ???
-                example: TYPE_STRONGMOTIONII
-              module:
-                type: string
-                description: Module description | ???
-                example: MOD_GMEW
-              installation:
-                $ref: '#/schemas/ewLogo__installation'
-              user:
-                $ref: '#/schemas/ewLogo__user'
-              hostname:
-                $ref: '#/schemas/ewLogo__hostname'
-              instance:
-                $ref: '#/schemas/ewLogo__instance'
-  strongmotionii__base:
-    properties:
-      ewMessage:
-        required:
-          - quakeId
-          - version
-        properties:
-          quakeId:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/id_localspace'        
-          version:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/type_origin__name'
-          network:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/net'
-          station:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/sta'
-          component:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/cha'
-          location:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/loc'
-          qAuthor:
-            $ref: '#/schemas/qAuthor'            
-          time:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__t_dt'
-          alternateTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__t_alt_dt'
-          alternateCode:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion_alt__altcode'
-          pga:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pga'
-          pgaTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpga_dt'
-          pgv:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgv'
-          pgvTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgv_dt'
-          pgd:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__pgd'
-          pgdTime:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/schemas/strongmotion__tpgd_dt'
-          RSA:
+          pamp:
+            type: number
+            description: Todo description | ???
+            format: double
+          codalenObs:
+            type: number
+            description: Todo description | ???
+            format: double
+          ccntr:
             type: array
             items:
+              description: Todo description | ???
+              example:
+                - 0
+                - 0
+                - 0
+                - 0
+                - 0
+          caav:
+            type: array
+            items:
+              description: Todo description | ???
+              example:
+                - 0
+                - 0
+                - 0
+                - 0
+                - 0
+          amplitude:
+            type: number
+            description: Amplitude (Normally peak-to-peak) | col55 F7.2
+            format: float
+          ampUnitsCode:
+            type: integer
+            format: int64
+            description: 'Amp units code. 0=PP mm, 1=0 to peak mm (UCB), 2=digital counts | col62 I2'
+          ampType:
+            type: integer
+            format: int64
+            description: Amplitude type 0=unspecified 1=Wood-Anderson 2=velocity 3=acceleration 4=no magnitude | col114 I2
+          ampMag:
+            type: number
+            description: Amplitude magnitude for this station | col98 F3.2
+            format: float
+          ampMagWeightCode:
+            type: integer
+            format: int64
+            description: Amplitude magnitude weight code | col82 I1
+          importanceP:
+            type: number
+            description: Importance of P arrival | col101 F4.3
+            format: float
+          importanceS:
+            type: number
+            description: Importance of S arrival | col105 F4.3
+            format: float
+    magnitudeSchema:
+      allOf:
+        - $ref: '#/components/schemas/magnitude__base'
+        - type: object
+          properties:
+            ewLogo:
+              required:
+                - type
+                - module
+                - installation
+                - instance
               properties:
-                value:
-                  type: number
-                  format: double
-                  description: RSA(response spectrum accel) value for period
-                  example: 0.000724
-                period:
-                  type: number
-                  format: double
-                  description: Period
-                  example: 0.3    
+                type:
+                  type: string
+                  description: Type description | ???
+                  example: TYPE_MAGNITUDE
+                module:
+                  type: string
+                  description: Module description | ???
+                  example: MOD_LOCALMAG_PREL
+                installation:
+                  $ref: '#/components/schemas/ewLogo__installation'
+                user:
+                  $ref: '#/components/schemas/ewLogo__user'
+                hostname:
+                  $ref: '#/components/schemas/ewLogo__hostname'
+                instance:
+                  $ref: '#/components/schemas/ewLogo__instance'
+    magnitude__base:
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - mag
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            mag:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag'
+            error:
+              type: number
+              description: Magnitude error | double
+              format: double
+              example: 0.52
+            quality:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__quality'
+            minDist:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__min_dist'
+            azimuth:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__azimut'
+            nStations:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__nsta'
+            nChannels:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__ncha'
+            qAuthor:
+              $ref: '#/components/schemas/qAuthor'
+            qddsVersion:
+              type: number
+              description: qddsVersion description
+              format: double
+              example: 0
+            iMagType:
+              type: number
+              description: iMagType description
+              format: double
+              example: 1
+            magType:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_magnitude__name'
+            algorithm:
+              type: string
+              description: algorithm description
+              format: double
+              example: MED
+            ingvQuality:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag_quality'
+            phases:
+              $ref: '#/components/schemas/magnitude__phases'
+    magnitude__phases:
+      type: array
+      items:
+        required:
+          - net
+          - sta
+          - comp
+          - loc
+          - time1
+          - amp1
+          - time2
+          - amp2
+        properties:
+          net:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
+          sta:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
+          comp:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
+          loc:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
+          mag:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/stationmagnitude__mag'
+          dist:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/ep_distance_km'
+          corr:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/stationmagnitude__mag_correction'
+          time1:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__time1'
+          amp1:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__amp1'
+          period1:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__period'
+          time2:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__time2'
+          amp2:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__amp2'
+          period2:
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__period'
+    pick_scnlSchema:
+      allOf:
+        - $ref: '#/components/schemas/pick_scnl__base'
+        - type: object
+          properties:
+            ewLogo:
+              required:
+                - type
+                - module
+                - installation
+                - instance
+              properties:
+                type:
+                  type: string
+                  description: Type description | ???
+                  example: TYPE_PICK_SCNL
+                module:
+                  type: string
+                  description: Module description | ???
+                  example: MOD_PICK_EW
+                installation:
+                  $ref: '#/components/schemas/ewLogo__installation'
+                user:
+                  $ref: '#/components/schemas/ewLogo__user'
+                hostname:
+                  $ref: '#/components/schemas/ewLogo__hostname'
+                instance:
+                  $ref: '#/components/schemas/ewLogo__instance'
+    pick_scnl__base:
+      properties:
+        ewMessage:
+          required:
+            - pickId
+          properties:
+            pickId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            network:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
+            station:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
+            component:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
+            location:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
+            firstMotion:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__firstmotion'
+            pickWeight:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__lower_uncertainty'
+            timeOfPick:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__arrival_time'
+            pAmplitude:
+              type: array
+              description: peak P-wave half amplitude | ???
+              example: [109, 101, 122]
+    strongmotioniiSchema:
+      allOf:
+        - $ref: '#/components/schemas/strongmotionii__base'
+        - type: object
+          properties:
+            ewLogo:
+              required:
+                - type
+                - module
+                - installation
+                - instance
+              properties:
+                type:
+                  type: string
+                  description: Type description | ???
+                  example: TYPE_STRONGMOTIONII
+                module:
+                  type: string
+                  description: Module description | ???
+                  example: MOD_GMEW
+                installation:
+                  $ref: '#/components/schemas/ewLogo__installation'
+                user:
+                  $ref: '#/components/schemas/ewLogo__user'
+                hostname:
+                  $ref: '#/components/schemas/ewLogo__hostname'
+                instance:
+                  $ref: '#/components/schemas/ewLogo__instance'
+    strongmotionii__base:
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'        
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            network:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
+            station:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
+            component:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
+            location:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
+            qAuthor:
+              $ref: '#/components/schemas/qAuthor'            
+            time:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__t_dt'
+            alternateTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion_alt__t_alt_dt'
+            alternateCode:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion_alt__altcode'
+            pga:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pga'
+            pgaTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpga_dt'
+            pgv:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pgv'
+            pgvTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpgv_dt'
+            pgd:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pgd'
+            pgdTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpgd_dt'
+            RSA:
+              type: array
+              items:
+                properties:
+                  value:
+                    type: number
+                    format: double
+                    description: RSA(response spectrum accel) value for period
+                    example: 0.000724
+                  period:
+                    type: number
+                    format: double
+                    description: Period
+                    example: 0.3 
+
+  ####################
+  # Common parameters
+  ####################
+  
+
+  #######################
+  # Common request bodies
+  #######################
+  
+
+  ####################
+  # Common responses
+  ####################
+
+
+  #########################
+  # Common headers
+  # (except request headers - they are defined as parameters)
+  #########################
+  
+
+  #######################
+  # Common path items
+  #######################
+
+
+  ######################################
+  # Common examples of input/output data
+  ######################################
+
+
+  #########################
+  # Common link definitions
+  # See: https://swagger.io/docs/specification/links/
+  #########################
+  links: {}
+
+  #########################
+  # Common callback definitions
+  # See: https://swagger.io/docs/specification/callbacks/
+  #########################
+  callbacks: {}
