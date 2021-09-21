@@ -92,7 +92,7 @@ components:
     longitude:
       $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Longitude'
     Problem:
-      $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/schemas/Problem'
+      $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Problem'
     standard_dev:
       type: number
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
