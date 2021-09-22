@@ -687,7 +687,6 @@ components:
       format: date-time
       description: 'time: trigger reported by SM box - datetime part | datetime(6)'
       example: '2017-04-12T08:46:56.190Z'
-      default: '1970-01-01T00:00:00.000Z'
     strongmotion__pga:
       type: number
       description: 'REQUIRED: peak ground acceleration (cm/s/s) | double'
@@ -737,7 +736,6 @@ components:
       type: string
       format: date-time
       description: 'alternate time: trigger reported by SM box - time with microseconds | datetime(3)'
-      example: '1970-01-01T00:00:00.000Z'
     strongmotion_alt__altcode:
       type: integer
       format: int64
