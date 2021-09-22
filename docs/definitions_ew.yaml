@@ -87,9 +87,9 @@ components:
             originTime:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
             latitude:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/Latitude'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
             longitude:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/Longitude'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
             depth:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
             rms:
@@ -152,9 +152,9 @@ components:
             originTime:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
             latitude:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/Latitude'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
             longitude:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/Longitude'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
             depth:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
             nph:
@@ -247,9 +247,9 @@ components:
           loc:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
           latitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/Latitude'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
           longitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/Longitude'
+            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
           Plabel:
             type: string
             description: Todo description | ???
