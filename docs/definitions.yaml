@@ -87,9 +87,9 @@ components:
       description: Depth in Km | double
       format: double
       example: 0.02
-    latitude:
+    Latitude:
       $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Latitude'
-    longitude:
+    Longitude:
       $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Longitude'
     Problem:
       $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Problem'
@@ -937,42 +937,42 @@ components:
         name: minlat
         required: false
         schema:
-            $ref:  '#/components/schemas/latitude'
+            $ref:  '#/components/schemas/Latitude'
     maxlat:
         description: Specify northern boundary for search in WGS84 (i.e. 46.52).
         in: query
         name: maxlat
         required: false
         schema:
-            $ref:  '#/components/schemas/latitude'
+            $ref:  '#/components/schemas/Latitude'
     minlon:
         description: Specify western boundary for search in WGS84 (i.e. 10.12).
         in: query
         name: minlon
         required: false
         schema:
-            $ref:  '#/components/schemas/longitude'
+            $ref:  '#/components/schemas/Longitude'
     maxlon:
         description: Specify eastern boundary for search (in WGS84) (i.e. 15.12).
         in: query
         name: maxlon
         required: false
         schema:
-            $ref:  '#/components/schemas/longitude'
+            $ref:  '#/components/schemas/Longitude'
     lat:
         description: Specify the central latitude point for a radial search in WGS84 (i.e. 42).
         in: query
         name: lat
         required: false
         schema:
-            $ref:  '#/components/schemas/latitude'
+            $ref:  '#/components/schemas/Latitude'
     lon:
         description: Specify the central longitude point for a radial search in WGS84 (i.e. 12).
         in: query
         name: lon
         required: false
         schema:
-            $ref:  '#/components/schemas/longitude'
+            $ref:  '#/components/schemas/Longitude'
     minradius:
         description: Specify minimum distance from the geographic point defined by latitude and longitude in Degrees (i.e. 1.5).
         in: query
