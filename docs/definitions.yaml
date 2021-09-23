@@ -115,11 +115,10 @@ components:
       description: '# P first motions | int(11)'
       format: int64
     origin__is_centroid:
-      type: integer
-      description: 1 if it is a centroid | tinyint(4)
-      format: int64
-      example: 0
-      default: 0
+      type: boolean      
+      description: true if it is a centroi | boolean
+      example: false
+      default: false
     origin__sec_azim_gap:
       type: number
       description: Secondary Azimutal gap | double
@@ -597,9 +596,10 @@ components:
       format: float
       example: 94
     arrival__polarity_is_used:
-      type: integer
-      description: 1 if it is used for polarity calculation | tinyint(4)
-      format: int64
+      type: boolean      
+      description: true if it is used for polarity calculation | boolean
+      example: false
+      default: false
     arrival__arr_time_is_used:
       type: integer
       description: 1 if it is used for origin calculation | tinyint(4)
