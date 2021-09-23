@@ -231,10 +231,11 @@ components:
       description: Localization name (es:01,XX,WW,..) | varchar(255)
       type: string
       example: ew prelim
-    type_origin__value:
-      type: string
+    type_origin__value:     
+      type: integer
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
-      example: '10'
+      format: int64
+      example: 2
     net:
       type: string
       description: Channel net code | char(2)
