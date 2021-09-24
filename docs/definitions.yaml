@@ -236,6 +236,11 @@ components:
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
       format: int64
       example: 2
+    description:
+      type: string
+      description: Additional information | char(255)
+      example: Auto added
+      default: null
     net:
       type: string
       description: Channel net code | char(2)
@@ -755,12 +760,7 @@ components:
     type_event__name:
       type: string
       description: Name | varchar(255)
-      example: earthquake
-    type_event__description:
-      type: string
-      description: Additional information | char(255)
-      example: Auto added
-      default: null      
+      example: earthquake     
     origin_region_name__region:
       type: string
       description: Event location remark region | varchar(255)
@@ -769,11 +769,6 @@ components:
       type: string
       description: 'Localspace name. i.e. hew1_mole, endeavour_mole | char(255)'
       example: hew1_mole
-      default: null
-    localspace__description:
-      type: string
-      description: Additional information | char(255)
-      example: Auto added
       default: null
     provenance__model:
       type: string
@@ -802,11 +797,6 @@ components:
       type: string
       description: Hostname | char(255)
       example: hew10.ingv.it
-      default: null
-    provenance__description:
-      type: string
-      description: Additional information | char(255)
-      example: Auto added
       default: null
     provenance__priority:
       type: integer
@@ -843,11 +833,6 @@ components:
       format: int64
       example: 0
       default: 0
-    type_amplitude__description:
-      type: string
-      description: Description of type amplitude | varchar(255)
-      example: Auto added
-      default: null
     type_momenttensor__name:
       type: string
       description: Type of Moment Tensor | varchar(50)
