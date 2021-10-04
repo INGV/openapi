@@ -555,6 +555,12 @@ components:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__lower_uncertainty'
             timeOfPick:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__arrival_time'
+            pAmplitude:
+              type: array
+              items:
+                type: number
+                description: peak P-wave half amplitude | ???
+                example: [109, 101, 122]
     strongmotioniiSchema:
       allOf:
         - $ref: '#/components/schemas/strongmotionii__base'
