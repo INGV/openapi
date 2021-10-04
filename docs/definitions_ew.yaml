@@ -507,7 +507,6 @@ components:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__period'
     pick_scnlSchema:
       allOf:
-        - $ref: '#/components/schemas/pick_scnl__base'
         - type: object
           properties:
             ewLogo:
@@ -533,32 +532,6 @@ components:
                   $ref: '#/components/schemas/ewLogo__hostname'
                 instance:
                   $ref: '#/components/schemas/ewLogo__instance'
-    pick_scnl__base:
-      properties:
-        ewMessage:
-          required:
-            - pickId
-          properties:
-            pickId:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
-            network:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
-            station:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
-            component:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
-            location:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
-            firstMotion:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__firstmotion'
-            pickWeight:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__lower_uncertainty'
-            timeOfPick:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__arrival_time'
-            pAmplitude:
-              type: array
-              description: peak P-wave half amplitude | ???
-              example: [109, 101, 122]
     strongmotioniiSchema:
       allOf:
         - $ref: '#/components/schemas/strongmotionii__base'
