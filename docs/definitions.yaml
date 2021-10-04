@@ -603,13 +603,14 @@ components:
       example: 94
     arrival__polarity_is_used:
       type: boolean      
-      description: true if it is used for polarity calculation | boolean
+      description: 1 if it is used for polarity calculation | boolean
       example: false
-      default: false
+      default: null
     arrival__arr_time_is_used:
-      type: integer
-      description: 1 if it is used for origin calculation | tinyint(4)
-      format: int64
+      type: boolean
+      description: 1 if it is used for origin calculation | boolean
+      example: false
+      default: null
     arrival__residual:
       type: number
       description: Residual | double
