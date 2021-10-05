@@ -561,7 +561,7 @@ components:
                 type: number
                 format: double
                 description: peak P-wave half amplitude | ???
-                example: [109, 101, 122]
+              example: [109, 101, 122]
     strongmotioniiSchema:
       allOf:
         - $ref: '#/components/schemas/strongmotionii__base'
