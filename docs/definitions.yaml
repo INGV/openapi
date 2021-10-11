@@ -108,8 +108,8 @@ components:
       maxLength: 64
       pattern: ^[ -~]{0,64}$
       type: string
-    #From here: $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Problem/properties/detail'
     detail:
+      #From here: $ref: 'https://teamdigitale.github.io/openapi/v0.1.0/definitions.yaml#/components/schemas/Problem/properties/detail'    
       description: |
         A human readable explanation specific to this occurrence of the
         problem. You MUST NOT expose internal informations, personal
