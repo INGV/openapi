@@ -20,6 +20,12 @@ components:
       description: Unique incremental id | bigint(20)
       format: int64
       example: 14932631
+    id__READONLY:
+      type: integer
+      description: Unique incremental id | bigint(20)
+      format: int64
+      readOnly: true
+      example: 14932631
     modified:
       type: string
       format: date-time
