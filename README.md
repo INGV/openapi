@@ -7,7 +7,7 @@ This project contains OpenAPI-3 definitions and common definitions used at INGV.
 ### FDSNWS - Event
 Event (earthquake) information in QuakeML and text format
 - (definition) https://ingv.github.io/openapi/fdsnws/event/0.0.1/event.yaml
-- (API) http://webservices.ingv.it/swagger-ui/dist/?url=https://ingv.github.io/openapi/fdsnws/event/0.0.1/event.yaml
+- (API) http://webservices.ingv.it/fdsnws/event/1/
 
 ### Shakedata
 ShakeMap input Intensity Measure data extracted from recorded waveforms
