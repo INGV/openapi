@@ -23,11 +23,13 @@ components:
     modified:
       type: string
       format: date-time
+      readOnly: true
       description: Last Review | timestamp
       example: '2016-06-22T16:52:06.260Z'
     inserted:
       type: string
       format: date-time
+      readOnly: true
       description: Insert time | timestamp
       example: '2016-06-22T16:52:06.260Z'
     fk_type_origin:
