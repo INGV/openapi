@@ -64,26 +64,31 @@ components:
       type: integer
       description: Link event group | bigint(20)
       format: int64
+      readOnly: true
       default: 0
     event__fk_origin_preferred:
       type: integer
       description: 'Link: preferred origin. It can be NULL. | bigint(20)'
       format: int64
+      readOnly: true
       default: null
     event__fk_magnitude_preferred:
       type: integer
       description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
       format: int64
+      readOnly: true
       default: null
     event__fk_focalmechanism_preferred:
       type: integer
       description: 'Link: preferred focalmechanism. It can be NULL. | bigint(20)'
       format: int64
+      readOnly: true
       default: null
     event__type_group:
       type: integer
       description: Group type. Used by clustering algorithm | tinyint(4)
       format: int64
+      readOnly: true
       default: 0
     origin__ot:
       type: string
