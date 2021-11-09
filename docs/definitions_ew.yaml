@@ -167,7 +167,7 @@ components:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_fm'
             gap:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__azim_gap'
-            dminnnn:
+            dmin:
               type: number
               description: dmin description | ???
               format: double
