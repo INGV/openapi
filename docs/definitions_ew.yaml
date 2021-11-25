@@ -438,7 +438,7 @@ components:
             minDist:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__min_dist'
             azimuth:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__azimut'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
             nStations:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__nsta'
             nChannels:
