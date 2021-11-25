@@ -490,10 +490,6 @@ components:
       type: number
       description: Minimal distance from station to origin | double
       format: double
-    magnitude__azimut:
-      type: number
-      description: Azimut | double
-      format: float
     magnitude__nsta:
       type: integer
       description: Number of the stations on magnitudo calculation | int(11)
