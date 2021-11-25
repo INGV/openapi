@@ -168,7 +168,7 @@ components:
     origin__sec_azim_gap:
       type: number
       description: Secondary Azimutal gap | double
-      format: double
+      format: float
     origin__err_depth:
       type: number
       description: Depth error | double
@@ -192,7 +192,7 @@ components:
     origin__e0_az:
       type: number
       description: azimuth of largest principal error | double
-      format: double
+      format: float
     origin__min_distance:
       type: number
       description: Distance from the closest station (km) | double
@@ -220,7 +220,7 @@ components:
     origin__e1_az:
       type: number
       description: azimuth of intermediate principal error | double
-      format: double
+      format: float
     origin__e1_dip:
       type: number
       description: dip of intermediate principal error | double
@@ -232,7 +232,7 @@ components:
     origin__e2_az:
       type: number
       description: azimuth of smallest principal error | double
-      format: double
+      format: float
     origin__e2_dip:
       type: integer
       description: dip of smallest principal error | double
@@ -358,7 +358,7 @@ components:
       default: null
     focalmechanism__azim_gap:
       type: number
-      format: double      
+      format: float      
       description: Largest azim gap as seen from epicenter | double(22)
       default: null
     focalmechanism__nsta_polarity:
@@ -493,7 +493,7 @@ components:
     magnitude__azimut:
       type: number
       description: Azimut | double
-      format: double
+      format: float
     magnitude__nsta:
       type: integer
       description: Number of the stations on magnitudo calculation | int(11)
@@ -650,7 +650,7 @@ components:
     arrival-stationmagnitude-st_dur_mag__azimut:
       type: number
       description: Station origin azimut | double
-      format: double
+      format: float
       example: 161
     arrival-stationmagnitude-st_dur_mag__orig_distance:
       type: number
