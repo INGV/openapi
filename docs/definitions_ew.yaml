@@ -103,7 +103,7 @@ components:
               description: ravg description | ???
               format: double
             gap:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__azim_gap'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
             nph:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
     hyp2000arcSchema:
@@ -166,7 +166,7 @@ components:
             nPfm:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_fm'
             gap:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__azim_gap'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
             dmin:
               type: number
               description: dmin description | ???
