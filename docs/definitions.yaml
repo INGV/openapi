@@ -181,9 +181,9 @@ components:
       type: number
       description: Longitude error | double
       format: double
-    origin__azim_gap:
+    azimutal_gap:
       type: number
-      description: Azimutal gap | double
+      description: Azimutal gap | float4
       format: float
     origin__rms:
       type: number
