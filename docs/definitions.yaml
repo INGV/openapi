@@ -568,14 +568,24 @@ components:
       default: null
     pick__firstmotion:
       type: string
-      description: Up or down | char(1)
+      nullable: true
+      description: First motion polarity associated with the pick | varchar(1)
       example: D
-      default: null      
+      default: null
+      enum: 
+        - U
+        - D
+        - null
     pick__emersio:
       type: string
-      description: Impulsive or emersio, pamp description | char(1)
-      example: i
+      nullable: true
+      description: Impulsive or emersio, pamp description | varchar(1)
+      example: E
       default: null
+      enum: 
+        - E
+        - I
+        - null
     pickew__pamp:
       type: number
       description: peak P-wave half amplitude | double(22)
