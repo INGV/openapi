@@ -655,7 +655,7 @@ components:
     origin_flags__value:
       type: number
       format: float
-      description: Value associated to flag | int
+      description: Value associated to the flag | int
       example: 1
     arrival-stationmagnitude-st_dur_mag__ep_distance:
       type: number
