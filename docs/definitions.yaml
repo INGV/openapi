@@ -648,6 +648,15 @@ components:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
+    origin_flags__name:
+      type: string
+      description: Flag name | varchar(255)
+      example: DPC
+    origin_flags__value:
+      type: number
+      format: float
+      description: Value associated to flag | int
+      example: 1
     arrival-stationmagnitude-st_dur_mag__ep_distance:
       type: number
       description: Distance from epicenter of the station | double
