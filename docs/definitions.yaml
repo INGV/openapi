@@ -648,11 +648,11 @@ components:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
-    origin_flags__name:
+    origin_flag__name:
       type: string
       description: Flag name | varchar(255)
       example: DPC
-    origin_flags__value:
+    origin_flag__value:
       type: number
       format: float
       description: Value associated to the flag | int
