@@ -64,7 +64,7 @@ components:
       type: integer
       description: Link event group | bigint(20)
       format: int64
-      readOnly: true
+      #readOnly: true
       default: 0
     event__fk_origin_preferred:
       type: integer
