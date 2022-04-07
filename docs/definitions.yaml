@@ -732,7 +732,7 @@ components:
       description: Distance from epicenter of the station expressed in Km | double
       format: float
       example: 223.3
-    ipo_distance_km:
+    orig_distance_km:
       type: number
       description: Distance from ipocenter of the station expressed in Km | double
       format: float
