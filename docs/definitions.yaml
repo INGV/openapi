@@ -530,20 +530,20 @@ components:
       example: '00'
       default: '--'
     scnl__lat:
-      type: string
-      description: latitude if not using seisnet | varchar(50)
-      example: '-19.755530'
-      default: '--'
+      type: number
+      format: double
+      description: latitude | float(8,8)
+      example: -19.755530
     scnl__lon:
-      type: string
-      description: longitude if not using seisnet | varchar(50)
-      example: '63.370140'
-      default: '--'
+      type: number
+      format: double
+      description: longitude | float(8,8)
+      example: 63.370140
     scnl__elev:
-      type: string
-      description: elevation if not using seisnet | varchar(50)
-      example: '52.000000'
-      default: '--'
+      type: number
+      format: double
+      description: elevation | float(8,8)
+      example: 19.1
     pick__arrival_time:
       type: string
       format: date-time
