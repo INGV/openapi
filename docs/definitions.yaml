@@ -274,24 +274,36 @@ components:
       example: 12
       format: int64
     type_origin__name:
-      description: Localization name (es:01,XX,WW,..) | varchar(255)
+      description: type_origin by QuakeML definition (es:hypocenter,centroid,macroseismic,..) | varchar(255)
+      type: string
+      example: hypocenter
+      default: hypocenter
+      enum: 
+        - hypocenter
+        - centroid
+        - amplitude
+        - macroseismic
+        - rupture start
+        - rupture end
+    type_origin__version_name:
+      description: Localization name (es:ew prelim,XX,WW,..) | varchar(255)
       type: string
       example: ew prelim
     ##########################
     ## Purtroppo ho dovuto duplicare questo campo in quanto se avessi usato l'ereditarieta tipo:
-    #type_origin__value:
+    #type_origin__version_value:
     #  readOnly: true
     #  allOf:
-    #  - $ref: '#/components/schemas/type_origin__value'
+    #  - $ref: '#/components/schemas/type_origin__version_value'
     #
     ## poi la generazione della Classi Java da SwaggerHub non funzionava.
     ## Da riprovare piu' avanti con 'openapi: 3.1.x'
-    type_origin__value:     
+    type_origin__version_value:     
       type: integer
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
       format: int64
       example: 2
-    type_origin__value__READONLY:     
+    type_origin__version_value__READONLY:     
       type: integer
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
       format: int64
