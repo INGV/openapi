@@ -289,6 +289,11 @@ components:
       description: Localization name (es:ew prelim,XX,WW,..) | varchar(255)
       type: string
       example: ew prelim
+    type_origin__version_name__READONLY:
+      description: Localization name (es:ew prelim,XX,WW,..) | varchar(255)
+      type: string
+      example: ew prelim
+      readOnly: true
     ##########################
     ## Purtroppo ho dovuto duplicare questo campo in quanto se avessi usato l'ereditarieta tipo:
     #type_origin__version_value:
