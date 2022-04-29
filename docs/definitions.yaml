@@ -958,7 +958,7 @@ components:
       required: false
       schema:
           type: string
-          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, origin_ot-asc, origin_ot-desc, mag_mag-asc, mag_mag-desc]
+          enum: [id, id-asc, id-desc, modified, modified-asc, modified-desc, origin_ot-asc, origin_ot-desc, magnitude_mag-asc, magnitude_mag-desc]
     fk_event_group:
         name: event_group_id
         in: query
