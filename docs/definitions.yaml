@@ -710,9 +710,9 @@ components:
       description: Residual | double
       format: double
       example: 6.19
-    arrival__weight:
+    weight:
       type: number
-      description: Localization weight | double
+      description: Weight | double
       format: double
       example: 0.88
     stationmagnitude-st_dur_mag__polarity_is_used:
