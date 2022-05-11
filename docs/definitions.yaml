@@ -60,15 +60,31 @@ components:
       format: int64
       example: 182491
       default: null
+    event__fk_event_group__READONLY:
+      type: integer
+      description: Link event group | bigint(20)
+      format: int64
+      readOnly: true
+      default: 0
     event__fk_event_group:
       type: integer
       description: Link event group | bigint(20)
       format: int64
-      #readOnly: true
       default: 0
+    event__fk_origin_preferred__READONLY:
+      type: integer
+      description: 'Link: preferred origin. It can be NULL. | bigint(20)'
+      format: int64
+      readOnly: true
+      default: null
     event__fk_origin_preferred:
       type: integer
       description: 'Link: preferred origin. It can be NULL. | bigint(20)'
+      format: int64
+      default: null
+    event__fk_magnitude_preferred__READONLY:
+      type: integer
+      description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
       format: int64
       readOnly: true
       default: null
@@ -76,13 +92,17 @@ components:
       type: integer
       description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
       format: int64
+      default: null
+    event__fk_focalmechanism_preferred__READONLY:
+      type: integer
+      description: 'Link: preferred focalmechanism. It can be NULL. | bigint(20)'
+      format: int64
       readOnly: true
       default: null
     event__fk_focalmechanism_preferred:
       type: integer
       description: 'Link: preferred focalmechanism. It can be NULL. | bigint(20)'
       format: int64
-      readOnly: true
       default: null
     event__type_group:
       type: integer
