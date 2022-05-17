@@ -8,7 +8,7 @@ info:
   title: INGV Earthworm Definitions
   description: |
     INGV Earthworm definitions!
-  version: 1.1.0
+  version: 1.2.0
 
 components:
   ####################
@@ -42,189 +42,184 @@ components:
       description: qAuthor description
       example: 014101073:028130073
     quake2kSchema:
-      items:
-        allOf:
-          - properties:
-              ewMessage:
-                required:
-                  - quakeId
-                  - version
-                  - originTime
-                  - latitude
-                  - longitude
-                  - depth
-                properties:
-                  quakeId:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
-                  version:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
-                  originTime:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
-                  latitude:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
-                  longitude:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
-                  depth:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
-                  rms:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__rms'
-                  dmin:
-                    type: number
-                    description: dmin description | ???
-                    format: double
-                  ravg:
-                    type: number
-                    description: ravg description | ???
-                    format: double
-                  gap:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
-                  nph:
-                    $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
-          - properties:
-              ewLogo:
-                required:
-                  - type
-                  - module
-                  - installation
-                  - instance
-                properties:
-                  type:
-                    type: string
-                    description: Type description | ???
-                    example: TYPE_QUAKE2K
-                  module:
-                    type: string
-                    description: Module description | ???
-                    example: MOD_BINDER_EW
-                  installation:
-                    $ref: '#/components/schemas/ewLogo__installation'
-                  user:
-                    $ref: '#/components/schemas/ewLogo__user'
-                  hostname:
-                    $ref: '#/components/schemas/ewLogo__hostname'
-                  instance:
-                    $ref: '#/components/schemas/ewLogo__instance'
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - originTime
+            - latitude
+            - longitude
+            - depth
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            originTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
+            latitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
+            longitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
+            depth:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
+            rms:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__rms'
+            dmin:
+              type: number
+              description: dmin description | ???
+              format: double
+            ravg:
+              type: number
+              description: ravg description | ???
+              format: double
+            gap:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
+            nph:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
+        ewLogo:
+          required:
+            - type
+            - module
+            - installation
+            - instance
+          properties:
+            type:
+              type: string
+              description: Type description | ???
+              example: TYPE_QUAKE2K
+            module:
+              type: string
+              description: Module description | ???
+              example: MOD_BINDER_EW
+            installation:
+              $ref: '#/components/schemas/ewLogo__installation'
+            user:
+              $ref: '#/components/schemas/ewLogo__user'
+            hostname:
+              $ref: '#/components/schemas/ewLogo__hostname'
+            instance:
+              $ref: '#/components/schemas/ewLogo__instance'
 
     hyp2000arcSchema:
-      allOf:
-        - properties:
-            ewMessage:
-              required:
-                - quakeId
-                - version
-                - originTime
-                - latitude
-                - longitude
-                - depth
-              properties:
-                quakeId:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
-                version:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
-                originTime:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
-                latitude:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
-                longitude:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
-                depth:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
-                nph:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
-                nphS:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_s'
-                nphtot:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_tot'
-                nPfm:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_fm'
-                gap:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
-                dmin:
-                  type: number
-                  description: dmin description | ???
-                  format: double
-                rms:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__rms'
-                e0az:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0_az'
-                e0dp:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0_dip'
-                e0:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0'
-                e1az:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1_az'
-                e1dp:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1_dip'
-                e1:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1'
-                e2:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e2'
-                erh:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__err_h'
-                erz:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__err_z'
-                Md:
-                  type: number
-                  description: Md description | ???
-                  format: double
-                reg:
-                  type: string
-                  description: ingvQuality description | ???
-                  example: ' '
-                labelpref:
-                  type: string
-                  description: ingvQuality description | ???
-                  example: ' '
-                Mpref:
-                  type: number
-                  description: Mpref description | ???
-                  format: double
-                wtpref:
-                  type: number
-                  description: wtpref description | ???
-                  format: double
-                mdtype:
-                  type: string
-                  description: ingvQuality description | ???
-                  example: D
-                mdmad:
-                  type: number
-                  description: mdmad description | ???
-                  format: double
-                mdwt:
-                  type: number
-                  description: mdwt description | ???
-                  format: double
-                ingvQuality:
-                  type: string
-                  description: ingvQuality description | ???
-                  example: DD
-                phases:
-                  $ref: '#/components/schemas/hyp2000arc__phases'
-        - properties:
-            ewLogo:
-              required:
-                - type
-                - module
-                - installation
-                - instance
-              properties:
-                type:
-                  type: string
-                  description: Type description | ???
-                  example: TYPE_HYP2000ARC
-                module:
-                  type: string
-                  description: Module description | ???
-                  example: MOD_EQASSEMBLE
-                installation:
-                  $ref: '#/components/schemas/ewLogo__installation'
-                user:
-                  $ref: '#/components/schemas/ewLogo__user'
-                hostname:
-                  $ref: '#/components/schemas/ewLogo__hostname'
-                instance:
-                  $ref: '#/components/schemas/ewLogo__instance'
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - originTime
+            - latitude
+            - longitude
+            - depth
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            originTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
+            latitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
+            longitude:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
+            depth:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/depth'
+            nph:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph'
+            nphS:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_s'
+            nphtot:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_tot'
+            nPfm:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__nph_fm'
+            gap:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
+            dmin:
+              type: number
+              description: dmin description | ???
+              format: double
+            rms:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__rms'
+            e0az:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0_az'
+            e0dp:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0_dip'
+            e0:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e0'
+            e1az:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1_az'
+            e1dp:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1_dip'
+            e1:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e1'
+            e2:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__e2'
+            erh:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__err_h'
+            erz:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__err_z'
+            Md:
+              type: number
+              description: Md description | ???
+              format: double
+            reg:
+              type: string
+              description: ingvQuality description | ???
+              example: ' '
+            labelpref:
+              type: string
+              description: ingvQuality description | ???
+              example: ' '
+            Mpref:
+              type: number
+              description: Mpref description | ???
+              format: double
+            wtpref:
+              type: number
+              description: wtpref description | ???
+              format: double
+            mdtype:
+              type: string
+              description: ingvQuality description | ???
+              example: D
+            mdmad:
+              type: number
+              description: mdmad description | ???
+              format: double
+            mdwt:
+              type: number
+              description: mdwt description | ???
+              format: double
+            ingvQuality:
+              type: string
+              description: ingvQuality description | ???
+              example: DD
+            phases:
+              $ref: '#/components/schemas/hyp2000arc__phases'
+        ewLogo:
+          required:
+            - type
+            - module
+            - installation
+            - instance
+          properties:
+            type:
+              type: string
+              description: Type description | ???
+              example: TYPE_HYP2000ARC
+            module:
+              type: string
+              description: Module description | ???
+              example: MOD_EQASSEMBLE
+            installation:
+              $ref: '#/components/schemas/ewLogo__installation'
+            user:
+              $ref: '#/components/schemas/ewLogo__user'
+            hostname:
+              $ref: '#/components/schemas/ewLogo__hostname'
+            instance:
+              $ref: '#/components/schemas/ewLogo__instance'
   
     hyp2000arc__phases:
       type: array
@@ -384,82 +379,80 @@ components:
             description: Importance of S arrival | col105 F4.3
             format: float
     magnitudeSchema:
-      allOf:
-        - properties:
-            ewMessage:
-              required:
-                - quakeId
-                - version
-                - mag
-              properties:
-                quakeId:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
-                version:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
-                mag:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag'
-                error:
-                  type: number
-                  description: Magnitude error | double
-                  format: double
-                  example: 0.52
-                quality:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__quality'
-                minDist:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__min_dist'
-                azimuth:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
-                nStations:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__nsta'
-                nChannels:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__ncha'
-                qAuthor:
-                  $ref: '#/components/schemas/qAuthor'
-                qddsVersion:
-                  type: number
-                  description: qddsVersion description
-                  format: double
-                  example: 0
-                iMagType:
-                  type: number
-                  description: iMagType description
-                  format: double
-                  example: 1
-                magType:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_magnitude__name'
-                algorithm:
-                  type: string
-                  description: algorithm description
-                  format: double
-                  example: MED
-                ingvQuality:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag_quality'
-                phases:
-                  $ref: '#/components/schemas/magnitude__phases'
-        - properties:
-            ewLogo:
-              required:
-                - type
-                - module
-                - installation
-                - instance
-              properties:
-                type:
-                  type: string
-                  description: Type description | ???
-                  example: TYPE_MAGNITUDE
-                module:
-                  type: string
-                  description: Module description | ???
-                  example: MOD_LOCALMAG_PREL
-                installation:
-                  $ref: '#/components/schemas/ewLogo__installation'
-                user:
-                  $ref: '#/components/schemas/ewLogo__user'
-                hostname:
-                  $ref: '#/components/schemas/ewLogo__hostname'
-                instance:
-                  $ref: '#/components/schemas/ewLogo__instance'
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+            - mag
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            mag:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag'
+            error:
+              type: number
+              description: Magnitude error | double
+              format: double
+              example: 0.52
+            quality:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__quality'
+            minDist:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__min_dist'
+            azimuth:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/azimutal_gap'
+            nStations:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__nsta'
+            nChannels:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__ncha'
+            qAuthor:
+              $ref: '#/components/schemas/qAuthor'
+            qddsVersion:
+              type: number
+              description: qddsVersion description
+              format: double
+              example: 0
+            iMagType:
+              type: number
+              description: iMagType description
+              format: double
+              example: 1
+            magType:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_magnitude__name'
+            algorithm:
+              type: string
+              description: algorithm description
+              format: double
+              example: MED
+            ingvQuality:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag_quality'
+            phases:
+              $ref: '#/components/schemas/magnitude__phases'
+        ewLogo:
+          required:
+            - type
+            - module
+            - installation
+            - instance
+          properties:
+            type:
+              type: string
+              description: Type description | ???
+              example: TYPE_MAGNITUDE
+            module:
+              type: string
+              description: Module description | ???
+              example: MOD_LOCALMAG_PREL
+            installation:
+              $ref: '#/components/schemas/ewLogo__installation'
+            user:
+              $ref: '#/components/schemas/ewLogo__user'
+            hostname:
+              $ref: '#/components/schemas/ewLogo__hostname'
+            instance:
+              $ref: '#/components/schemas/ewLogo__instance'
 
     magnitude__phases:
       type: array
@@ -554,83 +547,81 @@ components:
               $ref: '#/components/schemas/ewLogo__instance'
       
     strongmotioniiSchema:
-      allOf:
-        - properties:
-            ewMessage:
-              required:
-                - quakeId
-                - version
-              properties:
-                quakeId:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'        
-                version:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
-                network:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
-                station:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
-                component:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
-                location:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
-                qAuthor:
-                  $ref: '#/components/schemas/qAuthor'            
-                time:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__t_dt'
-                alternateTime:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion_alt__t_alt_dt'
-                alternateCode:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion_alt__altcode'
-                pga:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pga'
-                pgaTime:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpga_dt'
-                pgv:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pgv'
-                pgvTime:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpgv_dt'
-                pgd:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pgd'
-                pgdTime:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpgd_dt'
-                RSA:
-                  type: array
-                  items:
-                    properties:
-                      value:
-                        type: number
-                        format: double
-                        description: RSA(response spectrum accel) value for period
-                        example: 0.000724
-                      period:
-                        type: number
-                        format: double
-                        description: Period
-                        example: 0.3 
-        - properties:
-            ewLogo:
-              required:
-                - type
-                - module
-                - installation
-                - instance
-              properties:
-                type:
-                  type: string
-                  description: Type description | ???
-                  example: TYPE_STRONGMOTIONII
-                module:
-                  type: string
-                  description: Module description | ???
-                  example: MOD_GMEW
-                installation:
-                  $ref: '#/components/schemas/ewLogo__installation'
-                user:
-                  $ref: '#/components/schemas/ewLogo__user'
-                hostname:
-                  $ref: '#/components/schemas/ewLogo__hostname'
-                instance:
-                  $ref: '#/components/schemas/ewLogo__instance'
+      properties:
+        ewMessage:
+          required:
+            - quakeId
+            - version
+          properties:
+            quakeId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'        
+            version:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            network:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
+            station:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
+            component:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
+            location:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
+            qAuthor:
+              $ref: '#/components/schemas/qAuthor'            
+            time:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__t_dt'
+            alternateTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion_alt__t_alt_dt'
+            alternateCode:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion_alt__altcode'
+            pga:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pga'
+            pgaTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpga_dt'
+            pgv:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pgv'
+            pgvTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpgv_dt'
+            pgd:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__pgd'
+            pgdTime:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/strongmotion__tpgd_dt'
+            RSA:
+              type: array
+              items:
+                properties:
+                  value:
+                    type: number
+                    format: double
+                    description: RSA(response spectrum accel) value for period
+                    example: 0.000724
+                  period:
+                    type: number
+                    format: double
+                    description: Period
+                    example: 0.3 
+        ewLogo:
+          required:
+            - type
+            - module
+            - installation
+            - instance
+          properties:
+            type:
+              type: string
+              description: Type description | ???
+              example: TYPE_STRONGMOTIONII
+            module:
+              type: string
+              description: Module description | ???
+              example: MOD_GMEW
+            installation:
+              $ref: '#/components/schemas/ewLogo__installation'
+            user:
+              $ref: '#/components/schemas/ewLogo__user'
+            hostname:
+              $ref: '#/components/schemas/ewLogo__hostname'
+            instance:
+              $ref: '#/components/schemas/ewLogo__instance'
 
   ####################
   # Common parameters
