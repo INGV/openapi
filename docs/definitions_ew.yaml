@@ -501,59 +501,57 @@ components:
           period2:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/amplitude__period'
     pick_scnlSchema:
-      allOf:
-        - properties:
-            ewMessage:
-              required:
-                - pickId
-              properties:
-                pickId:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
-                network:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
-                station:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
-                component:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
-                location:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
-                firstMotion:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__firstmotion'
-                pickWeight:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__lower_uncertainty'
-                timeOfPick:
-                  $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__arrival_time'
-                pAmplitude:
-                  type: array
-                  items:
-                    type: number
-                    format: double
-                    description: peak P-wave half amplitude | ???
-                  example: [109, 101, 122]
-        - properties:
-            ewLogo:
-              required:
-                - type
-                - module
-                - installation
-                - instance
-              properties:
-                type:
-                  type: string
-                  description: Type description | ???
-                  example: TYPE_PICK_SCNL
-                module:
-                  type: string
-                  description: Module description | ???
-                  example: MOD_PICK_EW
-                installation:
-                  $ref: '#/components/schemas/ewLogo__installation'
-                user:
-                  $ref: '#/components/schemas/ewLogo__user'
-                hostname:
-                  $ref: '#/components/schemas/ewLogo__hostname'
-                instance:
-                  $ref: '#/components/schemas/ewLogo__instance'
+      properties:
+        ewMessage:
+          required:
+            - pickId
+          properties:
+            pickId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
+            network:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/net'
+            station:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/sta'
+            component:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
+            location:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
+            firstMotion:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__firstmotion'
+            pickWeight:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__lower_uncertainty'
+            timeOfPick:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/pick__arrival_time'
+            pAmplitude:
+              type: array
+              items:
+                type: number
+                format: double
+                description: peak P-wave half amplitude | ???
+              example: [109, 101, 122]
+        ewLogo:
+          required:
+            - type
+            - module
+            - installation
+            - instance
+          properties:
+            type:
+              type: string
+              description: Type description | ???
+              example: TYPE_PICK_SCNL
+            module:
+              type: string
+              description: Module description | ???
+              example: MOD_PICK_EW
+            installation:
+              $ref: '#/components/schemas/ewLogo__installation'
+            user:
+              $ref: '#/components/schemas/ewLogo__user'
+            hostname:
+              $ref: '#/components/schemas/ewLogo__hostname'
+            instance:
+              $ref: '#/components/schemas/ewLogo__instance'
       
     strongmotioniiSchema:
       allOf:
