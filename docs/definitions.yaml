@@ -693,6 +693,7 @@ components:
       example: ML-VAX
     type_magnitude__priority:
       type: integer
+      format: int64
       description: Type magnitude priority | int(8)
       example: 1
       default: 0
@@ -708,6 +709,7 @@ components:
       example: 2.2
     type_magnitude__minreadings:
       type: integer
+      format: int32
       description: Minimum number of readings | int(8)
     origin_flag__name:
       type: string
