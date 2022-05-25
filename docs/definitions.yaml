@@ -691,6 +691,24 @@ components:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
+    type_magnitude__priority:
+      type: integer
+      description: Type magnitude priority | int(8)
+      example: 1
+      default: 0
+    type_magnitude__minmag:
+      type: number
+      format: float
+      description: Minimum magnitude value | float(4)
+      example: 1.2
+    type_magnitude__maxmag:
+      type: number
+      format: float
+      description: Maximum magnitude value | float(4)
+      example: 2.2
+    type_magnitude__minreadings:
+      type: integer
+      description: Minimum number of readings | int(8)
     origin_flag__name:
       type: string
       description: Flag name | varchar(255)
