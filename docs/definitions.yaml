@@ -305,6 +305,12 @@ components:
         - macroseismic
         - rupture start
         - rupture end
+    type_origin__priority:
+      type: integer
+      description: Type origin priority | tinyint(4)
+      format: int64
+      example: 100
+      default: 0
     type_origin__version_name:
       description: Localization name (es:ew prelim,XX,WW,..) | varchar(255)
       type: string
@@ -322,7 +328,7 @@ components:
     #  - $ref: '#/components/schemas/type_origin__version_value'
     #
     ## poi la generazione della Classi Java da SwaggerHub non funzionava.
-    ## Da riprovare piu' avanti con 'openapi: 3.1.x'
+    ## Da riprovare piu' avanti.
     type_origin__version_value:     
       type: integer
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
