@@ -946,9 +946,15 @@ components:
       default: null
     provenance__priority:
       type: integer
-      description: Provenance priority | int(11)
+      description: Former provenance id | int(11)
       format: int64
       example: 0
+      default: 0
+    provenance__former_id:
+      type: integer
+      description: ToDo | int(8)
+      format: int64
+      example: 1
       default: 0
     provenance__name:
       type: string
