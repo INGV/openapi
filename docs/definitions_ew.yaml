@@ -197,6 +197,29 @@ components:
               type: string
               description: ingvQuality description | ???
               example: DD
+            amplitudeMagnitude:
+              type: number
+              description: amplitudeMagnitude description | ???
+              format: double
+            numberOfAmpMagWeightCode:
+              type: number
+              description: numberOfAmpMagWeightCode description | ???
+              format: double
+            medianAbsDiffAmpMag:
+              type: number
+              description: medianAbsDiffAmpMag description | ???
+              format: double
+            preferredMagLabel:
+              type: string
+              description: preferredMagLabel description | ???
+            preferredMag:
+              type: number
+              description: preferredMag description | ???
+              format: double
+            numberOfPreferredMags:
+              type: number
+              description: numberOfPreferredMags description | ???
+              format: double
             phases:
               $ref: '#/components/schemas/hyp2000arc__phases'
         ewLogo:
