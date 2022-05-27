@@ -117,6 +117,8 @@ components:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
             version:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+            originId:
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id'
             originTime:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
             latitude:
