@@ -199,15 +199,15 @@ components:
               example: DD
             amplitudeMagnitude:
               type: number
-              description: amplitudeMagnitude description | ???
+              description: amplitudeMagnitude description | col37 F3.2
               format: double
             numberOfAmpMagWeightCode:
               type: number
-              description: numberOfAmpMagWeightCode description | ???
+              description: numberOfAmpMagWeightCode description | col97 F4.1
               format: double
             medianAbsDiffAmpMag:
               type: number
-              description: medianAbsDiffAmpMag description | ???
+              description: medianAbsDiffAmpMag description | col105 F3.2
               format: double
             preferredMagLabel:
               type: string
