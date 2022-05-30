@@ -54,8 +54,6 @@ components:
           properties:
             quakeId:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
-            version:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__version_name'
             originTime:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/origin__ot'
             latitude:
@@ -116,7 +114,7 @@ components:
             quakeId:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
             version:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__version_name'
             originId:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id'
             originTime:
@@ -414,7 +412,7 @@ components:
             quakeId:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/id_localspace'
             version:
-              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__name'
+              $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/type_origin__version_name'
             mag:
               $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/magnitude__mag'
             error:
