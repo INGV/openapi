@@ -1362,6 +1362,7 @@ components:
   #########################
   headers:
     Cache-Control:
+      description: no-store
       schema:
         type: string
     Retry-After:
