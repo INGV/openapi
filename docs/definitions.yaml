@@ -164,6 +164,22 @@ components:
       description: Standard deviation SQRT[ rms / (n - 1) ] | double
       format: double
       example: 0.53
+    associatedPhaseCount:
+      type: integer
+      description: Number of associated phases, regardless of their use for origin computation | int(8)'
+      format: int64
+    associatedStationCount:
+      type: integer
+      description: Number of stations at which the event was observed | int(8)'
+      format: int64
+    usedPhaseCount:
+      type: integer
+      description: Number of defining phases, i.e., phase observations that were actually used for computing the origin | int(8)'
+      format: int64
+    usedStationCount:
+      type: integer
+      description: Number of stations from which data was used for origin computation | int(8)'
+      format: int64
     origin__nph:
       type: integer
       description: '# arrivals (P&S) weight >0.1 | int(11)'
