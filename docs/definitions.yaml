@@ -1183,7 +1183,7 @@ components:
         schema:
             $ref:  '#/components/schemas/type_origin__version_value'        
     maxtypeoriginvalue:
-        description: Filter the output to type_origin.version_value (i.e. 0).
+        description: Filter the output to type_origin.version_value (i.e. 1000).
         in: query
         name: maxtypeoriginvalue
         required: false
