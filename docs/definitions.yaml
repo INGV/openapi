@@ -1175,6 +1175,20 @@ components:
         schema:
             format: double
             type: number
+    mintypeoriginvalue:
+        description: Filter the output to type_origin.version_value (i.e. 0).
+        in: query
+        name: mintypeoriginvalue
+        required: false
+        schema:
+            $ref:  '#/components/schemas/type_origin__version_value'        
+    maxtypeoriginvalue:
+        description: Filter the output to type_origin.version_value (i.e. 0).
+        in: query
+        name: maxtypeoriginvalue
+        required: false
+        schema:
+            $ref:  '#/components/schemas/type_origin__version_value'        
     minmag:
         description: Limit to events with a magnitude larger than or equal to the specified minimum (i.e. 1.5).
         in: query
