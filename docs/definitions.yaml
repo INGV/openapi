@@ -349,13 +349,11 @@ components:
       type: integer
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
       format: int64
-      example: 2
     type_origin__version_value__READONLY:     
       type: integer
       description: Define a numeric value for type origin. < 100 is automatic location | bigint(20)
       format: int64
       readOnly: true
-      example: 2
     ##########################
     description:
       type: string
