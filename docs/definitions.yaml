@@ -1234,9 +1234,17 @@ components:
             format: string
             type: string            
     limit:
-        description: Limit the results to the specified number of events.
+        description: Limit the results to the specified number of records.
         in: query
         name:  limit
+        required: false
+        schema:
+            format: int32
+            type: integer
+    page:
+        description: Pagination.
+        in: query
+        name:  page
         required: false
         schema:
             format: int32
