@@ -60,6 +60,7 @@ components:
       format: int64
       example: 182491
       default: null
+      nullable: true
     event__fk_event_group__READONLY:
       type: integer
       description: Link event group | bigint(20)
@@ -77,33 +78,39 @@ components:
       format: int64
       readOnly: true
       default: null
+      nullable: true
     event__fk_origin_preferred:
       type: integer
       description: 'Link: preferred origin. It can be NULL. | bigint(20)'
       format: int64
       default: null
+      nullable: true
     event__fk_magnitude_preferred__READONLY:
       type: integer
       description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
       format: int64
       readOnly: true
       default: null
+      nullable: true
     event__fk_magnitude_preferred:
       type: integer
       description: 'Link: preferred magnitude. It can be NULL. | bigint(20)'
       format: int64
       default: null
+      nullable: true
     event__fk_focalmechanism_preferred__READONLY:
       type: integer
       description: 'Link: preferred focalmechanism. It can be NULL. | bigint(20)'
       format: int64
       readOnly: true
       default: null
+      nullable: true
     event__fk_focalmechanism_preferred:
       type: integer
       description: 'Link: preferred focalmechanism. It can be NULL. | bigint(20)'
       format: int64
       default: null
+      nullable: true
     event__type_group:
       type: integer
       description: Group type. Used by clustering algorithm | tinyint(4)
@@ -360,6 +367,7 @@ components:
       description: Additional information | char(255)
       example: Auto added
       default: null
+      nullable: true
     net:
       type: string
       description: Channel net code | char(2)
@@ -383,56 +391,66 @@ components:
       description: strike focal plane n.1 | int(10)
       example: 34
       default: null
+      nullable: true
     focalmechanism__dip1:
       type: integer
       format: int32      
       description: dip focal plane n.1 | int(10)
       example: 50
       default: null
+      nullable: true
     focalmechanism__rake1:
       type: integer
       format: int32      
       description: rake focal plane n.1 | int(10)
       example: 88
       default: null
+      nullable: true
     focalmechanism__strike2:
       type: integer
       format: int32      
       description: strike focal plane n.2 | int(10)
       example: 218
       default: null
+      nullable: true
     focalmechanism__dip2:
       type: integer
       format: int32      
       description: dip focal plane n.2 | int(10)
       example: 40
       default: null
+      nullable: true
     focalmechanism__rake2:
       type: integer
       format: int32      
       description: rake focal plane n.2 | int(10)
       example: 93
       default: null
+      nullable: true
     focalmechanism__azim_gap:
       type: number
       format: float      
       description: Largest azim gap as seen from epicenter | double(22)
       default: null
+      nullable: true
     focalmechanism__nsta_polarity:
       type: integer
       format: int32
       description: Number of station polarities used for determination | int(10)
       default: null
+      nullable: true
     focalmechanism__misfit:
       type: number
       format: double 
       description: Fraction of misfit polarities [0,1] | double(22)
       default: null
+      nullable: true
     focalmechanism__stdr:
       type: number
       format: double 
       description: Station distribution ratio parameter [0,1] | double(22)
       default: null
+      nullable: true
     focalmechanism__rms_ang_diff_acc_pref:
       type: number
       format: double 
@@ -443,82 +461,96 @@ components:
       format: double 
       description: frac_acc_30deg_pref | double(22)
       default: null
+      nullable: true
     focalmechanism__quality:
       type: string
       description: quality | char(2)
       example: Ba
       default: null
+      nullable: true
     focalmechanism__url:
       type: string
       description: url pdf file | varchar(255)
       example: 'http://mysite'
       default: null
+      nullable: true
     momenttensor__scalarmoment:
       type: number
       format: double 
       description: Scalar moment as derived in moment tensor inversion. Unit, Nm | double(22)
       example: 16607495309062.705
       default: null
+      nullable: true
     momenttensor__variance_reduction:
       type: number
       format: double 
       description: Variance reduction of moment tensor inversion, given in percent (Dreger 2003). This is a goodness-of-fit measure | double(22)
       example: 41.15
       default: null
+      nullable: true
     momenttensor__double_couple:
       type: number
       format: double 
       description: Double couple parameter obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
       example: 0.76
       default: null
+      nullable: true
     momenttensor__clvd:
       type: number
       format: double 
       description: CLVD (compensated linear vector dipole) parameter obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
       example: 0.24
       default: null
+      nullable: true
     momenttensor__iso:
       type: number
       format: double
       description: Isotropic part obtained from moment tensor inversion (decimal fraction between 0 and 1) | double(22)
       example: 0
       default: null
+      nullable: true
     momenttensor__mrr:
       type: number
       format: double
       description: mrr moment tensor component | double(22)
       example: 80.956
       default: null
+      nullable: true
     momenttensor__mtt:
       type: number
       format: double
       description: mtt moment tensor component | double(22)
       example: -25.017
       default: null
+      nullable: true
     momenttensor__mpp:
       type: number
       format: double
       description: mpp moment tensor component | double(22)
       example: -55.939
       default: null
+      nullable: true
     momenttensor__mrt:
       type: number
       format: double
       description: mrt moment tensor component | double(22)
       example: 7.048
       default: null
+      nullable: true
     momenttensor__mrp:
       type: number
       format: double
       description: mrp moment tensor component | double(22)
       example: 13.494
       default: null
+      nullable: true
     momenttensor__mtp:
       type: number
       format: double
       description: mtp moment tensor component | double(22)
       example: -49.466
       default: null
+      nullable: true
     magnitude:
       type: number
       description: Magnitude | double
@@ -617,18 +649,21 @@ components:
       format: float
       example: 0.52
       default: null
+      nullable: true
     pick__upper_uncertainty:
       type: number
       description: Uncertainty as the absolute value of deviation from the mainvalue towards larger values. | decimal(8,3)
       format: float
       example: 0.53
       default: null
+      nullable: true
     pick__firstmotion:
       type: string
       nullable: true
       description: First motion polarity associated with the pick | varchar(1)
       example: D
       default: null
+      nullable: true
       enum: 
         - U
         - D
@@ -638,6 +673,7 @@ components:
       description: Impulsive or emersio, pamp description | varchar(1)
       example: E
       default: null
+      nullable: true
       enum: 
         - E
         - I
@@ -646,7 +682,8 @@ components:
       description: peak P-wave half amplitude | double(22)
       format: float
       example: 283
-      default: null      
+      default: null
+      nullable: true
     pick_ew_coda__ccntr_0:
       type: integer
       description: peak P-wave half amplitude | int(11)
@@ -748,6 +785,7 @@ components:
       format: double
       example: 161
       default: null
+      nullable: true
     arrival__take_off:
       type: number
       description: Take off angle | double
@@ -758,11 +796,13 @@ components:
       description: 1 if it is used for polarity calculation | boolean
       example: false
       default: null
+      nullable: true
     arrival__arr_time_is_used:
       type: boolean
       description: 1 if it is used for origin calculation | boolean
       example: false
       default: null
+      nullable: true
     arrival__residual:
       type: number
       description: Residual | double
@@ -928,16 +968,19 @@ components:
       description: 'Localspace name. i.e. hew1_mole, endeavour_mole | char(255)'
       example: hew1_mole
       default: null
+      nullable: true
     provenance__model:
       type: string
       description: Name/URI/DOI of the model | varchar(255)
       example: prem
       default: null
+      nullable: true
     provenance__parameters:
       type: string
       description: Name/URI/DOI of the parameters | varchar(255)
       example: ToDo
       default: null
+      nullable: true
     provenance__version:
       type: string
       description: Version name | varchar(255)
@@ -951,11 +994,13 @@ components:
       description: User name | char(255)
       example: ew
       default: null
+      nullable: true
     provenance__hostname:
       type: string
       description: Hostname | char(255)
       example: hew10.ingv.it
       default: null
+      nullable: true
     provenance__priority:
       type: integer
       description: Former provenance id | int(11)
@@ -982,6 +1027,7 @@ components:
       description: Name/URI/DOI of the method | varchar(255)
       example: ToDo
       default: null
+      nullable: true
     type_amplitude__name:
       type: string
       description: Type of the amplitude | varchar(50)
@@ -989,8 +1035,9 @@ components:
     type_amplitude__unit:
       type: string
       description: Unit of measurement of type amplitude | varchar(255)
+      example: m/s        
       default: null
-      example: m/s      
+      nullable: true    
     type_amplitude__priority:
       type: integer
       description: Type of the amplitude | tinyint(4)
