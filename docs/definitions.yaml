@@ -666,6 +666,7 @@ components:
       enum: 
         - U
         - D
+        - null
     pick__emersio:
       type: string
       nullable: true
@@ -675,6 +676,7 @@ components:
       enum: 
         - E
         - I
+        - null
     pickew__pamp:
       type: number
       description: peak P-wave half amplitude | double(22)
