@@ -663,7 +663,6 @@ components:
       description: First motion polarity associated with the pick | varchar(1)
       example: D
       default: null
-      nullable: true
       enum: 
         - U
         - D
@@ -673,7 +672,6 @@ components:
       description: Impulsive or emersio, pamp description | varchar(1)
       example: E
       default: null
-      nullable: true
       enum: 
         - E
         - I
