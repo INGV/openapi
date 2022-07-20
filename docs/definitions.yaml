@@ -1056,6 +1056,14 @@ components:
       type: string
       description: Italian province abbreviation.
       example: 'RM'
+    municipio__prov_name:
+      type: string
+      description: Italian province name.
+      example: 'Roma'
+    municipio__region_name:
+      type: string
+      description: Italian region name.
+      example: 'Roma'
 
   ####################
   # Common parameters
