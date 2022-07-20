@@ -1337,7 +1337,7 @@ components:
             format: int64
             type: integer
     municipio__REQUIRED:
-        description: Specify "municipio" name.
+        description: Specify the Italian "municipio" name.
         in: query
         name:  municipio
         required: true
