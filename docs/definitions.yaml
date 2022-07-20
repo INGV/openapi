@@ -1336,6 +1336,14 @@ components:
         schema:
             format: int64
             type: integer
+    municipio__REQUIRED:
+        description: Specify "municipio" name.
+        in: query
+        name:  municipio
+        required: true
+        schema:
+            format: string
+            type: string
     eventid:
       description: Retrieve an event based on the unique INGV event id.
       in: query
