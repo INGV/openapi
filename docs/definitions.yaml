@@ -1048,6 +1048,10 @@ components:
       type: string
       description: Type of Moment Tensor | varchar(50)
       example: TDMT
+    municipio__name:
+      type: string
+      description: Italian Municipio name.
+      example: 'Ladispoli'
 
   ####################
   # Common parameters
