@@ -1063,7 +1063,12 @@ components:
     municipio__region_name:
       type: string
       description: Italian region name.
-      example: 'Roma'
+      example: 'Lazio'
+    municipio__population:
+      type: integer
+      format: int64
+      description: Popolazione.
+      example: 41078
 
   ####################
   # Common parameters
