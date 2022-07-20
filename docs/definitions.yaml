@@ -1360,7 +1360,7 @@ components:
     municipio__REQUIRED:
         description: Specify the Italian "municipio" name.
         in: query
-        name:  municipio
+        name:  name
         required: true
         schema:
             format: string
