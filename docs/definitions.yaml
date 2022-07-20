@@ -1050,8 +1050,12 @@ components:
       example: TDMT
     municipio__name:
       type: string
-      description: Italian Municipio name.
+      description: Italian "municipio" name.
       example: 'Ladispoli'
+    municipio__sigla_pro:
+      type: string
+      description: Italian province abbreviation.
+      example: 'RM'
 
   ####################
   # Common parameters
