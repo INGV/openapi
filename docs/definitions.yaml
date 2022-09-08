@@ -368,6 +368,12 @@ components:
       example: Auto added
       default: null
       nullable: true
+    note:
+      type: string
+      description: Additional information | char(255)
+      example: my note
+      default: null
+      nullable: true
     net:
       type: string
       description: Channel net code | char(2)
