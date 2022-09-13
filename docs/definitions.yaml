@@ -976,6 +976,7 @@ components:
     flags:
       type: string
       description: Flags for origin | varchar(255)
+      readOnly: true
       example: DPC,twitter,shakemap4,FM
     localspace__name:
       type: string
