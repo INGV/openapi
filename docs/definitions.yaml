@@ -973,6 +973,10 @@ components:
       type: string
       description: Event location remark region | varchar(255)
       example: Norcia
+    flags:
+      type: string
+      description: Flags for origin | varchar(255)
+      example: DPC,twitter,shakemap4,FM
     localspace__name:
       type: string
       description: 'Localspace name. i.e. hew1_mole, endeavour_mole | char(255)'
