@@ -365,14 +365,8 @@ components:
                 - 0
           caav:
             type: array
-            items:
-              description: Todo description | ???
-              example:
-                - 0
-                - 0
-                - 0
-                - 0
-                - 0
+            format: int64
+            example: [0, 0, 0, 0, 0, 0]
           amplitude:
             type: number
             description: Amplitude (Normally peak-to-peak) | col55 F7.2
