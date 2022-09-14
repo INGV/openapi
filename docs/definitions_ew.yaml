@@ -355,14 +355,8 @@ components:
             format: double
           ccntr:
             type: array
-            items:
-              description: Todo description | ???
-              example:
-                - 0
-                - 0
-                - 0
-                - 0
-                - 0
+            format: int64
+            example: [0, 0, 0, 0, 0, 0]
           caav:
             type: array
             format: int64
