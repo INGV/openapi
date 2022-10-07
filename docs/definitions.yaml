@@ -770,6 +770,16 @@ components:
       type: integer
       format: int32
       description: Minimum number of readings | int(8)
+    catalog__name:
+      type: string
+      description: Catalog name | varchar(255)
+      example: BSI
+    catalog__doi:
+      type: string
+      description: DOI | varchar(255)
+      example: 10.13127/TDMT
+      default: null
+      nullable: true
     origin_flag__name:
       type: string
       description: Flag name | varchar(255)
