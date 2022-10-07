@@ -1399,7 +1399,7 @@ components:
             format: string
             type: string
     eventid:
-      description: Retrieve an event based on the unique INGV event id.
+      description: Select by event id.
       in: query
       name:  eventid
       required: false
@@ -1407,7 +1407,7 @@ components:
         type: integer
         format: int64
     eventid__required:
-      description: Retrieve an event based on the unique INGV event id.
+      description: Select by event id.
       in: query
       name:  eventid
       required: true
