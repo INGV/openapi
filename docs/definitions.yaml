@@ -1129,7 +1129,15 @@ components:
         required: false
         schema:
           type: integer
-          format: int64            
+          format: int64
+    magnitudeid:
+        name: magnitudeid
+        in: query
+        description: Select by magnitude id.
+        required: false
+        schema:
+          type: integer
+          format: int64 
     starttime:
         description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
         in: query
