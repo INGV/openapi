@@ -1365,7 +1365,7 @@ components:
       required: false
       schema:
         type: string
-        format: date-time 
+        format: date-time
     mindistance__REQUIRED:
         description: Specify minimum distance (kilometers).
         in: query
@@ -1398,6 +1398,24 @@ components:
         schema:
             format: string
             type: string
+    ##########################
+    catalog_metadata__name:
+        description: Catalog name.
+        in: query
+        name: name
+        required: false
+        schema:
+          format: string
+          type: string
+    catalog_metadata__doi:
+        description: Catalog DOI.
+        in: query
+        name: doi
+        required: false
+        schema:
+          format: string
+          type: string
+    ##########################
     eventid:
       description: Select by event id.
       in: query
