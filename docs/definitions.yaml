@@ -400,77 +400,65 @@ components:
       format: int32      
       description: strike focal plane n.1 | int(10)
       example: 34
-      default: null
       nullable: true
     focalmechanism__dip1:
       type: integer
       format: int32      
       description: dip focal plane n.1 | int(10)
       example: 50
-      default: null
       nullable: true
     focalmechanism__rake1:
       type: integer
       format: int32      
       description: rake focal plane n.1 | int(10)
       example: 88
-      default: null
       nullable: true
     focalmechanism__strike2:
       type: integer
       format: int32      
       description: strike focal plane n.2 | int(10)
       example: 218
-      default: null
       nullable: true
     focalmechanism__dip2:
       type: integer
       format: int32      
       description: dip focal plane n.2 | int(10)
       example: 40
-      default: null
       nullable: true
     focalmechanism__rake2:
       type: integer
       format: int32      
       description: rake focal plane n.2 | int(10)
       example: 93
-      default: null
       nullable: true
     focalmechanism__azim_gap:
       type: number
       format: float      
       description: Largest azim gap as seen from epicenter | double(22)
-      default: null
       nullable: true
     focalmechanism__nsta_polarity:
       type: integer
       format: int32
       description: Number of station polarities used for determination | int(10)
-      default: null
       nullable: true
     focalmechanism__misfit:
       type: number
       format: double 
       description: Fraction of misfit polarities [0,1] | double(22)
-      default: null
       nullable: true
     focalmechanism__stdr:
       type: number
       format: double 
       description: Station distribution ratio parameter [0,1] | double(22)
-      default: null
       nullable: true
     focalmechanism__rms_ang_diff_acc_pref:
       type: number
       format: double 
       description: rms_ang_diff_acc_pref | double(22)
-      default: null
     focalmechanism__frac_acc_30deg_pref:
       type: number
       format: double 
       description: frac_acc_30deg_pref | double(22)
-      default: null
       nullable: true
     focalmechanism__quality:
       type: string
