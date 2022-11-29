@@ -1099,11 +1099,11 @@ components:
     orderby:
       name: orderby
       in: query
-      description: Select order
+      description: Select "order by"; multiple "order" contatenation available (i.e. event_id-desc,type_origin_version_value-asc)
       required: false
       schema:
           type: string
-          enum: [event_id-asc, event_id-desc, origin_ot-asc, origin_ot-desc, magnitude_mag-asc, magnitude_mag-desc]
+          format: string
     fk_event_group:
         name: event_group_id
         in: query
