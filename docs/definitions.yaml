@@ -1057,6 +1057,20 @@ components:
       format: int64
       example: 0
       default: 0
+    type_amplitude__category:
+      description: The way the waveform trace is evaluated to derive an amplitude value; from QuakeML. (es:point,mean,duration,period,..) | varchar(255)
+      type: string
+      example: other
+      default: null
+      nullable: true
+      enum: 
+        - point
+        - mean
+        - duration
+        - period
+        - integral
+        - other
+        - null
     type_momenttensor__name:
       type: string
       description: Type of Moment Tensor | varchar(50)
