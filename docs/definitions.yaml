@@ -222,11 +222,19 @@ components:
       format: double
     origin__err_lat:
       type: number
-      description: Latitude error | double
+      description: Latitude error (km) | double
       format: double
     origin__err_lon:
       type: number
-      description: Longitude error | double
+      description: Longitude error (km) | double
+      format: double
+    err_lat_deg:
+      type: number
+      description: Latitude error (deg) | double
+      format: double
+    err_lon_deg:
+      type: number
+      description: Longitude error (deg) | double
       format: double
     azimutal_gap:
       type: number
@@ -290,11 +298,11 @@ components:
       format: double        
     origin__err_h:
       type: number
-      description: Depth error | double
+      description: Horizontal error (km) | double
       format: double
     origin__err_z:
       type: number
-      description: Depth error | double
+      description: Depth error (km) | double
       format: double
     origin__err_ot:
       type: number
