@@ -230,10 +230,12 @@ components:
       format: double
     err_lat_deg:
       type: number
+      readOnly: true
       description: Latitude error (deg) | double
       format: double
     err_lon_deg:
       type: number
+      readOnly: true
       description: Longitude error (deg) | double
       format: double
     azimutal_gap:
