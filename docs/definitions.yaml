@@ -1485,7 +1485,7 @@ components:
         type: string
         format: string
     wherelocalspacenameincolumn:
-      description: Set the column to apply "wherelocalspacenamein" filter (i.e. "origin" means "origin.localspace.name").
+      description: Set the column to apply "wherelocalspacenamein" filter (i.e. "origin" means "origin.localspace.name"); default "event".
       in: query
       name: wherelocalspacenameincolumn
       required: false
