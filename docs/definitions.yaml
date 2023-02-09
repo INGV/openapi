@@ -1477,13 +1477,22 @@ components:
         type: boolean
         default: false
     wherelocalspacenamein:
-      description: Filter localspace.name by comma separated value (i.e. hew10_mole,hew20_mole).
+      description: Filter by "localspace.name" on column (see 'wherelocalspacenameincolumn' param) by comma separated value (i.e. hew10_mole,hew20_mole).
       in: query
       name: wherelocalspacenamein
       required: false
       schema:
         type: string
         format: string
+    wherelocalspacenameincolumn:
+      description: Set the column to apply "wherelocalspacenamein" filter (i.e. "origin" means "origin.localspace.name").
+      in: query
+      name: wherelocalspacenameincolumn
+      required: false
+      schema:
+        type: string
+        enum: [event, origin, magnitude]
+        default: event
     whereflagsin:
       description: Filter flags by comma separated value (i.e. DPC,twitter,shakemap4).
       in: query
