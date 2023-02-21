@@ -1378,6 +1378,15 @@ components:
       schema:
         type: string
         format: date-time
+    updatedafterincolumn:
+      description: Set the column to apply "updatedafter" filter (i.e. "origin" means "origin.modified"); default "all".
+      in: query
+      name: updatedafterincolumn
+      required: false
+      schema:
+        type: string
+        enum: [event, origin, magnitude, all]
+        default: all
     mindistance__REQUIRED:
         description: Specify minimum distance (kilometers).
         in: query
