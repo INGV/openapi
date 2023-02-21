@@ -1371,7 +1371,7 @@ components:
         type: number
         format: int32
     updatedafter:
-      description: Limit to events updated after the specified time (useful for synchronizing events).
+      description: Limit data to "updated after" params.
       in: query
       name:  updatedafter
       required: false
