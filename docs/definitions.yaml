@@ -1370,23 +1370,47 @@ components:
       schema:
         type: number
         format: int32
-    updatedafter:
-      description: Limit data to "updated after" params.
+    #updatedafter:
+    #  description: Limit data to "updated after" params.
+    #  in: query
+    #  name:  updatedafter
+    #  required: false
+    #  schema:
+    #    type: string
+    #    format: date-time
+    #updatedafterincolumn:
+    #  description: Set the column to apply "updatedafter" filter (i.e. "origin" means "origin.modified"); default "all".
+    #  in: query
+    #  name: updatedafterincolumn
+    #  required: false
+    #  schema:
+    #    type: string
+    #    enum: [event, origin, magnitude, all]
+    #    default: all
+    eventupdatedafter:
+      description: Limit data to "event.modified" after.
       in: query
-      name:  updatedafter
+      name:  eventupdatedafter
       required: false
       schema:
         type: string
         format: date-time
-    updatedafterincolumn:
-      description: Set the column to apply "updatedafter" filter (i.e. "origin" means "origin.modified"); default "all".
+    originupdatedafter:
+      description: Limit data to "origin.modified" after.
       in: query
-      name: updatedafterincolumn
+      name:  originupdatedafter
       required: false
       schema:
         type: string
-        enum: [event, origin, magnitude, all]
-        default: all
+        format: date-time
+    magnitudeupdatedafter:
+      description: Limit data to "magnitude.modified" after.
+      in: query
+      name:  magnitudeupdatedafter
+      required: false
+      schema:
+        type: string
+        format: date-time
     mindistance__REQUIRED:
         description: Specify minimum distance (kilometers).
         in: query
