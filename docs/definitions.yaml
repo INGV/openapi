@@ -1388,7 +1388,7 @@ components:
     #    enum: [event, origin, magnitude, all]
     #    default: all
     eventupdatedafter:
-      description: Limit data to "event.modified" after.
+      description: Limit data to "event.modified" after; if "originupdatedafter" and/or "magnitudeupdatedafter" are set, the "updatedafteroperator" is used.
       in: query
       name:  eventupdatedafter
       required: false
@@ -1396,7 +1396,7 @@ components:
         type: string
         format: date-time
     originupdatedafter:
-      description: Limit data to "origin.modified" after.
+      description: Limit data to "origin.modified" after; if "eventupdatedafter" and/or "magnitudeupdatedafter" are set, the "updatedafteroperator" is used.
       in: query
       name:  originupdatedafter
       required: false
@@ -1404,13 +1404,22 @@ components:
         type: string
         format: date-time
     magnitudeupdatedafter:
-      description: Limit data to "magnitude.modified" after.
+      description: Limit data to "magnitude.modified" after; if "eventupdatedafter" and/or "originupdatedafter" are set, the "updatedafteroperator" is used.
       in: query
       name:  magnitudeupdatedafter
       required: false
       schema:
         type: string
         format: date-time
+    updatedafteroperator:
+      description: Set the "operator" to use when "eventupdatedafter", "originupdatedafter" and "magnitudeupdatedafter" are set.
+      in: query
+      name: updatedafteroperator
+      required: false
+      schema:
+        type: string
+        enum: [and, or]
+        default: or
     mindistance__REQUIRED:
         description: Specify minimum distance (kilometers).
         in: query
