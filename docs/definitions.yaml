@@ -353,12 +353,6 @@ components:
         - macroseismic
         - rupture start
         - rupture end
-    type_origin__priority:
-      type: integer
-      description: Type origin priority | tinyint(4)
-      format: int64
-      example: 100
-      default: 0
     type_origin__version_name:
       description: Localization name (es:ew prelim,XX,WW,..) | varchar(255)
       type: string
@@ -759,12 +753,6 @@ components:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
-    type_magnitude__priority:
-      type: integer
-      format: int64
-      description: Type magnitude priority | int(8)
-      example: 1
-      default: 0
     type_magnitude__minmag:
       type: number
       format: float
@@ -1025,12 +1013,6 @@ components:
       example: hew10.ingv.it
       default: null
       nullable: true
-    provenance__priority:
-      type: integer
-      description: Former provenance id | int(11)
-      format: int64
-      example: 0
-      default: 0
     priority:
       type: integer
       description: Priority | int(8)
@@ -1078,12 +1060,6 @@ components:
       example: m/s        
       default: null
       nullable: true    
-    type_amplitude__priority:
-      type: integer
-      description: Type of the amplitude | tinyint(4)
-      format: int64
-      example: 0
-      default: 0
     type_amplitude__category:
       description: The way the waveform trace is evaluated to derive an amplitude value; from QuakeML. (es:point,mean,duration,period,..) | varchar(255)
       type: string
