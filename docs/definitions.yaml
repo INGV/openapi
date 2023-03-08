@@ -330,6 +330,17 @@ components:
       description: Quality as numeric value | int(10)
       example: 12
       format: int64
+    environment:
+      description: Environment (es:development, testing, staging, production, external) | varchar(255)
+      type: string
+      example: development
+      default: development
+      enum: 
+        - development
+        - testing
+        - staging
+        - production
+        - external
     type_origin__name:
       description: type_origin by QuakeML definition (es:hypocenter,centroid,macroseismic,..) | varchar(255)
       type: string
@@ -1017,6 +1028,12 @@ components:
     provenance__priority:
       type: integer
       description: Former provenance id | int(11)
+      format: int64
+      example: 0
+      default: 0
+    priority:
+      type: integer
+      description: Priority | int(8)
       format: int64
       example: 0
       default: 0
