@@ -1511,6 +1511,39 @@ components:
       schema:
         type: boolean
         default: false
+    whereeventlocalspaceenvironmentin:
+      name: whereeventlocalspaceenvironmentin
+      description: Filter by "event.localspace.environment" by comma separated value (i.e. development,staging).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [development, testing, staging, production, external]
+    whereoriginlocalspaceenvironmentin:
+      name: whereoriginlocalspaceenvironmentin
+      description: Filter by "origin.localspace.environment" by comma separated value (i.e. development,staging).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [development, testing, staging, production, external]
+    wheremagnitudelocalspaceenvironmentin:
+      name: wheremagnitudelocalspaceenvironmentin
+      description: Filter by "magnitude.localspace.environment" by comma separated value (i.e. development,staging).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [development, testing, staging, production, external]
     wherelocalspacenamein:
       description: Filter by "localspace.name" on column (see 'wherelocalspacenameincolumn' param) by comma separated value (i.e. hew10_mole,hew20_mole).
       in: query
