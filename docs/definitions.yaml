@@ -1544,23 +1544,33 @@ components:
         items:
           type: string
           enum: [development, testing, staging, production, external]
-    wherelocalspacenamein:
-      description: Filter by "localspace.name" on column (see 'wherelocalspacenameincolumn' param) by comma separated value (i.e. hew10_mole,hew20_mole).
+    whereeventlocalspacenamein:
+      name: whereeventlocalspacenamein
+      description: Filter by "event.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole).
+      explode: false
       in: query
-      name: wherelocalspacenamein
       required: false
       schema:
         type: string
         format: string
-    wherelocalspacenameincolumn:
-      description: Set the column to apply "wherelocalspacenamein" filter (i.e. "origin" means "origin.localspace.name"); default "event".
+    whereoriginlocalspacenamein:
+      name: whereoriginlocalspacenamein
+      description: Filter by "origin.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole).
+      explode: false
       in: query
-      name: wherelocalspacenameincolumn
       required: false
       schema:
         type: string
-        enum: [event, origin, magnitude]
-        default: event
+        format: string
+    wheremagnitudelocalspacenamein:
+      name: wheremagnitudelocalspacenamein
+      description: Filter by "magnitude.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
     whereflagsin:
       description: Filter flags by comma separated value (i.e. DPC,twitter,shakemap4).
       in: query
