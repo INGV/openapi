@@ -1588,7 +1588,7 @@ components:
         type: string
         format: string
     wheretypemagnitudenameregexp:
-      description: Filter by type_magnitude.name using regexp (i.e. "^ml.*" or "^ml.*|^mwp$").
+      description: Filter by type_magnitude.name using case-insensitive regexp (i.e. "^ml.*" or "^ml.*|^mwp$").
       in: query
       name: wheretypemagnitudenameregexp
       required: false
