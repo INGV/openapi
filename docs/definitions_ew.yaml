@@ -261,10 +261,6 @@ components:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/cha'
           loc:
             $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/loc'
-          latitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/latitude'
-          longitude:
-            $ref: 'https://ingv.github.io/openapi/definitions.yaml#/components/schemas/longitude'
           Plabel:
             type: string
             description: Todo description | ???
