@@ -1580,9 +1580,17 @@ components:
         type: string
         format: string
     wheretypeoriginvaluein:
-      description: Filter type_origin.version_value (i.e. 0,1,200).
+      description: Filter by type_origin.version_value (i.e. 0,1,200).
       in: query
       name: wheretypeoriginvaluein
+      required: false
+      schema:
+        type: string
+        format: string
+    wheretypemagnitudenameregexp:
+      description: Filter by type_magnitude.name using regexp (i.e. "^ml.*" or "^ml.*|^mwp$").
+      in: query
+      name: wheretypemagnitudenameregexp
       required: false
       schema:
         type: string
