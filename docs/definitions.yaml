@@ -1193,7 +1193,7 @@ components:
 
         Each poligon is `|` separated values, with counterclockwise values like `<lon>,<lat>` and last couple must be like the first one.
 
-        * Example: `12,42,13,42,13,43,12,43,12,42|12.3,42.3,13.3,42.3,13.3,43.3,12.3,43.3,12.3,42.3`.
+        * Example: `orpolygon=12,42,13,42,13,43,12,43,12,42|12.3,42.3,13.3,42.3,13.3,43.3,12.3,43.3,12.3,42.3`.
       required: false
       schema:
         format: string
@@ -1207,7 +1207,7 @@ components:
         
         Each poligon is `|` separated values, with counterclockwise values like `<lon>,<lat>` and last couple must be like the first one.
         
-        * Example: `12.5,42,12.5,43,13,48,12.5,42|12.2,41.8,13.2,41.8,13.2,42.8,12.2,42.8,12.2,41.8`
+        * Example: `notinpolygon=12.5,42,12.5,43,13,48,12.5,42|12.2,41.8,13.2,41.8,13.2,42.8,12.2,42.8,12.2,41.8`
       required: false
       schema:
         format: string
