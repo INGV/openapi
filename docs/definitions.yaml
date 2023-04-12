@@ -1556,7 +1556,7 @@ components:
         type: boolean
         default: false
     origindirectlinktoevent:
-      description: Origin entity is directly linked to Event entity (origin.fk_event=event.id)
+      description: Origin entity is directly linked to Event entity (`origin.fk_event=event.id`)
       in: query
       name:  origindirectlinktoevent
       required: false
@@ -1564,7 +1564,7 @@ components:
         type: boolean
         default: false
     magnitudedirectlinktoorigin:
-      description: Magnitude entity is directly linked to Origin entity (magnitude.fk_origin=origin.id)
+      description: Magnitude entity is directly linked to Origin entity (`magnitude.fk_origin=origin.id`)
       in: query
       name:  magnitudedirectlinktoorigin
       required: false
@@ -1572,7 +1572,7 @@ components:
         type: boolean
         default: false
     magnitudedirectlinktoevent:
-      description: Magnitude entity is directly linked to Event entity (magnitude.fk_origin=origin.id -> origin.fk_event=event.id)
+      description: Magnitude entity is directly linked to Event entity `(magnitude.fk_origin=origin.id AND origin.fk_event=event.id`)
       in: query
       name:  magnitudedirectlinktoevent
       required: false
