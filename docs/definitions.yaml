@@ -1213,6 +1213,23 @@ components:
         format: string
         type: string
       style: form
+    wherepolygonnamein:
+      name: wherepolygonnamein
+      in: query
+      explode: false
+      required: false
+      description: |-
+        Specify a list of pre-set polygons. 
+        
+        Each poligon is `,` separated value.
+        
+        * Example: `wherepolygonnamein=area_confine_italia,area_vulcanica_italia`
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [settore_1_pol, settore_2_pol, settore_cat_pol, aree_vulcaniche_italia_2020, ov_aree_vulcani_mari, area_vulcanica_italia, area_confine_italia]
+      style: form
     minlat:
         description: Specify southern boundary for search in WGS84 (i.e. 39.12).
         in: query
