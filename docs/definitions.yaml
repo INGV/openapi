@@ -567,7 +567,6 @@ components:
     magnitude:
       type: number
       description: Magnitude | double
-      example: 3.2
       format: double
     magnitude__mag:
       type: number
