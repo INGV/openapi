@@ -331,7 +331,7 @@ components:
       example: 12
       format: int64
     environment:
-      description: Environment (es:development, testing, staging, production, external) | varchar(255)
+      description: Environment (es:development, testing, staging, production, external, catalog) | varchar(255)
       type: string
       example: development
       default: development
@@ -341,6 +341,7 @@ components:
         - staging
         - production
         - external
+        - catalog
     type_origin__name:
       description: type_origin by QuakeML definition (es:hypocenter,centroid,macroseismic,..) | varchar(255)
       type: string
