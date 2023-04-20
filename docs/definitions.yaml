@@ -1040,16 +1040,14 @@ components:
       example: ToDo
       default: null
       nullable: true
-    ############ START - catalog_metadata ##############
     catalog_metadata__name:
       type: string
       description: 'Name of Catalog. i.e. INGV, ETH, USGS | varchar(255)'
       example: TDMT-INGV
-    catalog_metadata__doi:
+    doi:
       type: string
-      description: 'DOI of Catalog. i.e. 10.13127/TDMT | varchar(255)'
+      description: 'DOI Resource. i.e. 10.13127/TDMT | varchar(255)'
       example: 10.13127/TDMT
-    ############ END - catalog_metadata ##############
     type_amplitude__name:
       type: string
       description: Type of the amplitude | varchar(50)
