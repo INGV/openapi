@@ -1488,24 +1488,6 @@ components:
         schema:
             format: string
             type: string
-    ############ START - catalog_metadata ##############
-    catalog_metadata__name:
-        description: Catalog name.
-        in: query
-        name: name
-        required: false
-        schema:
-          format: string
-          type: string
-    catalog_metadata__doi:
-        description: Catalog DOI.
-        in: query
-        name: doi
-        required: false
-        schema:
-          format: string
-          type: string
-    ############ END - catalog_metadata ##############
     eventid:
       description: Select by event id.
       in: query
@@ -1578,6 +1560,15 @@ components:
       schema:
         type: boolean
         default: false
+    doi:
+      name: doi
+      description: Doi.
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
     whereeventlocalspaceenvironmentin:
       name: whereeventlocalspaceenvironmentin
       description: Filter by "event.localspace.environment" by comma separated value (i.e. development,staging); this parameter is in "OR" with "whereoriginlocalspaceenvironmentin" and "wheremagnitudelocalspaceenvironmentin".
