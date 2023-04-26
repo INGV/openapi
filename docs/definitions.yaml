@@ -331,7 +331,7 @@ components:
       example: 12
       format: int64
     environment:
-      description: Environment (es:development, testing, staging, production, external, catalog) | varchar(255)
+      description: Environment (es:development, testing, staging, production, external, catalog, generic) | varchar(255)
       type: string
       example: development
       default: development
@@ -342,6 +342,7 @@ components:
         - production
         - external
         - catalog
+        - generic
     type_origin__name:
       description: type_origin by QuakeML definition (es:hypocenter,centroid,macroseismic,..) | varchar(255)
       type: string
@@ -1579,7 +1580,7 @@ components:
         type: array
         items:
           type: string
-          enum: [development, testing, staging, production, external]
+          enum: [development, testing, staging, production, external, catalog, generic]
     whereoriginlocalspaceenvironmentin:
       name: whereoriginlocalspaceenvironmentin
       description: Filter by "origin.localspace.environment" by comma separated value (i.e. development,staging); this parameter is in "OR" with "whereeventlocalspaceenvironmentin" and "wheremagnitudelocalspaceenvironmentin".
@@ -1590,7 +1591,7 @@ components:
         type: array
         items:
           type: string
-          enum: [development, testing, staging, production, external]
+          enum: [development, testing, staging, production, external, catalog, generic]
     wheremagnitudelocalspaceenvironmentin:
       name: wheremagnitudelocalspaceenvironmentin
       description: Filter by "magnitude.localspace.environment" by comma separated value (i.e. development,staging); this parameter is in "OR" with "whereeventlocalspaceenvironmentin" and "whereoriginlocalspaceenvironmentin".
@@ -1601,7 +1602,7 @@ components:
         type: array
         items:
           type: string
-          enum: [development, testing, staging, production, external]
+          enum: [development, testing, staging, production, external, catalog, generic]
     whereeventlocalspacenamein:
       name: whereeventlocalspacenamein
       description: Filter by "event.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereoriginlocalspacenamein" and "wheremagnitudelocalspacenamein".
