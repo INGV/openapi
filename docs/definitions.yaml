@@ -1041,10 +1041,6 @@ components:
       example: ToDo
       default: null
       nullable: true
-    catalog_metadata__name:
-      type: string
-      description: 'Name of Catalog. i.e. INGV, ETH, USGS | varchar(255)'
-      example: TDMT-INGV
     doi:
       type: string
       description: 'DOI Resource. i.e. 10.13127/TDMT | varchar(255)'
