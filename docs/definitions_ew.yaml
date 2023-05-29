@@ -351,11 +351,15 @@ components:
             format: double
           ccntr:
             type: array
-            format: int64
+            items:
+              type: integer
+              format: int64
             example: [0, 0, 0, 0, 0, 0]
           caav:
             type: array
-            format: int64
+            items:
+              type: integer
+              format: int64
             example: [0, 0, 0, 0, 0, 0]
           amplitude:
             type: number
