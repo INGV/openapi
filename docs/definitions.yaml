@@ -61,14 +61,14 @@ components:
       example: 182491
       default: null
       nullable: true
-    id_localspace__READONLY:
+    id_localspace__WRITEONLY:
       type: integer
       description: Localspace Id | bigint(19)
       format: int64
       example: 182491
       default: null
       nullable: true
-      readOnly: true
+      writeOnly: true
     event__fk_event_group__READONLY:
       type: integer
       description: Link event group | bigint(20)
