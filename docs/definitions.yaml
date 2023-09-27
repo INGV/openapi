@@ -795,9 +795,9 @@ components:
       description: Station origin azimut | double
       format: float
       example: 161
-    arrival-stationmagnitude-st_dur_mag__orig_distance:
+    arrival-stationmagnitude-st_dur_mag__orig_distance_km:
       type: number
-      description: Distance from origin of the station | double
+      description: Distance from origin of the station (km) | double
       format: double
       example: 161
       default: null
