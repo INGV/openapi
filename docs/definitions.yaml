@@ -988,8 +988,6 @@ components:
       type: string
       description: 'Localspace name. i.e. hew1_mole, endeavour_mole | char(255)'
       example: hew1_mole
-      default: null
-      nullable: true
     provenance__model:
       type: string
       description: Name/URI/DOI of the model | varchar(255)
