@@ -1676,6 +1676,7 @@ components:
     wheretypemagnitudenameregexp:
       description: Filter by type_magnitude.name using case-insensitive regexp (i.e. "^ml.\*" or "^ml.*|^mwp$").
       in: query
+      allowReserved: true
       name: wheretypemagnitudenameregexp
       required: false
       schema:
