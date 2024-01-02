@@ -1291,8 +1291,7 @@ components:
             format: double
     minradiuskm:
         description: Specify minimum distance from the geographic point defined by
-            latitude and longitude. Kilometers. **This is an INGV extension to
-            the FDSN specification.**
+            latitude and longitude. Kilometers.
         in: query
         name:  minradiuskm
         required: false
@@ -1301,8 +1300,7 @@ components:
             format: double
     maxradiuskm:
         description: Specify maximum distance from the geographic point defined by
-            latitude and longitude. Kilometers. **This is an INGV extension to
-            the FDSN specification.**
+            latitude and longitude. Kilometers.
         in: query
         name:  maxradiuskm
         required: false
@@ -1338,7 +1336,7 @@ components:
         name: maxtypeoriginvalue
         required: false
         schema:
-            $ref:  '#/components/schemas/type_origin__version_value'        
+            $ref:  '#/components/schemas/type_origin__version_value'
     minmag:
         description: Limit to events with a magnitude larger than or equal to the specified minimum (i.e. 1.5).
         in: query
@@ -1459,6 +1457,14 @@ components:
         type: string
         enum: [and, or]
         default: or
+    mindistance:
+        description: Specify minimum distance from the closest station (kilometers).
+        in: query
+        name:  mindistance
+        required: false
+        schema:
+            type: number
+            format: double
     mindistance__REQUIRED:
         description: Specify minimum distance (kilometers).
         in: query
