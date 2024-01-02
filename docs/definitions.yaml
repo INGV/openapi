@@ -1614,6 +1614,15 @@ components:
       schema:
         type: string
         format: string
+    whereoriginqualityin:
+      name: whereoriginqualityin
+      description: Filter by "origin.quality" by comma separated value (i.e. AA,AB,BC).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: [AA, AB, AC, AD, BA, BB, BC, BD, CA, CB, CC, CD, DA, DB, DC, DD]
     whereoriginlocalspacenamein:
       name: whereoriginlocalspacenamein
       description: Filter by "origin.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereeventlocalspacenamein" and "wheremagnitudelocalspacenamein".
