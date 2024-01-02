@@ -1323,6 +1323,14 @@ components:
         schema:
             format: double
             type: number
+    minnphtot:
+        description: Specify minimum number of phases (P&S) with weight > 0.0.
+        in: query
+        name:  minnphtot
+        required: false
+        schema:
+            format: int32
+            type: integer
     mintypeoriginvalue:
         description: Filter the output to type_origin.version_value (i.e. 0).
         in: query
