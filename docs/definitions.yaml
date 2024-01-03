@@ -1639,6 +1639,17 @@ components:
         items:
           type: string
           enum: [AA, AB, AC, AD, BA, BB, BC, BD, CA, CB, CC, CD, DA, DB, DC, DD]
+    wheremagnitudemagqualityin:
+      name: wheremagnitudemagqualityin
+      description: Filter by "magnitude.mag_quality" by comma separated value (i.e. A,B,BC,DD).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [A, B, C, D, AA, AB, AC, AD, BA, BB, BC, BD, CA, CB, CC, CD, DA, DB, DC, DD]
     whereoriginlocalspacenamein:
       name: whereoriginlocalspacenamein
       description: Filter by "origin.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereeventlocalspacenamein" and "wheremagnitudelocalspacenamein".
