@@ -1047,6 +1047,15 @@ components:
       example: ToDo
       default: null
       nullable: true
+    provenance__evaluationmode:
+      description: Evaluation Mode by QuakeML definition (es:manual,automatic)
+      type: string
+      example: automatic
+      default: null
+      enum: 
+        - automatic
+        - manual
+        - null
     doi:
       type: string
       description: 'DOI Resource. i.e. 10.13127/TDMT | varchar(255)'
