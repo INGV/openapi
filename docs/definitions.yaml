@@ -491,9 +491,9 @@ components:
       example: Ba
       default: null
       nullable: true
-    focalmechanism__url:
+    url:
       type: string
-      description: url pdf file | varchar(255)
+      description: External URL Reference | varchar(512)
       example: 'http://mysite'
       default: null
       nullable: true
