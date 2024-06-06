@@ -397,6 +397,13 @@ components:
       example: Auto added
       default: null
       nullable: true
+    description__READONLY:
+      type: string
+      description: Additional information | char(255)
+      example: Auto added
+      default: null
+      nullable: true
+      readOnly: true
     note:
       type: string
       description: Additional information | char(255)
