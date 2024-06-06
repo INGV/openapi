@@ -1026,6 +1026,13 @@ components:
       format: int64
       example: 0
       default: 0
+    priority__READONLY:
+      type: integer
+      description: Priority | int(8)
+      format: int64
+      readOnly: true
+      example: 0
+      default: 0
     provenance__former_id:
       type: integer
       description: ToDo | int(8)
