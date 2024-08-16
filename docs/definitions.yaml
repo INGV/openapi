@@ -1438,14 +1438,14 @@ components:
       schema:
         type: number
         format: int32
-    #updatedafter:
-    #  description: Limit data to "updated after" params.
-    #  in: query
-    #  name:  updatedafter
-    #  required: false
-    #  schema:
-    #    type: string
-    #    format: date-time
+    updatedafter:
+      description: Limit data to "updated after" params.
+      in: query
+      name:  updatedafter
+      required: false
+      schema:
+        type: string
+        format: date-time
     #updatedafterincolumn:
     #  description: Set the column to apply "updatedafter" filter (i.e. "origin" means "origin.modified"); default "all".
     #  in: query
