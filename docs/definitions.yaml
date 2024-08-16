@@ -1609,6 +1609,18 @@ components:
       schema:
         type: string
         format: string
+##########
+    wherelocalspaceenvironmentin:
+      name: wherelocalspaceenvironmentin
+      description: Filter by "localspace.environment" by comma separated value (i.e. development,staging).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [development, testing, staging, production, external, catalog, generic]
     whereeventlocalspaceenvironmentin:
       name: whereeventlocalspaceenvironmentin
       description: Filter by "event.localspace.environment" by comma separated value (i.e. development,staging); this parameter is in "OR" with "whereoriginlocalspaceenvironmentin" and "wheremagnitudelocalspaceenvironmentin".
@@ -1642,6 +1654,16 @@ components:
         items:
           type: string
           enum: [development, testing, staging, production, external, catalog, generic]
+##########
+    wherelocalspacenamein:
+      name: wherelocalspacenamein
+      description: Filter by "localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
     whereeventlocalspacenamein:
       name: whereeventlocalspacenamein
       description: Filter by "event.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereoriginlocalspacenamein" and "wheremagnitudelocalspacenamein".
@@ -1651,6 +1673,25 @@ components:
       schema:
         type: string
         format: string
+    whereoriginlocalspacenamein:
+      name: whereoriginlocalspacenamein
+      description: Filter by "origin.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereeventlocalspacenamein" and "wheremagnitudelocalspacenamein".
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
+    wheremagnitudelocalspacenamein:
+      name: wheremagnitudelocalspacenamein
+      description: Filter by "magnitude.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereeventlocalspacenamein" and "whereoriginlocalspacenamein".
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
+##########
     whereoriginqualityin:
       name: whereoriginqualityin
       description: Filter by "origin.quality" by comma separated value (i.e. AA,AB,BC).
@@ -1695,24 +1736,6 @@ components:
         items:
           type: string
           enum: [A, B, C, D, AA, AB, AC, AD, BA, BB, BC, BD, CA, CB, CC, CD, DA, DB, DC, DD]
-    whereoriginlocalspacenamein:
-      name: whereoriginlocalspacenamein
-      description: Filter by "origin.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereeventlocalspacenamein" and "wheremagnitudelocalspacenamein".
-      explode: false
-      in: query
-      required: false
-      schema:
-        type: string
-        format: string
-    wheremagnitudelocalspacenamein:
-      name: wheremagnitudelocalspacenamein
-      description: Filter by "magnitude.localspace.name" by comma separated value (i.e. hew10_mole,hew20_mole); this parameter is in "OR" with "whereeventlocalspacenamein" and "whereoriginlocalspacenamein".
-      explode: false
-      in: query
-      required: false
-      schema:
-        type: string
-        format: string
     whereflagsin:
       description: Filter flags by comma separated values (i.e. DPC,twitter,shakemap4); values are in "OR".
       in: query
