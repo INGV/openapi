@@ -1692,6 +1692,46 @@ components:
         type: string
         format: string
 ##########
+    wherenetin:
+      name: wherenetin
+      description: Filter by multiple "net", comma separated value (i.e. IV,MN).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
+
+    wherestain:
+      name: wherestain
+      description: Filter by multiple "sta", comma separated value (i.e. ACER,BADI).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
+
+    wherechain:
+      name: wherechain
+      description: Filter by multiple "cha", comma separated value (i.e. HHZ,HHE).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
+
+    wherelocin:
+      name: wherelocin
+      description: Filter by multiple "loc", comma separated value (i.e. 00,01,--).
+      explode: false
+      in: query
+      required: false
+      schema:
+        type: string
+        format: string
+##########
     whereoriginqualityin:
       name: whereoriginqualityin
       description: Filter by "origin.quality" by comma separated value (i.e. AA,AB,BC).
