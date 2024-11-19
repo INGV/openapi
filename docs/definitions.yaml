@@ -215,11 +215,6 @@ components:
       type: integer
       description: '# P first motions | int(11)'
       format: int64
-    origin__is_centroid:
-      type: boolean      
-      description: true if it is a centroi | boolean
-      example: false
-      default: false
     origin__sec_azim_gap:
       type: number
       description: Secondary Azimutal gap | double
