@@ -773,15 +773,21 @@ components:
       format: float
       description: Minimum magnitude value | float(4)
       example: 1.2
+      default: null
+      nullable: true
     type_magnitude__maxmag:
       type: number
       format: float
       description: Maximum magnitude value | float(4)
       example: 2.2
+      default: null
+      nullable: true
     type_magnitude__minreadings:
       type: integer
       format: int32
       description: Minimum number of readings | int(8)
+      default: null
+      nullable: true
     origin_flag__name:
       type: string
       description: Flag name | varchar(255)
