@@ -1134,14 +1134,6 @@ components:
   # Common parameters
   ####################
   parameters:
-    lastupdateonly:
-      name: lastupdateonly
-      description: Return only last update information
-      in: query
-      required: false
-      schema:
-        type: boolean
-        default: false
     level:
       name: level
       in: query
