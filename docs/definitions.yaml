@@ -765,6 +765,11 @@ components:
       type: string
       description: Type of the magnitude | varchar(255)
       example: ML-VAX
+    type_magnitude__name__READONLY:
+      type: string
+      description: Type of the magnitude extended | varchar(255)
+      readOnly: true
+      example: ML-VAX
     type_magnitude__scale:
       type: string
       description: Type Scale of the magnitude, international scale label (i.e. ML, Md, Mw, ...) | varchar(50)
