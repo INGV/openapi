@@ -32,7 +32,7 @@ info:
 
       ```
 
-      /query? (id-options) [includeallmagnitudes] [includeallorigins] [includearrivals] [includeallstationsmagnitudes] [format-option]
+      /query? (id-options) [includeallmagnitudes] [includeallorigins] [includearrivals] [format-option]
 
       ```
 
@@ -56,7 +56,7 @@ info:
       magnitude-constraints   ::  [minmag=] [maxmag=] [magnitudetype=]
 
       misc-parameters         ::  [limit=] [offset=] [orderby=] [includeallmagnitude=]
-                                  [includearrivals=] [includeallorigins=] [includeallstationsmagnitudes=]
+                                  [includearrivals=] [includeallorigins=]
       format-option           ::  [format=]
 
 
@@ -69,7 +69,7 @@ info:
         - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59)
         - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2)
         - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text) (text format)
-        - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true)
+        - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true)
 
 
        Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/
@@ -109,6 +109,7 @@ x-commons:
 paths:
     /query:
       get:
+        operationId: query
         tags:
           - fdsnws-event-1.1
         summary: Get QuakeML
@@ -139,7 +140,6 @@ paths:
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/eventid'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallorigins'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallmagnitudes'
-          - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includeallstationsmagnitudes'
           - $ref: 'https://ingv.github.io/openapi/definitions.yaml#/parameters/includearrivals'
         responses:
           '200':
@@ -175,6 +175,7 @@ paths:
 
     /version:
       get:
+        operationId: version
         tags:
           - fdsnws-event-1.1
         summary: Get QuakeML version
@@ -188,6 +189,7 @@ paths:
                   $ref: "#/components/schemas/VersionResponse"
     /application.wadl:
       get:
+        operationId: application.wadl
         tags:
           - fdsnws-event-1.1
         summary: Get application.wadl
