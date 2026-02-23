@@ -17,7 +17,7 @@ info:
     \ following general form:\n\n```\n\n/query? [geographic-constraints] [depth-constraints]\
     \ [temporal-constraints] [magnitude-constraints] [format-option]\n\n```\n\n\n\
     or\n\n```\n\n/query? (id-options) [includeallmagnitudes] [includeallorigins] [includearrivals]\
-    \ [includeallstationsmagnitudes] [format-option]\n\n```\n\n\nwhere\n\n```\n\n\
+    \ [format-option]\n\n```\n\n\nwhere\n\n```\n\n\
     id-options              ::  eventid= OR originid= OR magnitudeid= OR focalmechanismid=\n\
     \ngeographic-constraints  ::  [boundaries-rect] OR [boundaries-radial]\n\nboundaries-rect\
     \         ::  [minlat=] [maxlat=] [minlon=] [maxlon=]\n\nboundaries-radial   \
@@ -26,12 +26,12 @@ info:
     \    ::  [starttime=] [endtime=]\n\nmagnitude-constraints   ::  [minmag=] [maxmag=]\
     \ [magnitudetype=]\n\nmisc-parameters         ::  [limit=] [offset=] [orderby=]\
     \ [includeallmagnitude=]\n                            [includearrivals=] [includeallorigins=]\
-    \ [includeallstationsmagnitudes=]\nformat-option           ::  [format=]\n\n\n\
+    \ format-option           ::  [format=]\n\n\n\
     \  (..) required parameter\n  [..] optional parameter\n```\n\n\n# Sample Queries:\n\
     \  - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59)\n\
     \  - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2010-05-29T00:00:00&endtime=2012-05-29T23:59:58&limit=10&offset=2)\n\
     \  - [http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text](http://webservices.ingv.it/fdsnws/event/1/query?starttime=2012-05-29T00:00:00&endtime=2012-05-29T23:59:59&format=text)\
-    \ (text format)\n  - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true&includeallstationsmagnitudes=true)\n\
+    \ (text format)\n  - [http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true](http://webservices.ingv.it/fdsnws/event/1/query?eventId=841091&includeallmagnitudes=true&includeallorigins=true&includearrivals=true)\n\
     \n\n Find out more about FDSN Web Service Specifications http://www.fdsn.org/webservices/\n\
     \ \n# Rate limit:\n  The **Rate Limit** and **Rate Reset** are specified in the\
     \ HTTP-header with `X-RateLimit-Limit` and `X-RateLimit-Reset`; the rate limit\
@@ -100,7 +100,6 @@ paths:
       - $ref: '#/components/parameters/eventid'
       - $ref: '#/components/parameters/includeallorigins'
       - $ref: '#/components/parameters/includeallmagnitudes'
-      - $ref: '#/components/parameters/includeallstationsmagnitudes'
       - $ref: '#/components/parameters/includearrivals'
       responses:
         '200':
@@ -207,15 +206,6 @@ components:
       description: Is used to retrive all origins associated with each event.
       in: query
       name: includeallorigins
-      required: false
-      schema:
-        default: false
-        type: boolean
-    includeallstationsmagnitudes:
-      description: Is used to retrive all stations magnitudes associated with each
-        hypocenter.
-      in: query
-      name: includeallstationsmagnitudes
       required: false
       schema:
         default: false
