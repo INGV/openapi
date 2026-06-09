@@ -319,7 +319,7 @@ components:
       example: false
       default: false
     confidence_level:
-      type: number
+      type: string
       description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | decimal(5.2)
       format: string
       example: "68.30"
