@@ -321,7 +321,6 @@ components:
     confidence_level:
       type: string
       description: Integer numer for confidence level type (68.3 1 sigma, xx =2 sigma, 99% 3 sigma) | decimal(5.2)
-      format: string
       example: "68.30"
       default: "68.30"
     origin__quality:
