@@ -666,6 +666,10 @@ components:
       description: Pick quality class | bigint
       format: int32
       example: 3
+    pick__isc_code_hint:
+      type: string
+      description: Tentative phase identification as specified by the picker | varchar(2)
+      example: Pn
     pick__lower_uncertainty:
       type: number
       description: Uncertainty as the absolute value of deviation from the mainvalue towards smaller values. | decimal(8,3)
