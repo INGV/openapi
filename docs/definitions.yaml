@@ -663,7 +663,7 @@ components:
       example: '2017-04-12T08:46:30.930Z'
     pick__pick_quality_class:
       type: integer
-      description: Pick quality class | bigint
+      description: Pick quality class | int(2)
       format: int32
       example: 3
     pick__isc_code_hint:
