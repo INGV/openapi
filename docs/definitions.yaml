@@ -904,6 +904,7 @@ components:
       type: number
       description: Amlitude period | double
       format: double
+      nullable: true
     amplitude__time2:
       type: string
       format: date-time
@@ -914,6 +915,7 @@ components:
       description: Amplitude value | double
       format: double
       example: 0.292
+      nullable: true
     amplitude__revised:
       type: integer
       description: Dichiara se tale ampiezza è stata rivista dall'analista, eventualmente anche non modificata, oppure no. (1/0, true/false) | tinyint(3)
