@@ -1190,7 +1190,13 @@ components:
           type: integer
           format: int64 
     starttime:
-        description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
+        description: >-
+          Select data at times on or later than this value (FDSN "starttime"; the interval includes
+          the value itself). Time value in UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies
+          T00:00:00), 'YYYY-MM-DDTHH:MM:SS', 'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second
+          digits. A value without a time zone designator is interpreted as UTC; 'Z' and an explicit
+          offset (+HH:MM / -HH:MM) are also accepted. Sub-milliseconds are truncated: the underlying
+          columns are timestamp(3). (i.e. 2016-06-22, 2016-06-22T16:52:06, 2016-06-22T16:52:06.260Z)
         in: query
         name: starttime
         required: false
@@ -1198,7 +1204,13 @@ components:
           type: string
           format: date-time
     starttime__REQUIRED:
-        description: Select date start (i.e. 2016-06-22T16:52:06.260Z).
+        description: >-
+          Select data at times on or later than this value (FDSN "starttime"; the interval includes
+          the value itself). Time value in UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies
+          T00:00:00), 'YYYY-MM-DDTHH:MM:SS', 'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second
+          digits. A value without a time zone designator is interpreted as UTC; 'Z' and an explicit
+          offset (+HH:MM / -HH:MM) are also accepted. Sub-milliseconds are truncated: the underlying
+          columns are timestamp(3). (i.e. 2016-06-22, 2016-06-22T16:52:06, 2016-06-22T16:52:06.260Z)
         in: query
         name: starttime
         required: true
@@ -1206,7 +1218,15 @@ components:
           type: string
           format: date-time
     endtime:
-        description: Select date end (i.e. 2016-06-22T16:52:06.260Z).
+        description: >-
+          Select data at times on or prior to this value (FDSN "endtime"; the interval includes the
+          value itself). Time value in UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies
+          T00:00:00), 'YYYY-MM-DDTHH:MM:SS', 'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second
+          digits. A value without a time zone designator is interpreted as UTC; 'Z' and an explicit
+          offset (+HH:MM / -HH:MM) are also accepted. Sub-milliseconds are truncated: the underlying
+          columns are timestamp(3). NOTE: the date-only form means MIDNIGHT, as FDSN prescribes for
+          every time parameter - to select the whole of 2016-06-22 use endtime=2016-06-23. (i.e.
+          2016-06-23, 2016-06-22T16:52:06, 2016-06-22T16:52:06.260Z)
         in: query
         name: endtime
         required: false
@@ -1214,7 +1234,15 @@ components:
           type: string
           format: date-time
     endtime__REQUIRED:
-        description: Select date end (i.e. 2016-06-22T16:52:06.260Z).
+        description: >-
+          Select data at times on or prior to this value (FDSN "endtime"; the interval includes the
+          value itself). Time value in UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies
+          T00:00:00), 'YYYY-MM-DDTHH:MM:SS', 'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second
+          digits. A value without a time zone designator is interpreted as UTC; 'Z' and an explicit
+          offset (+HH:MM / -HH:MM) are also accepted. Sub-milliseconds are truncated: the underlying
+          columns are timestamp(3). NOTE: the date-only form means MIDNIGHT, as FDSN prescribes for
+          every time parameter - to select the whole of 2016-06-22 use endtime=2016-06-23. (i.e.
+          2016-06-23, 2016-06-22T16:52:06, 2016-06-22T16:52:06.260Z)
         in: query
         name: endtime
         required: true
@@ -1451,7 +1479,12 @@ components:
         type: number
         format: int32
     updatedafter:
-      description: Limit data to "updated after" params.
+      description: >-
+        Limit data to "updated after" params. Time value in UTC. Accepted formats (FDSN):
+        'YYYY-MM-DD' (implies T00:00:00), 'YYYY-MM-DDTHH:MM:SS', 'YYYY-MM-DDTHH:MM:SS.ssssss' with 1
+        to 6 sub-second digits. A value without a time zone designator is interpreted as UTC; 'Z'
+        and an explicit offset (+HH:MM / -HH:MM) are also accepted. Sub-milliseconds are truncated:
+        the underlying columns are timestamp(3).
       in: query
       name:  updatedafter
       required: false
@@ -1468,7 +1501,13 @@ components:
     #    enum: [event, origin, magnitude, all]
     #    default: all
     eventupdatedafter:
-      description: Limit data to "event.modified" after; if "originupdatedafter" and/or "magnitudeupdatedafter" and/or "originflagupdatedafter" are set, the "updatedafteroperator" is used.
+      description: >-
+        Limit data to "event.modified" after; if "originupdatedafter" and/or "magnitudeupdatedafter"
+        and/or "originflagupdatedafter" are set, the "updatedafteroperator" is used. Time value in
+        UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies T00:00:00), 'YYYY-MM-DDTHH:MM:SS',
+        'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second digits. A value without a time zone
+        designator is interpreted as UTC; 'Z' and an explicit offset (+HH:MM / -HH:MM) are also
+        accepted. Sub-milliseconds are truncated: the underlying columns are timestamp(3).
       in: query
       name:  eventupdatedafter
       required: false
@@ -1476,7 +1515,13 @@ components:
         type: string
         format: date-time
     originupdatedafter:
-      description: Limit data to "origin.modified" after; if "eventupdatedafter" and/or "magnitudeupdatedafter" and/or "originflagupdatedafter" are set, the "updatedafteroperator" is used.
+      description: >-
+        Limit data to "origin.modified" after; if "eventupdatedafter" and/or "magnitudeupdatedafter"
+        and/or "originflagupdatedafter" are set, the "updatedafteroperator" is used. Time value in
+        UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies T00:00:00), 'YYYY-MM-DDTHH:MM:SS',
+        'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second digits. A value without a time zone
+        designator is interpreted as UTC; 'Z' and an explicit offset (+HH:MM / -HH:MM) are also
+        accepted. Sub-milliseconds are truncated: the underlying columns are timestamp(3).
       in: query
       name:  originupdatedafter
       required: false
@@ -1484,7 +1529,13 @@ components:
         type: string
         format: date-time
     magnitudeupdatedafter:
-      description: Limit data to "magnitude.modified" after; if "eventupdatedafter" and/or "originupdatedafter" and/or "originflagupdatedafter" are set, the "updatedafteroperator" is used.
+      description: >-
+        Limit data to "magnitude.modified" after; if "eventupdatedafter" and/or "originupdatedafter"
+        and/or "originflagupdatedafter" are set, the "updatedafteroperator" is used. Time value in
+        UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies T00:00:00), 'YYYY-MM-DDTHH:MM:SS',
+        'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second digits. A value without a time zone
+        designator is interpreted as UTC; 'Z' and an explicit offset (+HH:MM / -HH:MM) are also
+        accepted. Sub-milliseconds are truncated: the underlying columns are timestamp(3).
       in: query
       name:  magnitudeupdatedafter
       required: false
@@ -1492,7 +1543,14 @@ components:
         type: string
         format: date-time
     originflagupdatedafter:
-      description: Limit data to "origin-flag.modified" after; if "eventupdatedafter" and/or "originupdatedafter" and/or "magnitudeupdatedafter" are set, the "updatedafteroperator" is used.
+      description: >-
+        Limit data to "origin-flag.modified" after; if "eventupdatedafter" and/or
+        "originupdatedafter" and/or "magnitudeupdatedafter" are set, the "updatedafteroperator" is
+        used. Time value in UTC. Accepted formats (FDSN): 'YYYY-MM-DD' (implies T00:00:00),
+        'YYYY-MM-DDTHH:MM:SS', 'YYYY-MM-DDTHH:MM:SS.ssssss' with 1 to 6 sub-second digits. A value
+        without a time zone designator is interpreted as UTC; 'Z' and an explicit offset (+HH:MM /
+        -HH:MM) are also accepted. Sub-milliseconds are truncated: the underlying columns are
+        timestamp(3).
       in: query
       name:  originflagupdatedafter
       required: false
