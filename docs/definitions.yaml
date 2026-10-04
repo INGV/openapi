@@ -1147,7 +1147,7 @@ components:
       required: false
       schema:
           type: string
-          enum: [event, origin, magnitude, all]
+          enum: [event, origin, magnitude, strongmotion, all]
           default: all
     orderby:
       name: orderby
